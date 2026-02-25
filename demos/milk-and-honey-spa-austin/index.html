@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk + Honey Spa Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@300;400;600&display=swap');
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-3xl font-bold text-stone-900">milk + honey</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#services" class="hover:text-stone-600 transition-colors duration-300">Services</a></li>
+                    <li><a href="#products" class="hover:text-stone-600 transition-colors duration-300">Products</a></li>
+                    <li><a href="#locations" class="hover:text-stone-600 transition-colors duration-300">Locations</a></li>
+                    <li><a href="#contact" class="hover:text-stone-600 transition-colors duration-300">Contact</a></li>
+                    <li><a href="#book" class="bg-stone-700 hover:bg-stone-800 text-white py-2 px-5 rounded-full text-sm font-semibold transition duration-300">Book Now</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-stone-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1600x900/?luxury-spa');">
+        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+            <div class="text-center text-white p-6 max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">Elevate Your Well-Being</h1>
+                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md">Experience luxurious spa treatments, salon services, and premium self-care.</p>
+                <a href="#book" class="bg-white hover:bg-stone-100 text-stone-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Book Your Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Highlights Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-stone-900">Our Signature Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-stone-50 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?massage-therapy" alt="Massage" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-stone-800">Massage Therapy</h3>
+                        <p class="text-gray-700">Customized treatments to relax, rejuvenate, and restore.</p>
+                    </div>
+                </div>
+                <div class="bg-stone-50 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?facial-treatment" alt="Facials" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-stone-800">Results-Driven Facials</h3>
+                        <p class="text-gray-700">Expert skincare tailored to your unique needs.</p>
+                    </div>
+                </div>
+                <div class="bg-stone-50 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?hair-styling" alt="Hair" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-stone-800">Salon & Hair Services</h3>
+                        <p class="text-gray-700">Professional cuts, colors, and styling for every look.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="bg-stone-700 hover:bg-stone-800 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Philosophy Section -->
+    <section class="bg-stone-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-stone-900">Our Philosophy: Mind, Body, & Spirit</h2>
+            <p class="text-lg leading-relaxed max-w-3xl mx-auto mb-8">At milk + honey, we believe true well-being comes from nourishing yourself inside and out. We use only the highest quality, natural ingredients and employ skilled professionals dedicated to providing an unparalleled experience in a serene and luxurious environment.</p>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-stone-900">Our Austin Locations</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-stone-50 rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-stone-800">Downtown Austin</h3>
+                    <p class="text-gray-700 mb-4">100 Colorado St, Austin, TX 78701</p>
+                    <a href="https://www.google.com/maps/search/Milk+Honey+Downtown+Austin" target="_blank" class="text-stone-600 hover:text-stone-700 font-semibold">Get Directions &rarr;</a>
+                </div>
+                <div class="bg-stone-50 rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-stone-800">2nd Street District</h3>
+                    <p class="text-gray-700 mb-4">117 W 2nd St, Austin, TX 78701</p>
+                    <a href="https://www.google.com/maps/search/Milk+Honey+2nd+Street+District" target="_blank" class="text-stone-600 hover:text-stone-700 font-semibold">Get Directions &rarr;</a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#book" class="bg-stone-700 hover:bg-stone-800 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 milk + honey. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
