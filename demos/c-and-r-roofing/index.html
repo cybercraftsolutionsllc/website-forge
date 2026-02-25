@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C & R Roofing - Chattanooga, TN</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .glassmorphism-navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .dark-gradient-bg {
+            background: linear-gradient(to bottom right, #1a202c, #2a4365, #1a202c);
+        }
+        .icon-block-gradient-roof {
+            background: linear-gradient(to bottom right, #4a0e0e, #8b0000);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-slate-800">
+
+    <!-- Sticky Glassmorphism Navbar -->
+    <nav class="glassmorphism-navbar fixed top-0 w-full z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-900">C & R Roofing</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-slate-700 hover:text-blue-600 transition duration-300">Home</a>
+                <a href="#about" class="text-slate-700 hover:text-blue-600 transition duration-300">About Us</a>
+                <a href="#services" class="text-slate-700 hover:text-blue-600 transition duration-300">Services</a>
+                <a href="#contact" class="text-slate-700 hover:text-blue-600 transition duration-300">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-slate-800 text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Left-aligned text with right-side feature block) -->
+    <section id="hero" class="dark-gradient-bg text-white py-40 flex items-center min-h-screen-minus-nav">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 text-left">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Your Trusted Roofing Partner in Chattanooga</h1>
+                <p class="text-xl md:text-2xl mb-10 max-w-xl">Decades of experience, veteran-owned integrity, and roofs that last. Protecting your home and business.</p>
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300">Get a Free Estimate</a>
+            </div>
+            <div class="md:w-1/2 flex justify-center items-center">
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl shadow-lg text-center">
+                    <i class="fas fa-shield-alt text-6xl text-blue-400 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Protect Your Investment</h3>
+                    <p class="text-lg">Quality roofing solutions for peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section with Icon Block -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 flex justify-center items-center">
+                <div class="icon-block-gradient-roof w-72 h-72 rounded-3xl shadow-2xl flex items-center justify-center">
+                    <i class="fas fa-house-damage text-9xl text-white"></i>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-bold text-slate-900 mb-6">About C & R Roofing</h2>
+                <p class="text-lg leading-relaxed mb-4">With over 45 years of experience, C & R Roofing is a veteran-owned business dedicated to serving Chattanooga, Ooltewah, and Hixson, TN. Our commitment to quality craftsmanship and honest service has built a reputation you can trust.</p>
+                <p class="text-lg leading-relaxed">We specialize in comprehensive roofing solutions, from new installations and replacements to meticulous repairs and maintenance. We stand by our work, ensuring durability and aesthetic appeal for your home or business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Cards with Hover Effect) -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-slate-900 mb-12">Our Comprehensive Roofing Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white text-slate-800 p-8 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fas fa-plus-square text-5xl text-red-700 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">New Roof Installation</h3>
+                    <p class="text-md">Expert installation of various roofing systems for new constructions.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white text-slate-800 p-8 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fas fa-sync-alt text-5xl text-red-700 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Roof Replacement</h3>
+                    <p class="text-md">Seamless and efficient replacement of old or damaged roofs with high-quality materials.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white text-slate-800 p-8 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fas fa-hammer text-5xl text-red-700 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Roof Repair & Maintenance</h3>
+                    <p class="text-md">From leak tracing to shingle replacement, keeping your roof in prime condition.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="service-card bg-white text-slate-800 p-8 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fas fa-cloud-showers-heavy text-5xl text-red-700 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Storm Damage Repair</h3>
+                    <p class="text-md">Fast and reliable repairs after severe weather, including insurance claim assistance.</p>
+                </div>
+                <!-- Service Card 5 -->
+                <div class="service-card bg-white text-slate-800 p-8 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fas fa-house-chimney text-5xl text-red-700 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Gutter Installation</h3>
+                    <p class="text-md">Protect your foundation with expertly installed and maintained gutter systems.</p>
+                </div>
+                <!-- Service Card 6 -->
+                <div class="service-card bg-white text-slate-800 p-8 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fas fa-headset text-5xl text-red-700 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Free Roof Inspections</h3>
+                    <p class="text-md">Thorough inspections to identify potential issues before they become major problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section id="contact" class="bg-slate-900 text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Connect With C & R Roofing</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-8">Ready for a reliable roof? Contact our team for a free estimate or any inquiries.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-phone-alt text-3xl text-red-400"></i>
+                    <span class="text-xl">(423) 892-5544</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-envelope text-3xl text-red-400"></i>
+                    <span class="text-xl">roofs007@gmail.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-map-marker-alt text-3xl text-red-400"></i>
+                    <span class="text-xl">8354 Snow Hill Rd, Ooltewah, TN 37363</span>
+                </div>
+            </div>
+            <a href="#" class="mt-12 inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-10 border-t border-slate-700">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2026 C & R Roofing. All rights reserved.</p>
+            <p class="mt-2">Designed by WebsiteForge</p>
+        </div>
+    </footer>
+
+</body>
+</html>
