@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Auto Service - Reliable Auto Repair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass-navbar {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-800">
+    <!-- Sticky Glassmorphism Navbar -->
+    <nav class="fixed top-0 w-full glass-navbar z-50 text-slate-900 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-900">Fan Auto Service</a>
+            <div class="space-x-4">
+                <a href="#services" class="hover:text-blue-600">Services</a>
+                <a href="#testimonials" class="hover:text-blue-600">Testimonials</a>
+                <a href="#contact" class="hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Split-screen Layout -->
+    <header class="relative flex flex-col md:flex-row items-center justify-center min-h-screen pt-24 md:pt-0 bg-slate-800">
+        <div class="w-full md:w-1/2 flex items-center justify-center p-8 md:p-12 text-center md:text-left">
+            <div class="max-w-xl text-white">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Expert Auto Care You Can Trust in Richmond, VA</h1>
+                <p class="text-xl md:text-2xl mb-8">Providing top-notch automotive repair and maintenance with honesty and transparency.</p>
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out shadow-lg">Schedule Service Now</a>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 min-h-[40vh] md:min-h-screen bg-cover bg-center" style="background-image: url('https://image.pollinations.ai/prompt/auto-repair-shop?width=1920&height=1080&nologo=true');">
+            <div class="absolute inset-0 bg-black/40 md:hidden"></div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-slate-900">Our Auto Repair Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <img src="https://image.pollinations.ai/prompt/engine-repair?width=1080&height=720&nologo=true" alt="Engine Repair" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fallback/1080/720';" class="w-full aspect-video object-cover rounded-2xl shadow-xl bg-slate-200 mb-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-slate-900">Engine Diagnostics & Repair</h3>
+                    <p class="text-slate-700">Advanced diagnostics and expert repair for all engine issues.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <img src="https://image.pollinations.ai/prompt/brake-service?width=1080&height=720&nologo=true" alt="Brake Service" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fallback/1080/720';" class="w-full aspect-video object-cover rounded-2xl shadow-xl bg-slate-200 mb-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-slate-900">Brake Service</h3>
+                    <p class="text-slate-700">Comprehensive brake inspections, repairs, and replacements for your safety.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col items-center">
+                    <img src="https://image.pollinations.ai/prompt/oil-change?width=1080&height=720&nologo=true" alt="Oil Change" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fallback/1080/720';" class="w-full aspect-video object-cover rounded-2xl shadow-xl bg-slate-200 mb-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-slate-900">Oil Changes & Maintenance</h3>
+                    <p class="text-slate-700">Routine oil changes and preventative maintenance to keep your car running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-4xl font-bold mb-12 text-slate-900">What Our Customers Say</h2>
+            <div class="bg-slate-50 p-8 rounded-2xl shadow-lg">
+                <p class="text-xl italic text-slate-700 mb-6">"Fan Auto Service is simply the best! Honest, reliable, and always go the extra mile. I wouldn't take my car anywhere else."</p>
+                <p class="font-semibold text-slate-900">- Jane D., Richmond, VA</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-4 text-center max-w-2xl">
+            <h2 class="text-4xl font-bold mb-10">Get Your Vehicle Serviced Today!</h2>
+            <p class="text-lg mb-8">Schedule your appointment or ask us a question. We're here to help.</p>
+            <form class="space-y-6">
+                <input type="text" placeholder="Your Name" class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" placeholder="Your Email" class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="tel" placeholder="Your Phone (Optional)" class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <textarea placeholder="Tell us about your service needs..." rows="5" class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out w-full md:w-auto">Request Appointment</button>
+            </form>
+            <p class="mt-8 text-slate-300">Visit us at 123 Main St, Richmond, VA or call <a href="tel:555-987-6543" class="text-blue-400 hover:underline">555-987-6543</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-8 border-t border-slate-800">
+        <div class="container mx-auto px-4 text-center text-slate-400">
+            <p>&copy; 2026 Fan Auto Service. All rights reserved.</p>
+            <p class="mt-2">Powered by WebsiteForge</p>
+        </div>
+    </footer>
+</body>
+</html>
