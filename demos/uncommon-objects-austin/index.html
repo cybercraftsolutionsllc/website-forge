@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncommon Objects Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Lora:wght@400;600&display=swap');
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3 { font-family: 'Merriweather', serif; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-zinc-800 text-white shadow-lg py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-3xl font-bold tracking-tight text-yellow-300">Uncommon Objects</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#discover" class="hover:text-yellow-200 transition-colors duration-300">Discover</a></li>
+                    <li><a href="#collections" class="hover:text-yellow-200 transition-colors duration-300">Collections</a></li>
+                    <li><a href="#visit" class="hover:text-yellow-200 transition-colors duration-300">Visit Us</a></li>
+                    <li><a href="#contact" class="hover:text-yellow-200 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1600x900/?antiques,vintage,curiosities');">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div class="text-center text-white p-6 max-w-3xl">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg text-yellow-300">Where Every Object Tells a Story</h1>
+                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md">Dive into a world of unique antiques, rare finds, and timeless treasures.</p>
+                <a href="#discover" class="bg-yellow-400 hover:bg-yellow-500 text-zinc-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Start Your Discovery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-zinc-800">Curating the Extraordinary</h2>
+            <p class="text-lg leading-relaxed max-w-3xl mx-auto mb-8">Uncommon Objects has been Austin's premier destination for eclectic vintage and antique finds for over 30 years. We believe in the beauty of the past and the stories held within each cherished item. Our ever-changing collection promises a new adventure with every visit.</p>
+            <a href="#visit" class="text-yellow-600 hover:text-yellow-700 font-semibold">Plan Your Visit &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Discover Collections Section -->
+    <section id="discover" class="py-16 bg-zinc-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-zinc-900">A World of Wonders Awaits</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?vintage-jewelry" alt="Vintage Jewelry" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-zinc-800">Vintage Jewelry</h3>
+                        <p class="text-gray-700">Timeless pieces for every style and occasion.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?antique-decor" alt="Home Decor" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-zinc-800">Eclectic Home Decor</h3>
+                        <p class="text-gray-700">Find the perfect conversation starter for your space.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?old-books" alt="Books & Ephemera" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-zinc-800">Books & Ephemera</h3>
+                        <p class="text-gray-700">Rare texts, postcards, and paper treasures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials or Featured Items -->
+    <section class="bg-yellow-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-zinc-800">What Our Visitors Say</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto italic">&quot;A truly magical place! You never know what hidden gem you'll find here.&quot; - A Happy Customer</p>
+            <a href="#" class="text-yellow-700 hover:text-yellow-800 font-semibold">Browse Our Gallery &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section id="visit" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-zinc-800">Plan Your Visit</h2>
+            <p class="text-lg mb-4">1602 S Congress Ave, Austin, TX 78704</p>
+            <p class="text-lg mb-8">Open Daily: 10 AM - 6 PM</p>
+            <a href="https://www.google.com/maps/search/Uncommon+Objects" target="_blank" class="text-yellow-600 hover:text-yellow-700 font-semibold">Get Directions &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-800 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Uncommon Objects. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
