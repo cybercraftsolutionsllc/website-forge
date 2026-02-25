@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin Beerworks Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Lato:wght@400;600&display=swap');
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3 { font-family: 'Oswald', sans-serif; }
+    </style>
+</head>
+<body class="bg-zinc-900 text-gray-200">
+
+    <!-- Header -->
+    <header class="bg-zinc-800 text-white shadow-lg py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-4xl font-bold tracking-widest text-orange-400">AUSTIN BEERWORKS</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#beers" class="hover:text-orange-200 transition-colors duration-300">Our Beers</a></li>
+                    <li><a href="#taproom" class="hover:text-orange-200 transition-colors duration-300">Taproom</a></li>
+                    <li><a href="#events" class="hover:text-orange-200 transition-colors duration-300">Events</a></li>
+                    <li><a href="#shop" class="hover:text-orange-200 transition-colors duration-300">Shop</a></li>
+                    <li><a href="#contact" class="hover:text-orange-200 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1600x900/?craft-beer-brewery');">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+            <div class="text-center text-white p-6 max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 drop-shadow-lg text-orange-400">Brewed for Austin, Loved by All</h1>
+                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md">Crafting award-winning beers with passion, grit, and Texas soul.</p>
+                <a href="#beers" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Explore Our Beers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Philosophy Section -->
+    <section id="about" class="py-16 bg-zinc-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-orange-400">Our Story: The Art of Austin Brewing</h2>
+            <p class="text-lg leading-relaxed max-w-3xl mx-auto mb-8 text-gray-300">Since 2011, Austin Beerworks has been dedicated to brewing delicious, approachable craft beer that reflects the vibrant spirit of our city. We believe in quality ingredients, innovative techniques, and the power of a good pint to bring people together.</p>
+            <a href="#" class="text-orange-400 hover:text-orange-500 font-semibold">Learn More About Us &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Beers Section -->
+    <section id="beers" class="py-16 bg-zinc-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-orange-400">Our Signature Brews</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-zinc-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?ipa-beer" alt="IPA" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-orange-300">Peacemaker Anytime Ale</h3>
+                        <p class="text-gray-400">Our crisp, refreshing anytime ale. Perfect for any occasion.</p>
+                    </div>
+                </div>
+                <div class="bg-zinc-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?stout-beer" alt="Stout" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-orange-300">Pearl Snap Pilsner</h3>
+                        <p class="text-gray-400">A classic German-style Pilsner, clean and bright.</p>
+                    </div>
+                </div>
+                <div class="bg-zinc-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?lager-beer" alt="Lager" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-orange-300">Fire Eagle IPA</h3>
+                        <p class="text-gray-400">A bold, hop-forward IPA with citrus and pine notes.</p>
+                    </div>
+                </div>
+                <div class="bg-zinc-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x250/?craft-ale" alt="Ale" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-orange-300">Einhorn Berliner Weisse</h3>
+                        <p class="text-gray-400">Tart, refreshing, and incredibly drinkable sour ale.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">View All Our Brews & Where to Find Them</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Taproom Section -->
+    <section id="taproom" class="bg-zinc-800 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-orange-400">Visit Our Taproom</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-gray-300">Join us for fresh pints straight from the source, delicious food truck fare, and a relaxed atmosphere. We're dog-friendly and always ready for good times.</p>
+            <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Get Taproom Info & Hours</a>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-16 bg-zinc-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-orange-400">Upcoming Events & Happenings</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-zinc-800 rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-orange-300">Live Music Saturdays</h3>
+                    <p class="text-gray-400 mb-4">Every Saturday | 7 PM - 10 PM</p>
+                    <p class="text-gray-300">Enjoy local Austin bands on our outdoor patio.</p>
+                </div>
+                <div class="bg-zinc-800 rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-orange-300">Yoga & Pints</h3>
+                    <p class="text-gray-400 mb-4">Every Sunday | 11 AM</p>
+                    <p class="text-gray-300">Flow into your Sunday with a yoga class followed by a refreshing pint.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">View Full Event Calendar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Austin Beerworks. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-500 hover:text-white mx-2">Privacy Policy</a>
+                <a href="#" class="text-gray-500 hover:text-white mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
