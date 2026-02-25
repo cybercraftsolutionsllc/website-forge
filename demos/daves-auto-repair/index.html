@@ -3,94 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dave's Auto Repair - Boise, ID</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dave's Auto Repair - Your Trusted Local Mechanic</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .glassmorphism-navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
 </head>
-<body class="font-sans antialiased bg-gray-50 text-gray-800">
-    <header class="bg-blue-800 text-white shadow-lg py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">Dave's Auto Repair</h1>
-            <nav>
-                <ul class="hidden md:flex space-x-4">
-                    <li><a href="#services" class="hover:text-blue-200">Services</a></li>
-                    <li><a href="#about" class="hover:text-blue-200">About Us</a></li>
-                    <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
-                </ul>
-                <button class="md:hidden text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </nav>
+<body class="font-sans antialiased text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full glassmorphism-navbar z-50 text-slate-900 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">Dave's Auto Repair</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-blue-600 transition duration-300">Services</a>
+                <a href="#about" class="hover:text-blue-600 transition duration-300">About Us</a>
+                <a href="#testimonials" class="hover:text-blue-600 transition duration-300">Testimonials</a>
+                <a href="#contact" class="hover:text-blue-600 transition duration-300">Contact</a>
+            </div>
+            <button class="md:hidden text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section id="hero" class="bg-blue-700 text-white py-20 text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="text-5xl font-extrabold mb-4">Reliable Auto Repair in Boise</h2>
-                <p class="text-xl mb-8">Expert service for all your vehicle needs, from oil changes to engine diagnostics.</p>
-                <a href="#contact" class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-300 transition duration-300">Get a Free Quote</a>
-            </div>
-        </section>
+    <!-- Hero Section - Centered Layout -->
+    <section class="relative h-screen flex items-center justify-center text-white text-center" style="background-image: url('https://image.pollinations.ai/prompt/professional%20auto%20repair%20service%20photography%20no%20text?width=1080&height=720&nologo=true'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-slate-900/75"></div>
+        <div class="relative z-10 p-8 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">Reliable Auto Repair You Can Trust</h1>
+            <p class="text-xl md:text-2xl mb-10">Keeping Boise's vehicles running smoothly with expert service and honest pricing.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                Schedule Service Today <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
 
-        <section id="services" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h3 class="text-4xl font-bold text-center mb-12">Our Services</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-2xl font-semibold mb-3">Engine Diagnostics</h4>
-                        <p>Advanced diagnostics to accurately identify and fix engine issues.</p>
-                    </div>
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-2xl font-semibold mb-3">Brake Repair</h4>
-                        <p>Comprehensive brake services to ensure your safety on the road.</p>
-                    </div>
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-2xl font-semibold mb-3">Oil Changes & Maintenance</h4>
-                        <p>Keep your car running smoothly with regular maintenance and oil changes.</p>
-                    </div>
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-2xl font-semibold mb-3">Tire Services</h4>
-                        <p>Rotation, balancing, and new tire installation for optimal performance.</p>
-                    </div>
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-2xl font-semibold mb-3">Suspension & Steering</h4>
-                        <p>Repair and replacement of suspension and steering components.</p>
-                    </div>
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-2xl font-semibold mb-3">And More!</h4>
-                        <p>Contact us for a full list of our automotive repair capabilities.</p>
-                    </div>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-12">Our Expert Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <i class="fas fa-car-battery text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Engine Diagnostics</h3>
+                    <p class="text-slate-600">Advanced diagnostics to accurately pinpoint any issues with your vehicle's engine and electrical systems.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <i class="fas fa-wrench text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Routine Maintenance</h3>
+                    <p class="text-slate-600">From oil changes to fluid checks, we keep your car in top condition to prevent costly repairs down the road.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <i class="fas fa-tire text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Brakes & Tires</h3>
+                    <p class="text-slate-600">Comprehensive brake inspections, repairs, and a wide selection of quality tires for optimal safety and performance.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="py-16 bg-blue-100">
-            <div class="container mx-auto px-4 text-center">
-                <h3 class="text-4xl font-bold mb-8">About Dave's Auto Repair</h3>
-                <p class="text-lg max-w-3xl mx-auto">For over 20 years, Dave's Auto Repair has been a trusted name in Boise for honest and reliable automotive service. We pride ourselves on transparent pricing, quality workmanship, and exceptional customer care. When you choose Dave's, you're choosing peace of mind.</p>
+    <!-- About Us Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <img src="https://image.pollinations.ai/prompt/professional%20auto%20mechanic%20working%20on%20car%20no%20text?width=1080&height=720&nologo=true" alt="Mechanic working on a car" class="w-full h-full object-cover object-center rounded-2xl shadow-xl">
             </div>
-        </section>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-4xl font-bold mb-8">About Dave's Auto Repair</h2>
+                <p class="text-lg leading-relaxed mb-6">For over 20 years, Dave's Auto Repair has been the trusted name for automotive service in Boise. We pride ourselves on honest work, transparent communication, and a commitment to getting you back on the road safely and efficiently. Our ASE-certified technicians use the latest tools and techniques to service all makes and models.</p>
+                <p class="text-lg leading-relaxed">We believe in building lasting relationships with our customers through reliable service and fair prices. Your satisfaction is our priority.</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact" class="py-16 bg-white">
-            <div class="container mx-auto px-4 text-center">
-                <h3 class="text-4xl font-bold mb-8">Get in Touch</h3>
-                <p class="text-lg mb-8">Ready to get your car serviced? Contact us today!</p>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                    <p class="text-xl"><strong class="font-semibold">Phone:</strong> (208) 555-1234</p>
-                    <p class="text-xl"><strong class="font-semibold">Email:</strong> info@davesautorepairboise.com</p>
-                    <p class="text-xl"><strong class="font-semibold">Address:</strong> 123 Main St, Boise, ID 83702</p>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-12">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-white bg-opacity-20 p-8 rounded-2xl shadow-lg">
+                    <i class="fas fa-quote-left text-3xl mb-4"></i>
+                    <p class="text-lg italic mb-4">"Dave's Auto Repair always provides excellent service. They are honest, efficient, and truly care about their customers. Highly recommend!"</p>
+                    <p class="font-semibold">- A Happy Customer</p>
                 </div>
-                <div class="mt-8">
-                    <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300">View Map</a>
+                <div class="bg-white bg-opacity-20 p-8 rounded-2xl shadow-lg">
+                    <i class="fas fa-quote-left text-3xl mb-4"></i>
+                    <p class="text-lg italic mb-4">"I wouldn't take my car anywhere else. The team at Dave's is knowledgeable and always goes the extra mile. Great work every time!"</p>
+                    <p class="font-semibold">- Loyal Client</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-gray-800 text-white py-8 text-center">
-        <div class="container mx-auto px-4">
+    <!-- Contact Section -->
+    <section id="contact" class="bg-slate-900 text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-12">Get in Touch</h2>
+            <p class="text-lg mb-8">Have questions or need to schedule an appointment? Contact us today!</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-phone-alt text-3xl text-blue-400"></i>
+                    <span class="text-xl">(208) 555-1234</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-envelope text-3xl text-blue-400"></i>
+                    <span class="text-xl">davesauto@msn.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-map-marker-alt text-3xl text-blue-400"></i>
+                    <span class="text-xl">123 Auto Lane, Boise, ID 83701</span>
+                </div>
+            </div>
+            <a href="#" class="mt-10 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                Email Us Directly <i class="fas fa-paper-plane ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-10 border-t border-slate-700">
+        <div class="container mx-auto px-6 text-center text-sm">
             <p>&copy; 2026 Dave's Auto Repair. All rights reserved.</p>
+            <p class="mt-2">Powered by WebsiteForge</p>
         </div>
     </footer>
+
 </body>
 </html>
