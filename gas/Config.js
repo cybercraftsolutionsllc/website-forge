@@ -7,11 +7,14 @@
  *   GITHUB_PAT      — GitHub Personal Access Token with repo scope
  *
  * Optional Script Properties:
- *   SHEET_ID        — override the default sheet ID
- *   LLM_MODEL       — override the default model for your provider
- *   AUTO_SEND_EMAIL — "true" to auto-send emails, "false" (default) for review-only
- *   PAYMENT_LINK    — Stripe/payment URL injected into emails
- *   SENDER_NAME     — Display name for outgoing Gmail (default: "CyberCraft Solutions")
+ *   SHEET_ID          — override the default sheet ID
+ *   LLM_MODEL         — override the default model for your provider
+ *   AUTO_SEND         — "true" to auto-send outreach, "false" (default) for review-only
+ *   PAYMENT_LINK      — Stripe/payment URL injected into messages
+ *   SENDER_NAME       — Display name for outgoing Gmail (default: "CyberCraft Solutions")
+ *   TWILIO_ACCOUNT_SID — Twilio Account SID (enables SMS fallback)
+ *   TWILIO_AUTH_TOKEN  — Twilio Auth Token
+ *   TWILIO_PHONE       — Your Twilio phone number (e.g., +18005551234)
  */
 
 // Static constants
@@ -41,10 +44,16 @@ function getConfig() {
   const sheetId = props.getProperty('SHEET_ID') || DEFAULT_SHEET_ID;
   const modelOverride = props.getProperty('LLM_MODEL');
 
-  // Email config
-  const autoSendEmail = (props.getProperty('AUTO_SEND_EMAIL') || '').toLowerCase().trim() === 'true';
+  // Outreach config
+  const autoSend = (props.getProperty('AUTO_SEND') || props.getProperty('AUTO_SEND_EMAIL') || '').toLowerCase().trim() === 'true';
   const paymentLink = props.getProperty('PAYMENT_LINK') || '';
   const senderName = props.getProperty('SENDER_NAME') || 'CyberCraft Solutions';
+
+  // Twilio SMS config (optional — enables phone outreach)
+  const twilioSid = props.getProperty('TWILIO_ACCOUNT_SID') || '';
+  const twilioToken = props.getProperty('TWILIO_AUTH_TOKEN') || '';
+  const twilioPhone = props.getProperty('TWILIO_PHONE') || '';
+  const twilioEnabled = !!(twilioSid && twilioToken && twilioPhone);
 
   const errors = [];
 
@@ -74,8 +83,12 @@ function getConfig() {
     org: CONFIG_ORG,
     repo: CONFIG_REPO,
     branch: CONFIG_BRANCH,
-    autoSendEmail: autoSendEmail,
+    autoSend: autoSend,
     paymentLink: paymentLink,
-    senderName: senderName
+    senderName: senderName,
+    twilioSid: twilioSid,
+    twilioToken: twilioToken,
+    twilioPhone: twilioPhone,
+    twilioEnabled: twilioEnabled
   };
 }

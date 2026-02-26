@@ -26,6 +26,7 @@ function extractBusinessData(text) {
         area: extract('AREA'),
         current_website_url: extract('URL'),
         target_email: extract('EMAIL'),
+        target_phone: extract('PHONE'),
         research_notes_summary: extract('NOTES'),
         suggested_domain: extract('DOMAIN'),
         domain_cost: extract('COST'),
