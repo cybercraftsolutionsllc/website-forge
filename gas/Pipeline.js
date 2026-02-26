@@ -181,58 +181,92 @@ function phaseResearch(config) {
 }
 
 // ============================================================
-// PHASE 2: THE DEVELOPER (Contextual Images)
+// PHASE 2: THE DEVELOPER (Alt-text Image Replacement)
 // ============================================================
+
+/**
+ * Builds a Pollinations URL from descriptive text.
+ */
+function pollinationsUrl(promptText, width, height) {
+    var clean = promptText.toLowerCase().replace(/[^a-z0-9 ]+/g, '').replace(/\s+/g, '-');
+    return 'https://image.pollinations.ai/prompt/' + encodeURIComponent(clean) + '?width=' + width + '&height=' + height + '&nologo=true&seed=' + Math.floor(Math.random() * 10000);
+}
+
+/**
+ * Replace every <img> src with a Pollinations URL derived from its alt text.
+ * The LLM writes good alt text naturally — we just convert it to an image prompt.
+ */
+function replaceImagesWithPollinations(html) {
+    var count = 0;
+    var result = html.replace(/<img\s+([^>]*?)>/gi, function (fullMatch, attrs) {
+        // Extract alt text
+        var altMatch = attrs.match(/alt\s*=\s*["']([^"']+)["']/i);
+        if (!altMatch || !altMatch[1]) return fullMatch;
+
+        var altText = altMatch[1];
+        var isHero = /hero|banner|header|background|storefront/i.test(altText) || count === 0;
+        var w = isHero ? 1920 : 800;
+        var h = isHero ? 1080 : 600;
+
+        var newSrc = pollinationsUrl(altText, w, h);
+
+        // Replace or insert src
+        var newAttrs;
+        if (/src\s*=/i.test(attrs)) {
+            newAttrs = attrs.replace(/src\s*=\s*["'][^"']*["']/i, 'src="' + newSrc + '"');
+        } else {
+            newAttrs = 'src="' + newSrc + '" ' + attrs;
+        }
+
+        // Add onerror fallback if missing
+        if (!/onerror/i.test(newAttrs)) {
+            newAttrs += " onerror=\"this.onerror=null;this.src='https://picsum.photos/" + w + "/" + h + "';\"";
+        }
+
+        count++;
+        return '<img ' + newAttrs + '>';
+    });
+
+    console.log('Replaced ' + count + ' images with Pollinations URLs based on alt text.');
+    return result;
+}
+
 function phaseBuild(config, biz) {
-    var safeNiche = (biz.niche || 'service').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    var niche = (biz.niche || 'service').replace(/-/g, ' ');
+    var area = biz.area || '';
 
     var servicesList = (biz.services || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
     if (servicesList.length === 0) {
         servicesList = ['General Service', 'Consultation', 'Repair', 'Maintenance'];
     }
 
-    var serviceImageRules = servicesList.map(function (svc, idx) {
-        var svcSlug = svc.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        return '     Service ' + (idx + 1) + ': "' + svc + '"' +
-            '\n       → Image: https://image.pollinations.ai/prompt/realistic-photograph-of-' + svcSlug +
-            '-being-performed-by-professional-worker-in-' + safeNiche + '-shop?width=800&height=600&nologo=true' +
-            '\n       → The image MUST visually depict "' + svc + '" specifically.';
-    }).join('\n');
-
     var prompt = [
-        'You are a world-class UI/UX frontend developer.',
-        'Write a stunning, premium $2,000+ custom landing page for "' + biz.business_name + '".',
-        'Niche: ' + biz.niche + ' | Location: ' + biz.area,
+        'You are a world-class frontend developer. Build a premium landing page.',
+        '',
+        'Business: "' + biz.business_name + '"',
+        'Niche: ' + niche,
+        'Location: ' + area,
         'Services: ' + servicesList.join(', '),
         '',
         'RULES:',
-        '1. TAILWIND V3: <script src="https://cdn.tailwindcss.com"></script>',
-        '',
-        '2. HERO: Full-screen with niche-specific background.',
-        '   <header class="relative min-h-screen flex items-center justify-center overflow-hidden">',
-        '     <img src="https://image.pollinations.ai/prompt/realistic-photograph-of-' + safeNiche + '-business-storefront-exterior-daytime-professional-photography?width=1920&height=1080&nologo=true" alt="' + biz.business_name + '" class="absolute inset-0 w-full h-full object-cover z-0" onerror="this.onerror=null;this.src=\'https://picsum.photos/1920/1080?blur=2\';" />',
-        '     <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90 z-10"></div>',
-        '     <div class="relative z-20 text-center container mx-auto px-6 flex flex-col items-center justify-center mt-16">',
-        '       <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight max-w-4xl drop-shadow-2xl">' + biz.business_name + '</h1>',
-        '       <p class="text-xl md:text-2xl text-slate-200 mb-10 max-w-2xl drop-shadow-md">Premium ' + biz.niche + ' services in ' + biz.area + '</p>',
-        '       <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-lg transition-transform hover:scale-105 shadow-2xl">Get a Free Quote</a>',
-        '     </div>',
-        '   </header>',
-        '',
-        '3. NAVBAR: Sticky glassmorphism with "' + biz.business_name + '" (fixed top-0 w-full backdrop-blur-md bg-white/95 z-50 shadow-sm py-4).',
-        '',
-        '4. SERVICE CARDS — EACH MUST HAVE A UNIQUE, CONTEXTUAL IMAGE:',
-        serviceImageRules,
-        '   Add onerror fallback on every <img>. Each card: image, name, description, "Get Quote" button.',
-        '',
-        '5. ABOUT: Team image → src="https://image.pollinations.ai/prompt/realistic-photograph-of-friendly-' + safeNiche + '-workers-team-in-workshop-smiling-professional?width=1080&height=720&nologo=true"',
-        '6. TESTIMONIALS: 3 realistic testimonials with ★ ratings, text only.',
-        '7. CONTACT + FOOTER: bg-slate-900 text-white. Contact form. "Powered by CyberCraft Solutions".',
+        '1. Include <script src="https://cdn.tailwindcss.com"></script> in <head>.',
+        '2. HERO: Full-screen hero with a background <img>. Dark overlay gradient.',
+        '   Big white heading "' + biz.business_name + '". Subtitle about ' + niche + ' in ' + area + '. CTA button linking to #contact.',
+        '   IMPORTANT: The hero <img> must have a descriptive alt like "' + biz.business_name + ' ' + niche + ' storefront".',
+        '3. NAVBAR: Sticky glassmorphism navbar with "' + biz.business_name + '" text.',
+        '4. SERVICES: Grid of cards — one for each: ' + servicesList.join(', ') + '.',
+        '   Each card: <img> tag, service name heading, 2-line description, "Get Quote" link.',
+        '   IMPORTANT: Each service <img> must have a specific, descriptive alt like "professional [service name] work being performed".',
+        '5. ABOUT: Section with <img> and a warm paragraph. Alt text should describe the team.',
+        '6. TESTIMONIALS: 3 text-only testimonials with star ratings (no images).',
+        '7. CONTACT + FOOTER: bg-slate-900 text-white. Form (name, email, phone, message). "Powered by CyberCraft Solutions".',
+        '8. Every <img> MUST have a descriptive alt attribute — this is critical for accessibility and SEO.',
+        '9. Use any placeholder for image src (they get replaced automatically).',
         '',
         'Return ONLY raw HTML starting with <!DOCTYPE html>. No markdown. No explanation.'
     ].join('\n');
 
-    var result = callLLM(prompt, config, { temperature: 0.5, maxTokens: 8192 });
+    var result = callLLM(prompt, config, { temperature: 0.4, maxTokens: 8192 });
 
     if (result.error) {
         return { html: '', error: 'Build API failed: ' + result.error };
@@ -244,6 +278,9 @@ function phaseBuild(config, biz) {
         console.error('HTML validation failed. Length: ' + html.length);
         return { html: '', error: 'Generated HTML failed validation. Try again.' };
     }
+
+    // Post-process: swap all image srcs with Pollinations URLs based on alt text
+    html = replaceImagesWithPollinations(html);
 
     return { html: html, error: null };
 }
@@ -274,29 +311,43 @@ function phaseLog(config, biz, html) {
     var liveUrl = deploy.liveUrl;
 
     // Build messages
-    var emailHtml = buildProfessionalEmail(config, biz, liveUrl);
-    var plainText = buildPlainTextMessage(config, biz, liveUrl);
-    var smsText = buildSmsMessage(config, biz, liveUrl);
+    var emailHtml, plainText, smsText;
+    try {
+        emailHtml = buildProfessionalEmail(config, biz, liveUrl);
+        plainText = buildPlainTextMessage(config, biz, liveUrl);
+        smsText = buildSmsMessage(config, biz, liveUrl);
+    } catch (e) {
+        console.error('Message builder error:', e);
+        emailHtml = '';
+        plainText = 'Demo: ' + liveUrl;
+        smsText = 'Demo: ' + liveUrl;
+    }
 
-    // Store the appropriate message in the sheet
     var draftedMessage = biz.channel === 'sms' ? smsText : plainText;
 
-    sheet.appendRow([
-        today,
-        biz.area || '',
-        biz.business_name || '',
-        slug,
-        repoUrl,
-        liveUrl,
-        biz.suggested_domain || '',
-        biz.domain_cost || '',
-        biz.target_email || '',
-        biz.target_phone || '',
-        draftedMessage,
-        biz.channel || 'email',
-        'Review Needed',
-        ''
-    ]);
+    // Write to sheet with error logging
+    try {
+        sheet.appendRow([
+            today,
+            biz.area || '',
+            biz.business_name || '',
+            slug,
+            repoUrl,
+            liveUrl,
+            biz.suggested_domain || '',
+            biz.domain_cost || '',
+            biz.target_email || '',
+            biz.target_phone || '',
+            draftedMessage,
+            biz.channel || 'email',
+            'Review Needed',
+            ''
+        ]);
+        console.log('Sheet row appended successfully for ' + biz.business_name);
+    } catch (e) {
+        console.error('Sheet appendRow failed:', e);
+        return { error: 'Sheet write failed: ' + e.toString() };
+    }
 
     var lastRow = sheet.getLastRow();
     return {
