@@ -555,19 +555,37 @@ function runWebsiteForgePipeline() {
 
     var ss = SpreadsheetApp.openById(config.sheetId);
 
-    // --- Phase 1: Research ---
-    ss.toast('Phase 1: Researcher Agent scanning for leads...', '🚀 WebsiteForge', -1);
-    SpreadsheetApp.flush();
+    // --- Phase 1: Research (retries until a verified email is found) ---
+    var MAX_RESEARCH_ATTEMPTS = 5;
+    var research = null;
+    var biz = null;
 
-    var research = phaseResearch(config);
-    if (research.error) {
-        ss.toast(research.error, '❌ Phase 1', 10);
-        console.error('Phase 1 Error:', research.error);
-        return;
+    for (var attempt = 1; attempt <= MAX_RESEARCH_ATTEMPTS; attempt++) {
+        ss.toast('Phase 1: Scanning for leads (attempt ' + attempt + '/' + MAX_RESEARCH_ATTEMPTS + ')...', '🚀 WebsiteForge', -1);
+        SpreadsheetApp.flush();
+
+        research = phaseResearch(config);
+
+        if (research.data) {
+            biz = research.data;
+            console.log('Phase 1 complete on attempt ' + attempt + '. Target: ' + biz.business_name + ' (' + biz.target_email + ')');
+            break;
+        }
+
+        // Log the skip reason and retry
+        console.log('Attempt ' + attempt + ': ' + research.error);
+
+        if (attempt < MAX_RESEARCH_ATTEMPTS) {
+            ss.toast('No verified email found — retrying (' + attempt + '/' + MAX_RESEARCH_ATTEMPTS + ')...', '🔄 WebsiteForge', 3);
+            Utilities.sleep(1000);
+        }
     }
 
-    var biz = research.data;
-    console.log('Phase 1 complete. Target: ' + biz.business_name + ' (' + biz.target_email + ')');
+    if (!biz) {
+        ss.toast('Could not find a lead with a verified email after ' + MAX_RESEARCH_ATTEMPTS + ' attempts. Try again later.', '❌ Phase 1', 10);
+        console.error('Phase 1 exhausted all attempts. Last error: ' + (research ? research.error : 'unknown'));
+        return;
+    }
 
     // --- Phase 2: Build ---
     ss.toast('Phase 2: Building website for ' + biz.business_name + '...', '🚀 WebsiteForge', -1);
