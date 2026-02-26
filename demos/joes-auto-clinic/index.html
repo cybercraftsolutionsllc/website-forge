@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Auto Clinic - Premier Auto Repair in Boise, ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center h-16">
+                <div class="text-2xl font-bold text-white drop-shadow-lg">Joe's Auto Clinic</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Joe's Auto Clinic</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg">Expert Auto Repair Services in Boise, ID – Keeping Your Vehicle Running Smoothly</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Schedule Service Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to your needs in Boise, ID.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <img src="https://loremflickr.com/400/300/brake,repair,car/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Brake Repair</h3>
+                        <p class="text-gray-600 mb-2">Expert inspections and repairs for safe, reliable stopping power.</p>
+                        <p class="text-gray-600">Pads, rotors, and calipers handled with precision.</p>
+                    </div>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <img src="https://picsum.photos/seed/3286/400/300" alt="Engine Diagnostics" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Engine Diagnostics</h3>
+                        <p class="text-gray-600 mb-2">Advanced scanning to identify and resolve engine issues fast.</p>
+                        <p class="text-gray-600">State-of-the-art tools for accurate results.</p>
+                    </div>
+                </div>
+                <!-- Oil Changes -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <img src="https://loremflickr.com/400/300/oil,change,mechanic/all?lock=3" alt="Oil Changes" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Oil Changes</h3>
+                        <p class="text-gray-600 mb-2">Fresh oil and filters to optimize engine performance.</p>
+                        <p class="text-gray-600">Quick service to keep you on the road.</p>
+                    </div>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <img src="https://loremflickr.com/400/300/transmission,repair,car/all?lock=4" alt="Transmission Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Transmission Repair</h3>
+                        <p class="text-gray-600 mb-2">Expert fixes for smooth shifting and durability.</p>
+                        <p class="text-gray-600">From rebuilds to fluid services.</p>
+                    </div>
+                </div>
+                <!-- AC Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <img src="https://loremflickr.com/400/300/air,conditioner,car/all?lock=5" alt="AC Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">AC Repair</h3>
+                        <p class="text-gray-600 mb-2">Cool, comfortable drives with full AC system service.</p>
+                        <p class="text-gray-600">Recharge, repair, and maintenance.</p>
+                    </div>
+                </div>
+                <!-- Tire Services -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    <img src="https://picsum.photos/seed/2011/400/300" alt="Tire Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Tire Services</h3>
+                        <p class="text-gray-600 mb-2">Rotations, alignments, and replacements for optimal grip.</p>
+                        <p class="text-gray-600">All-season and performance tires available.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-6 px-12 rounded-xl text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team" class="w-full h-96 object-cover rounded-2xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+            </div>
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Joe's Auto Clinic</h2>
+                <p class="text-xl text-gray-600 leading-relaxed">Nestled in the heart of Boise, ID, Joe's Auto Clinic has been the trusted choice for auto repair for over 20 years. Our certified mechanics bring passion and expertise to every job, using cutting-edge diagnostics and genuine parts. We treat your vehicle like our own – with honesty, care, and a commitment to getting you back on the road safely and swiftly. Family-owned and community-focused, we're here for all your automotive needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by thousands in Boise, ID</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Joe's team fixed my transmission in record time. Honest, affordable, and top-notch service!"</p>
+                    <p class="font-semibold text-gray-900">- Sarah M.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Best brakes job I've ever had. Car stops like new. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">- Mike R.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Quick oil change and AC repair. Friendly staff and fair prices every time."</p>
+                    <p class="font-semibold text-gray-900">- Lisa T.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section + Footer -->
+    <section id="contact" class="bg-slate-900 text-white py-24">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
+            <p class="text-xl mb-12 text-slate-300">Ready for reliable auto repair? Fill out the form for your free quote today.</p>
+            <form action="#" method="POST" class="space-y-6 max-w-lg mx-auto">
+                <input type="text" placeholder="Your Name" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white">
+                <input type="email" placeholder="Your Email" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white">
+                <input type="tel" placeholder="Your Phone" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white">
+                <textarea rows="5" placeholder="Your Message" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 font-bold py-4 px-8 rounded-xl text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">Send Message</button>
+            </form>
+            <div class="mt-16 pt-12 border-t border-slate-800">
+                <p class="text-slate-400">&copy; 2024 Joe's Auto Clinic, Boise, ID. All rights reserved.</p>
+                <p class="text-slate-500 mt-2 text-sm">Powered by Cyber Craft Solutions</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
