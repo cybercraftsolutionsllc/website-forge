@@ -2,13 +2,16 @@
  * Config.js — Central configuration for WebsiteForge
  * 
  * Script Properties required:
- *   LLM_PROVIDER  — "openai" | "anthropic" | "gemini"
- *   LLM_API_KEY   — API key for the chosen provider
- *   GITHUB_PAT    — GitHub Personal Access Token with repo scope
- *   SHEET_ID      — (optional) override the default sheet ID
+ *   LLM_PROVIDER    — "openai" | "anthropic" | "gemini" | "xai"
+ *   LLM_API_KEY     — API key for the chosen provider
+ *   GITHUB_PAT      — GitHub Personal Access Token with repo scope
  *
  * Optional Script Properties:
- *   LLM_MODEL     — override the default model for your provider
+ *   SHEET_ID        — override the default sheet ID
+ *   LLM_MODEL       — override the default model for your provider
+ *   AUTO_SEND_EMAIL — "true" to auto-send emails, "false" (default) for review-only
+ *   PAYMENT_LINK    — Stripe/payment URL injected into emails
+ *   SENDER_NAME     — Display name for outgoing Gmail (default: "CyberCraft Solutions")
  */
 
 // Static constants
@@ -38,6 +41,11 @@ function getConfig() {
   const sheetId = props.getProperty('SHEET_ID') || DEFAULT_SHEET_ID;
   const modelOverride = props.getProperty('LLM_MODEL');
 
+  // Email config
+  const autoSendEmail = (props.getProperty('AUTO_SEND_EMAIL') || '').toLowerCase().trim() === 'true';
+  const paymentLink = props.getProperty('PAYMENT_LINK') || '';
+  const senderName = props.getProperty('SENDER_NAME') || 'CyberCraft Solutions';
+
   const errors = [];
 
   if (!provider || !SUPPORTED_PROVIDERS.includes(provider)) {
@@ -65,6 +73,9 @@ function getConfig() {
     sheetId: sheetId,
     org: CONFIG_ORG,
     repo: CONFIG_REPO,
-    branch: CONFIG_BRANCH
+    branch: CONFIG_BRANCH,
+    autoSendEmail: autoSendEmail,
+    paymentLink: paymentLink,
+    senderName: senderName
   };
 }

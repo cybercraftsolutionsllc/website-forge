@@ -29,6 +29,7 @@ function extractBusinessData(text) {
         research_notes_summary: extract('NOTES'),
         suggested_domain: extract('DOMAIN'),
         domain_cost: extract('COST'),
+        services: extract('SERVICES'),
         email_draft: extract('DRAFT')
     };
 }
