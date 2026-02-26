@@ -14,8 +14,14 @@
  */
 function extractBusinessData(text) {
     const extract = function (label) {
+        // First try exact match
         var regex = new RegExp('<' + label + '>([\\s\\S]*?)<\\/' + label + '>', 'i');
         var match = text.match(regex);
+        if (match) return match[1].trim();
+
+        // Fallback: accept truncated closing tags (e.g. </NICH> instead of </NICHE>)
+        var fuzzy = new RegExp('<' + label + '>([\\s\\S]*?)<\\/\\w+>', 'i');
+        match = text.match(fuzzy);
         return match ? match[1].trim() : '';
     };
 
