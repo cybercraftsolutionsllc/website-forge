@@ -134,7 +134,7 @@ function phaseResearch(config) {
         '<PHONE>(555) 123-4567 OR "No phone found"</PHONE>',
         '<NOTES>Explain why site is bad/missing</NOTES>',
         '<DOMAIN>Suggested domain</DOMAIN>',
-        '<COST>$12.99/year</COST>',
+        '<COST>Check registrar for pricing</COST>',
         '<SERVICES>Service1, Service2, Service3, Service4</SERVICES>',
         '<DRAFT>Full cold email body with greeting, value proposition, pricing, disclaimer, and sign-off from CyberCraft Solutions.</DRAFT>'
     ].join('\n');
@@ -181,55 +181,8 @@ function phaseResearch(config) {
 }
 
 // ============================================================
-// PHASE 2: THE DEVELOPER (Alt-text Image Replacement)
+// PHASE 2: THE DEVELOPER (LLM-driven image selection)
 // ============================================================
-
-/**
- * Builds a Pollinations URL from descriptive text.
- */
-function pollinationsUrl(promptText, width, height) {
-    var clean = promptText.toLowerCase().replace(/[^a-z0-9 ]+/g, '').replace(/\s+/g, '-');
-    return 'https://image.pollinations.ai/prompt/' + encodeURIComponent(clean) + '?width=' + width + '&height=' + height + '&nologo=true&seed=' + Math.floor(Math.random() * 10000);
-}
-
-/**
- * Replace every <img> src with a Pollinations URL derived from its alt text.
- * The LLM writes good alt text naturally — we just convert it to an image prompt.
- */
-function replaceImagesWithPollinations(html) {
-    var count = 0;
-    var result = html.replace(/<img\s+([^>]*?)>/gi, function (fullMatch, attrs) {
-        // Extract alt text
-        var altMatch = attrs.match(/alt\s*=\s*["']([^"']+)["']/i);
-        if (!altMatch || !altMatch[1]) return fullMatch;
-
-        var altText = altMatch[1];
-        var isHero = /hero|banner|header|background|storefront/i.test(altText) || count === 0;
-        var w = isHero ? 1920 : 800;
-        var h = isHero ? 1080 : 600;
-
-        var newSrc = pollinationsUrl(altText, w, h);
-
-        // Replace or insert src
-        var newAttrs;
-        if (/src\s*=/i.test(attrs)) {
-            newAttrs = attrs.replace(/src\s*=\s*["'][^"']*["']/i, 'src="' + newSrc + '"');
-        } else {
-            newAttrs = 'src="' + newSrc + '" ' + attrs;
-        }
-
-        // Add onerror fallback if missing
-        if (!/onerror/i.test(newAttrs)) {
-            newAttrs += " onerror=\"this.onerror=null;this.src='https://picsum.photos/" + w + "/" + h + "';\"";
-        }
-
-        count++;
-        return '<img ' + newAttrs + '>';
-    });
-
-    console.log('Replaced ' + count + ' images with Pollinations URLs based on alt text.');
-    return result;
-}
 
 function phaseBuild(config, biz) {
     var niche = (biz.niche || 'service').replace(/-/g, ' ');
@@ -250,23 +203,42 @@ function phaseBuild(config, biz) {
         '',
         'RULES:',
         '1. Include <script src="https://cdn.tailwindcss.com"></script> in <head>.',
-        '2. HERO: Full-screen hero with a background <img>. Dark overlay gradient.',
-        '   Big white heading "' + biz.business_name + '". Subtitle about ' + niche + ' in ' + area + '. CTA button linking to #contact.',
-        '   IMPORTANT: The hero <img> must have a descriptive alt like "' + biz.business_name + ' ' + niche + ' storefront".',
-        '3. NAVBAR: Sticky glassmorphism navbar with "' + biz.business_name + '" text.',
-        '4. SERVICES: Grid of cards — one for each: ' + servicesList.join(', ') + '.',
-        '   Each card: <img> tag, service name heading, 2-line description, "Get Quote" link.',
-        '   IMPORTANT: Each service <img> must have a specific, descriptive alt like "professional [service name] work being performed".',
-        '5. ABOUT: Section with <img> and a warm paragraph. Alt text should describe the team.',
-        '6. TESTIMONIALS: 3 text-only testimonials with star ratings (no images).',
-        '7. CONTACT + FOOTER: bg-slate-900 text-white. Form (name, email, phone, message). "Powered by CyberCraft Solutions".',
-        '8. Every <img> MUST have a descriptive alt attribute — this is critical for accessibility and SEO.',
-        '9. Use any placeholder for image src (they get replaced automatically).',
+        '',
+        '2. IMAGES — THIS IS CRITICAL:',
+        '   Every <img> MUST use loremflickr.com with keyword-based URLs.',
+        '   Format: https://loremflickr.com/WIDTH/HEIGHT/keyword1,keyword2',
+        '   To make each image unique, append /all?lock=NUMBER with a different number for each image.',
+        '   Example: https://loremflickr.com/800/600/plumbing,pipe/all?lock=1',
+        '   Pick 2-3 simple, broad keywords that describe what the image should show.',
+        '   Use common English words — avoid compound phrases.',
+        '   HERO image: https://loremflickr.com/1920/1080/' + niche.replace(/\s+/g, ',') + ',business/all?lock=0',
+        '   Each service card: use keywords specific to THAT service + the niche.',
+        '     Example for "Drain Cleaning" in plumbing: https://loremflickr.com/800/600/plumbing,pipe,drain/all?lock=1',
+        '     Example for "Oil Change" in auto repair: https://loremflickr.com/800/600/mechanic,oil,car/all?lock=2',
+        '   About section: https://loremflickr.com/800/600/worker,team,' + niche.split(' ')[0] + '/all?lock=99',
+        '   DO NOT reuse the same lock number. Each image must be unique.',
+        '   Add onerror="this.onerror=null;this.src=\'https://picsum.photos/800/600\';" to every <img>.',
+        '',
+        '3. HERO: Full-screen hero with background <img>. Dark gradient overlay.',
+        '   Big white heading "' + biz.business_name + '". Subtitle about ' + niche + ' in ' + area + '. CTA button.',
+        '',
+        '4. NAVBAR: Sticky glassmorphism with "' + biz.business_name + '" text.',
+        '',
+        '5. SERVICES: Grid of cards — one for each: ' + servicesList.join(', ') + '.',
+        '   Each card: contextual <img> (using loremflickr keywords for that service), service name, 2-line description.',
+        '   DO NOT put a "Get Quote" or CTA button on each individual card — keep cards clean.',
+        '   Instead, add ONE single centered CTA button BELOW the entire services grid that says "Get Your Free Quote" and links to #contact.',
+        '',
+        '6. ABOUT: Section with team <img> and warm paragraph about the business.',
+        '',
+        '7. TESTIMONIALS: 3 text-only testimonials with star ratings (no images).',
+        '',
+        '8. CONTACT + FOOTER: bg-slate-900 text-white. Form (name, email, phone, message). "Powered by Cyber Craft Solutions".',
         '',
         'Return ONLY raw HTML starting with <!DOCTYPE html>. No markdown. No explanation.'
     ].join('\n');
 
-    var result = callLLM(prompt, config, { temperature: 0.4, maxTokens: 8192 });
+    var result = callLLM(prompt, config, { temperature: 0.5, maxTokens: 8192 });
 
     if (result.error) {
         return { html: '', error: 'Build API failed: ' + result.error };
@@ -279,9 +251,6 @@ function phaseBuild(config, biz) {
         return { html: '', error: 'Generated HTML failed validation. Try again.' };
     }
 
-    // Post-process: swap all image srcs with Pollinations URLs based on alt text
-    html = replaceImagesWithPollinations(html);
-
     return { html: html, error: null };
 }
 
@@ -290,10 +259,10 @@ function phaseBuild(config, biz) {
 // ============================================================
 function phaseLog(config, biz, html) {
     var ss = SpreadsheetApp.openById(config.sheetId);
-    var sheet = ss.getSheetByName('Sheet1');
+    var sheet = ss.getSheetByName('Leads');
 
     if (!sheet) {
-        sheet = ss.insertSheet('Sheet1');
+        sheet = ss.insertSheet('Leads');
     }
 
     ensureHeaders(sheet);
@@ -411,10 +380,10 @@ function buildProfessionalEmail(config, biz, liveUrl) {
         '<p style="margin:20px 0 0;color:#374151;font-size:15px;line-height:1.7">Looking forward to helping ' + biz.business_name + ' stand out online!</p>' +
         '<p style="margin:16px 0 0;color:#1f2937;font-size:15px;font-weight:600">Best regards,</p>' +
         '<p style="margin:4px 0 0;color:#1f2937;font-size:15px">' + config.senderName + '</p>' +
-        '<p style="margin:2px 0 0;color:#6b7280;font-size:13px">CyberCraft Solutions</p>' +
+        '<p style="margin:2px 0 0;color:#6b7280;font-size:13px">Cyber Craft Solutions</p>' +
         '</td></tr>' +
         '<tr><td style="background:#f9fafb;padding:20px 40px;text-align:center;border-top:1px solid #e5e7eb">' +
-        '<p style="margin:0;color:#9ca3af;font-size:11px">CyberCraft Solutions · Professional Web Design</p>' +
+        '<p style="margin:0;color:#9ca3af;font-size:11px">Cyber Craft Solutions · Professional Web Design</p>' +
         '</td></tr>' +
         '</table></td></tr></table></body></html>';
 }
@@ -451,25 +420,18 @@ function buildPlainTextMessage(config, biz, liveUrl) {
         '',
         'Best regards,',
         config.senderName,
-        'CyberCraft Solutions'
+        'Cyber Craft Solutions'
     );
 
     return lines.join('\n');
 }
 
 /**
- * Short SMS message (160-char friendly, with link).
+ * Short SMS message — concise, no raw payment links.
  */
 function buildSmsMessage(config, biz, liveUrl) {
-    var msg = 'Hi ' + biz.business_name + '! I built your business a free website demo: ' + liveUrl +
-        ' — Yours for just $199. Reply for details!';
-
-    if (config.paymentLink) {
-        msg += ' Pay here: ' + config.paymentLink;
-    }
-
-    msg += ' - ' + config.senderName + ', CyberCraft Solutions';
-    return msg;
+    return 'Hi! I noticed ' + biz.business_name + ' doesn\'t have a website yet, so I built you a free demo: ' +
+        liveUrl + ' — It\'s yours for $199, one-time. Reply YES for details or STOP to opt out. - Cyber Craft Solutions';
 }
 
 // ============================================================
@@ -552,7 +514,7 @@ function phaseOutreach(config, biz, logResult) {
 
     if (result.success) {
         var ss = SpreadsheetApp.openById(config.sheetId);
-        var sheet = ss.getSheetByName('Sheet1');
+        var sheet = ss.getSheetByName('Leads');
         var statusCol = SHEET_HEADERS.indexOf('Status') + 1;
         var sentDateCol = SHEET_HEADERS.indexOf('Sent_Date') + 1;
 
@@ -573,8 +535,8 @@ function sendAllPending() {
     if (!config) return;
 
     var ss = SpreadsheetApp.openById(config.sheetId);
-    var sheet = ss.getSheetByName('Sheet1');
-    if (!sheet) { ss.toast('No Sheet1 found.', '❌', 5); return; }
+    var sheet = ss.getSheetByName('Leads');
+    if (!sheet) { ss.toast('No Leads tab found.', '❌', 5); return; }
 
     var data = sheet.getDataRange().getValues();
     var headers = data[0];

@@ -47,13 +47,17 @@ function getConfig() {
   // Outreach config
   const autoSend = (props.getProperty('AUTO_SEND') || props.getProperty('AUTO_SEND_EMAIL') || '').toLowerCase().trim() === 'true';
   const paymentLink = props.getProperty('PAYMENT_LINK') || '';
-  const senderName = props.getProperty('SENDER_NAME') || 'CyberCraft Solutions';
+  const senderName = props.getProperty('SENDER_NAME') || 'Cyber Craft Solutions';
 
   // Twilio SMS config (optional — enables phone outreach)
-  const twilioSid = props.getProperty('TWILIO_ACCOUNT_SID') || '';
-  const twilioToken = props.getProperty('TWILIO_AUTH_TOKEN') || '';
-  const twilioPhone = props.getProperty('TWILIO_PHONE') || '';
+  const twilioSid = (props.getProperty('TWILIO_ACCOUNT_SID') || '').trim();
+  const twilioToken = (props.getProperty('TWILIO_AUTH_TOKEN') || '').trim();
+  const twilioPhone = (props.getProperty('TWILIO_PHONE') || '').trim();
   const twilioEnabled = !!(twilioSid && twilioToken && twilioPhone);
+  console.log('Twilio config: SID=' + (twilioSid ? 'set(' + twilioSid.substring(0, 6) + '...)' : 'EMPTY') +
+    ' TOKEN=' + (twilioToken ? 'set' : 'EMPTY') +
+    ' PHONE=' + (twilioPhone || 'EMPTY') +
+    ' => enabled=' + twilioEnabled);
 
   const errors = [];
 
