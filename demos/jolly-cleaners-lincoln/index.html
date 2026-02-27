@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolly Cleaners - Premium Dry Cleaning in Lincoln, NE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900 leading-relaxed">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-white/20 border-b border-white/20 shadow-xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#hero" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Jolly Cleaners</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="hover:text-blue-600 font-semibold transition-colors">Services</a>
+                    <a href="#about" class="hover:text-blue-600 font-semibold transition-colors">About</a>
+                    <a href="#testimonials" class="hover:text-blue-600 font-semibold transition-colors">Reviews</a>
+                    <a href="#contact" class="hover:text-blue-600 font-semibold transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+            <img src="https://picsum.photos/seed/2036/1920/1080" alt="Jolly Cleaners Hero" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';">
+        </div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Jolly Cleaners</h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto opacity-95 drop-shadow-lg">Your trusted dry cleaners in Lincoln, NE. Expert care for your clothes, home, and special garments with a smile.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">From everyday essentials to special care, we handle it all with precision and care.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/dry,cleaning,suit/all?lock=1" alt="Dry Cleaning" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Dry Cleaning</h3>
+                        <p class="text-gray-600 leading-relaxed">Gentle solvent cleaning for delicate fabrics.<br>Suits, dresses, and more restored to perfection.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/laundry,wash,fold/all?lock=2" alt="Wash & Fold Laundry" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Wash & Fold Laundry</h3>
+                        <p class="text-gray-600 leading-relaxed">Convenient service for your everyday laundry.<br>Freshly washed, dried, and neatly folded.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/sewing,cloth,tailor/all?lock=3" alt="Clothing Alterations" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Clothing Alterations</h3>
+                        <p class="text-gray-600 leading-relaxed">Expert tailoring for perfect fits.<br>Hemming, resizing, and custom adjustments.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/carpet,clean,steam/all?lock=4" alt="Carpet Cleaning" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Carpet Cleaning</h3>
+                        <p class="text-gray-600 leading-relaxed">Deep steam cleaning for rugs and carpets.<br>Removes dirt, stains, and allergens effectively.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/upholstery,fabric,couch/all?lock=5" alt="Upholstery Cleaning" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Upholstery Cleaning</h3>
+                        <p class="text-gray-600 leading-relaxed">Revive your furniture with gentle cleaning.<br>Sofas, chairs, and cushions looking new.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/wedding,dress,gown/all?lock=6" alt="Wedding Gown Preservation" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Wedding Gown Preservation</h3>
+                        <p class="text-gray-600 leading-relaxed">Specialized care to preserve your gown.<br>Cleaning and archival storage for memories.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-20 flex justify-center">
+                <a href="#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-6 px-16 rounded-full text-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <img src="https://picsum.photos/seed/6654/800/600" alt="Our Team" class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                </div>
+                <div class="w-full lg:w-1/2 max-w-lg">
+                    <h2 class="text-4xl font-bold mb-6 text-gray-900">About Jolly Cleaners</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">Family-owned and operated in Lincoln, NE, we've been making Lincoln spotless for over 20 years. Our team of skilled professionals treats every item like our own, using eco-friendly methods and state-of-the-art equipment. We're more than cleaners—we're your partners in freshness!</p>
+                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by thousands in Lincoln, NE.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="flex mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic leading-relaxed">"Jolly Cleaners transformed my wedding gown! Professional and caring service."</p>
+                    <p class="mt-4 font-semibold text-gray-900">- Sarah M.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="flex mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic leading-relaxed">"Best laundry service in town. Always on time and perfectly folded."</p>
+                    <p class="mt-4 font-semibold text-gray-900">- Mike R.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="flex mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic leading-relaxed">"Carpet looks brand new! Friendly team and great prices."</p>
+                    <p class="mt-4 font-semibold text-gray-900">- Lisa T.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-slate-300">Send us a message for your free quote today.</p>
+            </div>
+            <div class="max-w-md mx-auto">
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold mb-2 text-slate-300">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-5 py-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold mb-2 text-slate-300">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-5 py-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold mb-2 text-slate-300">Phone</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-5 py-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-semibold mb-2 text-slate-300">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-5 py-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-vertical"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 font-bold py-5 px-8 rounded-xl text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/50 border-t border-slate-800 py-12 text-center text-slate-400">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2024 Jolly Cleaners. All rights reserved. | Powered by <a href="#" class="font-semibold text-blue-400 hover:text-blue-300 transition-colors">Cyber Craft Solutions</a></p>
+        </div>
+    </footer>
+</body>
+</html>
