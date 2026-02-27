@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha & Omega Auto Repair - Spokane, WA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center h-16">
+                <div class="flex items-center text-2xl font-bold text-white drop-shadow-lg">
+                    Alpha & Omega Auto Repair
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+             style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Alpha & Omega Auto Repair</h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-90 drop-shadow-lg">Expert Auto Repair Services in Spokane, WA – Keeping You Safe on the Road</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Get Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to your vehicle's needs in Spokane, WA.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Brake Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://loremflickr.com/800/600/brake,repair,car/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Brake Repair</h3>
+                    <p class="text-gray-600 mb-2">Precision brake inspections and repairs for optimal stopping power.</p>
+                    <p class="text-gray-600">Safety first – trusted by Spokane drivers.</p>
+                </div>
+            </div>
+            <!-- Engine Diagnostics -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://picsum.photos/seed/4788/800/600" alt="Engine Diagnostics" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Engine Diagnostics</h3>
+                    <p class="text-gray-600 mb-2">Advanced tools to pinpoint and resolve engine issues quickly.</p>
+                    <p class="text-gray-600">Restore performance with expert analysis.</p>
+                </div>
+            </div>
+            <!-- Oil Changes -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://picsum.photos/seed/6282/800/600" alt="Oil Changes" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Oil Changes</h3>
+                    <p class="text-gray-600 mb-2">Quick, efficient oil changes with premium synthetic options.</p>
+                    <p class="text-gray-600">Extend engine life – fast service in Spokane.</p>
+                </div>
+            </div>
+            <!-- Transmission Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://loremflickr.com/800/600/transmission,repair,auto/all?lock=4" alt="Transmission Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Transmission Repair</h3>
+                    <p class="text-gray-600 mb-2">Reliable transmission rebuilds and repairs for smooth shifting.</p>
+                    <p class="text-gray-600">Get back on the road without delays.</p>
+                </div>
+            </div>
+            <!-- AC Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://loremflickr.com/800/600/ac,repair,car/all?lock=5" alt="AC Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">AC Repair</h3>
+                    <p class="text-gray-600 mb-2">Cool and comfortable rides with fast AC system repairs.</p>
+                    <p class="text-gray-600">Beat the Spokane heat effectively.</p>
+                </div>
+            </div>
+            <!-- Tire Services -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://loremflickr.com/800/600/tire,service,wheel/all?lock=6" alt="Tire Services" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Tire Services</h3>
+                    <p class="text-gray-600 mb-2">Rotations, alignments, and new tires for superior handling.</p>
+                    <p class="text-gray-600">All-season reliability you can trust.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-16 py-6 rounded-full text-2xl font-semibold transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team" class="w-full h-96 object-cover rounded-2xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+            </div>
+            <div class="lg:pl-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">About Alpha & Omega Auto Repair</h2>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">With over 20 years serving Spokane, WA, our family-owned shop delivers honest, reliable auto repair. Our certified mechanics use state-of-the-art equipment to ensure your vehicle runs like new. We treat every car like our own – because trust is the foundation of our business.</p>
+                <p class="text-xl text-gray-600">From brakes to transmissions, we're here for all your automotive needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16">What Our Customers Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4">"Fast, affordable brake repair. My car stops like new!"</p>
+                    <p class="font-semibold">– Sarah T., Spokane</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4">"Engine diagnostics saved me thousands. Highly recommend!"</p>
+                    <p class="font-semibold">– Mike R., Spokane</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4">"Best tire service in town. Friendly and professional."</p>
+                    <p class="font-semibold">– Lisa M., Spokane</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-slate-300">Contact us for a free quote on any service.</p>
+        </div>
+        <form class="max-w-lg mx-auto space-y-6 mb-16" action="#" method="POST">
+            <input type="text" placeholder="Your Name" required class="w-full px-6 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+            <input type="email" placeholder="Your Email" required class="w-full px-6 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+            <input type="tel" placeholder="Your Phone" required class="w-full px-6 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+            <textarea rows="5" placeholder="Your Message" required class="w-full px-6 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-vertical"></textarea>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 px-6 py-4 rounded-xl text-xl font-semibold transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Send Message</button>
+        </form>
+        <footer class="text-center text-slate-400">
+            <p>&copy; 2024 Alpha & Omega Auto Repair. All rights reserved. | Powered by <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Cyber Craft Solutions</a></p>
+        </footer>
+    </section>
+</body>
+</html>
