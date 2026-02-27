@@ -1,152 +1,158 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accurate Auto Repair - Spokane Valley, WA</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased text-gray-800">
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full backdrop-blur-md bg-white/10 border-b border-white/20 z-50">
-        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold text-white drop-shadow-lg">Accurate Auto Repair</a>
-            <ul class="hidden md:flex space-x-8">
-                <li><a href="#services" class="text-white/90 hover:text-white transition">Services</a></li>
-                <li><a href="#about" class="text-white/90 hover:text-white transition">About</a></li>
-                <li><a href="#contact" class="text-white/90 hover:text-white transition">Contact</a></li>
-            </ul>
+    <nav class="fixed top-0 w-full backdrop-blur-md bg-white/20 border-b border-white/20 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="text-2xl font-bold text-white">Accurate Auto Repair</div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative overflow-hidden" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
-        <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-bold mb-8 drop-shadow-2xl leading-tight">Accurate Auto Repair</h1>
-            <p class="text-xl md:text-2xl mb-12 opacity-95 drop-shadow-lg">Your trusted partner for expert auto repair services in Spokane Valley, WA. Reliable, fast, and affordable maintenance for all vehicles.</p>
-            <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-full text-xl md:text-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Free Quote</a>
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center text-white overflow-hidden" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0')">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/60"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Accurate Auto Repair</h1>
+            <p class="text-xl md:text-2xl mb-12 drop-shadow-lg">Your trusted experts for premium auto repair services in Spokane Valley, WA. Fast, reliable, and affordable.</p>
+            <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-xl font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:-translate-y-1">Discover Our Services</a>
         </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="py-32 bg-gray-50">
+    <section id="services" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-20 text-gray-800">Our Services</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <h2 class="text-4xl font-bold text-center mb-20 text-gray-900">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Brake Repair -->
-                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                    <img src="https://loremflickr.com/800/600/brake,car,repair/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
-                    <div class="p-10">
-                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Brake Repair</h3>
-                        <p class="text-lg text-gray-600 mb-3">Expert brake inspections, pad replacement, and rotor resurfacing.</p>
-                        <p class="text-lg text-gray-600">Ensuring safe, reliable stopping power every time.</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/brake,repair,car/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Brake Repair</h3>
+                        <p class="text-lg mb-2">Expert inspection and replacement of pads, rotors, and calipers.</p>
+                        <p class="text-lg">Ensuring safe stopping power for your vehicle.</p>
                     </div>
                 </div>
                 <!-- Engine Diagnostics -->
-                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                    <img src="https://picsum.photos/seed/4267/800/600" alt="Engine Diagnostics" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
-                    <div class="p-10">
-                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Engine Diagnostics</h3>
-                        <p class="text-lg text-gray-600 mb-3">Advanced tools for pinpointing engine issues quickly.</p>
-                        <p class="text-lg text-gray-600">Accurate diagnostics to save time and money.</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/7201/400/300" alt="Engine Diagnostics" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Engine Diagnostics</h3>
+                        <p class="text-lg mb-2">Advanced tools to pinpoint engine issues quickly.</p>
+                        <p class="text-lg">Restore performance with precise repairs.</p>
                     </div>
                 </div>
                 <!-- Oil Changes -->
-                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                    <img src="https://picsum.photos/seed/109/800/600" alt="Oil Changes" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
-                    <div class="p-10">
-                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Oil Changes</h3>
-                        <p class="text-lg text-gray-600 mb-3">Quick service with premium synthetic oils.</p>
-                        <p class="text-lg text-gray-600">Keep your engine running smoothly longer.</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/7504/400/300" alt="Oil Changes" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Oil Changes</h3>
+                        <p class="text-lg mb-2">Quick and efficient oil changes with premium synthetic options.</p>
+                        <p class="text-lg">Keep your engine running smoothly longer.</p>
                     </div>
                 </div>
                 <!-- Transmission Repair -->
-                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                    <img src="https://picsum.photos/seed/8531/800/600" alt="Transmission Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
-                    <div class="p-10">
-                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Transmission Repair</h3>
-                        <p class="text-lg text-gray-600 mb-3">Full rebuilds and repairs for smooth performance.</p>
-                        <p class="text-lg text-gray-600">Expert care for automatic and manual systems.</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/transmission,repair,auto/all?lock=4" alt="Transmission Repair" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Transmission Repair</h3>
+                        <p class="text-lg mb-2">Comprehensive transmission diagnostics and rebuilds.</p>
+                        <p class="text-lg">Reliable shifts and extended transmission life.</p>
                     </div>
                 </div>
                 <!-- AC Repair -->
-                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                    <img src="https://picsum.photos/seed/4057/800/600" alt="AC Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
-                    <div class="p-10">
-                        <h3 class="text-3xl font-bold mb-6 text-gray-800">AC Repair</h3>
-                        <p class="text-lg text-gray-600 mb-3">Recharge, diagnostics, and full system repairs.</p>
-                        <p class="text-lg text-gray-600">Stay comfortable in Spokane Valley heat.</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/air,conditioner,car/all?lock=5" alt="AC Repair" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">AC Repair</h3>
+                        <p class="text-lg mb-2">Cool and efficient AC system repairs and recharges.</p>
+                        <p class="text-lg">Stay comfortable year-round.</p>
                     </div>
                 </div>
                 <!-- Tire Services -->
-                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                    <img src="https://loremflickr.com/800/600/tire,wheel,car/all?lock=6" alt="Tire Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
-                    <div class="p-10">
-                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Tire Services</h3>
-                        <p class="text-lg text-gray-600 mb-3">Rotations, balancing, alignments, and replacements.</p>
-                        <p class="text-lg text-gray-600">Maximize traction and vehicle safety.</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/1835/400/300" alt="Tire Services" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Tire Services</h3>
+                        <p class="text-lg mb-2">Rotations, balancing, alignments, and new tire installations.</p>
+                        <p class="text-lg">Optimal traction and handling guaranteed.</p>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-24">
-                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-16 py-6 rounded-full text-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Your Free Quote</a>
+            <div class="text-center mt-20">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-xl font-semibold text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:-translate-y-1 inline-block">Get Your Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="py-32">
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team" class="w-full h-96 object-cover rounded-3xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
-                <div class="lg:pl-12">
-                    <h2 class="text-5xl font-bold mb-8 text-gray-800">About Accurate Auto Repair</h2>
-                    <p class="text-xl text-gray-600 leading-relaxed mb-8">Family-owned and operated in Spokane Valley, WA, we've been keeping vehicles running smoothly for over 20 years. Our certified mechanics use cutting-edge diagnostics and genuine parts to deliver honest, high-quality repairs. We treat every car like it's our own, with transparent pricing and no surprises.</p>
-                    <p class="text-xl text-gray-600">From routine maintenance to complex repairs, trust us to get you back on the road safely and swiftly.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team" class="w-full h-96 object-cover rounded-2xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-gray-900">About Accurate Auto Repair</h2>
+                    <p class="text-xl leading-relaxed text-gray-700 mb-8">For over 20 years, we've been the go-to auto repair shop in Spokane Valley, WA. Our certified mechanics use state-of-the-art equipment to deliver honest, high-quality service you can trust. We treat every vehicle like our own, ensuring your satisfaction every time.</p>
+                    <p class="text-xl leading-relaxed text-gray-700">Family-owned and community-focused, we're committed to keeping Spokane Valley drivers safe on the road.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="py-32 bg-gray-100">
+    <section class="py-24 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-20 text-gray-800">What Our Customers Say</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="flex text-3xl text-yellow-400 mb-6">★★★★★</div>
-                    <p class="text-xl text-gray-700 mb-6 leading-relaxed">"Best auto shop in Spokane Valley! Fixed my brakes fast and affordably."</p>
-                    <span class="font-semibold text-gray-800">- Sarah D.</span>
+            <h2 class="text-4xl font-bold text-center mb-20 text-gray-900">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-2xl">★★★★★</div>
+                    <p class="text-lg italic mb-6">"Fantastic service! Fixed my brakes quickly and affordably. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">- Sarah J.</p>
                 </div>
-                <div class="bg-white p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="flex text-3xl text-yellow-400 mb-6">★★★★★</div>
-                    <p class="text-xl text-gray-700 mb-6 leading-relaxed">"Quick oil change with premium service. Highly recommend!"</p>
-                    <span class="font-semibold text-gray-800">- Mike R.</span>
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-2xl">★★★★★</div>
+                    <p class="text-lg italic mb-6">"Engine diagnostics were spot on. Saved me from a major repair bill."</p>
+                    <p class="font-semibold text-gray-900">- Mike T.</p>
                 </div>
-                <div class="bg-white p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div class="flex text-3xl text-yellow-400 mb-6">★★★★★</div>
-                    <p class="text-xl text-gray-700 mb-6 leading-relaxed">"Transmission repair was flawless. Honest and professional team."</p>
-                    <span class="font-semibold text-gray-800">- Lisa K.</span>
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-2xl">★★★★★</div>
+                    <p class="text-lg italic mb-6">"Best tire service in Spokane Valley. Professional and fast!"</p>
+                    <p class="font-semibold text-gray-900">- Lisa R.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact + Footer -->
-    <section id="contact" class="py-32 bg-slate-900 text-white">
+    <section id="contact" class="bg-slate-900 text-white py-24">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-20">Get In Touch</h2>
-            <form class="max-w-lg mx-auto space-y-6 mb-20" action="#" method="POST">
-                <input type="text" placeholder="Your Name" class="w-full p-6 text-lg rounded-xl bg-slate-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition">
-                <input type="email" placeholder="Your Email" class="w-full p-6 text-lg rounded-xl bg-slate-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition">
-                <input type="tel" placeholder="Your Phone" class="w-full p-6 text-lg rounded-xl bg-slate-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition">
-                <textarea placeholder="Your Message" rows="6" class="w-full p-6 text-lg rounded-xl bg-slate-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition resize-vertical"></textarea>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-6 text-xl rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-2xl">Send Message</button>
-            </form>
-            <div class="text-center space-y-4 text-slate-400">
-                <p>Spokane Valley, WA</p>
-                <p class="text-sm">&copy; 2024 Accurate Auto Repair. Powered by <a href="#" class="hover:text-blue-400 font-semibold">Cyber Craft Solutions</a>.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
+                    <p class="text-xl mb-8">Ready for reliable auto repair? Contact us today for a free quote.</p>
+                    <div class="space-y-4 text-lg">
+                        <p><strong>Location:</strong> Spokane Valley, WA</p>
+                        <p><strong>Phone:</strong> (509) 123-4567</p>
+                        <p><strong>Email:</strong> info@accurateautorepair.com</p>
+                    </div>
+                </div>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Your Name" class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <input type="email" placeholder="Your Email" class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <input type="tel" placeholder="Your Phone" class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <textarea rows="5" placeholder="Your Message" class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"></textarea>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-xl font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:-translate-y-1">Send Message</button>
+                </form>
+            </div>
+            <div class="text-center mt-20 pt-12 border-t border-slate-800">
+                <p class="text-lg">&copy; 2024 Accurate Auto Repair. Powered by <strong>Cyber Craft Solutions</strong>.</p>
             </div>
         </div>
     </section>
