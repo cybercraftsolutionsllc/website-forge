@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob's Radiator & Auto Repair - Springfield, MO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white/20 backdrop-blur-md border-b border-white/20 z-50 supports-[backdrop-filter:blur()]:bg-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">Bob's Radiator & Auto Repair</h1>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 drop-shadow-2xl leading-tight">Bob's Radiator & Auto Repair</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 drop-shadow-lg leading-relaxed">Premier auto repair services in Springfield, MO. Keeping your vehicle running smoothly with expert care.</p>
+            <a href="#services" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl">Discover Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-gray-50 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-800">Our Expert Services</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to your needs in Springfield, MO.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://loremflickr.com/800/600/brake,pad,car/all?lock=1" alt="Brake Repair" class="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Brake Repair</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Precision brake inspections and replacements.</p>
+                        <p class="text-gray-600 leading-relaxed">Safety first with certified technicians.</p>
+                    </div>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://picsum.photos/seed/9403/800/600" alt="Engine Diagnostics" class="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Engine Diagnostics</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Advanced scanning for engine issues.</p>
+                        <p class="text-gray-600 leading-relaxed">Quick and accurate problem resolution.</p>
+                    </div>
+                </div>
+                <!-- Oil Changes -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://picsum.photos/seed/9612/800/600" alt="Oil Changes" class="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Oil Changes</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Fast, efficient oil and filter service.</p>
+                        <p class="text-gray-600 leading-relaxed">Extend your engine's life today.</p>
+                    </div>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://loremflickr.com/800/600/transmission,repair,auto/all?lock=4" alt="Transmission Repair" class="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Transmission Repair</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Reliable transmission diagnostics and fixes.</p>
+                        <p class="text-gray-600 leading-relaxed">Smooth shifting guaranteed.</p>
+                    </div>
+                </div>
+                <!-- AC Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://loremflickr.com/800/600/ac,repair,car/all?lock=5" alt="AC Repair" class="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">AC Repair</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Cool and comfortable climate control.</p>
+                        <p class="text-gray-600 leading-relaxed">Recharge and repair your AC system.</p>
+                    </div>
+                </div>
+                <!-- Tire Services -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://loremflickr.com/800/600/tire,service,wheel/all?lock=6" alt="Tire Services" class="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Tire Services</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Rotations, balancing, and replacements.</p>
+                        <p class="text-gray-600 leading-relaxed">Optimal performance for every mile.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-16 py-8 rounded-3xl text-2xl font-black transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 md:py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Dedicated Team" class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                </div>
+                <div class="order-1 lg:order-2 text-center lg:text-left">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-800">About Bob's Radiator & Auto Repair</h2>
+                    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">For over 25 years, we've been Springfield, MO's go-to for honest, family-owned auto repair. Our ASE-certified mechanics treat your vehicle like our own, using cutting-edge tools for reliable results every time.</p>
+                    <p class="text-lg text-gray-500">Fast service, fair prices, and a lifetime guarantee on workmanship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 md:py-32 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-800">Loved by Our Customers</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Real stories from Springfield drivers just like you.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-4xl mb-6">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed italic">"Bob's team fixed my brakes same day. Honest, fast, and affordable. Highly recommend!"</p>
+                    <span class="font-bold text-gray-800 block">- Sarah M., Springfield</span>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-4xl mb-6">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed italic">"Transmission repair was flawless. They've earned my business for life."</p>
+                    <span class="font-bold text-gray-800 block">- Mike R., Springfield</span>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-4xl mb-6">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed italic">"AC fixed in under an hour during a heatwave. True professionals!"</p>
+                    <span class="font-bold text-gray-800 block">- Lisa T., Springfield</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Ready for Reliable Repairs?</h2>
+                <p class="text-xl text-slate-300">Contact us today for your free quote in Springfield, MO.</p>
+            </div>
+            <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg">
+                <input type="email" name="email" placeholder="Your Email" required class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg">
+                <input type="tel" name="phone" placeholder="Your Phone" required class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg">
+                <textarea name="message" rows="6" placeholder="Tell us about your vehicle..." required class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 p-6 rounded-2xl font-black text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl">Request Free Quote</button>
+            </form>
+            <div class="text-center mt-20 pt-12 border-t border-slate-800 text-sm text-slate-400">
+                <p>&copy; 2024 Bob's Radiator & Auto Repair. All rights reserved.</p>
+                <p class="mt-2">Powered by <span class="font-bold text-blue-400">Cyber Craft Solutions</span></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
