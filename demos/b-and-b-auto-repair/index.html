@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B & B Auto Repair | Premier Auto Repair in Peoria, IL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/20 border-b border-white/30 supports-[backdrop-filter:blur()]:bg-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">B & B Auto Repair</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300">Services</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 py-20">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">B & B Auto Repair</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-95 drop-shadow-lg max-w-2xl mx-auto">Your trusted partner for expert auto repair services in Peoria, IL. Fast, reliable, and affordable maintenance for all vehicles.</p>
+            <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold py-4 px-8 rounded-full text-lg shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to keep your vehicle running smoothly.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/brake,car,mechanic/all?lock=1" alt="Brake Repair" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Brake Repair</h3>
+                        <p class="text-gray-600 mb-2">Expert inspection and replacement of brake pads, rotors, and calipers.</p>
+                        <p class="text-gray-600">Ensuring safe stopping power for your vehicle.</p>
+                    </div>
+                </div>
+                <!-- Oil Changes -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/oil,change,car/all?lock=2" alt="Oil Changes" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Oil Changes</h3>
+                        <p class="text-gray-600 mb-2">Quick and efficient oil changes with premium synthetic options.</p>
+                        <p class="text-gray-600">Extend engine life with regular maintenance.</p>
+                    </div>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/8510/400/300" alt="Engine Diagnostics" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Engine Diagnostics</h3>
+                        <p class="text-gray-600 mb-2">Advanced computer diagnostics to identify engine issues quickly.</p>
+                        <p class="text-gray-600">Precise repairs to get you back on the road.</p>
+                    </div>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/9702/400/300" alt="Transmission Repair" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Transmission Repair</h3>
+                        <p class="text-gray-600 mb-2">Full transmission rebuilds and fluid services for smooth shifting.</p>
+                        <p class="text-gray-600">Reliable performance for all drivetrains.</p>
+                    </div>
+                </div>
+                <!-- AC Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/air,conditioner,car/all?lock=5" alt="AC Repair" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">AC Repair</h3>
+                        <p class="text-gray-600 mb-2">Recharge and repair your vehicle's air conditioning system.</p>
+                        <p class="text-gray-600">Stay cool in Peoria summers.</p>
+                    </div>
+                </div>
+                <!-- Tire Services -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/tire,wheel,auto/all?lock=6" alt="Tire Services" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Tire Services</h3>
+                        <p class="text-gray-600 mb-2">Tire rotations, balancing, alignments, and replacements.</p>
+                        <p class="text-gray-600">Optimal traction and handling year-round.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold py-4 px-12 rounded-full text-xl shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team at B & B Auto Repair" class="rounded-3xl shadow-2xl w-full h-auto max-h-[500px] object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                </div>
+                <div class="space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">About B & B Auto Repair</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">Located in the heart of Peoria, IL, B & B Auto Repair has been serving the community for over 20 years with unwavering dedication to quality craftsmanship and customer satisfaction. Our certified mechanics use state-of-the-art equipment to diagnose and repair your vehicle right the first time. We treat every car like our own, providing honest advice and transparent pricing. Whether it's routine maintenance or major repairs, we're here to keep you safe on the road.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by thousands of satisfied drivers in Peoria.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-xl border border-blue-100">
+                    <div class="flex mb-4">
+                        <div class="flex text-yellow-400 text-xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-700 italic">"Fast, friendly, and fair. Fixed my brakes in no time and at a great price!"</p>
+                    <p class="font-semibold mt-4 text-gray-900">- Sarah M., Peoria</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-xl border border-blue-100">
+                    <div class="flex mb-4">
+                        <div class="flex text-yellow-400 text-xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-700 italic">"Best auto shop in town. My AC is blowing cold again thanks to their experts!"</p>
+                    <p class="font-semibold mt-4 text-gray-900">- Mike D., Peoria</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-xl border border-blue-100">
+                    <div class="flex mb-4">
+                        <div class="flex text-yellow-400 text-xl">★★★★★</div>
+                    </div>
+                    <p class="text-gray-700 italic">"Professional team and honest service. Highly recommend for all tire needs."</p>
+                    <p class="font-semibold mt-4 text-gray-900">- Lisa R., Peoria</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section + Footer -->
+    <section id="contact" class="bg-slate-900 text-white py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-slate-300">Contact us today for a free quote on any service.</p>
+            </div>
+            <form class="max-w-2xl mx-auto space-y-6" action="#" method="POST">
+                <div>
+                    <label for="name" class="block text-sm font-medium mb-2 text-slate-300">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-2 text-slate-300">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium mb-2 text-slate-300">Phone</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-2 text-slate-300">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold py-4 px-8 rounded-xl text-lg shadow-2xl hover:shadow-3xl transition-all duration-300">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-slate-800">
+                <p class="text-slate-400">&copy; 2024 B & B Auto Repair, Peoria, IL. All rights reserved.</p>
+                <p class="text-slate-500 mt-2 text-sm">Powered by <a href="#" class="font-semibold hover:text-blue-400 transition-colors">Cyber Craft Solutions</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
