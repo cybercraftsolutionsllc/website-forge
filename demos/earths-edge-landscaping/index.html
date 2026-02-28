@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth's Edge Landscaping - Madison, WI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-800 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white drop-shadow-lg">Earth's Edge Landscaping</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://loremflickr.com/1920/1080/landscaping,business/all?lock=0');">
+        <img src="https://loremflickr.com/1920/1080/landscaping,business/all?lock=0" alt="Landscaping Hero" class="hidden" onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Earth's Edge Landscaping</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg">Transforming outdoor spaces with expert landscaping services in Madison, WI. From design to maintenance, we bring your vision to life.</p>
+            <a href="#contact" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:-translate-y-1">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive landscaping solutions tailored to your needs in Madison, WI.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Landscape Design -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/landscape,design,garden/all?lock=1" alt="Landscape Design" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Landscape Design</h3>
+                        <p class="text-gray-600 mb-2">Custom designs that blend beauty and functionality.</p>
+                        <p class="text-gray-600">Bring your outdoor vision to life with our expert team.</p>
+                    </div>
+                </div>
+                <!-- Lawn Maintenance -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/lawn,mower,grass/all?lock=2" alt="Lawn Maintenance" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Lawn Maintenance</h3>
+                        <p class="text-gray-600 mb-2">Regular care for a lush, healthy lawn year-round.</p>
+                        <p class="text-gray-600">Mowing, fertilizing, and weed control included.</p>
+                    </div>
+                </div>
+                <!-- Hardscaping -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/stone,path,patio/all?lock=3" alt="Hardscaping" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Hardscaping</h3>
+                        <p class="text-gray-600 mb-2">Durable stonework, patios, and retaining walls.</p>
+                        <p class="text-gray-600">Enhance your landscape with timeless structures.</p>
+                    </div>
+                </div>
+                <!-- Tree Trimming -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/tree,prune,branch/all?lock=4" alt="Tree Trimming" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Tree Trimming</h3>
+                        <p class="text-gray-600 mb-2">Professional pruning for healthy, safe trees.</p>
+                        <p class="text-gray-600">Expert care to promote growth and safety.</p>
+                    </div>
+                </div>
+                <!-- Irrigation Installation -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img src="https://loremflickr.com/800/600/irrigation,sprinkler,water/all?lock=5" alt="Irrigation Installation" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Irrigation Installation</h3>
+                        <p class="text-gray-600 mb-2">Efficient systems for optimal watering.</p>
+                        <p class="text-gray-600">Save water and keep your landscape thriving.</p>
+                    </div>
+                </div>
+                <!-- Mulch Installation -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/8513/800/600" alt="Mulch Installation" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Mulch Installation</h3>
+                        <p class="text-gray-600 mb-2">Fresh mulch for weed control and moisture.</p>
+                        <p class="text-gray-600">Professional application for stunning beds.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-6 px-12 rounded-full text-xl transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:-translate-y-1">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div class="lg:order-2">
+                <img src="https://picsum.photos/seed/7618/800/600" alt="Our Team" class="w-full h-96 object-cover rounded-2xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+            </div>
+            <div class="lg:order-1 mt-12 lg:mt-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Earth's Edge Landscaping</h2>
+                <p class="text-xl text-gray-600 leading-relaxed">Serving Madison, WI, and surrounding areas, Earth's Edge Landscaping is your trusted partner for creating breathtaking outdoor spaces. With years of experience and a passion for nature, our dedicated team delivers exceptional results that enhance your property's beauty and value. We prioritize quality, sustainability, and customer satisfaction in every project.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Clients Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-2xl">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Transformed our backyard into a paradise! Professional and timely."</p>
+                    <p class="font-bold text-gray-900">- Sarah J., Madison</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-2xl">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Outstanding lawn care service. Our yard has never looked better."</p>
+                    <p class="font-bold text-gray-900">- Mike T., Madison</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-2xl">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Hardscaping project exceeded expectations. Highly recommend!"</p>
+                    <p class="font-bold text-gray-900">- Emily R., Madison</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
+            <p class="text-xl text-slate-300">Get in touch for a free quote today.</p>
+        </div>
+        <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+            <input type="text" placeholder="Your Name" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-green-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300">
+            <input type="email" placeholder="Your Email" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-green-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300">
+            <input type="tel" placeholder="Your Phone" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-green-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300">
+            <textarea rows="5" placeholder="Your Message" required class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-green-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300 resize-vertical"></textarea>
+            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 font-bold py-4 px-8 rounded-xl text-xl transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:-translate-y-1">Send Message</button>
+        </form>
+        <div class="mt-16 pt-12 border-t border-slate-800 text-center">
+            <p class="text-slate-400">&copy; 2024 Earth's Edge Landscaping. All rights reserved. | Powered by <a href="#" class="font-bold hover:text-green-400 transition-colors">Cyber Craft Solutions</a></p>
+        </div>
+    </section>
+</body>
+</html>
