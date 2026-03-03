@@ -251,6 +251,38 @@ function phaseBuild(config, biz) {
         return { html: '', error: 'Generated HTML failed validation. Try again.' };
     }
 
+    // Server-side: check each loremflickr URL and swap defaults with picsum
+    html = html.replace(/(https:\/\/loremflickr\.com\/[^"'\s]+)/gi, function (url) {
+        try {
+            // Don't follow redirects — we need to see WHERE it redirects to
+            var res = UrlFetchApp.fetch(url, { followRedirects: false, muteHttpExceptions: true });
+            var code = res.getResponseCode();
+            var location = '';
+            try { location = res.getHeaders()['Location'] || ''; } catch (e2) { }
+            if (!location) try { location = res.getHeaders()['location'] || ''; } catch (e3) { }
+
+            // LoremFlickr redirects to the actual image URL — check if it's the default
+            var isDefault = (location.indexOf('defaultImage') > -1) ||
+                (code >= 400) ||
+                (code === 200 && res.getContentText().substring(0, 500).indexOf('defaultImage') > -1);
+
+            if (isDefault) {
+                var dims = url.match(/loremflickr\.com\/(\d+)\/(\d+)/);
+                var w = dims ? dims[1] : '800';
+                var h = dims ? dims[2] : '600';
+                var seed = Math.floor(Math.random() * 10000);
+                console.log('Swapped default loremflickr → picsum (seed ' + seed + ')');
+                return 'https://picsum.photos/seed/' + seed + '/' + w + '/' + h;
+            }
+        } catch (e) {
+            var dims2 = url.match(/loremflickr\.com\/(\d+)\/(\d+)/);
+            var w2 = dims2 ? dims2[1] : '800';
+            var h2 = dims2 ? dims2[2] : '600';
+            return 'https://picsum.photos/seed/' + Math.floor(Math.random() * 10000) + '/' + w2 + '/' + h2;
+        }
+        return url;
+    });
+
     return { html: html, error: null };
 }
 
@@ -427,11 +459,14 @@ function buildPlainTextMessage(config, biz, liveUrl) {
 }
 
 /**
- * Short SMS message — concise, no raw payment links.
+ * Short SMS message — concise, includes domain if available.
  */
 function buildSmsMessage(config, biz, liveUrl) {
+    var domain = biz.suggested_domain || '';
+    var domainNote = domain ? ' Includes 1 year of ' + domain + '.' : '';
     return 'Hi! I noticed ' + biz.business_name + ' doesn\'t have a website yet, so I built you a free demo: ' +
-        liveUrl + ' — It\'s yours for $199, one-time. Reply YES for details or STOP to opt out. - Cyber Craft Solutions';
+        liveUrl + ' — It\'s yours for $199, one-time.' + domainNote +
+        ' Reply YES for details or STOP to opt out. - Cyber Craft Solutions';
 }
 
 // ============================================================
