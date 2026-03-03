@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northeast Auto Service - Expert Auto Repair in Rockford, IL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white drop-shadow-lg">Northeast Auto Service</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center text-white px-4" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90"></div>
+        <div class="relative z-10 max-w-4xl mx-auto py-20">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl leading-tight">Northeast Auto Service</h1>
+            <p class="text-xl md:text-2xl mb-12 font-medium drop-shadow-lg max-w-2xl mx-auto">Your trusted partner for expert auto repair services in Rockford, IL. Fast, reliable, and affordable.</p>
+            <a href="#services" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to keep you safe on the road.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/brake,repair,car/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Brake Repair</h3>
+                        <p class="text-gray-600 mb-2">Expert inspection and replacement of brake pads, rotors, and calipers.</p>
+                        <p class="text-gray-600">Ensuring your stopping power is always reliable.</p>
+                    </div>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/3715/400/300" alt="Engine Diagnostics" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Engine Diagnostics</h3>
+                        <p class="text-gray-600 mb-2">Advanced tools to pinpoint engine issues quickly and accurately.</p>
+                        <p class="text-gray-600">Get back on the road faster with precise repairs.</p>
+                    </div>
+                </div>
+                <!-- Oil Changes -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/oil,change,mechanic/all?lock=3" alt="Oil Changes" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Oil Changes</h3>
+                        <p class="text-gray-600 mb-2">Quick and efficient oil changes with premium synthetic options.</p>
+                        <p class="text-gray-600">Extend your engine's life with regular maintenance.</p>
+                    </div>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/transmission,repair,car/all?lock=4" alt="Transmission Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Transmission Repair</h3>
+                        <p class="text-gray-600 mb-2">Specialized repair and rebuild services for all transmission types.</p>
+                        <p class="text-gray-600">Smooth shifting and long-lasting performance guaranteed.</p>
+                    </div>
+                </div>
+                <!-- AC Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/ac,repair,car/all?lock=5" alt="AC Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">AC Repair</h3>
+                        <p class="text-gray-600 mb-2">Cool and comfortable rides with fast AC system diagnostics and fixes.</p>
+                        <p class="text-gray-600">Recharge, repair, or replace – we've got you covered.</p>
+                    </div>
+                </div>
+                <!-- Tire Services -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/400/300/tire,service,car/all?lock=6" alt="Tire Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Tire Services</h3>
+                        <p class="text-gray-600 mb-2">Rotation, balancing, alignment, and new tire installation.</p>
+                        <p class="text-gray-600">Safe handling and maximum tire longevity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-16 py-8 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-32 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team" class="w-full h-96 object-cover rounded-3xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                </div>
+                <div class="lg:pl-12">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">About Us</h2>
+                    <p class="text-xl text-gray-700 leading-relaxed mb-8">At Northeast Auto Service, we've been proudly serving the Rockford, IL community for over 20 years. Our certified mechanics bring expertise and passion to every job, using state-of-the-art equipment to deliver repairs that last. We treat your vehicle like our own – with honesty, care, and unbeatable value.</p>
+                    <p class="text-lg text-gray-600">Family-owned and operated, we're committed to building lasting relationships with our customers through transparent service and exceptional results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by thousands of satisfied drivers in Rockford.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-gray-50 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-center mb-4 text-2xl text-yellow-400">★★★★★</div>
+                    <p class="text-gray-700 italic mb-6">"Fast, friendly, and fixed my transmission perfectly. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">- Sarah M.</p>
+                </div>
+                <div class="text-center p-8 bg-gray-50 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-center mb-4 text-2xl text-yellow-400">★★★★★</div>
+                    <p class="text-gray-700 italic mb-6">"Best oil change service around. Clean shop and great prices."</p>
+                    <p class="font-semibold text-gray-900">- Mike R.</p>
+                </div>
+                <div class="text-center p-8 bg-gray-50 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-center mb-4 text-2xl text-yellow-400">★★★★★</div>
+                    <p class="text-gray-700 italic mb-6">"AC repair done right the first time. Cool and comfortable now!"</p>
+                    <p class="font-semibold text-gray-900">- Lisa T.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-slate-900 text-white">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Ready to Get Started?</h2>
+            <p class="text-xl mb-12 text-gray-300">Contact us today for a free quote on any service.</p>
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <input type="text" name="name" placeholder="Your Name" required class="w-full px-6 py-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300">
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Your Email" required class="w-full px-6 py-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300">
+                </div>
+                <div>
+                    <input type="tel" name="phone" placeholder="Your Phone" required class="w-full px-6 py-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300">
+                </div>
+                <div>
+                    <textarea name="message" rows="5" placeholder="Tell us about your vehicle or service needed" required class="w-full px-6 py-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-12 py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-lg">&copy; 2024 Northeast Auto Service. All rights reserved. | Powered by <a href="#" class="font-semibold hover:text-blue-400 transition-colors">Cyber Craft Solutions</a></p>
+        </div>
+    </footer>
+</body>
+</html>

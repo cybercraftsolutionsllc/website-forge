@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack's Auto Repair - Spokane, WA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/10 border-b border-white/20">
+        <div class="container mx-auto px-6 py-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">Jack's Auto Repair</h1>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <img 
+            src="https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0" 
+            alt="Auto repair hero" 
+            class="absolute inset-0 w-full h-full object-cover"
+            onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';"
+        >
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 drop-shadow-2xl leading-tight">Jack's Auto Repair</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 opacity-90 leading-relaxed">Your trusted partner for expert auto repair services in Spokane, WA. Reliable, fast, and affordable.</p>
+            <a href="#services" class="inline-block bg-blue-600 hover:bg-blue-700 transition-all duration-300 px-12 py-6 rounded-2xl text-xl font-semibold shadow-2xl hover:shadow-3xl hover:-translate-y-1">Discover Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-800">Our Services</h2>
+            <p class="text-xl text-center text-gray-600 mb-20 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to keep you driving safely.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 overflow-hidden">
+                    <img 
+                        src="https://loremflickr.com/800/600/brake,repair,car/all?lock=1" 
+                        alt="Brake Repair" 
+                        class="w-full h-64 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Brake Repair</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Expert inspections and repairs for optimal stopping power.</p>
+                    <p class="text-gray-600 leading-relaxed">Safety first—fast, precise service you can trust.</p>
+                </div>
+                <!-- Oil Changes -->
+                <div class="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 overflow-hidden">
+                    <img 
+                        src="https://loremflickr.com/800/600/oil,change,mechanic/all?lock=2" 
+                        alt="Oil Changes" 
+                        class="w-full h-64 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Oil Changes</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Quick, efficient oil changes with premium lubricants.</p>
+                    <p class="text-gray-600 leading-relaxed">Extend engine life with our routine maintenance.</p>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 overflow-hidden">
+                    <img 
+                        src="https://picsum.photos/seed/1310/800/600" 
+                        alt="Engine Diagnostics" 
+                        class="w-full h-64 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Engine Diagnostics</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Advanced tools pinpoint issues before they escalate.</p>
+                    <p class="text-gray-600 leading-relaxed">Accurate diagnostics save time and money.</p>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 overflow-hidden">
+                    <img 
+                        src="https://loremflickr.com/800/600/transmission,repair,car/all?lock=4" 
+                        alt="Transmission Repair" 
+                        class="w-full h-64 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Transmission Repair</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Reliable fixes for smooth shifting performance.</p>
+                    <p class="text-gray-600 leading-relaxed">Expert care for all transmission types.</p>
+                </div>
+                <!-- Tire Services -->
+                <div class="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 overflow-hidden">
+                    <img 
+                        src="https://loremflickr.com/800/600/tire,service,wheel/all?lock=5" 
+                        alt="Tire Services" 
+                        class="w-full h-64 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Tire Services</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Rotations, balancing, and replacements done right.</p>
+                    <p class="text-gray-600 leading-relaxed">Maximize traction and tire longevity.</p>
+                </div>
+                <!-- AC Repair -->
+                <div class="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 overflow-hidden">
+                    <img 
+                        src="https://loremflickr.com/800/600/ac,repair,car/all?lock=6" 
+                        alt="AC Repair" 
+                        class="w-full h-64 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">AC Repair</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Cool, comfortable rides with fast AC fixes.</p>
+                    <p class="text-gray-600 leading-relaxed">Recharge and repair for year-round comfort.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300 px-16 py-8 rounded-3xl text-2xl font-bold shadow-2xl hover:shadow-3xl hover:-translate-y-2">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="py-24 md:py-32">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <img 
+                    src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" 
+                    alt="Our Team" 
+                    class="w-full h-96 object-cover rounded-3xl shadow-2xl lg:order-2"
+                    onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                >
+                <div class="lg:order-1 space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-800">About Jack's Auto Repair</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed">Family-owned and operated for over 20 years in Spokane, WA, Jack's Auto Repair is your go-to shop for honest, reliable service. Our certified mechanics use state-of-the-art tools to diagnose and fix any issue, big or small. We treat every vehicle like our own, delivering quality workmanship with a smile.</p>
+                    <p class="text-xl text-gray-600 leading-relaxed">Customer satisfaction is our top priority—join thousands of happy drivers who've trusted us to keep them on the road safely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 md:py-32 bg-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-20 text-gray-800">What Our Customers Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-4 italic">"Jack's fixed my transmission in one day—fair price, excellent service!"</p>
+                    <p class="font-semibold text-gray-800">Sarah M., Spokane</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-4 italic">"Best oil change experience ever. Clean shop, friendly staff."</p>
+                    <p class="font-semibold text-gray-800">Mike R., Spokane</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-4 italic">"AC repair was quick and my car is ice cold again. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-800">Lisa T., Spokane</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-slate-900 text-white">
+        <div class="container mx-auto px-6 max-w-lg">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-12">Get In Touch</h2>
+            <p class="text-xl text-center text-slate-300 mb-12">Ready for reliable auto repair? Request your free quote today.</p>
+            <form class="space-y-6">
+                <input type="text" placeholder="Your Name" class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300" required>
+                <input type="email" placeholder="Your Email" class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300" required>
+                <input type="tel" placeholder="Your Phone" class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300" required>
+                <textarea rows="5" placeholder="Your Message" class="w-full p-6 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 resize-vertical" required></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 p-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all duration-300">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-slate-800 text-sm opacity-75">
+                Powered by Cyber Craft Solutions
+            </div>
+        </div>
+    </section>
+</body>
+</html>

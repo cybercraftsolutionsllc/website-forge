@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pat's Service Center - Auto Repair in Spokane, WA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white drop-shadow-lg">Pat's Service Center</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50"></div>
+        <div class="relative min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl leading-tight">
+                    Pat's Service Center
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Expert auto repair services in Spokane, WA. Trusted for brakes, oil changes, engines, transmissions, tires, and exhaust.
+                </p>
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-6 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                    Get Your Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to keep you safe on the road.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Brake Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <img src="https://loremflickr.com/500/300/brake,car,repair/all?lock=1" alt="Brake Repair" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Brake Repair</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Precision brake inspections and repairs for optimal stopping power.</p>
+                    <p class="text-gray-600 leading-relaxed">Safety first—pad and rotor replacements you can trust.</p>
+                </div>
+            </div>
+            <!-- Oil Changes -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <img src="https://loremflickr.com/500/300/oil,change,mechanic/all?lock=2" alt="Oil Changes" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Oil Changes</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Quick, efficient oil changes with premium synthetic options.</p>
+                    <p class="text-gray-600 leading-relaxed">Extend engine life with our maintenance expertise.</p>
+                </div>
+            </div>
+            <!-- Engine Diagnostics -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <img src="https://picsum.photos/seed/4628/500/300" alt="Engine Diagnostics" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Engine Diagnostics</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Advanced tools pinpoint issues before they escalate.</p>
+                    <p class="text-gray-600 leading-relaxed">Accurate scans for peak performance restoration.</p>
+                </div>
+            </div>
+            <!-- Transmission Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <img src="https://picsum.photos/seed/966/500/300" alt="Transmission Repair" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Transmission Repair</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Expert transmission rebuilds and fluid services.</p>
+                    <p class="text-gray-600 leading-relaxed">Smooth shifting guaranteed with certified techs.</p>
+                </div>
+            </div>
+            <!-- Tire Services -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <img src="https://loremflickr.com/500/300/tire,wheel,car/all?lock=5" alt="Tire Services" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Tire Services</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Rotations, balances, and new tire installations.</p>
+                    <p class="text-gray-600 leading-relaxed">Top brands for superior grip and longevity.</p>
+                </div>
+            </div>
+            <!-- Exhaust Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <img src="https://loremflickr.com/500/300/exhaust,pipe,auto/all?lock=6" alt="Exhaust Repair" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Exhaust Repair</h3>
+                    <p class="text-gray-600 leading-relaxed mb-2">Muffler, pipe, and catalytic converter fixes.</p>
+                    <p class="text-gray-600 leading-relaxed">Quiet, efficient systems that pass emissions.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-20">
+            <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-12 py-6 rounded-xl font-semibold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                Get Your Free Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team at Pat's Service Center" class="w-full h-96 object-cover rounded-2xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+            </div>
+            <div class="lg:pl-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Pat's Service Center</h2>
+                <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                    For over 20 years, Pat's Service Center has been Spokane's go-to for reliable auto repair. Our family-owned shop combines cutting-edge diagnostics with old-school honesty. We treat every vehicle like our own, delivering fast, affordable service with a smile. Drive with confidence—Spokane trusts us.
+                </p>
+                <div class="bg-blue-100 p-6 rounded-xl">
+                    <p class="text-2xl font-semibold text-blue-900">"Your car is in good hands with Pat's team."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+            <p class="text-xl text-gray-600">Real reviews from Spokane drivers.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                <div class="text-3xl mb-4">★★★★★</div>
+                <p class="text-gray-700 text-lg italic mb-6">"Fast brake repair saved my weekend trip. Honest pricing!"</p>
+                <p class="font-semibold text-gray-900">- Sarah M., Spokane</p>
+            </div>
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                <div class="text-3xl mb-4">★★★★★</div>
+                <p class="text-gray-700 text-lg italic mb-6">"Engine diagnostic was spot-on. Fixed right the first time."</p>
+                <p class="font-semibold text-gray-900">- Mike T., Spokane</p>
+            </div>
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                <div class="text-3xl mb-4">★★★★★</div>
+                <p class="text-gray-700 text-lg italic mb-6">"Tire service was quick and tires look great. Highly recommend!"</p>
+                <p class="font-semibold text-gray-900">- Lisa R., Spokane</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-slate-300 mb-12">Contact us for a free quote on any service.</p>
+        </div>
+        <div class="max-w-2xl mx-auto">
+            <form class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                    <input type="text" id="name" class="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Your full name">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                    <input type="email" id="email" class="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="your@email.com">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Phone</label>
+                    <input type="tel" id="phone" class="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="(509) 555-0123">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                    <textarea id="message" rows="5" class="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-vertical" placeholder="Tell us about your vehicle and service needs..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 rounded-xl font-semibold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                    Send Message
+                </button>
+            </form>
+        </div>
+        <div class="mt-20 pt-12 border-t border-slate-800 text-center">
+            <p class="text-slate-400">&copy; 2024 Pat's Service Center. All rights reserved. | Powered by <a href="#" class="font-semibold hover:text-blue-400 transition-colors">Cyber Craft Solutions</a></p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roy's Plumbing Service - Wichita, KS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full backdrop-blur-xl bg-white/10 border-b border-white/20 z-50 supports-[backdrop-filter:blur()]:bg-white/5">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">Roy's Plumbing Service</h1>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <img 
+            src="https://loremflickr.com/1920/1080/plumber,business/all?lock=0" 
+            alt="Plumber at work" 
+            class="absolute inset-0 w-full h-full object-cover"
+            onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';"
+        >
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        <div class="relative z-10 text-center text-white px-4 md:px-8 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 drop-shadow-2xl leading-tight">Roy's Plumbing Service</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 font-light drop-shadow-lg">Your Trusted Plumber in Wichita, KS – Fast, Reliable, 24/7 Service</p>
+            <a href="#services" class="inline-block bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white px-10 py-6 rounded-full text-xl md:text-2xl font-semibold shadow-2xl hover:shadow-3xl hover:-translate-y-1">Discover Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-800">Our Services</h2>
+            <p class="text-xl text-center mb-20 text-gray-600 max-w-2xl mx-auto">Expert solutions for all your plumbing needs in Wichita and beyond.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <!-- Drain Cleaning -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img 
+                        src="https://loremflickr.com/800/600/plumbing,drain,cleaning/all?lock=1" 
+                        alt="Drain Cleaning" 
+                        class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Drain Cleaning</h3>
+                        <p class="text-gray-600 leading-relaxed">Clear clogs fast with hydro-jetting and snaking. Restore flow without damage.</p>
+                    </div>
+                </div>
+                <!-- Water Heater Installation -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img 
+                        src="https://loremflickr.com/800/600/plumbing,water,heater/all?lock=2" 
+                        alt="Water Heater Installation" 
+                        class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Water Heater Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Tank or tankless systems installed efficiently. Enjoy endless hot water.</p>
+                    </div>
+                </div>
+                <!-- Sewer Line Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img 
+                        src="https://loremflickr.com/800/600/plumbing,sewer,line/all?lock=3" 
+                        alt="Sewer Line Repair" 
+                        class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Sewer Line Repair</h3>
+                        <p class="text-gray-600 leading-relaxed">Trenchless repair and full replacement. Fix backups permanently.</p>
+                    </div>
+                </div>
+                <!-- Leak Detection -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/8329/800/600" 
+                        alt="Leak Detection" 
+                        class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Leak Detection</h3>
+                        <p class="text-gray-600 leading-relaxed">Advanced cameras and sensors find leaks without destruction. Save water and money.</p>
+                    </div>
+                </div>
+                <!-- Pipe Replacement -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/4532/800/600" 
+                        alt="Pipe Replacement" 
+                        class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Pipe Replacement</h3>
+                        <p class="text-gray-600 leading-relaxed">Upgrade to durable PEX or copper pipes. Long-lasting performance guaranteed.</p>
+                    </div>
+                </div>
+                <!-- Emergency Plumbing Service -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/8475/800/600" 
+                        alt="Emergency Plumbing" 
+                        class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Emergency Plumbing Service</h3>
+                        <p class="text-gray-600 leading-relaxed">24/7 rapid response for bursts, floods, and more. We're always ready.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-16 py-8 rounded-full text-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="py-24 md:py-32">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 md:order-1">
+                    <img 
+                        src="https://loremflickr.com/800/600/worker,team,plumber/all?lock=99" 
+                        alt="Our Plumbing Team" 
+                        class="w-full h-auto rounded-3xl shadow-2xl lg:rounded-4xl object-cover"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                </div>
+                <div class="order-1 md:order-2 text-center md:text-left">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-gray-800 leading-tight">About Roy's Plumbing Service</h2>
+                    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">For over 25 years, Roy's Plumbing has been the heart of reliable service in Wichita, KS. Our family-owned team treats your home like our own, delivering honest work with a smile. Licensed, insured, and always on time.</p>
+                    <p class="text-lg text-gray-500">We pride ourselves on using top-quality parts and cutting-edge tools to solve problems right the first time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 md:py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-800">What Our Customers Say</h2>
+            <p class="text-xl text-center mb-20 text-gray-600 max-w-2xl mx-auto">Trusted by thousands of happy Wichita families.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 font-medium italic mb-4">"Roy's team fixed our sewer line in hours – no mess, no stress. Best plumbers in town!"</p>
+                    <p class="font-bold text-gray-800">– Sarah M., Wichita</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 font-medium italic mb-4">"Emergency leak at midnight? They arrived fast and saved the day. Highly recommend!"</p>
+                    <p class="font-bold text-gray-800">– Mike T., Wichita</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 font-medium italic mb-4">"New water heater installed perfectly. Professional, clean, and affordable."</p>
+                    <p class="font-bold text-gray-800">– Lisa R., Wichita</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Ready to Get Started?</h2>
+                <p class="text-xl text-slate-300">Contact us today for a free quote. Wichita's top plumbing experts are here to help.</p>
+            </div>
+            <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+                <input type="text" placeholder="Your Name" required class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 text-lg">
+                <input type="email" placeholder="Your Email" required class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 text-lg">
+                <input type="tel" placeholder="Your Phone" required class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 text-lg">
+                <textarea placeholder="Tell us about your plumbing needs..." rows="6" required class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 text-lg resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 p-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-slate-800 text-sm text-slate-400">
+                Powered by Cyber Craft Solutions
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al's Radiator & Auto Repair - Boise, ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased text-gray-800 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/20 border-b border-white/30 supports-[backdrop-filter:blur(40px)]:bg-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center h-16">
+                <a href="#" class="text-2xl font-bold text-white drop-shadow-lg">Al's Radiator & Auto Repair</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');">
+        <img src="https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0" alt="Auto Repair Hero" class="hidden" onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 drop-shadow-2xl leading-tight">
+                Al's Radiator & Auto Repair
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 max-w-3xl mx-auto drop-shadow-lg">
+                Expert auto repair services in Boise, ID. Trust us for brakes, engines, transmissions, and more.
+            </p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 text-xl font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                Get Your Free Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to keep you safe on Boise roads.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://loremflickr.com/400/300/brake,car,repair/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Brake Repair</h3>
+                        <p class="text-lg text-gray-600 mb-2">Precision inspection and replacement of pads, rotors, and calipers.</p>
+                        <p class="text-lg text-gray-600">Ensuring safe, responsive stopping power every time.</p>
+                    </div>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://picsum.photos/seed/1366/400/300" alt="Engine Diagnostics" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Engine Diagnostics</h3>
+                        <p class="text-lg text-gray-600 mb-2">Advanced scanning for performance issues and error codes.</p>
+                        <p class="text-lg text-gray-600">Quick identification to get you back on the road fast.</p>
+                    </div>
+                </div>
+                <!-- Oil Changes -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://picsum.photos/seed/6548/400/300" alt="Oil Changes" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Oil Changes</h3>
+                        <p class="text-lg text-gray-600 mb-2">Synthetic and conventional oils for all vehicle types.</p>
+                        <p class="text-lg text-gray-600">Extend engine life with our quick service routine.</p>
+                    </div>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://loremflickr.com/400/300/transmission,repair,auto/all?lock=4" alt="Transmission Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Transmission Repair</h3>
+                        <p class="text-lg text-gray-600 mb-2">Fluid flushes, rebuilds, and full diagnostics.</p>
+                        <p class="text-lg text-gray-600">Smooth shifting restored with expert care.</p>
+                    </div>
+                </div>
+                <!-- AC Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://loremflickr.com/400/300/ac,repair,car/all?lock=5" alt="AC Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">AC Repair</h3>
+                        <p class="text-lg text-gray-600 mb-2">Recharge, leak detection, and system overhauls.</p>
+                        <p class="text-lg text-gray-600">Stay cool in Boise summers with reliable AC.</p>
+                    </div>
+                </div>
+                <!-- Radiator Services -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://loremflickr.com/400/300/radiator,repair,coolant/all?lock=6" alt="Radiator Services" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/400/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Radiator Services</h3>
+                        <p class="text-lg text-gray-600 mb-2">Repairs, flushes, and cooling system maintenance.</p>
+                        <p class="text-lg text-gray-600">Prevent overheating with our specialty expertise.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-24">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-16 py-8 text-2xl font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+                    Get Your Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team" class="w-full h-96 object-cover rounded-3xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                </div>
+                <div class="space-y-8">
+                    <h2 class="text-5xl md:text-6xl font-black text-gray-900">About Al's</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        For over 20 years, Al's Radiator & Auto Repair has been Boise's trusted partner for all things automotive. 
+                        Our family-owned shop combines cutting-edge diagnostics with old-school craftsmanship to deliver repairs that last. 
+                        From routine maintenance to complex radiator overhauls, we treat every vehicle like our own.
+                    </p>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Located right here in Boise, ID, we're committed to the community with honest service, fair prices, 
+                        and a no-nonsense approach. Your safety and satisfaction are our top priorities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-32 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by Boise drivers for honest, reliable service.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-xl text-gray-700 italic mb-6">"Fixed my transmission when others said it was done. Fair price, fast service!"</p>
+                    <p class="font-bold text-gray-900">– Sarah M., Boise</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-xl text-gray-700 italic mb-6">"Best AC repair in town. My car is ice cold again—thanks Al's!"</p>
+                    <p class="font-bold text-gray-900">– Mike R., Meridian</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-xl text-gray-700 italic mb-6">"Radiator service saved me from a breakdown. Honest and expert team."</p>
+                    <p class="font-bold text-gray-900">– Lisa T., Boise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-32 bg-slate-900 text-white">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">Get In Touch</h2>
+                <p class="text-xl text-slate-300">Ready for reliable auto repair? Fill out the form for your free quote today.</p>
+            </div>
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-lg font-semibold mb-3">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-6 py-5 bg-slate-800/50 border border-slate-700 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg">
+                </div>
+                <div>
+                    <label for="email" class="block text-lg font-semibold mb-3">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-6 py-5 bg-slate-800/50 border border-slate-700 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg">
+                </div>
+                <div>
+                    <label for="phone" class="block text-lg font-semibold mb-3">Phone</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-6 py-5 bg-slate-800/50 border border-slate-700 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg">
+                </div>
+                <div>
+                    <label for="message" class="block text-lg font-semibold mb-3">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-6 py-5 bg-slate-800/50 border border-slate-700 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 text-lg resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-12 py-8 text-2xl font-bold rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                    Send Message
+                </button>
+            </form>
+            <div class="text-center mt-16 pt-16 border-t border-slate-700">
+                <p class="text-lg text-slate-400">&copy; 2024 Al's Radiator & Auto Repair. Powered by Cyber Craft Solutions.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

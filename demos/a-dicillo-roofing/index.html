@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A. DiCillo Roofing - Premier Roofing Services in Akron, OH</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass bg-white/20 border-b border-white/30 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-white drop-shadow-lg">A. DiCillo Roofing</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-white/90 hover:text-white transition-colors">Services</a>
+                    <a href="#about" class="text-white/90 hover:text-white transition-colors">About</a>
+                    <a href="#testimonials" class="text-white/90 hover:text-white transition-colors">Testimonials</a>
+                    <a href="#contact" class="text-white/90 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://loremflickr.com/1920/1080/roofing,business/all?lock=0" alt="Roofing Hero" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 py-20">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl leading-tight">A. DiCillo Roofing</h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-95 drop-shadow-lg max-w-2xl mx-auto">Expert Roofing Solutions for Homes and Businesses in Akron, OH. Reliable, Durable, and Affordable.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Roofing Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive roofing solutions tailored to your needs in Akron and surrounding areas.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Roof Replacement -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/500/300/roof,replacement,house/all?lock=1" alt="Roof Replacement" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Roof Replacement</h3>
+                        <p class="text-gray-600 mb-2">Complete roof overhauls with premium materials.</p>
+                        <p class="text-gray-600">Built to last through Ohio's harsh weather.</p>
+                    </div>
+                </div>
+                <!-- Leak Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/500/300/roof,leak,repair/all?lock=2" alt="Leak Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Leak Repair</h3>
+                        <p class="text-gray-600 mb-2">Fast, reliable fixes to stop water damage.</p>
+                        <p class="text-gray-600">Prevent costly issues before they escalate.</p>
+                    </div>
+                </div>
+                <!-- Gutter Installation -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/1750/500/300" alt="Gutter Installation" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Gutter Installation</h3>
+                        <p class="text-gray-600 mb-2">Professional gutters for optimal drainage.</p>
+                        <p class="text-gray-600">Protect your home from water overflow.</p>
+                    </div>
+                </div>
+                <!-- Storm Damage Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/500/300/storm,damage,roof/all?lock=4" alt="Storm Damage Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Storm Damage Repair</h3>
+                        <p class="text-gray-600 mb-2">Rapid response to storm-related damage.</p>
+                        <p class="text-gray-600">Restore your roof to full strength quickly.</p>
+                    </div>
+                </div>
+                <!-- Roof Inspections -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/7096/500/300" alt="Roof Inspections" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Roof Inspections</h3>
+                        <p class="text-gray-600 mb-2">Thorough assessments for peace of mind.</p>
+                        <p class="text-gray-600">Identify issues before they become problems.</p>
+                    </div>
+                </div>
+                <!-- Shingle Installation -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/4004/500/300" alt="Shingle Installation" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/300';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Shingle Installation</h3>
+                        <p class="text-gray-600 mb-2">High-quality shingles for lasting protection.</p>
+                        <p class="text-gray-600">Expert application for maximum durability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 px-16 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://picsum.photos/seed/7649/800/600" alt="Our Team" class="w-full h-96 object-cover rounded-3xl shadow-2xl" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                </div>
+                <div class="lg:pl-12">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Trusted Roofing Experts in Akron</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">At A. DiCillo Roofing, we're more than just roofers—we're your neighbors committed to protecting Akron homes and businesses. With decades of experience handling Ohio's unpredictable weather, our family-owned team delivers top-tier craftsmanship, honest pricing, and unmatched customer service. From minor repairs to full replacements, we treat every project like our own.</p>
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Hear from satisfied homeowners in Akron, OH.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-10 rounded-3xl text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-4">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-4 italic">"A. DiCillo Roofing replaced our entire roof after a storm. Professional, fast, and fairly priced. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">— Sarah M., Akron</p>
+                </div>
+                <div class="bg-gray-50 p-10 rounded-3xl text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-4">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-4 italic">"Fixed our leak in one day. Great communication and clean work. Will use them again."</p>
+                    <p class="font-semibold text-gray-900">— Mike T., Cuyahoga Falls</p>
+                </div>
+                <div class="bg-gray-50 p-10 rounded-3xl text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-4">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-4 italic">"Outstanding gutter installation. Team was punctual and knowledgeable. Top-notch service!"</p>
+                    <p class="font-semibold text-gray-900">— Lisa R., Fairlawn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-slate-900 text-white py-32">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-slate-300">Contact us today for a free, no-obligation quote.</p>
+            </div>
+            <form class="space-y-6 max-w-lg mx-auto">
+                <input type="text" placeholder="Your Name" class="w-full p-5 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300" required>
+                <input type="email" placeholder="Your Email" class="w-full p-5 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300" required>
+                <input type="tel" placeholder="Your Phone" class="w-full p-5 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300" required>
+                <textarea rows="5" placeholder="Your Message" class="w-full p-5 rounded-2xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-slate-400 transition-all duration-300 resize-vertical" required></textarea>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 font-semibold py-5 px-12 rounded-2xl text-xl transition-all duration-300 hover:scale-105 shadow-2xl">Send Message</button>
+            </form>
+            <div class="text-center mt-20 pt-20 border-t border-slate-800">
+                <p class="text-slate-400 text-lg">&copy; 2024 A. DiCillo Roofing. All rights reserved. | Powered by Cyber Craft Solutions</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

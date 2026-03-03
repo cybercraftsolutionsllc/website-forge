@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Auto Repair - Spokane, WA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center items-center h-16">
+                <h1 class="text-2xl font-bold text-white drop-shadow-lg">Felix Auto Repair</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0" alt="Auto Repair Hero" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Felix Auto Repair</h1>
+            <p class="text-xl md:text-2xl mb-8 drop-shadow-lg">Your Trusted Auto Repair Experts in Spokane, WA</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Schedule Service Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to keep you safe and mobile.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Brake Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://loremflickr.com/800/600/brake,car,repair/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Brake Repair</h3>
+                    <p class="text-gray-600 mb-2">Expert brake inspections and repairs.</p>
+                    <p class="text-gray-600">Ensure your safety on every road.</p>
+                </div>
+            </div>
+            <!-- Engine Diagnostics -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://picsum.photos/seed/9530/800/600" alt="Engine Diagnostics" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Engine Diagnostics</h3>
+                    <p class="text-gray-600 mb-2">Advanced tools to pinpoint issues.</p>
+                    <p class="text-gray-600">Fast and accurate engine analysis.</p>
+                </div>
+            </div>
+            <!-- Oil Changes -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://picsum.photos/seed/9696/800/600" alt="Oil Changes" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Oil Changes</h3>
+                    <p class="text-gray-600 mb-2">Quick service with premium oils.</p>
+                    <p class="text-gray-600">Extend your engine's lifespan.</p>
+                </div>
+            </div>
+            <!-- Transmission Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://picsum.photos/seed/1872/800/600" alt="Transmission Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Transmission Repair</h3>
+                    <p class="text-gray-600 mb-2">Reliable transmission services.</p>
+                    <p class="text-gray-600">Smooth shifting guaranteed.</p>
+                </div>
+            </div>
+            <!-- AC Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://loremflickr.com/800/600/ac,air,conditioner,car/all?lock=5" alt="AC Repair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">AC Repair</h3>
+                    <p class="text-gray-600 mb-2">Cool and comfortable rides.</p>
+                    <p class="text-gray-600">AC systems fixed right.</p>
+                </div>
+            </div>
+            <!-- Tire Services -->
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                <img src="https://loremflickr.com/800/600/tire,wheel,car/all?lock=6" alt="Tire Services" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4">Tire Services</h3>
+                    <p class="text-gray-600 mb-2">Rotations, balances, replacements.</p>
+                    <p class="text-gray-600">Optimal tire performance.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-16 py-6 rounded-full text-xl font-semibold transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team" class="rounded-3xl shadow-2xl w-full h-96 object-cover" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">About Felix Auto Repair</h2>
+                <p class="text-xl text-gray-700 leading-relaxed">Felix Auto Repair has proudly served the Spokane, WA community for over 20 years. Our family-owned shop is staffed by certified mechanics using state-of-the-art equipment. We prioritize honest service, quick turnaround, and getting you back on the road safely. Your trust is our greatest reward.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">What Our Customers Say</h2>
+            <p class="text-xl text-gray-600">Trusted by thousands in Spokane.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                <div class="flex justify-center mb-4">
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                </div>
+                <p class="text-gray-700 italic mb-6">"Felix fixed my transmission in record time. Honest and affordable!"</p>
+                <p class="font-semibold">- Sarah M., Spokane</p>
+            </div>
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                <div class="flex justify-center mb-4">
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                </div>
+                <p class="text-gray-700 italic mb-6">"Best oil change service around. Friendly staff and quick!"</p>
+                <p class="font-semibold">- Mike D., Spokane</p>
+            </div>
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                <div class="flex justify-center mb-4">
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                </div>
+                <p class="text-gray-700 italic mb-6">"AC repair was perfect. Cool air on a hot day—thank you!"</p>
+                <p class="font-semibold">- Lisa K., Spokane</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
+            <p class="text-xl mb-12 opacity-90">Ready for reliable auto repair? Contact us today for a free quote.</p>
+            <form class="space-y-6 max-w-lg mx-auto">
+                <input type="text" placeholder="Your Name" class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400 transition-all duration-300" required>
+                <input type="email" placeholder="Your Email" class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400 transition-all duration-300" required>
+                <input type="tel" placeholder="Your Phone" class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400 transition-all duration-300" required>
+                <textarea rows="5" placeholder="Your Message" class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400 transition-all duration-300 resize-vertical" required></textarea>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 p-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-2xl">Send Message</button>
+            </form>
+        </div>
+        <div class="mt-16 pt-12 border-t border-slate-800 text-center">
+            <p class="text-sm opacity-75">&copy; 2024 Felix Auto Repair. Spokane, WA. Powered by Cyber Craft Solutions.</p>
+        </div>
+    </section>
+</body>
+</html>
