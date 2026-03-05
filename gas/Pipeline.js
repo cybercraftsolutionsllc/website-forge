@@ -459,14 +459,12 @@ function buildPlainTextMessage(config, biz, liveUrl) {
 }
 
 /**
- * Short SMS message — concise, includes domain if available.
+ * Short SMS message — soft intro, no pricing.
  */
 function buildSmsMessage(config, biz, liveUrl) {
-    var domain = biz.suggested_domain || '';
-    var domainNote = domain ? ' Includes 1 year of ' + domain + '.' : '';
-    return 'Hi! I noticed ' + biz.business_name + ' doesn\'t have a website yet, so I built you a free demo: ' +
-        liveUrl + ' — It\'s yours for $199, one-time.' + domainNote +
-        ' Reply YES for details or STOP to opt out. - Cyber Craft Solutions';
+    return 'Hi! I built a free website demo for ' + biz.business_name +
+        ' \u2014 check it out: ' + liveUrl +
+        '. No cost, no catch. Reply if interested or STOP to opt out. - Cyber Craft Solutions';
 }
 
 // ============================================================
