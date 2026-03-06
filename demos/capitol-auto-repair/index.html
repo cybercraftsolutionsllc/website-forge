@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitol Auto Repair - Boise, ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/10 border-b border-white/20">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">Capitol Auto Repair</h1>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://loremflickr.com/1920/1080/auto,repair,business/all?lock=0');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        <div class="relative z-10 text-center text-white px-4 md:px-8 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight drop-shadow-2xl">Capitol Auto Repair</h1>
+            <p class="text-lg md:text-2xl lg:text-3xl mb-12 leading-relaxed drop-shadow-xl">Your trusted partner for expert auto repair in Boise, ID. From brakes to transmissions, we keep you driving safely.</p>
+            <a href="#services" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-6 rounded-full text-xl md:text-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">Discover Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-gray-50/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-800">Our Services</h2>
+            <p class="text-xl text-center text-gray-600 mb-20 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to your vehicle’s needs in Boise, ID.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/500/350/brake,mechanic,car/all?lock=1" alt="Brake Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/350';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Brake Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Expert inspections and repairs using premium pads and rotors.</p>
+                        <p class="text-gray-600 leading-relaxed">Safety first—stop with confidence every time.</p>
+                    </div>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/2765/500/350" alt="Engine Diagnostics" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/350';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Engine Diagnostics</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">State-of-the-art scanners to identify issues fast.</p>
+                        <p class="text-gray-600 leading-relaxed">Precise solutions to restore peak performance.</p>
+                    </div>
+                </div>
+                <!-- Oil Changes -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/500/350/oil,change,mechanic/all?lock=3" alt="Oil Changes" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/350';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Oil Changes</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Quick service with conventional or synthetic oils.</p>
+                        <p class="text-gray-600 leading-relaxed">Extend engine life with our meticulous process.</p>
+                    </div>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/7543/500/350" alt="Transmission Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/350';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Transmission Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Fluid changes, rebuilds, and full diagnostics.</p>
+                        <p class="text-gray-600 leading-relaxed">Smooth shifting guaranteed with expert care.</p>
+                    </div>
+                </div>
+                <!-- AC Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://picsum.photos/seed/6417/500/350" alt="AC Repair" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/350';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">AC Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Recharge, leak detection, and system overhauls.</p>
+                        <p class="text-gray-600 leading-relaxed">Stay cool in Boise summers with reliable fixes.</p>
+                    </div>
+                </div>
+                <!-- Tire Services -->
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://loremflickr.com/500/350/tire,service,wheel/all?lock=6" alt="Tire Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null;this.src='https://picsum.photos/500/350';">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Tire Services</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Rotations, balancing, alignments, and replacements.</p>
+                        <p class="text-gray-600 leading-relaxed">Optimal traction and handling for any road.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-16 py-6 rounded-full text-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="py-24 md:py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <img src="https://loremflickr.com/800/600/worker,team,auto/all?lock=99" alt="Our Team at Capitol Auto Repair" class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://picsum.photos/800/600';">
+                <div class="lg:pl-12">
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 text-gray-800">About Capitol Auto Repair</h2>
+                    <p class="text-xl md:text-1.5xl text-gray-600 leading-relaxed mb-8">Nestled in the heart of Boise, ID, Capitol Auto Repair has been the go-to shop for honest, reliable automotive care for over 15 years. Our certified mechanics bring passion and expertise to every job, using cutting-edge tools for everything from routine tune-ups to major overhauls. We treat your vehicle like our own—because trust and quality drive us forward.</p>
+                    <p class="text-lg text-gray-500">Family-owned and community-focused, we're here to keep Boise drivers safe and mobile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 md:py-32 bg-gradient-to-br from-gray-100 to-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-800">What Our Customers Say</h2>
+            <p class="text-xl text-center text-gray-600 mb-20 max-w-2xl mx-auto">Real stories from Boise drivers who've trusted us with their rides.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 italic">"Fixed my transmission issue faster than expected. Honest pricing and top-notch work—will be back!"</p>
+                    <p class="font-semibold text-gray-800">- Sarah M., Boise</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 italic">"Brakes were done perfectly. Friendly team and quick service. Highly recommend for Boise folks!"</p>
+                    <p class="font-semibold text-gray-800">- Mike R., Boise</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 italic">"AC repair saved my summer! Professional, clean shop, and great diagnostics. 10/10."</p>
+                    <p class="font-semibold text-gray-800">- Lisa T., Boise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4">Ready to Get Started?</h2>
+            <p class="text-xl text-center text-slate-300 mb-20 max-w-2xl mx-auto">Contact us today for a free quote on any service. We're here to help keep your car running smoothly.</p>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <input type="text" placeholder="Your Name" class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all text-lg" required>
+                    <input type="email" placeholder="Your Email" class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all text-lg" required>
+                    <input type="tel" placeholder="Your Phone" class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all text-lg" required>
+                    <textarea placeholder="Tell us about your vehicle or service needs..." rows="6" class="w-full p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all text-lg resize-vertical" required></textarea>
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-6 rounded-2xl text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">Send Message & Get Quote</button>
+                </form>
+            </div>
+            <div class="text-center mt-20 pt-12 border-t border-slate-800 text-sm text-slate-500">
+                <p>Powered by Cyber Craft Solutions</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
