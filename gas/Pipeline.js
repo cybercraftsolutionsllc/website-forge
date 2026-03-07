@@ -2,9 +2,9 @@
  * Pipeline.js — Main orchestration for WebsiteForge
  * 
  * Four-phase pipeline:
- *   Phase 1: Research — Find a local business (needs email OR phone)
- *   Phase 2: Build   — Generate a premium landing page with contextual images
- *   Phase 3: Deploy  — Push to GitHub Pages, log to Google Sheets
+ *   Phase 1: Discover — Find verified leads via Google Places API, then LLM for copy
+ *   Phase 2: Build    — Generate a premium landing page with contextual images
+ *   Phase 3: Deploy   — Push to GitHub Pages, log to Google Sheets
  *   Phase 4: Outreach — Send via Gmail (email) or Twilio (SMS), or save for review
  */
 
@@ -14,6 +14,7 @@
 var SHEET_HEADERS = [
     'Date_Run',
     'Area',
+    'Niche',
     'Business_Name',
     'Slug',
     'Repo_URL',
@@ -25,7 +26,8 @@ var SHEET_HEADERS = [
     'Drafted_Message',
     'Channel',
     'Status',
-    'Sent_Date'
+    'Sent_Date',
+    'Place_ID'
 ];
 
 /**
@@ -78,107 +80,9 @@ function normalizePhone(phone) {
     return '+' + digits;
 }
 
-// ============================================================
-// PHASE 1: THE RESEARCHER
-// ============================================================
-function phaseResearch(config) {
-    var paymentLine = config.paymentLink
-        ? '- Include the exact literal string "[PAYMENT_LINK]" as a clickable link in the email where the customer can pay instantly.'
-        : '';
-
-    var prompt = [
-        'You are an expert lead generation specialist.',
-        'Find EXACTLY 1 REAL, highly obscure, small local business in a randomly selected mid-sized US city.',
-        'Target niches with terrible/missing websites (mechanics, roofers, dry cleaners, landscapers, plumbers).',
-        'No famous places.',
-        '',
-        'FINDING CONTACT INFO — CRITICAL:',
-        'You MUST find at least ONE of the following:',
-        '  1. An EMAIL address associated with this business — this can be from their website, Google Business, Yelp, Facebook, BBB, or any public listing.',
-        '     Generic business emails like info@, contact@, office@, or hello@ are PERFECTLY FINE as long as they appear on a page associated with this specific business.',
-        '  2. A PHONE NUMBER for the business — from their Google Business listing, Yelp, Yellow Pages, website, or social media.',
-        '',
-        'Phone numbers are typically much easier to find — most businesses have one on their Google listing.',
-        'If you find both email AND phone, include both.',
-        'If you can only find a phone number, that is fine — put "No email found" for email.',
-        'If you cannot find EITHER an email or a phone, put "No email found" and "No phone found".',
-        'Do NOT guess or fabricate contact info.',
-        '',
-        'PRICING RULES FOR EMAIL/MESSAGE:',
-        '- Pitch a flat $199 one-time fee for a single-page site.',
-        '- Explicitly state it includes NO ongoing support.',
-        '- State extra pages cost more.',
-        '- State ongoing support is an extra monthly fee.',
-        '- Use the exact literal string "[LIVE_DEMO_URL]" where the website demo link goes.',
-        paymentLine,
-        '',
-        'DISCLAIMER — MUST INCLUDE IN THE DRAFT:',
-        'The draft MUST contain this notice near the end:',
-        '"Please note: We will reach out for additional information to ensure your website is 100% accurate before finalizing. If we do not hear back, we will proceed using the best publicly available information and cannot be held responsible for any inaccuracies."',
-        '',
-        'SERVICES LIST:',
-        'List 4-6 specific services this type of business would typically offer.',
-        'These must be real, specific services — NOT generic. For example:',
-        '  Auto repair → "Brake Repair", "Engine Diagnostics", "Oil Changes", "Transmission Repair", "AC Repair", "Tire Services"',
-        '  Roofing → "Roof Replacement", "Leak Repair", "Gutter Installation", "Storm Damage Repair", "Roof Inspections"',
-        '',
-        'CRITICAL OUTPUT FORMAT:',
-        'You MUST output pure text with XML tags. No JSON. No markdown backticks.',
-        '',
-        '<NAME>Exact Business Name</NAME>',
-        '<NICHE>auto-repair (or roofing, landscaping, etc)</NICHE>',
-        '<SLUG>kebab-case-name</SLUG>',
-        '<AREA>City, State</AREA>',
-        '<URL>http... or None</URL>',
-        '<EMAIL>verified_email@business.com OR "No email found"</EMAIL>',
-        '<PHONE>(555) 123-4567 OR "No phone found"</PHONE>',
-        '<NOTES>Explain why site is bad/missing</NOTES>',
-        '<DOMAIN>Suggested domain</DOMAIN>',
-        '<COST>Check registrar for pricing</COST>',
-        '<SERVICES>Service1, Service2, Service3, Service4</SERVICES>',
-        '<DRAFT>Full cold email body with greeting, value proposition, pricing, disclaimer, and sign-off from CyberCraft Solutions.</DRAFT>'
-    ].join('\n');
-
-    var result = callLLM(prompt, config, { temperature: 0.7, maxTokens: 3000 });
-
-    if (result.error) {
-        return { data: null, error: 'Research API failed: ' + result.error };
-    }
-
-    var data = extractBusinessData(result.text);
-    var validation = validateBusinessData(data);
-
-    if (!validation.valid) {
-        console.error('Research extraction failed. Missing: ' + validation.missing.join(', '));
-        console.error('Raw AI output:\n' + result.text);
-        return {
-            data: null,
-            error: 'Could not extract required data. Missing: ' + validation.missing.join(', ')
-        };
-    }
-
-    // --- CONTACT GATE: Must have email OR phone ---
-    var hasEmail = isValidEmail(data.target_email);
-    var hasPhone = isValidPhone(data.target_phone);
-
-    if (!hasEmail && !hasPhone) {
-        console.log('No contact info found for ' + data.business_name + '. Skipping.');
-        return {
-            data: null,
-            error: 'No email or phone found for "' + data.business_name + '". Retrying...'
-        };
-    }
-
-    // Determine outreach channel
-    data.channel = hasEmail ? 'email' : 'sms';
-
-    if (!data.slug) {
-        data.slug = toSlug(data.business_name);
-    }
-
-    console.log('Found: ' + data.business_name + ' | email: ' + (data.target_email || 'none') + ' | phone: ' + (data.target_phone || 'none') + ' | channel: ' + data.channel);
-    return { data: data, error: null };
-}
+// phaseResearch() has been removed.
+// Lead discovery is now handled by findLeadFromPlaces() + generateCopyForLead()
+// in Places.js. The LLM NEVER generates business names, phones, or addresses.
 
 // ============================================================
 // PHASE 2: THE DEVELOPER (LLM-driven image selection)
@@ -331,6 +235,7 @@ function phaseLog(config, biz, html) {
         sheet.appendRow([
             today,
             biz.area || '',
+            biz.niche || '',
             biz.business_name || '',
             slug,
             repoUrl,
@@ -340,9 +245,10 @@ function phaseLog(config, biz, html) {
             biz.target_email || '',
             biz.target_phone || '',
             draftedMessage,
-            biz.channel || 'email',
+            biz.channel || 'sms',
             'Review Needed',
-            ''
+            '',
+            biz.place_id || ''
         ]);
         console.log('Sheet row appended successfully for ' + biz.business_name);
     } catch (e) {
@@ -626,18 +532,34 @@ function runWebsiteForgePipeline() {
     var config = getConfig();
     if (!config) return;
 
-    var ss = SpreadsheetApp.openById(config.sheetId);
+    if (!config.placesApiKey) {
+        SpreadsheetApp.getUi().alert('⚠️ PLACES_API_KEY is not set.\n\nAdd your Google Places API key in Script Properties to use the lead discovery pipeline.');
+        return;
+    }
 
-    // --- Phase 1: Research (retries until contact info found) ---
+    var ss = SpreadsheetApp.openById(config.sheetId);
+    var sheet = ss.getSheetByName('Leads');
+    if (!sheet) {
+        sheet = ss.insertSheet('Leads');
+    }
+    ensureHeaders(sheet);
+
+    // Load existing leads for dedup
+    var existingLeads = getExistingLeads(sheet);
+    console.log('Existing leads loaded: ' + existingLeads.length);
+
+    // --- Phase 1: Discover via Google Places ---
     var MAX_ATTEMPTS = 5;
-    var research = null;
     var biz = null;
 
     for (var attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-        ss.toast('Phase 1: Scanning for leads (attempt ' + attempt + '/' + MAX_ATTEMPTS + ')...', '🚀 WebsiteForge', -1);
+        var niche = pickRandom(NICHES);
+        var city = pickRandom(CITIES);
+
+        ss.toast('Phase 1: Searching "' + niche + '" in "' + city + '" (attempt ' + attempt + '/' + MAX_ATTEMPTS + ')...', '🚀 WebsiteForge', -1);
         SpreadsheetApp.flush();
 
-        research = phaseResearch(config);
+        var research = findLeadFromPlaces(niche, city, config, existingLeads);
 
         if (research.data) {
             biz = research.data;
@@ -646,19 +568,56 @@ function runWebsiteForgePipeline() {
 
         console.log('Attempt ' + attempt + ': ' + research.error);
         if (attempt < MAX_ATTEMPTS) {
-            ss.toast('No contact found — retrying (' + attempt + '/' + MAX_ATTEMPTS + ')...', '🔄', 3);
-            Utilities.sleep(1000);
+            ss.toast('No qualifying lead — trying another niche/city (' + attempt + '/' + MAX_ATTEMPTS + ')...', '🔄', 3);
+            Utilities.sleep(500);
         }
     }
 
     if (!biz) {
-        ss.toast('No leads with contact info after ' + MAX_ATTEMPTS + ' tries. Try again later.', '❌', 10);
+        ss.toast('No verified leads found after ' + MAX_ATTEMPTS + ' tries. Try again later.', '❌', 10);
         return;
     }
 
-    var contactInfo = biz.channel === 'sms'
-        ? '📱 ' + biz.target_phone
-        : '📧 ' + biz.target_email;
+    // --- Phase 1B: LLM generates copy (services + domain ONLY) ---
+    ss.toast('Phase 1B: Generating services list for ' + biz.business_name + '...', '🚀 WebsiteForge', -1);
+    SpreadsheetApp.flush();
+
+    var copy = generateCopyForLead(biz, config);
+    if (!copy.error) {
+        biz.services = copy.services;
+        biz.suggested_domain = copy.suggested_domain;
+
+        // DNS check on suggested domain
+        if (biz.suggested_domain) {
+            var domainAvail = isDomainAvailable(biz.suggested_domain);
+            if (domainAvail) {
+                biz.domain_cost = 'Check registrar for pricing';
+                console.log('Domain suggestion kept (available): ' + biz.suggested_domain);
+            } else {
+                console.log('Domain taken, clearing suggestion: ' + biz.suggested_domain);
+                biz.suggested_domain = '';
+                biz.domain_cost = '';
+            }
+        }
+    } else {
+        console.warn('Copy generation failed, using defaults: ' + copy.error);
+        biz.services = '';
+    }
+
+    // --- Twilio phone validation (safety net) ---
+    var phoneCheck = validatePhoneWithTwilio(biz.target_phone, config);
+    if (!phoneCheck.valid) {
+        console.warn('⚠️ Twilio phone validation failed for ' + biz.target_phone + ': ' + (phoneCheck.error || 'type=' + phoneCheck.type));
+        // Continue anyway — Google Places is authoritative, Twilio is just a safety net
+    } else {
+        console.log('Phone validated via Twilio: ' + biz.target_phone + ' (type=' + phoneCheck.type + ')');
+    }
+
+    // Generate slug
+    biz.slug = toSlug(biz.business_name);
+
+    var contactInfo = '📱 ' + biz.target_phone;
+    console.log('Lead ready: ' + biz.business_name + ' | ' + biz.niche + ' | ' + biz.area + ' | ' + contactInfo);
 
     // --- Phase 2: Build ---
     ss.toast('Phase 2: Building website for ' + biz.business_name + '...', '🚀 WebsiteForge', -1);
@@ -682,12 +641,12 @@ function runWebsiteForgePipeline() {
 
     // --- Phase 4: Outreach ---
     if (config.autoSend) {
-        ss.toast('Phase 4: Sending ' + biz.channel.toUpperCase() + ' to ' + contactInfo + '...', '🚀 WebsiteForge', -1);
+        ss.toast('Phase 4: Sending SMS to ' + contactInfo + '...', '🚀 WebsiteForge', -1);
         SpreadsheetApp.flush();
 
         var outreach = phaseOutreach(config, biz, log);
         if (outreach.sent) {
-            ss.toast('✅ Done! ' + biz.channel.toUpperCase() + ' sent to ' + contactInfo, '🎉', 15);
+            ss.toast('✅ Done! SMS sent to ' + contactInfo, '🎉', 15);
         } else if (outreach.error) {
             ss.toast('⚠️ Deployed but send failed: ' + outreach.error, '⚠️', 15);
         }
@@ -705,5 +664,6 @@ function onOpen() {
         .addItem('Generate 1 Lead', 'runWebsiteForgePipeline')
         .addSeparator()
         .addItem('📧 Send All Pending', 'sendAllPending')
+        .addItem('🧹 Clear All Leads', 'clearAllLeads')
         .addToUi();
 }

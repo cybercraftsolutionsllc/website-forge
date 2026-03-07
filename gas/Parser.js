@@ -1,8 +1,8 @@
 /**
  * Parser.js — Robust response parsing utilities
  * 
- * Handles XML tag extraction from research output and
- * HTML extraction/cleanup from the developer output.
+ * Handles XML tag extraction from research output, copy-only LLM output,
+ * and HTML extraction/cleanup from the developer output.
  */
 
 /**
@@ -48,7 +48,7 @@ function extractBusinessData(text) {
  * @returns {{ valid: boolean, missing: string[] }}
  */
 function validateBusinessData(data) {
-    var required = ['business_name', 'niche', 'area', 'email_draft'];
+    var required = ['business_name', 'niche', 'area'];
     var missing = [];
 
     for (var i = 0; i < required.length; i++) {
@@ -60,6 +60,26 @@ function validateBusinessData(data) {
     return {
         valid: missing.length === 0,
         missing: missing
+    };
+}
+
+/**
+ * Extracts services list and domain suggestion from the copy-only LLM response.
+ * Used by generateCopyForLead() in Places.js.
+ * 
+ * @param {string} text — Raw LLM response with <SERVICES> and <DOMAIN> tags
+ * @returns {{ services: string, suggested_domain: string }}
+ */
+function extractCopyData(text) {
+    var extract = function (label) {
+        var regex = new RegExp('<' + label + '>([\\s\\S]*?)<\\/' + label + '>', 'i');
+        var match = text.match(regex);
+        return match ? match[1].trim() : '';
+    };
+
+    return {
+        services: extract('SERVICES'),
+        suggested_domain: extract('DOMAIN')
     };
 }
 

@@ -15,6 +15,7 @@
  *   TWILIO_ACCOUNT_SID — Twilio Account SID (enables SMS fallback)
  *   TWILIO_AUTH_TOKEN  — Twilio Auth Token
  *   TWILIO_PHONE       — Your Twilio phone number (e.g., +18005551234)
+ *   PLACES_API_KEY     — Google Places API key (for verified lead discovery)
  */
 
 // Static constants
@@ -59,6 +60,13 @@ function getConfig() {
     ' PHONE=' + (twilioPhone || 'EMPTY') +
     ' => enabled=' + twilioEnabled);
 
+  // Google Places API config (for verified lead discovery)
+  const placesApiKey = (props.getProperty('PLACES_API_KEY') || '').trim();
+  console.log('Places API key: ' + (placesApiKey ? 'set(' + placesApiKey.substring(0, 6) + '...)' : 'EMPTY'));
+  if (!placesApiKey) {
+    console.warn('WARNING: PLACES_API_KEY not set. Lead discovery will not work.');
+  }
+
   const errors = [];
 
   if (!provider || !SUPPORTED_PROVIDERS.includes(provider)) {
@@ -93,6 +101,7 @@ function getConfig() {
     twilioSid: twilioSid,
     twilioToken: twilioToken,
     twilioPhone: twilioPhone,
-    twilioEnabled: twilioEnabled
+    twilioEnabled: twilioEnabled,
+    placesApiKey: placesApiKey
   };
 }
