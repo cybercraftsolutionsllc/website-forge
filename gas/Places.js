@@ -246,7 +246,7 @@ function findLeadFromPlaces(niche, city, config, existingLeads) {
  * 
  * @param {Object} biz — verified business data from findLeadFromPlaces()
  * @param {Object} config
- * @returns {{ services: string, suggested_domain: string, error: string|null }}
+ * @returns {{ services: string, suggested_domains: string[], error: string|null }}
  */
 function generateCopyForLead(biz, config) {
     var prompt = [
@@ -262,29 +262,31 @@ function generateCopyForLead(biz, config) {
         '1. List 4-6 specific services this type of ' + biz.niche + ' business would typically offer.',
         '   These must be real, specific services. Example for plumber: "Drain Cleaning", "Water Heater Repair", etc.',
         '',
-        '2. Suggest ONE domain name for this business (e.g., businessname + city + .com).',
-        '   Keep it short and memorable. Use only lowercase letters, numbers, and hyphens.',
+        '2. Suggest FIVE different domain names for this business.',
+        '   Mix styles: businessname+city, niche+city, abbreviation, catchy brandable, etc.',
+        '   Keep them short and memorable. Use only lowercase letters, numbers, and hyphens. All .com.',
+        '   List them comma-separated inside the DOMAIN tag.',
         '',
         'CRITICAL: Output ONLY the XML tags below. No markdown. No explanation.',
         '',
         '<SERVICES>Service1, Service2, Service3, Service4, Service5</SERVICES>',
-        '<DOMAIN>suggesteddomain.com</DOMAIN>'
+        '<DOMAIN>domain1.com, domain2.com, domain3.com, domain4.com, domain5.com</DOMAIN>'
     ].join('\n');
 
-    var result = callLLM(prompt, config, { temperature: 0.5, maxTokens: 500 });
+    var result = callLLM(prompt, config, { temperature: 0.7, maxTokens: 500 });
 
     if (result.error) {
         console.error('Copy generation LLM failed: ' + result.error);
-        return { services: '', suggested_domain: '', error: result.error };
+        return { services: '', suggested_domains: [], error: result.error };
     }
 
-    // Parse services and domain from XML tags
+    // Parse services and domains from XML tags
     var copyData = extractCopyData(result.text);
-    console.log('LLM copy generated — services: ' + copyData.services + ' | domain: ' + copyData.suggested_domain);
+    console.log('LLM copy generated — services: ' + copyData.services + ' | domains: ' + copyData.suggested_domains.join(', '));
 
     return {
         services: copyData.services,
-        suggested_domain: copyData.suggested_domain,
+        suggested_domains: copyData.suggested_domains,
         error: null
     };
 }

@@ -64,11 +64,11 @@ function validateBusinessData(data) {
 }
 
 /**
- * Extracts services list and domain suggestion from the copy-only LLM response.
+ * Extracts services list and domain suggestions from the copy-only LLM response.
  * Used by generateCopyForLead() in Places.js.
  * 
  * @param {string} text — Raw LLM response with <SERVICES> and <DOMAIN> tags
- * @returns {{ services: string, suggested_domain: string }}
+ * @returns {{ services: string, suggested_domains: string[] }}
  */
 function extractCopyData(text) {
     var extract = function (label) {
@@ -77,9 +77,14 @@ function extractCopyData(text) {
         return match ? match[1].trim() : '';
     };
 
+    var domainRaw = extract('DOMAIN');
+    var domains = domainRaw
+        ? domainRaw.split(',').map(function (d) { return d.trim().toLowerCase(); }).filter(Boolean)
+        : [];
+
     return {
         services: extract('SERVICES'),
-        suggested_domain: extract('DOMAIN')
+        suggested_domains: domains
     };
 }
 
