@@ -495,7 +495,7 @@ function sendAllPending() {
     var data = sheet.getDataRange().getValues();
     var headers = data[0];
     var col = {};
-    ['Status', 'Drafted_Message', 'Target_Email', 'Target_Phone', 'Business_Name', 'Live_Pages_URL', 'Area', 'Channel', 'Sent_Date'].forEach(function (h) {
+    ['Status', 'Drafted_Message', 'Target_Email', 'Target_Phone', 'Business_Name', 'Live_Pages_URL', 'Area', 'Channel', 'Sent_Date', 'Domain_Cost_Yearly'].forEach(function (h) {
         col[h] = headers.indexOf(h);
     });
 
@@ -510,6 +510,19 @@ function sendAllPending() {
         var targetPhone = row[col.Target_Phone];
         var businessName = row[col.Business_Name] || 'your business';
         var liveUrl = row[col.Live_Pages_URL] || '';
+        var domainCost = (row[col.Domain_Cost_Yearly] || '').toString().trim();
+
+        // Guard: skip landlines — SMS will fail
+        if (channel === 'call') {
+            console.log('Skipping row ' + (i + 1) + ' (' + businessName + '): landline, needs manual call');
+            skipCount++; continue;
+        }
+
+        // Guard: skip leads without verified domain pricing
+        if (!domainCost || domainCost.indexOf('$') === -1) {
+            console.log('Skipping row ' + (i + 1) + ' (' + businessName + '): no verified domain cost');
+            skipCount++; continue;
+        }
 
         var result;
         if (channel === 'email' && isValidEmail(targetEmail)) {
@@ -619,19 +632,26 @@ function runWebsiteForgePipeline() {
         biz.services = '';
     }
 
-    // --- Twilio phone validation (safety net) ---
+    // --- Twilio phone validation (safety net + landline detection) ---
     var phoneCheck = validatePhoneWithTwilio(biz.target_phone, config);
     if (!phoneCheck.valid) {
         console.warn('⚠️ Twilio phone validation failed for ' + biz.target_phone + ': ' + (phoneCheck.error || 'type=' + phoneCheck.type));
         // Continue anyway — Google Places is authoritative, Twilio is just a safety net
+    } else if (!phoneCheck.smsCapable) {
+        // Landline detected — SMS will NOT work
+        console.warn('⚠️ LANDLINE detected: ' + biz.target_phone + ' — switching to manual review');
+        biz.channel = 'call';  // Flag as needs a phone call instead
+        biz.landline = true;
     } else {
-        console.log('Phone validated via Twilio: ' + biz.target_phone + ' (type=' + phoneCheck.type + ')');
+        console.log('Phone validated via Twilio: ' + biz.target_phone + ' (type=' + phoneCheck.type + ', SMS OK)');
     }
 
     // Generate slug
     biz.slug = toSlug(biz.business_name);
 
-    var contactInfo = '📱 ' + biz.target_phone;
+    var contactInfo = biz.landline
+        ? '☎️ ' + biz.target_phone + ' (landline)'
+        : '📱 ' + biz.target_phone;
     console.log('Lead ready: ' + biz.business_name + ' | ' + biz.niche + ' | ' + biz.area + ' | ' + contactInfo);
 
     // --- Phase 2: Build ---
@@ -655,7 +675,10 @@ function runWebsiteForgePipeline() {
     }
 
     // --- Phase 4: Outreach ---
-    if (config.autoSend) {
+    if (biz.landline) {
+        // Landline — can't SMS, needs manual call
+        ss.toast('✅ Done! ' + biz.business_name + ' — LANDLINE detected (' + biz.target_phone + '). Call them manually.', '☎️', 15);
+    } else if (config.autoSend) {
         ss.toast('Phase 4: Sending SMS to ' + contactInfo + '...', '🚀 WebsiteForge', -1);
         SpreadsheetApp.flush();
 

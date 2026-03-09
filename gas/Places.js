@@ -311,12 +311,12 @@ function checkDomain(domain, config) {
         return checkDomainGoDaddy(domain, config);
     }
 
-    // Fallback: DNS check only (no pricing)
+    // Fallback: DNS check only (no pricing without GoDaddy)
     console.log('GoDaddy API not configured — falling back to DNS check for ' + domain);
     var dnsAvailable = checkDomainDNS(domain);
     return {
         available: dnsAvailable,
-        price: dnsAvailable ? 'Configure GoDaddy API for pricing' : '',
+        price: '',
         error: null
     };
 }
@@ -330,8 +330,11 @@ function checkDomain(domain, config) {
  */
 function checkDomainGoDaddy(domain, config) {
     try {
-        var url = 'https://api.godaddy.com/v1/domains/available?domain=' + encodeURIComponent(domain);
+        var url = 'https://api.godaddy.com/v1/domains/available?domain=' + encodeURIComponent(domain) + '&checkType=FAST';
         var authHeader = 'sso-key ' + config.godaddyKey + ':' + config.godaddySecret;
+
+        console.log('GoDaddy request: GET ' + url);
+        console.log('GoDaddy auth: sso-key ' + config.godaddyKey.substring(0, 8) + '...:' + config.godaddySecret.substring(0, 4) + '...');
 
         var res = UrlFetchApp.fetch(url, {
             method: 'GET',
@@ -343,9 +346,10 @@ function checkDomainGoDaddy(domain, config) {
         });
 
         var code = res.getResponseCode();
+        var responseBody = res.getContentText();
         if (code !== 200) {
-            console.error('GoDaddy API error (' + code + '): ' + res.getContentText().substring(0, 300));
-            // Fall back to DNS
+            console.error('GoDaddy API error (' + code + '): ' + responseBody.substring(0, 500));
+            // Fall back to DNS (no pricing)
             var dnsResult = checkDomainDNS(domain);
             return { available: dnsResult, price: '', error: 'GoDaddy API returned ' + code };
         }
@@ -416,14 +420,17 @@ function checkDomainDNS(domain) {
  * Validate a phone number using Twilio Lookup API.
  * This is a safety net — numbers from Google Places should already be valid.
  * 
+ * Returns smsCapable: true for mobile/voip, false for landline.
+ * Landlines CANNOT receive SMS — the pipeline should skip SMS for these.
+ * 
  * @param {string} phone — raw phone string
  * @param {Object} config — must have twilioSid, twilioToken, twilioEnabled
- * @returns {{ valid: boolean, type: string, error: string|null }}
+ * @returns {{ valid: boolean, smsCapable: boolean, type: string, error: string|null }}
  */
 function validatePhoneWithTwilio(phone, config) {
     if (!config.twilioEnabled) {
         console.log('Twilio not configured — skipping phone validation');
-        return { valid: true, type: 'unknown', error: null }; // pass through if Twilio not set up
+        return { valid: true, smsCapable: true, type: 'unknown', error: null }; // assume SMS-capable if we can't check
     }
 
     var normalized = normalizePhone(phone);
@@ -441,7 +448,7 @@ function validatePhoneWithTwilio(phone, config) {
         var code = res.getResponseCode();
         if (code !== 200) {
             console.error('Twilio Lookup failed (' + code + '): ' + res.getContentText().substring(0, 200));
-            return { valid: false, type: 'unknown', error: 'Twilio returned ' + code };
+            return { valid: false, smsCapable: false, type: 'unknown', error: 'Twilio returned ' + code };
         }
 
         var data = JSON.parse(res.getContentText());
@@ -450,10 +457,17 @@ function validatePhoneWithTwilio(phone, config) {
 
         // Valid if it's a real phone number (landline, mobile, or voip)
         var isValid = carrierType === 'mobile' || carrierType === 'landline' || carrierType === 'voip';
-        return { valid: isValid, type: carrierType, error: null };
+
+        // SMS only works on mobile and voip — landlines CANNOT receive text messages
+        var canSms = carrierType === 'mobile' || carrierType === 'voip';
+        if (!canSms && isValid) {
+            console.warn('⚠️ Phone is a LANDLINE — SMS will NOT be deliverable: ' + normalized);
+        }
+
+        return { valid: isValid, smsCapable: canSms, type: carrierType, error: null };
     } catch (e) {
         console.error('Twilio Lookup error: ' + e);
-        return { valid: false, type: 'unknown', error: e.toString() };
+        return { valid: false, smsCapable: false, type: 'unknown', error: e.toString() };
     }
 }
 
