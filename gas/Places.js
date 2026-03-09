@@ -1,12 +1,13 @@
 /**
- * Places.js — Google Places API integration + Pexels image search
+ * Places.js — Google Places API integration + Pexels image search + DomScan domain checks
  * 
  * Replaces LLM-based business discovery with real, verified data from Google.
  * The LLM is ONLY used for copywriting (services list + domain suggestion).
  * 
  * New Script Properties required:
- *   PLACES_API_KEY  — Google Places API key
- *   PEXELS_API_KEY  — Pexels API key (free at pexels.com/api, for relevant images)
+ *   PLACES_API_KEY   — Google Places API key
+ *   DOMSCAN_API_KEY  — DomScan API key (free at domscan.net, for domain availability + pricing)
+ *   PEXELS_API_KEY   — Pexels API key (free at pexels.com/api, for relevant images)
  */
 
 // ============================================================
@@ -289,15 +290,15 @@ function generateCopyForLead(biz, config) {
 }
 
 // ============================================================
-// DOMAIN AVAILABILITY + PRICING
+// DOMAIN AVAILABILITY + PRICING (DomScan API)
 // ============================================================
 
 /**
- * Check domain availability and get real pricing via GoDaddy API.
- * Falls back to DNS check if GoDaddy keys aren't configured.
+ * Check domain availability and get real pricing via DomScan API.
+ * Falls back to DNS check if DomScan key isn't configured.
  * 
  * @param {string} domain — e.g. "mybusiness.com"
- * @param {Object} config — may contain config.godaddyKey and config.godaddySecret
+ * @param {Object} config — may contain config.domscanApiKey
  * @returns {{ available: boolean, price: string, error: string|null }}
  */
 function checkDomain(domain, config) {
@@ -307,13 +308,13 @@ function checkDomain(domain, config) {
     domain = domain.replace(/^https?:\/\//, '').replace(/\/.*$/, '').trim().toLowerCase();
     if (!domain || domain.indexOf('.') === -1) return { available: false, price: '', error: 'Invalid domain' };
 
-    // Try GoDaddy API first (real pricing)
-    if (config.godaddyKey && config.godaddySecret) {
-        return checkDomainGoDaddy(domain, config);
+    // Try DomScan API (availability + pricing)
+    if (config.domscanApiKey) {
+        return checkDomainDomScan(domain, config);
     }
 
-    // Fallback: DNS check only (no pricing without GoDaddy)
-    console.log('GoDaddy API not configured — falling back to DNS check for ' + domain);
+    // Fallback: DNS check only (no pricing)
+    console.log('DOMSCAN_API_KEY not configured — falling back to DNS check for ' + domain);
     var dnsAvailable = checkDomainDNS(domain);
     return {
         available: dnsAvailable,
@@ -323,61 +324,118 @@ function checkDomain(domain, config) {
 }
 
 /**
- * GoDaddy Domain Availability API — returns availability + real pricing.
+ * DomScan API — returns domain availability + real registrar pricing.
+ * Free: 10,000 credits/month at domscan.net
  * 
- * @param {string} domain
- * @param {Object} config — must have config.godaddyKey and config.godaddySecret
+ * @param {string} domain — full domain like "mybusiness.com"
+ * @param {Object} config — must have config.domscanApiKey
  * @returns {{ available: boolean, price: string, error: string|null }}
  */
-function checkDomainGoDaddy(domain, config) {
+function checkDomainDomScan(domain, config) {
     try {
-        var url = 'https://api.godaddy.com/v1/domains/available?domain=' + encodeURIComponent(domain) + '&checkType=FAST';
-        var authHeader = 'sso-key ' + config.godaddyKey + ':' + config.godaddySecret;
+        // Split domain into name and TLD
+        var dotIndex = domain.indexOf('.');
+        var name = domain.substring(0, dotIndex);
+        var tld = domain.substring(dotIndex + 1); // e.g. "com"
 
-        console.log('GoDaddy request: GET ' + url);
-        console.log('GoDaddy auth: sso-key ' + config.godaddyKey.substring(0, 8) + '...:' + config.godaddySecret.substring(0, 4) + '...');
+        // Step 1: Check availability
+        var statusUrl = 'https://domscan.net/v1/status?name=' + encodeURIComponent(name) +
+            '&tlds=' + encodeURIComponent(tld) + '&prefer_cache=1';
 
-        var res = UrlFetchApp.fetch(url, {
+        console.log('DomScan availability: ' + domain);
+        var res = UrlFetchApp.fetch(statusUrl, {
             method: 'GET',
             headers: {
-                'Authorization': authHeader,
+                'X-API-Key': config.domscanApiKey,
                 'Accept': 'application/json'
             },
             muteHttpExceptions: true
         });
 
         var code = res.getResponseCode();
-        var responseBody = res.getContentText();
         if (code !== 200) {
-            console.error('GoDaddy API error (' + code + '): ' + responseBody.substring(0, 500));
-            // Fall back to DNS (no pricing)
+            console.error('DomScan status error (' + code + '): ' + res.getContentText().substring(0, 300));
             var dnsResult = checkDomainDNS(domain);
-            return { available: dnsResult, price: '', error: 'GoDaddy API returned ' + code };
+            return { available: dnsResult, price: '', error: 'DomScan returned ' + code };
         }
 
         var data = JSON.parse(res.getContentText());
-        var available = data.available === true;
+        var results = data.results || [];
+        var domainResult = null;
+        for (var i = 0; i < results.length; i++) {
+            if (results[i].domain === domain) {
+                domainResult = results[i];
+                break;
+            }
+        }
 
-        // Price comes in micro-units (1/1,000,000 of currency)
-        // e.g. 11990000 = $11.99/year
+        if (!domainResult) {
+            console.log('DomScan: no result for ' + domain);
+            var dnsFallback = checkDomainDNS(domain);
+            return { available: dnsFallback, price: '', error: null };
+        }
+
+        var available = domainResult.available === true;
+        console.log('DomScan: ' + domain + ' — ' + (available ? 'AVAILABLE' : 'taken'));
+
+        // Step 2: Get pricing if available
         var priceStr = '';
-        if (available && data.price) {
-            var dollars = (data.price / 1000000).toFixed(2);
-            var currency = data.currency || 'USD';
-            priceStr = '$' + dollars + '/' + (data.period || 1) + 'yr';
-            console.log('GoDaddy: ' + domain + ' — available, ' + priceStr + ' (' + currency + ')');
-        } else if (available) {
-            priceStr = 'Available (price not returned)';
-            console.log('GoDaddy: ' + domain + ' — available, no price data');
-        } else {
-            console.log('GoDaddy: ' + domain + ' — NOT available');
+        if (available) {
+            priceStr = getDomainPricing(tld, config);
         }
 
         return { available: available, price: priceStr, error: null };
     } catch (e) {
-        console.error('GoDaddy API error for ' + domain + ': ' + e);
-        var dnsFallback = checkDomainDNS(domain);
-        return { available: dnsFallback, price: '', error: e.toString() };
+        console.error('DomScan error for ' + domain + ': ' + e);
+        var dnsFb = checkDomainDNS(domain);
+        return { available: dnsFb, price: '', error: e.toString() };
+    }
+}
+
+/**
+ * Get real domain pricing from DomScan's pricing endpoint.
+ * Returns the cheapest registration price across registrars.
+ * 
+ * @param {string} tld — e.g. "com"
+ * @param {Object} config
+ * @returns {string} price string like "$8.88/yr (Namecheap)"
+ */
+function getDomainPricing(tld, config) {
+    try {
+        var url = 'https://domscan.net/v1/pricing?tld=' + encodeURIComponent(tld);
+        var res = UrlFetchApp.fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-API-Key': config.domscanApiKey,
+                'Accept': 'application/json'
+            },
+            muteHttpExceptions: true
+        });
+
+        if (res.getResponseCode() !== 200) {
+            console.warn('DomScan pricing error: ' + res.getResponseCode());
+            return '';
+        }
+
+        var data = JSON.parse(res.getContentText());
+        var prices = data.prices || [];
+
+        if (prices.length === 0) return '';
+
+        // Find cheapest registration price
+        var cheapest = prices[0];
+        for (var i = 1; i < prices.length; i++) {
+            if (prices[i].registration < cheapest.registration) {
+                cheapest = prices[i];
+            }
+        }
+
+        var priceStr = '$' + cheapest.registration.toFixed(2) + '/yr (' + cheapest.registrar + ')';
+        console.log('DomScan pricing for .' + tld + ': ' + priceStr);
+        return priceStr;
+    } catch (e) {
+        console.error('DomScan pricing error: ' + e);
+        return '';
     }
 }
 

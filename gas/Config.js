@@ -16,8 +16,7 @@
  *   TWILIO_AUTH_TOKEN  — Twilio Auth Token
  *   TWILIO_PHONE       — Your Twilio phone number (e.g., +18005551234)
  *   PLACES_API_KEY     — Google Places API key (for verified lead discovery)
- *   GODADDY_API_KEY    — GoDaddy API key (for domain availability + pricing)
- *   GODADDY_API_SECRET — GoDaddy API secret
+ *   DOMSCAN_API_KEY    — DomScan API key (free at domscan.net, for domain availability + pricing)
  *   PEXELS_API_KEY     — Pexels API key (free at pexels.com/api, for relevant images)
  */
 
@@ -70,10 +69,9 @@ function getConfig() {
     console.warn('WARNING: PLACES_API_KEY not set. Lead discovery will not work.');
   }
 
-  // GoDaddy API config (for domain availability + pricing)
-  const godaddyKey = (props.getProperty('GODADDY_API_KEY') || '').trim();
-  const godaddySecret = (props.getProperty('GODADDY_API_SECRET') || '').trim();
-  console.log('GoDaddy API: ' + (godaddyKey ? 'configured' : 'NOT configured (will use DNS fallback)'));
+  // DomScan API config (for domain availability + pricing)
+  const domscanApiKey = (props.getProperty('DOMSCAN_API_KEY') || '').trim();
+  console.log('DomScan API: ' + (domscanApiKey ? 'configured' : 'NOT configured (will use DNS fallback, no pricing)'));
 
   // Pexels API config (for relevant business images)
   const pexelsApiKey = (props.getProperty('PEXELS_API_KEY') || '').trim();
@@ -115,8 +113,7 @@ function getConfig() {
     twilioPhone: twilioPhone,
     twilioEnabled: twilioEnabled,
     placesApiKey: placesApiKey,
-    godaddyKey: godaddyKey,
-    godaddySecret: godaddySecret,
+    domscanApiKey: domscanApiKey,
     pexelsApiKey: pexelsApiKey
   };
 }
