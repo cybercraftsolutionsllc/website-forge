@@ -31,13 +31,28 @@ var SHEET_HEADERS = [
 ];
 
 /**
- * Ensures the header row exists on the target sheet.
+ * Ensures the header row matches SHEET_HEADERS exactly.
+ * Detects stale headers (wrong count, wrong column names) and overwrites them.
  */
 function ensureHeaders(sheet) {
-    var firstRow = sheet.getRange(1, 1, 1, SHEET_HEADERS.length).getValues()[0];
+    var lastCol = sheet.getLastColumn() || 1;
+    var readCols = Math.max(lastCol, SHEET_HEADERS.length);
+    var firstRow = sheet.getRange(1, 1, 1, readCols).getValues()[0];
     var isEmpty = firstRow.every(function (cell) { return cell === ''; });
 
-    if (isEmpty || firstRow[0] !== SHEET_HEADERS[0]) {
+    // Check if headers match exactly
+    var headersMatch = !isEmpty && firstRow.length >= SHEET_HEADERS.length;
+    if (headersMatch) {
+        for (var i = 0; i < SHEET_HEADERS.length; i++) {
+            if (firstRow[i] !== SHEET_HEADERS[i]) {
+                headersMatch = false;
+                break;
+            }
+        }
+    }
+
+    if (!headersMatch) {
+        console.log('Headers stale or missing — rewriting ' + SHEET_HEADERS.length + ' columns');
         sheet.getRange(1, 1, 1, SHEET_HEADERS.length).setValues([SHEET_HEADERS]);
         sheet.getRange(1, 1, 1, SHEET_HEADERS.length)
             .setFontWeight('bold')
@@ -587,12 +602,12 @@ function runWebsiteForgePipeline() {
         biz.services = copy.services;
         biz.suggested_domain = copy.suggested_domain;
 
-        // DNS check on suggested domain
+        // Check domain availability + pricing
         if (biz.suggested_domain) {
-            var domainAvail = isDomainAvailable(biz.suggested_domain);
-            if (domainAvail) {
-                biz.domain_cost = 'Check registrar for pricing';
-                console.log('Domain suggestion kept (available): ' + biz.suggested_domain);
+            var domainCheck = checkDomain(biz.suggested_domain, config);
+            if (domainCheck.available) {
+                biz.domain_cost = domainCheck.price || '';
+                console.log('Domain available: ' + biz.suggested_domain + ' — ' + biz.domain_cost);
             } else {
                 console.log('Domain taken, clearing suggestion: ' + biz.suggested_domain);
                 biz.suggested_domain = '';

@@ -288,43 +288,120 @@ function generateCopyForLead(biz, config) {
 }
 
 // ============================================================
-// DOMAIN VALIDATION (DNS check via Google DoH)
+// DOMAIN AVAILABILITY + PRICING
 // ============================================================
 
 /**
- * Check if a domain is available by querying Google's DNS-over-HTTPS.
- * If DNS returns no A/AAAA records, the domain is likely available.
+ * Check domain availability and get real pricing via GoDaddy API.
+ * Falls back to DNS check if GoDaddy keys aren't configured.
  * 
  * @param {string} domain — e.g. "mybusiness.com"
- * @returns {boolean} true if domain appears available
+ * @param {Object} config — may contain config.godaddyKey and config.godaddySecret
+ * @returns {{ available: boolean, price: string, error: string|null }}
  */
-function isDomainAvailable(domain) {
-    if (!domain) return false;
+function checkDomain(domain, config) {
+    if (!domain) return { available: false, price: '', error: 'No domain provided' };
 
     // Clean the domain
     domain = domain.replace(/^https?:\/\//, '').replace(/\/.*$/, '').trim().toLowerCase();
-    if (!domain || domain.indexOf('.') === -1) return false;
+    if (!domain || domain.indexOf('.') === -1) return { available: false, price: '', error: 'Invalid domain' };
 
+    // Try GoDaddy API first (real pricing)
+    if (config.godaddyKey && config.godaddySecret) {
+        return checkDomainGoDaddy(domain, config);
+    }
+
+    // Fallback: DNS check only (no pricing)
+    console.log('GoDaddy API not configured — falling back to DNS check for ' + domain);
+    var dnsAvailable = checkDomainDNS(domain);
+    return {
+        available: dnsAvailable,
+        price: dnsAvailable ? 'Configure GoDaddy API for pricing' : '',
+        error: null
+    };
+}
+
+/**
+ * GoDaddy Domain Availability API — returns availability + real pricing.
+ * 
+ * @param {string} domain
+ * @param {Object} config — must have config.godaddyKey and config.godaddySecret
+ * @returns {{ available: boolean, price: string, error: string|null }}
+ */
+function checkDomainGoDaddy(domain, config) {
+    try {
+        var url = 'https://api.godaddy.com/v1/domains/available?domain=' + encodeURIComponent(domain);
+        var authHeader = 'sso-key ' + config.godaddyKey + ':' + config.godaddySecret;
+
+        var res = UrlFetchApp.fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': authHeader,
+                'Accept': 'application/json'
+            },
+            muteHttpExceptions: true
+        });
+
+        var code = res.getResponseCode();
+        if (code !== 200) {
+            console.error('GoDaddy API error (' + code + '): ' + res.getContentText().substring(0, 300));
+            // Fall back to DNS
+            var dnsResult = checkDomainDNS(domain);
+            return { available: dnsResult, price: '', error: 'GoDaddy API returned ' + code };
+        }
+
+        var data = JSON.parse(res.getContentText());
+        var available = data.available === true;
+
+        // Price comes in micro-units (1/1,000,000 of currency)
+        // e.g. 11990000 = $11.99/year
+        var priceStr = '';
+        if (available && data.price) {
+            var dollars = (data.price / 1000000).toFixed(2);
+            var currency = data.currency || 'USD';
+            priceStr = '$' + dollars + '/' + (data.period || 1) + 'yr';
+            console.log('GoDaddy: ' + domain + ' — available, ' + priceStr + ' (' + currency + ')');
+        } else if (available) {
+            priceStr = 'Available (price not returned)';
+            console.log('GoDaddy: ' + domain + ' — available, no price data');
+        } else {
+            console.log('GoDaddy: ' + domain + ' — NOT available');
+        }
+
+        return { available: available, price: priceStr, error: null };
+    } catch (e) {
+        console.error('GoDaddy API error for ' + domain + ': ' + e);
+        var dnsFallback = checkDomainDNS(domain);
+        return { available: dnsFallback, price: '', error: e.toString() };
+    }
+}
+
+/**
+ * DNS-based domain availability check via Google DoH (fallback).
+ * No pricing — just checks if the domain has DNS records.
+ * 
+ * @param {string} domain
+ * @returns {boolean} true if domain appears available
+ */
+function checkDomainDNS(domain) {
     try {
         var url = 'https://dns.google/resolve?name=' + encodeURIComponent(domain) + '&type=A';
         var res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
         var data = JSON.parse(res.getContentText());
 
-        // Status 3 = NXDOMAIN (domain doesn't exist) → available
-        // Status 0 with Answer = domain exists → taken
-        // Status 0 without Answer = could be available or parked
+        // Status 3 = NXDOMAIN (domain doesn't exist) → likely available
         if (data.Status === 3) {
-            console.log('Domain available (NXDOMAIN): ' + domain);
+            console.log('DNS: domain available (NXDOMAIN): ' + domain);
             return true;
         }
 
         if (data.Status === 0 && data.Answer && data.Answer.length > 0) {
-            console.log('Domain taken (has DNS records): ' + domain);
+            console.log('DNS: domain taken (has records): ' + domain);
             return false;
         }
 
-        console.log('Domain status ambiguous (status=' + data.Status + '): ' + domain);
-        return false; // err on the side of caution
+        console.log('DNS: domain status ambiguous (status=' + data.Status + '): ' + domain);
+        return false;
     } catch (e) {
         console.error('DNS check failed for ' + domain + ': ' + e);
         return false;

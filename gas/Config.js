@@ -16,6 +16,8 @@
  *   TWILIO_AUTH_TOKEN  — Twilio Auth Token
  *   TWILIO_PHONE       — Your Twilio phone number (e.g., +18005551234)
  *   PLACES_API_KEY     — Google Places API key (for verified lead discovery)
+ *   GODADDY_API_KEY    — GoDaddy API key (for domain availability + pricing)
+ *   GODADDY_API_SECRET — GoDaddy API secret
  */
 
 // Static constants
@@ -67,6 +69,11 @@ function getConfig() {
     console.warn('WARNING: PLACES_API_KEY not set. Lead discovery will not work.');
   }
 
+  // GoDaddy API config (for domain availability + pricing)
+  const godaddyKey = (props.getProperty('GODADDY_API_KEY') || '').trim();
+  const godaddySecret = (props.getProperty('GODADDY_API_SECRET') || '').trim();
+  console.log('GoDaddy API: ' + (godaddyKey ? 'configured' : 'NOT configured (will use DNS fallback)'));
+
   const errors = [];
 
   if (!provider || !SUPPORTED_PROVIDERS.includes(provider)) {
@@ -102,6 +109,8 @@ function getConfig() {
     twilioToken: twilioToken,
     twilioPhone: twilioPhone,
     twilioEnabled: twilioEnabled,
-    placesApiKey: placesApiKey
+    placesApiKey: placesApiKey,
+    godaddyKey: godaddyKey,
+    godaddySecret: godaddySecret
   };
 }
