@@ -1,11 +1,12 @@
 /**
- * Places.js — Google Places API integration for verified lead discovery
+ * Places.js — Google Places API integration + Pexels image search
  * 
  * Replaces LLM-based business discovery with real, verified data from Google.
  * The LLM is ONLY used for copywriting (services list + domain suggestion).
  * 
  * New Script Properties required:
- *   PLACES_API_KEY — Google Places API key
+ *   PLACES_API_KEY  — Google Places API key
+ *   PEXELS_API_KEY  — Pexels API key (free at pexels.com/api, for relevant images)
  */
 
 // ============================================================
@@ -469,6 +470,122 @@ function validatePhoneWithTwilio(phone, config) {
         console.error('Twilio Lookup error: ' + e);
         return { valid: false, smsCapable: false, type: 'unknown', error: e.toString() };
     }
+}
+
+// ============================================================
+// PEXELS IMAGE SEARCH
+// ============================================================
+
+/**
+ * Search Pexels for images relevant to the business niche and services.
+ * Returns pre-fetched image URLs that are GUARANTEED to be relevant.
+ * 
+ * @param {string} niche — e.g. "gutter cleaning"
+ * @param {string[]} servicesList — e.g. ["Gutter Cleaning", "Gutter Installation"]
+ * @param {Object} config — must have config.pexelsApiKey
+ * @returns {{ hero: string, services: string[], about: string }}
+ */
+function searchPexelsImages(niche, servicesList, config) {
+    var defaultImg = 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop';
+    var result = {
+        hero: defaultImg,
+        services: [],
+        about: defaultImg
+    };
+
+    if (!config.pexelsApiKey) {
+        console.warn('PEXELS_API_KEY not set — images will not be niche-relevant');
+        for (var i = 0; i < servicesList.length; i++) {
+            result.services.push(defaultImg);
+        }
+        return result;
+    }
+
+    // Helper: query Pexels and return the first photo URL at given size
+    function pexelsSearch(query, w, h, page) {
+        try {
+            var url = 'https://api.pexels.com/v1/search?query=' + encodeURIComponent(query) +
+                '&per_page=5&page=' + (page || 1) + '&orientation=landscape';
+            var res = UrlFetchApp.fetch(url, {
+                method: 'GET',
+                headers: { 'Authorization': config.pexelsApiKey },
+                muteHttpExceptions: true
+            });
+
+            if (res.getResponseCode() !== 200) {
+                console.error('Pexels search failed for "' + query + '": ' + res.getResponseCode());
+                return null;
+            }
+
+            var data = JSON.parse(res.getContentText());
+            if (!data.photos || data.photos.length === 0) {
+                console.log('Pexels: no results for "' + query + '"');
+                return null;
+            }
+
+            // Pick a random photo from results for variety
+            var photo = data.photos[Math.floor(Math.random() * data.photos.length)];
+            var imgUrl = photo.src.landscape || photo.src.large || photo.src.original;
+            // Append size params if using pexels CDN
+            if (imgUrl.indexOf('pexels.com') > -1 && w && h) {
+                imgUrl = imgUrl.split('?')[0] + '?auto=compress&cs=tinysrgb&w=' + w + '&h=' + h + '&fit=crop';
+            }
+            console.log('Pexels: "' + query + '" → ' + imgUrl.substring(0, 80) + '...');
+            return imgUrl;
+        } catch (e) {
+            console.error('Pexels search error for "' + query + '": ' + e);
+            return null;
+        }
+    }
+
+    // Tiered search: try specific query first, then broaden
+    function findImage(query, w, h) {
+        // Try the full query
+        var img = pexelsSearch(query, w, h, 1);
+        if (img) return img;
+
+        // Broaden: try just the first word
+        var firstWord = query.split(' ')[0];
+        if (firstWord !== query) {
+            img = pexelsSearch(firstWord, w, h, 1);
+            if (img) return img;
+        }
+
+        // Last resort: try the niche
+        img = pexelsSearch(niche, w, h, 2);
+        if (img) return img;
+
+        return defaultImg;
+    }
+
+    // Hero image: niche + "professional"
+    result.hero = findImage(niche + ' professional', 1920, 1080);
+
+    // Service images: each service gets its own search
+    var usedUrls = {};
+    usedUrls[result.hero] = true;
+
+    for (var s = 0; s < servicesList.length; s++) {
+        var serviceQuery = servicesList[s] + ' ' + niche.split(' ')[0];
+        var svcImg = findImage(serviceQuery, 800, 600);
+
+        // Avoid duplicates across services
+        if (usedUrls[svcImg] && servicesList.length > 1) {
+            // Try with page 2
+            var altImg = pexelsSearch(serviceQuery, 800, 600, 2);
+            if (altImg && !usedUrls[altImg]) {
+                svcImg = altImg;
+            }
+        }
+        usedUrls[svcImg] = true;
+        result.services.push(svcImg);
+    }
+
+    // About section: team/worker photo
+    result.about = findImage(niche + ' worker team', 800, 600);
+
+    console.log('Pexels images fetched: hero=1, services=' + result.services.length + ', about=1');
+    return result;
 }
 
 // ============================================================

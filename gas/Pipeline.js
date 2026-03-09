@@ -112,6 +112,16 @@ function phaseBuild(config, biz) {
         servicesList = ['General Service', 'Consultation', 'Repair', 'Maintenance'];
     }
 
+    // Pre-fetch relevant images from Pexels
+    var images = searchPexelsImages(niche, servicesList, config);
+
+    // Build service image assignments for the prompt
+    var serviceImageLines = [];
+    for (var i = 0; i < servicesList.length; i++) {
+        var imgUrl = images.services[i] || images.services[0] || images.hero;
+        serviceImageLines.push('   - "' + servicesList[i] + '": ' + imgUrl);
+    }
+
     var prompt = [
         'You are a world-class frontend developer. Build a premium landing page.',
         '',
@@ -123,32 +133,24 @@ function phaseBuild(config, biz) {
         'RULES:',
         '1. Include <script src="https://cdn.tailwindcss.com"></script> in <head>.',
         '',
-        '2. IMAGES — THIS IS CRITICAL:',
-        '   Every <img> MUST use loremflickr.com with keyword-based URLs.',
-        '   Format: https://loremflickr.com/WIDTH/HEIGHT/keyword1,keyword2',
-        '   To make each image unique, append /all?lock=NUMBER with a different number for each image.',
-        '   Example: https://loremflickr.com/800/600/plumbing,pipe/all?lock=1',
-        '   Pick 2-3 simple, broad keywords that describe what the image should show.',
-        '   Use common English words — avoid compound phrases.',
-        '   HERO image: https://loremflickr.com/1920/1080/' + niche.replace(/\s+/g, ',') + ',business/all?lock=0',
-        '   Each service card: use keywords specific to THAT service + the niche.',
-        '     Example for "Drain Cleaning" in plumbing: https://loremflickr.com/800/600/plumbing,pipe,drain/all?lock=1',
-        '     Example for "Oil Change" in auto repair: https://loremflickr.com/800/600/mechanic,oil,car/all?lock=2',
-        '   About section: https://loremflickr.com/800/600/worker,team,' + niche.split(' ')[0] + '/all?lock=99',
-        '   DO NOT reuse the same lock number. Each image must be unique.',
-        '   Add onerror="this.onerror=null;this.src=\'https://picsum.photos/800/600\';" to every <img>.',
+        '2. IMAGES — USE THESE EXACT URLs (do NOT change or generate your own):',
+        '   HERO background image: ' + images.hero,
+        '   ABOUT section image: ' + images.about,
+        '   Service card images (use the URL next to each service name):',
+        serviceImageLines.join('\n'),
+        '   Every <img> must use object-cover and have descriptive alt text.',
         '',
-        '3. HERO: Full-screen hero with background <img>. Dark gradient overlay.',
+        '3. HERO: Full-screen hero with the HERO background image above. Dark gradient overlay.',
         '   Big white heading "' + biz.business_name + '". Subtitle about ' + niche + ' in ' + area + '. CTA button.',
         '',
-        '4. NAVBAR: Sticky glassmorphism with "' + biz.business_name + '" text.',
+        '4. NAVBAR: Sticky top navbar with SOLID dark background (bg-slate-900 or bg-gray-900, NOT transparent/glassmorphism). White text. Logo text "' + biz.business_name + '".',
         '',
         '5. SERVICES: Grid of cards — one for each: ' + servicesList.join(', ') + '.',
-        '   Each card: contextual <img> (using loremflickr keywords for that service), service name, 2-line description.',
+        '   Each card: use the EXACT image URL assigned above for that service, service name, 2-line description.',
         '   DO NOT put a "Get Quote" or CTA button on each individual card — keep cards clean.',
         '   Instead, add ONE single centered CTA button BELOW the entire services grid that says "Get Your Free Quote" and links to #contact.',
         '',
-        '6. ABOUT: Section with team <img> and warm paragraph about the business.',
+        '6. ABOUT: Section with the ABOUT image and warm paragraph about the business.',
         '',
         '7. TESTIMONIALS: 3 text-only testimonials with star ratings (no images).',
         '',
@@ -169,38 +171,6 @@ function phaseBuild(config, biz) {
         console.error('HTML validation failed. Length: ' + html.length);
         return { html: '', error: 'Generated HTML failed validation. Try again.' };
     }
-
-    // Server-side: check each loremflickr URL and swap defaults with picsum
-    html = html.replace(/(https:\/\/loremflickr\.com\/[^"'\s]+)/gi, function (url) {
-        try {
-            // Don't follow redirects — we need to see WHERE it redirects to
-            var res = UrlFetchApp.fetch(url, { followRedirects: false, muteHttpExceptions: true });
-            var code = res.getResponseCode();
-            var location = '';
-            try { location = res.getHeaders()['Location'] || ''; } catch (e2) { }
-            if (!location) try { location = res.getHeaders()['location'] || ''; } catch (e3) { }
-
-            // LoremFlickr redirects to the actual image URL — check if it's the default
-            var isDefault = (location.indexOf('defaultImage') > -1) ||
-                (code >= 400) ||
-                (code === 200 && res.getContentText().substring(0, 500).indexOf('defaultImage') > -1);
-
-            if (isDefault) {
-                var dims = url.match(/loremflickr\.com\/(\d+)\/(\d+)/);
-                var w = dims ? dims[1] : '800';
-                var h = dims ? dims[2] : '600';
-                var seed = Math.floor(Math.random() * 10000);
-                console.log('Swapped default loremflickr → picsum (seed ' + seed + ')');
-                return 'https://picsum.photos/seed/' + seed + '/' + w + '/' + h;
-            }
-        } catch (e) {
-            var dims2 = url.match(/loremflickr\.com\/(\d+)\/(\d+)/);
-            var w2 = dims2 ? dims2[1] : '800';
-            var h2 = dims2 ? dims2[2] : '600';
-            return 'https://picsum.photos/seed/' + Math.floor(Math.random() * 10000) + '/' + w2 + '/' + h2;
-        }
-        return url;
-    });
 
     return { html: html, error: null };
 }

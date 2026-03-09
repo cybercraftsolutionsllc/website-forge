@@ -18,6 +18,7 @@
  *   PLACES_API_KEY     — Google Places API key (for verified lead discovery)
  *   GODADDY_API_KEY    — GoDaddy API key (for domain availability + pricing)
  *   GODADDY_API_SECRET — GoDaddy API secret
+ *   PEXELS_API_KEY     — Pexels API key (free at pexels.com/api, for relevant images)
  */
 
 // Static constants
@@ -74,6 +75,10 @@ function getConfig() {
   const godaddySecret = (props.getProperty('GODADDY_API_SECRET') || '').trim();
   console.log('GoDaddy API: ' + (godaddyKey ? 'configured' : 'NOT configured (will use DNS fallback)'));
 
+  // Pexels API config (for relevant business images)
+  const pexelsApiKey = (props.getProperty('PEXELS_API_KEY') || '').trim();
+  console.log('Pexels API: ' + (pexelsApiKey ? 'configured' : 'NOT configured (images may not be relevant)'));
+
   const errors = [];
 
   if (!provider || !SUPPORTED_PROVIDERS.includes(provider)) {
@@ -111,6 +116,7 @@ function getConfig() {
     twilioEnabled: twilioEnabled,
     placesApiKey: placesApiKey,
     godaddyKey: godaddyKey,
-    godaddySecret: godaddySecret
+    godaddySecret: godaddySecret,
+    pexelsApiKey: pexelsApiKey
   };
 }
