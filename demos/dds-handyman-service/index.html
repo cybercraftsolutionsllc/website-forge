@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDS Handyman Service - Birmingham, AL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full backdrop-blur-md bg-white/20 border-b border-white/20 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                    DDS Handyman Service
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-white/90 hover:text-white transition-colors">Services</a>
+                    <a href="#about" class="text-white/90 hover:text-white transition-colors">About</a>
+                    <a href="#testimonials" class="text-white/90 hover:text-white transition-colors">Testimonials</a>
+                    <a href="#contact" class="text-white/90 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen w-full overflow-hidden">
+        <img 
+            src="https://loremflickr.com/1920/1080/handyman,business/all?lock=0" 
+            alt="Handyman at work" 
+            class="absolute inset-0 w-full h-full object-cover"
+            onerror="this.onerror=null;this.src='https://picsum.photos/1920/1080';"
+        >
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 drop-shadow-2xl">
+                DDS Handyman Service
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto opacity-90 drop-shadow-lg">
+                Your trusted handyman experts in Birmingham, AL. Professional repairs and maintenance for your home.
+            </p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                Get Free Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Reliable handyman solutions tailored for Birmingham homes. Fast, clean, and affordable.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Drywall Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/734/500/350" 
+                        alt="Drywall Repair" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/500/350';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Drywall Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Expert patching and seamless finishing for damaged walls.</p>
+                        <p class="text-gray-600 leading-relaxed">Restore your interiors to like-new condition quickly.</p>
+                    </div>
+                </div>
+                <!-- Interior Painting -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/3449/500/350" 
+                        alt="Interior Painting" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/500/350';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Interior Painting</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Precision painting with premium colors and flawless prep.</p>
+                        <p class="text-gray-600 leading-relaxed">Transform your spaces with a fresh, professional coat.</p>
+                    </div>
+                </div>
+                <!-- Light Fixture Installation -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/4872/500/350" 
+                        alt="Light Fixture Installation" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/500/350';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Light Fixture Installation</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Safe and efficient installation of modern lighting.</p>
+                        <p class="text-gray-600 leading-relaxed">Brighten your home with expert electrical know-how.</p>
+                    </div>
+                </div>
+                <!-- Deck Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/7087/500/350" 
+                        alt="Deck Repair" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/500/350';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Deck Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Structural fixes and resurfacing for durable decks.</p>
+                        <p class="text-gray-600 leading-relaxed">Enjoy your outdoor space safely year-round.</p>
+                    </div>
+                </div>
+                <!-- Gutter Cleaning -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img 
+                        src="https://picsum.photos/seed/4741/500/350" 
+                        alt="Gutter Cleaning" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/500/350';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Gutter Cleaning</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Thorough cleaning to prevent water damage.</p>
+                        <p class="text-gray-600 leading-relaxed">Keep your home protected from clogs and leaks.</p>
+                    </div>
+                </div>
+                <!-- Fence Repair -->
+                <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img 
+                        src="https://loremflickr.com/500/350/fence,repair,handyman/all?lock=6" 
+                        alt="Fence Repair" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/500/350';"
+                    >
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Fence Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Sturdy repairs for wood and vinyl fences.</p>
+                        <p class="text-gray-600 leading-relaxed">Secure your property with lasting fixes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-12 py-6 rounded-3xl font-semibold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+                    Get Your Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img 
+                        src="https://loremflickr.com/800/600/worker,team,handyman/all?lock=99" 
+                        alt="Our Team" 
+                        class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl"
+                        onerror="this.onerror=null;this.src='https://picsum.photos/800/600';"
+                    >
+                </div>
+                <div class="lg:pl-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About DDS Handyman Service</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        Serving Birmingham, AL with over 10 years of experience, we're your local handyman pros dedicated to quality workmanship. 
+                        Our skilled team handles everything from small fixes to larger projects, always on time and within budget. 
+                        We pride ourselves on clean work sites, friendly service, and customer satisfaction guaranteed.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Licensed, insured, and equipped for any job—trust DDS for reliable home maintenance that lasts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Real reviews from Birmingham homeowners.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50">
+                    <div class="flex text-yellow-400 text-2xl mb-4">★★★★★</div>
+                    <p class="text-gray-800 text-lg italic mb-6">"DDS fixed our deck in one day—professional and affordable. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">- Sarah M., Birmingham</p>
+                </div>
+                <div class="bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50">
+                    <div class="flex text-yellow-400 text-2xl mb-4">★★★★★</div>
+                    <p class="text-gray-800 text-lg italic mb-6">"Interior painting turned out perfect. Clean, precise, and on time every time."</p>
+                    <p class="font-semibold text-gray-900">- Mike R., Hoover</p>
+                </div>
+                <div class="bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50">
+                    <div class="flex text-yellow-400 text-2xl mb-4">★★★★★</div>
+                    <p class="text-gray-800 text-lg italic mb-6">"Gutter cleaning and fence repair done right. Friendly team, great value."</p>
+                    <p class="font-semibold text-gray-900">- Lisa T., Vestavia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-slate-900 py-24 px-6 text-white">
+        <div class="container mx-auto max-w-2xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-slate-300">Contact us for a free quote on your handyman needs in Birmingham, AL.</p>
+            </div>
+            <form class="space-y-6" action="#" method="POST">
+                <input type="text" placeholder="Your Name" required class="w-full px-6 py-4 bg-slate-800/50 border border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-400 transition-all">
+                <input type="email" placeholder="Your Email" required class="w-full px-6 py-4 bg-slate-800/50 border border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-400 transition-all">
+                <input type="tel" placeholder="Your Phone" required class="w-full px-6 py-4 bg-slate-800/50 border border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-400 transition-all">
+                <textarea rows="5" placeholder="Your Message" required class="w-full px-6 py-4 bg-slate-800/50 border border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-slate-400 transition-all resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-6 rounded-2xl font-semibold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
+                    Send Message
+                </button>
+            </form>
+        </div>
+        <div class="border-t border-slate-800 mt-20 pt-12 text-center">
+            <p class="text-slate-400 text-lg">&copy; 2024 DDS Handyman Service. Serving Birmingham, AL. Powered by Cyber Craft Solutions.</p>
+        </div>
+    </section>
+</body>
+</html>
