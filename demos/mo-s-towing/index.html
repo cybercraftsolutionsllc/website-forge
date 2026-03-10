@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mo’s Towing - Reliable Towing Service in Philadelphia, PA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold">Mo’s Towing</div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-blue-400 transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-blue-400 transition">Services</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                </ul>
+                <button class="md:hidden text-white">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/17429095/pexels-photo-17429095.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/70"></div>
+        <div class="relative z-10 container mx-auto h-full flex flex-col items-center justify-center text-center text-white px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Mo’s Towing</h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-2xl drop-shadow-lg">Your trusted towing service in Philadelphia, PA. Fast, reliable, and available 24/7 for all your roadside needs.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full text-lg transition-all duration-300 shadow-xl hover:shadow-2xl">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive towing and roadside solutions tailored to your needs in Philadelphia.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Flatbed Towing -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <img src="https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Flatbed towing truck safely transporting a vehicle" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Flatbed Towing</h3>
+                        <p class="text-gray-600 mb-2">Safest option for all vehicle types.</p>
+                        <p class="text-gray-600">No undercarriage damage guaranteed.</p>
+                    </div>
+                </div>
+                <!-- Wheel-Lift Towing -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <img src="https://images.pexels.com/photos/13151224/pexels-photo-13151224.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Wheel-lift towing in action lifting a car's wheels" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Wheel-Lift Towing</h3>
+                        <p class="text-gray-600 mb-2">Quick and efficient for sedans.</p>
+                        <p class="text-gray-600">Ideal for front or rear-wheel drive.</p>
+                    </div>
+                </div>
+                <!-- Heavy Duty Towing -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <img src="https://images.pexels.com/photos/17429095/pexels-photo-17429095.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Heavy duty towing truck handling large vehicles" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Heavy Duty Towing</h3>
+                        <p class="text-gray-600 mb-2">For trucks, buses, and RVs.</p>
+                        <p class="text-gray-600">Powerful equipment for big jobs.</p>
+                    </div>
+                </div>
+                <!-- Roadside Assistance -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <img src="https://images.pexels.com/photos/17429097/pexels-photo-17429097.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Roadside assistance technician helping a stranded driver" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Roadside Assistance</h3>
+                        <p class="text-gray-600 mb-2">Tire changes, jump starts, fuel.</p>
+                        <p class="text-gray-600">On-site fixes to get you moving.</p>
+                    </div>
+                </div>
+                <!-- Lockout Services -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <img src="https://images.pexels.com/photos/8931961/pexels-photo-8931961.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Lockout service unlocking a car door safely" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Lockout Services</h3>
+                        <p class="text-gray-600 mb-2">Fast, non-destructive entry.</p>
+                        <p class="text-gray-600">Keys locked inside? We're there.</p>
+                    </div>
+                </div>
+                <!-- Accident Recovery -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <img src="https://images.pexels.com/photos/15545778/pexels-photo-15545778.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Accident recovery team at a crash scene" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Accident Recovery</h3>
+                        <p class="text-gray-600 mb-2">Professional scene management.</p>
+                        <p class="text-gray-600">Safe removal after collisions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full text-xl transition-all duration-300 shadow-xl hover:shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="https://images.pexels.com/photos/6519910/pexels-photo-6519910.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional towing team in Philadelphia ready for service" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                </div>
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Mo’s Towing</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">With over 20 years serving Philadelphia and surrounding areas, Mo’s Towing is your go-to for reliable, prompt service. Our certified team operates 24/7, using state-of-the-art equipment to handle any situation safely and efficiently. We're more than a towing company—we're your roadside partners in the City of Brotherly Love.</p>
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-xl">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by thousands in Philadelphia.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-10 rounded-2xl text-center hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Mo’s saved us after a breakdown on I-95. Arrived in 20 minutes and towed safely. Highly recommend!"</p>
+                    <p class="font-bold text-gray-900">- Sarah K., Philly</p>
+                </div>
+                <div class="bg-gray-50 p-10 rounded-2xl text-center hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Locked keys in car downtown— they unlocked it fast without damage. Professional and friendly."</p>
+                    <p class="font-bold text-gray-900">- Mike R., Center City</p>
+                </div>
+                <div class="bg-gray-50 p-10 rounded-2xl text-center hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Heavy duty tow for our truck after an accident. Handled everything perfectly. 10/10 service."</p>
+                    <p class="font-bold text-gray-900">- Tom L., Northeast Philly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready for Assistance?</h2>
+                <p class="text-xl text-gray-300">Get in touch for a free quote. We're here 24/7.</p>
+            </div>
+            <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+                <input type="text" placeholder="Your Name" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                <input type="email" placeholder="Your Email" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                <input type="tel" placeholder="Your Phone" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                <textarea rows="5" placeholder="Your Message" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical" required></textarea>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-xl hover:shadow-2xl">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2024 Mo’s Towing. All rights reserved. | Powered by <a href="#" class="text-blue-400 hover:text-blue-300 font-bold">Cyber Craft Solutions</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
