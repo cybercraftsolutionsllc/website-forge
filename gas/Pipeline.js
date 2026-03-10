@@ -839,6 +839,14 @@ function backfillLeads() {
             rowFixed = true;
         }
 
+        // --- 4. Missing target email: fill in "None found" ---
+        var email = (row[col.Target_Email] || '').toString().trim();
+        if (!email) {
+            sheet.getRange(rowNum, col.Target_Email + 1).setValue('None found');
+            console.log('Row ' + rowNum + ': filled Target_Email = None found');
+            rowFixed = true;
+        }
+
         if (rowFixed) fixedCount++;
         Utilities.sleep(500); // Pace API calls
     }

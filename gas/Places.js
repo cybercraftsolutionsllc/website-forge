@@ -465,7 +465,7 @@ function checkDomainDomScan(domain, config) {
 function getDomainPricing(tld, config) {
     // Known standard prices as fallback (updated periodically)
     var FALLBACK_PRICES = {
-        'com': '$10.99/yr (est.)',
+        'com': '$15.00/yr (est.)',
         'net': '$12.99/yr (est.)',
         'org': '$9.99/yr (est.)',
         'co': '$11.99/yr (est.)',
