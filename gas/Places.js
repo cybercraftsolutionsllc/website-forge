@@ -345,14 +345,14 @@ function generateMoreDomains(biz, takenDomains, config) {
  * 
  * @param {string} domain — e.g. "mybusiness.com"
  * @param {Object} config — may contain config.domscanApiKey
- * @returns {{ available: boolean, price: string, error: string|null }}
+ * @returns {{ available: boolean, price: string, buyUrl: string, error: string|null }}
  */
 function checkDomain(domain, config) {
-    if (!domain) return { available: false, price: '', error: 'No domain provided' };
+    if (!domain) return { available: false, price: '', buyUrl: '', error: 'No domain provided' };
 
     // Clean the domain
     domain = domain.replace(/^https?:\/\//, '').replace(/\/.*$/, '').trim().toLowerCase();
-    if (!domain || domain.indexOf('.') === -1) return { available: false, price: '', error: 'Invalid domain' };
+    if (!domain || domain.indexOf('.') === -1) return { available: false, price: '', buyUrl: '', error: 'Invalid domain' };
 
     // Try DomScan API (availability + pricing)
     if (config.domscanApiKey) {
@@ -365,6 +365,7 @@ function checkDomain(domain, config) {
     return {
         available: dnsAvailable,
         price: '',
+        buyUrl: '',
         error: null
     };
 }
@@ -404,7 +405,7 @@ function checkDomainDomScan(domain, config) {
         if (code !== 200) {
             console.error('DomScan status error (' + code + '): ' + responseBody.substring(0, 300));
             var dnsResult = checkDomainDNS(domain);
-            return { available: dnsResult, price: '', error: 'DomScan returned ' + code };
+            return { available: dnsResult, price: '', buyUrl: '', error: 'DomScan returned ' + code };
         }
 
         // Log full response for debugging
@@ -423,7 +424,7 @@ function checkDomainDomScan(domain, config) {
         if (!domainResult) {
             console.log('DomScan: no matching result for ' + domain + ' in response');
             var dnsFallback = checkDomainDNS(domain);
-            return { available: dnsFallback, price: '', error: null };
+            return { available: dnsFallback, price: '', buyUrl: '', error: null };
         }
 
         var available = domainResult.available === true;
@@ -442,27 +443,31 @@ function checkDomainDomScan(domain, config) {
 
         // Step 2: Get pricing if available
         var priceStr = '';
+        var buyUrl = '';
         if (available) {
-            priceStr = getDomainPricing(tld, config);
+            var pricing = getDomainPricing(tld, domain, config);
+            priceStr = pricing.price;
+            buyUrl = pricing.buyUrl;
         }
 
-        return { available: available, price: priceStr, error: null };
+        return { available: available, price: priceStr, buyUrl: buyUrl, error: null };
     } catch (e) {
         console.error('DomScan error for ' + domain + ': ' + e);
         var dnsFb = checkDomainDNS(domain);
-        return { available: dnsFb, price: '', error: e.toString() };
+        return { available: dnsFb, price: '', buyUrl: '', error: e.toString() };
     }
 }
 
 /**
  * Get real domain pricing from DomScan's pricing endpoint.
- * Returns the cheapest registration price across registrars.
+ * Returns the cheapest registration price across registrars + a purchase URL.
  * 
  * @param {string} tld — e.g. "com"
+ * @param {string} domain — full domain like "mybusiness.com"
  * @param {Object} config
- * @returns {string} price string like "$8.88/yr (Namecheap)"
+ * @returns {{ price: string, buyUrl: string }}
  */
-function getDomainPricing(tld, config) {
+function getDomainPricing(tld, domain, config) {
     // Known standard prices as fallback (updated periodically)
     var FALLBACK_PRICES = {
         'com': '$15.00/yr (est.)',
@@ -472,8 +477,34 @@ function getDomainPricing(tld, config) {
         'io': '$29.99/yr (est.)'
     };
 
+    // Registrar → purchase URL templates (DOMAIN is replaced with actual domain)
+    var BUY_URLS = {
+        'cloudflare': 'https://www.cloudflare.com/products/registrar/',
+        'porkbun': 'https://porkbun.com/checkout/search?q=DOMAIN',
+        'namecheap': 'https://www.namecheap.com/domains/registration/results/?domain=DOMAIN',
+        'godaddy': 'https://www.godaddy.com/domainsearch/find?domainToCheck=DOMAIN',
+        'google': 'https://domains.google.com/registrar/search?searchTerm=DOMAIN',
+        'squarespace': 'https://domains.squarespace.com/?channel=pbr&subchannel=go&campaign=SQS_Domains_Core_NB_US_EN&subcampaign=(pbr:go:SQS_Domains_Core_NB_US_EN)',
+        'dynadot': 'https://www.dynadot.com/domain/search?domain=DOMAIN',
+        'spaceship': 'https://www.spaceship.com/domain/search/?query=DOMAIN',
+        'hover': 'https://www.hover.com/domains/results?q=DOMAIN'
+    };
+
+    function getBuyUrl(registrarKey) {
+        if (!registrarKey || !domain) return '';
+        var key = registrarKey.toLowerCase().replace(/[^a-z]/g, '');
+        // Match against known registrars
+        for (var name in BUY_URLS) {
+            if (key.indexOf(name) > -1) {
+                return BUY_URLS[name].replace(/DOMAIN/g, domain);
+            }
+        }
+        // Generic fallback: Google search for "register DOMAIN"
+        return 'https://www.google.com/search?q=register+' + encodeURIComponent(domain);
+    }
+
     try {
-        var url = 'https://domscan.net/v1/pricing?tld=' + encodeURIComponent(tld);
+        var url = 'https://domscan.net/v1/prices/tld/' + encodeURIComponent(tld);
         var res = UrlFetchApp.fetch(url, {
             method: 'GET',
             headers: {
@@ -489,41 +520,46 @@ function getDomainPricing(tld, config) {
 
         if (code !== 200) {
             console.warn('DomScan pricing returned ' + code + ' — using fallback');
-            return FALLBACK_PRICES[tld] || '';
+            return { price: FALLBACK_PRICES[tld] || '', buyUrl: '' };
         }
 
         var data = JSON.parse(body);
-        var prices = data.prices || data.registrars || data.data || [];
 
-        if (prices.length === 0) {
-            console.warn('DomScan pricing returned empty array — using fallback');
-            return FALLBACK_PRICES[tld] || '';
+        // Response format: { success: true, data: { tld: "com", prices: [...] } }
+        var prices = (data.data && data.data.prices) || data.prices || data.registrars || [];
+
+        if (!Array.isArray(prices) || prices.length === 0) {
+            console.warn('DomScan pricing returned empty/invalid prices — using fallback');
+            return { price: FALLBACK_PRICES[tld] || '', buyUrl: '' };
         }
 
         // Find cheapest registration price
+        // DomScan uses "register" for new registration cost
         var cheapest = prices[0];
         for (var i = 1; i < prices.length; i++) {
-            var regPrice = prices[i].registration || prices[i].register || prices[i].price || 999;
-            var cheapPrice = cheapest.registration || cheapest.register || cheapest.price || 999;
+            var regPrice = prices[i].register || prices[i].registration || prices[i].price || 999;
+            var cheapPrice = cheapest.register || cheapest.registration || cheapest.price || 999;
             if (regPrice < cheapPrice) {
                 cheapest = prices[i];
             }
         }
 
-        var regCost = cheapest.registration || cheapest.register || cheapest.price;
-        var registrar = cheapest.registrar || cheapest.name || 'registrar';
+        var regCost = cheapest.register || cheapest.registration || cheapest.price;
+        var registrarId = cheapest.registrar || cheapest.name || '';
+        var registrarName = cheapest.registrarName || registrarId || 'registrar';
 
         if (!regCost) {
             console.warn('DomScan pricing: no registration cost found — using fallback');
-            return FALLBACK_PRICES[tld] || '';
+            return { price: FALLBACK_PRICES[tld] || '', buyUrl: '' };
         }
 
-        var priceStr = '$' + parseFloat(regCost).toFixed(2) + '/yr (' + registrar + ')';
-        console.log('DomScan pricing for .' + tld + ': ' + priceStr);
-        return priceStr;
+        var priceStr = '$' + parseFloat(regCost).toFixed(2) + '/yr (' + registrarName + ')';
+        var buyLink = getBuyUrl(registrarId);
+        console.log('DomScan pricing for .' + tld + ': ' + priceStr + ' → ' + buyLink);
+        return { price: priceStr, buyUrl: buyLink };
     } catch (e) {
         console.error('DomScan pricing error: ' + e + ' — using fallback');
-        return FALLBACK_PRICES[tld] || '';
+        return { price: FALLBACK_PRICES[tld] || '', buyUrl: '' };
     }
 }
 

@@ -100,6 +100,30 @@ function normalizePhone(phone) {
 // in Places.js. The LLM NEVER generates business names, phones, or addresses.
 
 // ============================================================
+// SHEET HELPERS
+// ============================================================
+
+/**
+ * Write domain cost to a cell — as a HYPERLINK formula if buyUrl is available.
+ * 
+ * @param {Sheet} sheet
+ * @param {number} row — 1-indexed row
+ * @param {number} col — 1-indexed column
+ * @param {string} priceText — e.g. "$10.44/yr (Cloudflare Registrar)"
+ * @param {string} buyUrl — purchase URL, may be empty
+ */
+function writeDomainCost(sheet, row, col, priceText, buyUrl) {
+    if (buyUrl) {
+        // Escape any double-quotes in the strings for the formula
+        var safeUrl = buyUrl.replace(/"/g, '""');
+        var safeText = priceText.replace(/"/g, '""');
+        sheet.getRange(row, col).setFormula('=HYPERLINK("' + safeUrl + '","' + safeText + '")');
+    } else {
+        sheet.getRange(row, col).setValue(priceText);
+    }
+}
+
+// ============================================================
 // PHASE 2: THE DEVELOPER (LLM-driven image selection)
 // ============================================================
 
@@ -242,6 +266,13 @@ function phaseLog(config, biz, html) {
     }
 
     var lastRow = sheet.getLastRow();
+
+    // Overwrite Domain_Cost_Yearly with HYPERLINK if we have a purchase URL
+    if (biz.domain_buy_url && biz.domain_cost) {
+        var domCostCol = SHEET_HEADERS.indexOf('Domain_Cost_Yearly') + 1;
+        writeDomainCost(sheet, lastRow, domCostCol, biz.domain_cost, biz.domain_buy_url);
+    }
+
     return {
         error: null,
         liveUrl: liveUrl,
@@ -602,6 +633,7 @@ function runWebsiteForgePipeline() {
         var takenDomains = [];
         biz.suggested_domain = '';
         biz.domain_cost = '';
+        biz.domain_buy_url = '';
 
         // Round 1: check the original 5
         for (var d = 0; d < allDomains.length; d++) {
@@ -610,6 +642,7 @@ function runWebsiteForgePipeline() {
             if (domainCheck.available) {
                 biz.suggested_domain = allDomains[d];
                 biz.domain_cost = domainCheck.price || '';
+                biz.domain_buy_url = domainCheck.buyUrl || '';
                 console.log('✅ Domain available: ' + allDomains[d] + ' — ' + biz.domain_cost);
                 break;
             }
@@ -629,6 +662,7 @@ function runWebsiteForgePipeline() {
                 if (altCheck.available) {
                     biz.suggested_domain = moreDomains[m];
                     biz.domain_cost = altCheck.price || '';
+                    biz.domain_buy_url = altCheck.buyUrl || '';
                     console.log('✅ Alt domain available: ' + moreDomains[m] + ' — ' + biz.domain_cost);
                     break;
                 }
@@ -774,7 +808,7 @@ function backfillLeads() {
                         domain = copy.suggested_domains[d];
                         domainCost = check.price || '';
                         sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
-                        sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                        writeDomainCost(sheet, rowNum, col.Domain_Cost_Yearly + 1, domainCost, check.buyUrl);
                         console.log('Row ' + rowNum + ': filled domain = ' + domain + ' (' + domainCost + ')');
                         rowFixed = true;
                         break;
@@ -791,7 +825,7 @@ function backfillLeads() {
                             domain = moreDomains[m];
                             domainCost = altCheck.price || '';
                             sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
-                            sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                            writeDomainCost(sheet, rowNum, col.Domain_Cost_Yearly + 1, domainCost, altCheck.buyUrl);
                             console.log('Row ' + rowNum + ': filled alt domain = ' + domain + ' (' + domainCost + ')');
                             rowFixed = true;
                             break;
@@ -811,7 +845,7 @@ function backfillLeads() {
             var priceCheck = checkDomain(domain, config);
             if (priceCheck.available && priceCheck.price) {
                 domainCost = priceCheck.price;
-                sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                writeDomainCost(sheet, rowNum, col.Domain_Cost_Yearly + 1, domainCost, priceCheck.buyUrl);
                 console.log('Row ' + rowNum + ': filled price = ' + domainCost);
                 rowFixed = true;
             } else if (!priceCheck.available) {
