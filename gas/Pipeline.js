@@ -425,7 +425,7 @@ function phaseOutreach(config, biz, logResult) {
     }
 
     var result;
-    var channel = biz.channel || 'email';
+    var channel = biz.channel || 'sms';
 
     if (channel === 'email' && isValidEmail(biz.target_email)) {
         var subject = 'I built ' + biz.business_name + ' a free website';
@@ -482,11 +482,6 @@ function sendAllPending() {
         var liveUrl = row[col.Live_Pages_URL] || '';
         var domainCost = (row[col.Domain_Cost_Yearly] || '').toString().trim();
 
-        // Guard: skip landlines — SMS will fail
-        if (channel === 'call') {
-            console.log('Skipping row ' + (i + 1) + ' (' + businessName + '): landline, needs manual call');
-            skipCount++; continue;
-        }
 
         // Guard: skip leads without verified domain pricing
         if (!domainCost || domainCost.indexOf('$') === -1) {
@@ -524,7 +519,7 @@ function sendAllPending() {
 }
 
 // ============================================================
-// MAIN ENTRY POINT
+// MAIN ENTRY POINT — Resilient pipeline with auto-retry
 // ============================================================
 function runWebsiteForgePipeline() {
     var config = getConfig();
@@ -542,129 +537,313 @@ function runWebsiteForgePipeline() {
     }
     ensureHeaders(sheet);
 
-    // Load existing leads for dedup
     var existingLeads = getExistingLeads(sheet);
     console.log('Existing leads loaded: ' + existingLeads.length);
 
-    // --- Phase 1: Discover via Google Places ---
-    var MAX_ATTEMPTS = 5;
-    var biz = null;
+    // ========================================================
+    // OUTER RETRY LOOP — keeps trying until we get a sendable lead
+    // ========================================================
+    var MAX_PIPELINE_ATTEMPTS = 5;
 
-    for (var attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-        var niche = pickRandom(NICHES);
-        var city = pickRandom(CITIES);
+    for (var pAttempt = 1; pAttempt <= MAX_PIPELINE_ATTEMPTS; pAttempt++) {
+        console.log('=== Pipeline attempt ' + pAttempt + '/' + MAX_PIPELINE_ATTEMPTS + ' ===');
 
-        ss.toast('Phase 1: Searching "' + niche + '" in "' + city + '" (attempt ' + attempt + '/' + MAX_ATTEMPTS + ')...', '🚀 WebsiteForge', -1);
+        // --- Phase 1: Discover via Google Places ---
+        var LEAD_ATTEMPTS = 5;
+        var biz = null;
+
+        for (var attempt = 1; attempt <= LEAD_ATTEMPTS; attempt++) {
+            var niche = pickRandom(NICHES);
+            var city = pickRandom(CITIES);
+
+            ss.toast('(' + pAttempt + '/' + MAX_PIPELINE_ATTEMPTS + ') Phase 1: Searching "' + niche + '" in "' + city + '"...', '🚀 WebsiteForge', -1);
+            SpreadsheetApp.flush();
+
+            var research = findLeadFromPlaces(niche, city, config, existingLeads);
+            if (research.data) {
+                biz = research.data;
+                break;
+            }
+
+            console.log('Lead attempt ' + attempt + ': ' + research.error);
+            if (attempt < LEAD_ATTEMPTS) Utilities.sleep(500);
+        }
+
+        if (!biz) {
+            console.warn('Pipeline attempt ' + pAttempt + ': no lead found in ' + LEAD_ATTEMPTS + ' searches');
+            continue; // Try entire pipeline again with new niches/cities
+        }
+
+        // --- Twilio phone check (before spending LLM/domain credits) ---
+        var phoneCheck = validatePhoneWithTwilio(biz.target_phone, config);
+        if (!phoneCheck.valid) {
+            console.warn('⚠️ Phone validation failed: ' + biz.target_phone + ' — continuing anyway');
+        } else if (!phoneCheck.smsCapable) {
+            console.warn('⚠️ LANDLINE: ' + biz.target_phone + ' — pivoting to new lead');
+            ss.toast('Landline detected — finding another lead...', '🔄', 3);
+            continue; // Next pipeline attempt
+        } else {
+            console.log('Phone OK: ' + biz.target_phone + ' (type=' + phoneCheck.type + ', SMS capable)');
+        }
+
+        // --- Phase 1B: LLM generates copy (services + domains) ---
+        ss.toast('(' + pAttempt + '/' + MAX_PIPELINE_ATTEMPTS + ') Phase 1B: Generating copy for ' + biz.business_name + '...', '🚀 WebsiteForge', -1);
         SpreadsheetApp.flush();
 
-        var research = findLeadFromPlaces(niche, city, config, existingLeads);
-
-        if (research.data) {
-            biz = research.data;
-            break;
+        var copy = generateCopyForLead(biz, config);
+        if (copy.error) {
+            console.warn('Copy generation failed: ' + copy.error + ' — pivoting to new lead');
+            continue; // Next pipeline attempt
         }
-
-        console.log('Attempt ' + attempt + ': ' + research.error);
-        if (attempt < MAX_ATTEMPTS) {
-            ss.toast('No qualifying lead — trying another niche/city (' + attempt + '/' + MAX_ATTEMPTS + ')...', '🔄', 3);
-            Utilities.sleep(500);
-        }
-    }
-
-    if (!biz) {
-        ss.toast('No verified leads found after ' + MAX_ATTEMPTS + ' tries. Try again later.', '❌', 10);
-        return;
-    }
-
-    // --- Phase 1B: LLM generates copy (services + domain ONLY) ---
-    ss.toast('Phase 1B: Generating services list for ' + biz.business_name + '...', '🚀 WebsiteForge', -1);
-    SpreadsheetApp.flush();
-
-    var copy = generateCopyForLead(biz, config);
-    if (!copy.error) {
         biz.services = copy.services;
 
-        // Check each LLM-suggested domain until we find an available one
-        var domains = copy.suggested_domains || [];
+        // --- Domain check: try first 5, then re-query LLM for 5 more ---
+        var allDomains = copy.suggested_domains || [];
+        var takenDomains = [];
         biz.suggested_domain = '';
         biz.domain_cost = '';
 
-        for (var d = 0; d < domains.length; d++) {
-            console.log('Checking domain ' + (d + 1) + '/' + domains.length + ': ' + domains[d]);
-            var domainCheck = checkDomain(domains[d], config);
+        // Round 1: check the original 5
+        for (var d = 0; d < allDomains.length; d++) {
+            console.log('Checking domain ' + (d + 1) + '/' + allDomains.length + ': ' + allDomains[d]);
+            var domainCheck = checkDomain(allDomains[d], config);
             if (domainCheck.available) {
-                biz.suggested_domain = domains[d];
+                biz.suggested_domain = allDomains[d];
                 biz.domain_cost = domainCheck.price || '';
-                console.log('✅ Domain available: ' + domains[d] + ' — ' + biz.domain_cost);
+                console.log('✅ Domain available: ' + allDomains[d] + ' — ' + biz.domain_cost);
                 break;
-            } else {
-                console.log('Domain taken: ' + domains[d]);
+            }
+            console.log('Domain taken: ' + allDomains[d]);
+            takenDomains.push(allDomains[d]);
+        }
+
+        // Round 2: if all taken, ask LLM for 5 more creative ones
+        if (!biz.suggested_domain && takenDomains.length > 0) {
+            console.log('All ' + takenDomains.length + ' domains taken — re-querying LLM for alternatives');
+            ss.toast('All domains taken — asking for creative alternatives...', '🔄', 3);
+
+            var moreDomains = generateMoreDomains(biz, takenDomains, config);
+            for (var m = 0; m < moreDomains.length; m++) {
+                console.log('Checking alt domain ' + (m + 1) + '/' + moreDomains.length + ': ' + moreDomains[m]);
+                var altCheck = checkDomain(moreDomains[m], config);
+                if (altCheck.available) {
+                    biz.suggested_domain = moreDomains[m];
+                    biz.domain_cost = altCheck.price || '';
+                    console.log('✅ Alt domain available: ' + moreDomains[m] + ' — ' + biz.domain_cost);
+                    break;
+                }
+                console.log('Alt domain taken: ' + moreDomains[m]);
             }
         }
 
+        // If STILL no domain, pivot to a new lead
         if (!biz.suggested_domain) {
-            console.warn('All ' + domains.length + ' LLM domain suggestions were taken');
+            console.warn('All domain suggestions taken after 2 LLM rounds — pivoting to new lead');
+            continue; // Next pipeline attempt
         }
-    } else {
-        console.warn('Copy generation failed, using defaults: ' + copy.error);
-        biz.services = '';
-    }
 
-    // --- Twilio phone validation (safety net + landline detection) ---
-    var phoneCheck = validatePhoneWithTwilio(biz.target_phone, config);
-    if (!phoneCheck.valid) {
-        console.warn('⚠️ Twilio phone validation failed for ' + biz.target_phone + ': ' + (phoneCheck.error || 'type=' + phoneCheck.type));
-        // Continue anyway — Google Places is authoritative, Twilio is just a safety net
-    } else if (!phoneCheck.smsCapable) {
-        // Landline detected — skip this lead entirely and find a new one
-        console.warn('⚠️ LANDLINE detected: ' + biz.target_phone + ' — skipping lead, restarting pipeline');
-        ss.toast('Landline detected (' + biz.target_phone + ') — finding another lead...', '🔄', 5);
-        SpreadsheetApp.flush();
-        return runWebsiteForgePipeline(); // Restart to find a SMS-capable lead
-    } else {
-        console.log('Phone validated via Twilio: ' + biz.target_phone + ' (type=' + phoneCheck.type + ', SMS OK)');
-    }
+        // --- Phase 2: Build website ---
+        biz.slug = toSlug(biz.business_name);
+        var contactInfo = '📱 ' + biz.target_phone;
+        console.log('Lead ready: ' + biz.business_name + ' | ' + biz.niche + ' | ' + biz.area + ' | ' + contactInfo);
 
-    // Generate slug
-    biz.slug = toSlug(biz.business_name);
-
-    var contactInfo = '📱 ' + biz.target_phone;
-    console.log('Lead ready: ' + biz.business_name + ' | ' + biz.niche + ' | ' + biz.area + ' | ' + contactInfo);
-
-    // --- Phase 2: Build ---
-    ss.toast('Phase 2: Building website for ' + biz.business_name + '...', '🚀 WebsiteForge', -1);
-    SpreadsheetApp.flush();
-
-    var build = phaseBuild(config, biz);
-    if (build.error) {
-        ss.toast(build.error, '❌ Phase 2', 10);
-        return;
-    }
-
-    // --- Phase 3: Deploy & Log ---
-    ss.toast('Phase 3: Deploying & logging...', '🚀 WebsiteForge', -1);
-    SpreadsheetApp.flush();
-
-    var log = phaseLog(config, biz, build.html);
-    if (log.error) {
-        ss.toast(log.error, '❌ Phase 3', 10);
-        return;
-    }
-
-    // --- Phase 4: Outreach ---
-    if (config.autoSend) {
-        ss.toast('Phase 4: Sending SMS to ' + contactInfo + '...', '🚀 WebsiteForge', -1);
+        ss.toast('(' + pAttempt + '/' + MAX_PIPELINE_ATTEMPTS + ') Phase 2: Building website for ' + biz.business_name + '...', '🚀 WebsiteForge', -1);
         SpreadsheetApp.flush();
 
-        var outreach = phaseOutreach(config, biz, log);
-        if (outreach.sent) {
-            ss.toast('✅ Done! SMS sent to ' + contactInfo, '🎉', 15);
-        } else if (outreach.error) {
-            ss.toast('⚠️ Deployed but send failed: ' + outreach.error, '⚠️', 15);
+        var build = phaseBuild(config, biz);
+        if (build.error) {
+            // Retry build once
+            console.warn('Build failed: ' + build.error + ' — retrying once');
+            ss.toast('Build failed — retrying...', '🔄', 3);
+            build = phaseBuild(config, biz);
+            if (build.error) {
+                console.warn('Build failed twice: ' + build.error + ' — pivoting to new lead');
+                continue; // Next pipeline attempt
+            }
         }
-    } else {
-        ss.toast('✅ Done! ' + biz.business_name + ' (' + contactInfo + ') — review in sheet', '🎉', 15);
+
+        // --- Phase 3: Deploy & Log ---
+        ss.toast('(' + pAttempt + '/' + MAX_PIPELINE_ATTEMPTS + ') Phase 3: Deploying & logging...', '🚀 WebsiteForge', -1);
+        SpreadsheetApp.flush();
+
+        var log = phaseLog(config, biz, build.html);
+        if (log.error) {
+            // Retry deploy once
+            console.warn('Deploy failed: ' + log.error + ' — retrying once');
+            Utilities.sleep(2000);
+            log = phaseLog(config, biz, build.html);
+            if (log.error) {
+                console.warn('Deploy failed twice: ' + log.error + ' — pivoting to new lead');
+                continue; // Next pipeline attempt
+            }
+        }
+
+        // --- Phase 4: Outreach (terminal step — pipeline done after this) ---
+        if (config.autoSend) {
+            ss.toast('Phase 4: Sending SMS to ' + contactInfo + '...', '🚀 WebsiteForge', -1);
+            SpreadsheetApp.flush();
+
+            var outreach = phaseOutreach(config, biz, log);
+            if (outreach.sent) {
+                ss.toast('✅ Done! SMS sent to ' + contactInfo, '🎉', 15);
+            } else if (outreach.error) {
+                ss.toast('⚠️ Deployed but send failed: ' + outreach.error, '⚠️', 15);
+            }
+        } else {
+            ss.toast('✅ Done! ' + biz.business_name + ' (' + contactInfo + ') — review in sheet', '🎉', 15);
+        }
+
+        return; // SUCCESS — exit pipeline
     }
+
+    // If we get here, all pipeline attempts exhausted
+    ss.toast('Pipeline exhausted ' + MAX_PIPELINE_ATTEMPTS + ' attempts without producing a sendable lead. Try again later.', '❌', 15);
+}
+
+// ============================================================
+// BACKFILL — Fill in empty cells on existing rows
+// ============================================================
+
+/**
+ * Scans every row in the Leads sheet and tries to fill in empty cells.
+ * 
+ * Backfills:
+ *   - Suggested_Domain + Domain_Cost_Yearly: re-queries LLM for domains, checks DomScan
+ *   - Domain_Cost_Yearly only (when domain exists but price is missing): re-checks DomScan
+ *   - Drafted_Message: regenerates SMS/email text from business data + live URL
+ * 
+ * Skips rows with Status = 'Sent'.
+ */
+function backfillLeads() {
+    var config = getConfig();
+    if (!config) return;
+
+    var ss = SpreadsheetApp.openById(config.sheetId);
+    var sheet = ss.getSheetByName('Leads');
+    if (!sheet) { ss.toast('No Leads tab found.', '❌', 5); return; }
+
+    var data = sheet.getDataRange().getValues();
+    var headers = data[0];
+
+    // Build column index map
+    var col = {};
+    SHEET_HEADERS.forEach(function (h) { col[h] = headers.indexOf(h); });
+
+    var fixedCount = 0;
+    var skippedCount = 0;
+    var totalRows = data.length - 1;
+
+    for (var i = 1; i < data.length; i++) {
+        var row = data[i];
+        var rowNum = i + 1;
+        var businessName = row[col.Business_Name] || '';
+        var status = (row[col.Status] || '').toString().trim();
+
+        // Skip sent rows — don't touch them
+        if (status === 'Sent') { skippedCount++; continue; }
+        if (!businessName) { skippedCount++; continue; }
+
+        var area = row[col.Area] || '';
+        var niche = row[col.Niche] || '';
+        var phone = row[col.Target_Phone] || '';
+        var liveUrl = row[col.Live_Pages_URL] || '';
+        var domain = (row[col.Suggested_Domain] || '').toString().trim();
+        var domainCost = (row[col.Domain_Cost_Yearly] || '').toString().trim();
+        var draftedMsg = (row[col.Drafted_Message] || '').toString().trim();
+        var channel = (row[col.Channel] || 'sms').toString().trim();
+        var rowFixed = false;
+
+        ss.toast('Backfilling row ' + rowNum + '/' + (totalRows + 1) + ': ' + businessName + '...', '🔧 Backfill', -1);
+
+        // --- 1. Missing domain: generate suggestions via LLM + check availability ---
+        if (!domain) {
+            console.log('Row ' + rowNum + ' (' + businessName + '): missing domain — generating');
+            var biz = {
+                business_name: businessName,
+                niche: niche,
+                area: area,
+                address: ''
+            };
+
+            var copy = generateCopyForLead(biz, config);
+            if (!copy.error && copy.suggested_domains.length > 0) {
+                // Check each suggestion
+                for (var d = 0; d < copy.suggested_domains.length; d++) {
+                    var check = checkDomain(copy.suggested_domains[d], config);
+                    if (check.available) {
+                        domain = copy.suggested_domains[d];
+                        domainCost = check.price || '';
+                        sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
+                        sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                        console.log('Row ' + rowNum + ': filled domain = ' + domain + ' (' + domainCost + ')');
+                        rowFixed = true;
+                        break;
+                    }
+                }
+
+                // Round 2 if all taken
+                if (!domain) {
+                    var takenList = copy.suggested_domains;
+                    var moreDomains = generateMoreDomains(biz, takenList, config);
+                    for (var m = 0; m < moreDomains.length; m++) {
+                        var altCheck = checkDomain(moreDomains[m], config);
+                        if (altCheck.available) {
+                            domain = moreDomains[m];
+                            domainCost = altCheck.price || '';
+                            sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
+                            sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                            console.log('Row ' + rowNum + ': filled alt domain = ' + domain + ' (' + domainCost + ')');
+                            rowFixed = true;
+                            break;
+                        }
+                    }
+                }
+
+                // Also backfill services if they came back and were missing
+                var existingServices = (row[col.Niche] || '').toString().trim(); // niche is always there
+                // Services are not in the sheet headers currently, so skip
+            }
+        }
+
+        // --- 2. Domain exists but no pricing: re-check DomScan ---
+        if (domain && (!domainCost || domainCost.indexOf('$') === -1)) {
+            console.log('Row ' + rowNum + ' (' + businessName + '): has domain but no price — re-checking');
+            var priceCheck = checkDomain(domain, config);
+            if (priceCheck.available && priceCheck.price) {
+                domainCost = priceCheck.price;
+                sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                console.log('Row ' + rowNum + ': filled price = ' + domainCost);
+                rowFixed = true;
+            } else if (!priceCheck.available) {
+                // Domain was taken since last check — clear it
+                console.warn('Row ' + rowNum + ': domain ' + domain + ' is now taken — clearing');
+                sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue('');
+                sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue('');
+                rowFixed = true;
+            }
+        }
+
+        // --- 3. Missing drafted message: regenerate ---
+        if (!draftedMsg && liveUrl) {
+            console.log('Row ' + rowNum + ' (' + businessName + '): missing message — regenerating');
+            var fakeBiz = { business_name: businessName, niche: niche, area: area };
+
+            if (channel === 'sms') {
+                var smsMsg = buildSmsMessage(config, fakeBiz, liveUrl);
+                sheet.getRange(rowNum, col.Drafted_Message + 1).setValue(smsMsg);
+            } else {
+                var plainMsg = buildPlainTextMessage(config, fakeBiz, liveUrl);
+                sheet.getRange(rowNum, col.Drafted_Message + 1).setValue(plainMsg);
+            }
+            console.log('Row ' + rowNum + ': filled drafted message');
+            rowFixed = true;
+        }
+
+        if (rowFixed) fixedCount++;
+        Utilities.sleep(500); // Pace API calls
+    }
+
+    ss.toast('✅ Backfill complete! Fixed: ' + fixedCount + ' rows | Skipped: ' + skippedCount, '🔧', 10);
 }
 
 // ============================================================
@@ -676,6 +855,7 @@ function onOpen() {
         .addItem('Generate 1 Lead', 'runWebsiteForgePipeline')
         .addSeparator()
         .addItem('📧 Send All Pending', 'sendAllPending')
+        .addItem('🔧 Backfill Empty Cells', 'backfillLeads')
         .addItem('🧹 Clear All Leads', 'clearAllLeads')
         .addToUi();
 }

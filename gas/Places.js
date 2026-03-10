@@ -218,7 +218,7 @@ function findLeadFromPlaces(niche, city, config, existingLeads) {
             data: {
                 business_name: details.name,
                 target_phone: phone,
-                target_email: '', // Places rarely has email — SMS is our primary channel
+                target_email: 'None found', // Places rarely has email — SMS is our primary channel
                 area: city,
                 niche: niche,
                 address: details.formatted_address || '',
@@ -291,6 +291,50 @@ function generateCopyForLead(biz, config) {
     };
 }
 
+/**
+ * Re-query LLM for more domain suggestions when the first batch is all taken.
+ * 
+ * @param {Object} biz — business data
+ * @param {string[]} takenDomains — domains that were already checked and taken
+ * @param {Object} config
+ * @returns {string[]} — new domain suggestions (may be empty on LLM failure)
+ */
+function generateMoreDomains(biz, takenDomains, config) {
+    var prompt = [
+        'You are a domain name specialist.',
+        '',
+        'Business: ' + biz.business_name,
+        'Niche: ' + biz.niche,
+        'Location: ' + biz.area,
+        '',
+        'These domain names were ALL TAKEN:',
+        takenDomains.join(', '),
+        '',
+        'Suggest 5 COMPLETELY DIFFERENT domain names that are more likely to be available.',
+        'Use creative approaches: uncommon abbreviations, unique word combos, area codes,',
+        'neighborhood names, slang, or brandable made-up words. All .com.',
+        'Use only lowercase letters, numbers, and hyphens.',
+        '',
+        'CRITICAL: Output ONLY the XML tag below. No markdown. No explanation.',
+        '',
+        '<DOMAIN>domain1.com, domain2.com, domain3.com, domain4.com, domain5.com</DOMAIN>'
+    ].join('\n');
+
+    var result = callLLM(prompt, config, { temperature: 0.9, maxTokens: 300 });
+    if (result.error) {
+        console.error('Domain re-query LLM failed: ' + result.error);
+        return [];
+    }
+
+    var copyData = extractCopyData(result.text);
+    var newDomains = copyData.suggested_domains.filter(function (d) {
+        return takenDomains.indexOf(d) === -1; // Exclude any repeats
+    });
+
+    console.log('LLM domain re-query — ' + newDomains.length + ' new suggestions: ' + newDomains.join(', '));
+    return newDomains;
+}
+
 // ============================================================
 // DOMAIN AVAILABILITY + PRICING (DomScan API)
 // ============================================================
@@ -342,7 +386,7 @@ function checkDomainDomScan(domain, config) {
 
         // Step 1: Check availability
         var statusUrl = 'https://domscan.net/v1/status?name=' + encodeURIComponent(name) +
-            '&tlds=' + encodeURIComponent(tld) + '&prefer_cache=1';
+            '&tlds=' + encodeURIComponent(tld) + '&prefer_cache=0';
 
         console.log('DomScan availability: ' + domain);
         var res = UrlFetchApp.fetch(statusUrl, {
@@ -355,13 +399,18 @@ function checkDomainDomScan(domain, config) {
         });
 
         var code = res.getResponseCode();
+        var responseBody = res.getContentText();
+
         if (code !== 200) {
-            console.error('DomScan status error (' + code + '): ' + res.getContentText().substring(0, 300));
+            console.error('DomScan status error (' + code + '): ' + responseBody.substring(0, 300));
             var dnsResult = checkDomainDNS(domain);
             return { available: dnsResult, price: '', error: 'DomScan returned ' + code };
         }
 
-        var data = JSON.parse(res.getContentText());
+        // Log full response for debugging
+        console.log('DomScan raw response: ' + responseBody.substring(0, 500));
+
+        var data = JSON.parse(responseBody);
         var results = data.results || [];
         var domainResult = null;
         for (var i = 0; i < results.length; i++) {
@@ -372,12 +421,23 @@ function checkDomainDomScan(domain, config) {
         }
 
         if (!domainResult) {
-            console.log('DomScan: no result for ' + domain);
+            console.log('DomScan: no matching result for ' + domain + ' in response');
             var dnsFallback = checkDomainDNS(domain);
             return { available: dnsFallback, price: '', error: null };
         }
 
         var available = domainResult.available === true;
+
+        // Cross-check: if DomScan says taken, verify with DNS
+        // DomScan can be wrong (stale RDAP cache, aftermarket listings, etc.)
+        if (!available) {
+            var dnsCheck = checkDomainDNS(domain);
+            if (dnsCheck) {
+                console.log('DomScan says taken but DNS says NXDOMAIN — treating as AVAILABLE: ' + domain);
+                available = true;
+            }
+        }
+
         console.log('DomScan: ' + domain + ' — ' + (available ? 'AVAILABLE' : 'taken'));
 
         // Step 2: Get pricing if available
@@ -403,6 +463,15 @@ function checkDomainDomScan(domain, config) {
  * @returns {string} price string like "$8.88/yr (Namecheap)"
  */
 function getDomainPricing(tld, config) {
+    // Known standard prices as fallback (updated periodically)
+    var FALLBACK_PRICES = {
+        'com': '$10.99/yr (est.)',
+        'net': '$12.99/yr (est.)',
+        'org': '$9.99/yr (est.)',
+        'co': '$11.99/yr (est.)',
+        'io': '$29.99/yr (est.)'
+    };
+
     try {
         var url = 'https://domscan.net/v1/pricing?tld=' + encodeURIComponent(tld);
         var res = UrlFetchApp.fetch(url, {
@@ -414,30 +483,47 @@ function getDomainPricing(tld, config) {
             muteHttpExceptions: true
         });
 
-        if (res.getResponseCode() !== 200) {
-            console.warn('DomScan pricing error: ' + res.getResponseCode());
-            return '';
+        var code = res.getResponseCode();
+        var body = res.getContentText();
+        console.log('DomScan pricing response (' + code + '): ' + body.substring(0, 500));
+
+        if (code !== 200) {
+            console.warn('DomScan pricing returned ' + code + ' — using fallback');
+            return FALLBACK_PRICES[tld] || '';
         }
 
-        var data = JSON.parse(res.getContentText());
-        var prices = data.prices || [];
+        var data = JSON.parse(body);
+        var prices = data.prices || data.registrars || data.data || [];
 
-        if (prices.length === 0) return '';
+        if (prices.length === 0) {
+            console.warn('DomScan pricing returned empty array — using fallback');
+            return FALLBACK_PRICES[tld] || '';
+        }
 
         // Find cheapest registration price
         var cheapest = prices[0];
         for (var i = 1; i < prices.length; i++) {
-            if (prices[i].registration < cheapest.registration) {
+            var regPrice = prices[i].registration || prices[i].register || prices[i].price || 999;
+            var cheapPrice = cheapest.registration || cheapest.register || cheapest.price || 999;
+            if (regPrice < cheapPrice) {
                 cheapest = prices[i];
             }
         }
 
-        var priceStr = '$' + cheapest.registration.toFixed(2) + '/yr (' + cheapest.registrar + ')';
+        var regCost = cheapest.registration || cheapest.register || cheapest.price;
+        var registrar = cheapest.registrar || cheapest.name || 'registrar';
+
+        if (!regCost) {
+            console.warn('DomScan pricing: no registration cost found — using fallback');
+            return FALLBACK_PRICES[tld] || '';
+        }
+
+        var priceStr = '$' + parseFloat(regCost).toFixed(2) + '/yr (' + registrar + ')';
         console.log('DomScan pricing for .' + tld + ': ' + priceStr);
         return priceStr;
     } catch (e) {
-        console.error('DomScan pricing error: ' + e);
-        return '';
+        console.error('DomScan pricing error: ' + e + ' — using fallback');
+        return FALLBACK_PRICES[tld] || '';
     }
 }
 
