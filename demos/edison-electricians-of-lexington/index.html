@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edison Electricians of Lexington</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-2xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl md:text-3xl font-bold tracking-tight">Edison Electricians of Lexington</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="hover:text-blue-400 transition font-medium">Services</a>
+                    <a href="#about" class="hover:text-blue-400 transition font-medium">About</a>
+                    <a href="#contact" class="hover:text-blue-400 transition font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/20500461/pexels-photo-20500461.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/50 via-black/70 to-black/80"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4 md:px-6">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 drop-shadow-2xl leading-tight">Edison Electricians<br>of Lexington</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-3xl mx-auto opacity-95 leading-relaxed">Your premier electrician in Lexington, KY – delivering safe, reliable electrical solutions for homes and businesses.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-12 py-6 text-xl md:text-2xl font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-gray-900 to-slate-800 bg-clip-text text-transparent">Our Expert Services</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Comprehensive electrical solutions tailored for Lexington homes and businesses.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto">
+                <!-- Electrical Panel Upgrades -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/8488029/pexels-photo-8488029.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional electrical panel upgrades for safety and capacity" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Electrical Panel Upgrades</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-2">Upgrade your outdated panel to meet modern power needs safely.</p>
+                        <p class="text-lg text-gray-600">Increase capacity and prevent overloads with certified expertise.</p>
+                    </div>
+                </div>
+                <!-- Lighting Installation -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/7937305/pexels-photo-7937305.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Custom lighting installation services including LEDs and fixtures" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Lighting Installation</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-2">Transform your space with energy-efficient LED and custom lighting.</p>
+                        <p class="text-lg text-gray-600">From ambient to accent, we design and install flawlessly.</p>
+                    </div>
+                </div>
+                <!-- Outlet and Switch Replacement -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5691494/pexels-photo-5691494.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Outlet and switch replacement for updated functionality and safety" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Outlet and Switch Replacement</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-2">Replace worn outlets and switches for enhanced safety.</p>
+                        <p class="text-lg text-gray-600">Smart switches and USB outlets available for convenience.</p>
+                    </div>
+                </div>
+                <!-- Ceiling Fan Installation -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Ceiling fan installation for comfort and energy savings" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ceiling Fan Installation</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-2">Install ceiling fans for year-round comfort and savings.</p>
+                        <p class="text-lg text-gray-600">Quiet, efficient models with remote control options.</p>
+                    </div>
+                </div>
+                <!-- EV Charger Setup -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/27355833/pexels-photo-27355833.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="EV charger setup and installation for electric vehicles" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">EV Charger Setup</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-2">Professional Level 2 EV charger installation at home.</p>
+                        <p class="text-lg text-gray-600">Future-proof your driveway for electric vehicles.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-16 py-6 text-2xl font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 md:py-32">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-slate-700 bg-clip-text text-transparent">Trusted Electricians in Lexington, KY</h2>
+                    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 max-w-lg">For over a decade, Edison Electricians has been the go-to choice for Lexington families and businesses. Our licensed, insured team delivers prompt, precise work with a commitment to safety and satisfaction. We treat your home like our own, ensuring every project shines with quality.</p>
+                    <p class="text-lg text-gray-500">Fully licensed, bonded, and ready 24/7 for emergencies.</p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img src="https://images.pexels.com/photos/34610697/pexels-photo-34610697.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Edison Electricians team providing professional electrical services in Lexington KY" class="rounded-3xl shadow-3xl w-full h-96 lg:h-[500px] object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-gray-900 to-slate-800 bg-clip-text text-transparent">What Lexington Says About Us</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">5-Star rated across Google, Yelp, and more.</p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 text-center border border-gray-100">
+                    <div class="text-4xl mb-6">★★★★★</div>
+                    <p class="text-lg text-gray-700 italic mb-6 leading-relaxed">"Edison upgraded our entire panel in one day. Professional, clean, and now our home runs like new!"</p>
+                    <span class="font-bold text-gray-900 block">- Sarah M., Lexington</span>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 text-center border border-gray-100">
+                    <div class="text-4xl mb-6">★★★★★</div>
+                    <p class="text-lg text-gray-700 italic mb-6 leading-relaxed">"Installed EV charger and ceiling fans flawlessly. Fair price, top-notch service. Highly recommend!"</p>
+                    <span class="font-bold text-gray-900 block">- Mike R., Lexington</span>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 text-center border border-gray-100">
+                    <div class="text-4xl mb-6">★★★★★</div>
+                    <p class="text-lg text-gray-700 italic mb-6 leading-relaxed">"Replaced all outlets and lighting. Fast, friendly, and code-compliant. Will use again!"</p>
+                    <span class="font-bold text-gray-900 block">- Lisa T., Lexington</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Ready to Get Started?</h2>
+                <p class="text-xl md:text-2xl text-gray-300">Contact us for a free, no-obligation quote today.</p>
+            </div>
+            <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+                <input type="text" required placeholder="Your Name" class="w-full p-6 text-lg rounded-2xl bg-gray-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition-all placeholder-gray-400">
+                <input type="email" required placeholder="Your Email" class="w-full p-6 text-lg rounded-2xl bg-gray-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition-all placeholder-gray-400">
+                <input type="tel" required placeholder="Your Phone" class="w-full p-6 text-lg rounded-2xl bg-gray-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition-all placeholder-gray-400">
+                <textarea required rows="6" placeholder="Tell us about your project..." class="w-full p-6 text-lg rounded-2xl bg-gray-800 border-0 focus:ring-4 focus:ring-blue-500/30 focus:outline-none transition-all resize-vertical placeholder-gray-400"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 p-6 text-xl font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-gray-800 text-sm md:text-base opacity-75">
+                Powered by Cyber Craft Solutions
+            </div>
+        </div>
+    </section>
+</body>
+</html>
