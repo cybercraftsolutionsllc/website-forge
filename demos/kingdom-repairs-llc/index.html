@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Repairs LLC - Handyman Services in Santa Clarita, CA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans text-gray-900 antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold tracking-tight">Kingdom Repairs LLC</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#hero" class="hover:text-blue-400 transition-colors">Home</a></li>
+                    <li><a href="#services" class="hover:text-blue-400 transition-colors">Services</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition-colors">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-blue-400 transition-colors">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a></li>
+                </ul>
+                <button class="md:hidden">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center text-white overflow-hidden" style="background-image: url('https://images.pexels.com/photos/6004889/pexels-photo-6004889.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/70"></div>
+        <div class="relative z-10 container mx-auto px-6 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Kingdom Repairs LLC</h1>
+            <p class="text-xl md:text-2xl mb-12 font-light drop-shadow-lg max-w-2xl mx-auto">Your Trusted Handyman for Quality Repairs and Maintenance in Santa Clarita, CA</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-xl text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:-translate-y-1">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Reliable handyman solutions tailored to your home's needs in Santa Clarita and surrounding areas.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Drywall Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/6474196/pexels-photo-6474196.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Drywall Repair</h3>
+                        <p class="text-gray-600 mb-2">Expert patching and texturing for holes, cracks, and water damage.</p>
+                        <p class="text-gray-600">Seamless finishes that match your existing walls perfectly.</p>
+                    </div>
+                </div>
+                <!-- Interior Painting -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/5799052/pexels-photo-5799052.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional interior painting service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Interior Painting</h3>
+                        <p class="text-gray-600 mb-2">Precision prep, priming, and multi-coat application for flawless results.</p>
+                        <p class="text-gray-600">Custom colors to refresh and transform your living spaces.</p>
+                    </div>
+                </div>
+                <!-- Light Fixture Installation -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/5691679/pexels-photo-5691679.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Light fixture installation service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Light Fixture Installation</h3>
+                        <p class="text-gray-600 mb-2">Safe wiring and mounting of ceiling fans, chandeliers, and recessed lights.</p>
+                        <p class="text-gray-600">Energy-efficient upgrades to brighten your home safely.</p>
+                    </div>
+                </div>
+                <!-- Deck Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/12172496/pexels-photo-12172496.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair and maintenance service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Deck Repair</h3>
+                        <p class="text-gray-600 mb-2">Structural fixes, board replacement, and sealing for lasting durability.</p>
+                        <p class="text-gray-600">Restore safety and beauty to your outdoor living area.</p>
+                    </div>
+                </div>
+                <!-- Gutter Cleaning -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/36414872/pexels-photo-36414872.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional gutter cleaning service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Gutter Cleaning</h3>
+                        <p class="text-gray-600 mb-2">Thorough removal of debris, leaves, and buildup from gutters and downspouts.</p>
+                        <p class="text-gray-600">Prevent water damage and maintain proper drainage year-round.</p>
+                    </div>
+                </div>
+                <!-- Minor Plumbing Fixes -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/16679590/pexels-photo-16679590.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Minor plumbing fixes service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Minor Plumbing Fixes</h3>
+                        <p class="text-gray-600 mb-2">Quick repairs for leaks, clogs, faucet replacements, and fixture issues.</p>
+                        <p class="text-gray-600">Efficient solutions without the need for full plumbing overhauls.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-xl text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:-translate-y-1 inline-block">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://images.pexels.com/photos/8487365/pexels-photo-8487365.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Kingdom Repairs LLC team at work" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">About Kingdom Repairs LLC</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">At Kingdom Repairs LLC, we're more than just handymen—we're your neighbors in Santa Clarita, CA, dedicated to building trust one repair at a time. With years of experience in home maintenance, our skilled team handles everything from drywall touch-ups to deck revivals with precision, care, and a commitment to quality. We believe in honest work, fair prices, and leaving your home better than we found it. Let us restore your kingdom.</p>
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl text-lg transition-all duration-300 hover:shadow-xl">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by homeowners across Santa Clarita</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Kingdom Repairs fixed our deck and painted the interior flawlessly. Professional, on-time, and exceeded expectations!"</p>
+                    <p class="font-semibold text-gray-900">- Sarah M., Santa Clarita</p>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Quick gutter cleaning and light fixture install. Saved us from bigger issues—highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">- Mike R., Valencia</p>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Drywall repair looked brand new. Friendly team and great communication throughout."</p>
+                    <p class="font-semibold text-gray-900">- Lisa T., Newhall</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-slate-900 text-white py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-300">Contact us today for a free quote on your next home repair project.</p>
+            </div>
+            <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+                <input type="text" placeholder="Your Name" required class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <input type="email" placeholder="Your Email" required class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <input type="tel" placeholder="Your Phone" required class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <textarea rows="5" placeholder="Tell us about your project..." required class="w-full p-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 font-semibold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:-translate-y-1">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-slate-800">
+                <p class="text-gray-400">&copy; 2024 Kingdom Repairs LLC. Serving Santa Clarita, CA. Powered by <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Cyber Craft Solutions</a>.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
