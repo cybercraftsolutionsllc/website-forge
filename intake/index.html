@@ -158,16 +158,14 @@
     (function() {
         // ── Configuration (loaded from config.js) ──────────────
         var WEBHOOK_URL = (typeof INTAKE_CONFIG !== 'undefined' && INTAKE_CONFIG.webhookUrl) || '';
-        var INTAKE_TOKEN = (typeof INTAKE_CONFIG !== 'undefined' && INTAKE_CONFIG.token) || '';
 
         // ── Pre-fill from URL params ───────────────────────────
+        // The HMAC signature (tk) is generated server-side and embedded in SMS links.
+        // It never appears in config.js or the public repo.
         var params = new URLSearchParams(window.location.search);
         var prePhone = params.get('p') || '';
         var preName  = params.get('biz') || '';
-        var urlToken = params.get('tk') || '';
-
-        // Token from URL param overrides config.js (so SMS links carry auth)
-        if (urlToken) INTAKE_TOKEN = urlToken;
+        var INTAKE_TOKEN = params.get('tk') || '';
 
         if (prePhone) document.getElementById('phone').value = prePhone;
         if (preName) {

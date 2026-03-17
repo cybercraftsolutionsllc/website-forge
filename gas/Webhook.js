@@ -37,13 +37,26 @@ function validateTwilioSignature(e) {
 }
 
 /**
- * Validates intake form token against INTAKE_TOKEN Script Property.
+ * Validates intake form signature using HMAC-SHA256(phone_digits, INTAKE_TOKEN).
+ * The secret never leaves GAS — only the signature is in the URL.
  */
 function validateIntakeToken(params) {
     var props = PropertiesService.getScriptProperties();
-    var expected = (props.getProperty('INTAKE_TOKEN') || '').trim();
-    if (!expected) return true; // if no token configured, skip validation (backwards compat)
+    var secret = (props.getProperty('INTAKE_TOKEN') || '').trim();
+    if (!secret) return true; // if no token configured, skip validation (backwards compat)
+
     var provided = (params.tk || '').trim();
+    if (!provided) return false;
+
+    // Recompute HMAC from the phone digits and compare
+    var phone = (params.phone || '').replace(/[^0-9]/g, '');
+    if (!phone) return false;
+
+    var sigBytes = Utilities.computeHmacSha256Signature(phone, secret);
+    var expected = sigBytes.map(function(b) {
+        return ('0' + (b & 0xFF).toString(16)).slice(-2);
+    }).join('');
+
     return provided === expected;
 }
 
