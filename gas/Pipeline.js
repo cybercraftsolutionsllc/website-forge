@@ -448,7 +448,7 @@ function sendSmsMessage(targetPhone, body, config) {
         } else {
             var errBody = res.getContentText();
             console.error('Twilio API error (' + code + '):', errBody);
-            return { success: false, error: 'Twilio returned ' + code + ': ' + errBody.substring(0, 200) };
+            return { success: false, error: 'SMS send failed (HTTP ' + code + ')' };
         }
     } catch (e) {
         console.error('Twilio SMS failed:', e);
