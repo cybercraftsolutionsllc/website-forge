@@ -869,6 +869,8 @@ function backfillLeads() {
             if (priceCheck.available && priceCheck.price) {
                 domainCost = priceCheck.price;
                 sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                // Ensure domain is a clickable hyperlink (may have been plain text)
+                sheet.getRange(rowNum, col.Suggested_Domain + 1).setFormula(domainHyperlink(domain));
                 console.log('Row ' + rowNum + ': filled price = ' + domainCost);
                 rowFixed = true;
             } else if (!priceCheck.available) {
