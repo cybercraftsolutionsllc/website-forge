@@ -11,8 +11,8 @@
  *   3. In Twilio Console: Phone Numbers > your toll-free number > Messaging Configuration
  *      Set "A message comes in" webhook to your web app URL (HTTP POST)
  *   4. Set FORWARD_PHONE in Script Properties to your personal/business number
- *   5. (Optional) Set INTAKE_TOKEN in Script Properties to a random string
- *      to protect the intake form from unauthorized submissions
+ *   5. Set INTAKE_TOKEN in Script Properties to a random string
+ *      to protect the intake form from unauthorized submissions (required)
  */
 
 /**
@@ -43,7 +43,10 @@ function validateTwilioSignature(e) {
 function validateIntakeToken(params) {
     var props = PropertiesService.getScriptProperties();
     var secret = (props.getProperty('INTAKE_TOKEN') || '').trim();
-    if (!secret) return true; // if no token configured, skip validation (backwards compat)
+    if (!secret) {
+        console.warn('INTAKE_TOKEN not configured — rejecting intake submission');
+        return false;
+    }
 
     var provided = (params.tk || '').trim();
     if (!provided) return false;
@@ -142,7 +145,11 @@ function doPost(e) {
 function logReply(from, to, body, messageSid) {
     try {
         var props = PropertiesService.getScriptProperties();
-        var sheetId = props.getProperty('SHEET_ID') || '1rP0SS64lhjP3ui3eV93e0PHnrhRb0OfHyj3IMZCKOp4';
+        var sheetId = props.getProperty('SHEET_ID');
+        if (!sheetId) {
+            console.error('SHEET_ID not configured in Script Properties');
+            return;
+        }
         var ss = SpreadsheetApp.openById(sheetId);
         var sheet = ss.getSheetByName('Replies');
 
@@ -157,9 +164,9 @@ function logReply(from, to, body, messageSid) {
 
         sheet.appendRow([
             new Date().toISOString(),
-            from,
-            to,
-            body,
+            sanitizeCell(from),
+            sanitizeCell(to),
+            sanitizeCell(body),
             messageSid
         ]);
 
@@ -212,6 +219,19 @@ function updateLeadStatus(ss, fromPhone) {
     }
 }
 
+/**
+ * Sanitizes a string before writing to a spreadsheet cell.
+ * Prevents formula injection by prefixing dangerous leading characters
+ * with a single-quote, which forces Google Sheets to treat the cell as text.
+ */
+function sanitizeCell(value) {
+    if (typeof value !== 'string') return value;
+    if (/^[=+\-@\t\r]/.test(value)) {
+        return "'" + value;
+    }
+    return value;
+}
+
 // ============================================================
 // INTAKE FORM HANDLER
 // ============================================================
@@ -224,23 +244,27 @@ function updateLeadStatus(ss, fromPhone) {
 function handleIntakeForm(params) {
     try {
         var phone         = (params.phone || '').trim();
-        var businessName  = (params.business_name || '').trim();
-        var services      = (params.services || '').trim();
-        var email         = (params.email || '').trim();
-        var hours         = (params.hours || '').trim();
-        var serviceArea   = (params.service_area || '').trim();
-        var notes         = (params.notes || '').trim();
+        var businessName  = sanitizeCell((params.business_name || '').trim());
+        var services      = sanitizeCell((params.services || '').trim());
+        var email         = sanitizeCell((params.email || '').trim());
+        var hours         = sanitizeCell((params.hours || '').trim());
+        var serviceArea   = sanitizeCell((params.service_area || '').trim());
+        var notes         = sanitizeCell((params.notes || '').trim());
 
         console.log('Intake form received for: ' + businessName + ' (' + phone + ')');
 
         var props = PropertiesService.getScriptProperties();
-        var sheetId = props.getProperty('SHEET_ID') || '1rP0SS64lhjP3ui3eV93e0PHnrhRb0OfHyj3IMZCKOp4';
+        var sheetId = props.getProperty('SHEET_ID');
+        if (!sheetId) {
+            console.error('SHEET_ID not configured in Script Properties');
+            return jsonResponse({ status: 'error', message: 'Server misconfigured' });
+        }
         var ss = SpreadsheetApp.openById(sheetId);
         var sheet = ss.getSheetByName('Leads');
 
         if (!sheet) {
             console.error('Intake: No Leads sheet found');
-            return jsonResponse({ status: 'error', message: 'Sheet not found' });
+            return jsonResponse({ status: 'error', message: 'Server misconfigured' });
         }
 
         var data = sheet.getDataRange().getValues();
@@ -366,7 +390,7 @@ function handleIntakeForm(params) {
 
     } catch (err) {
         console.error('handleIntakeForm error:', err);
-        return jsonResponse({ status: 'error', message: err.toString() });
+        return jsonResponse({ status: 'error', message: 'Internal error' });
     }
 }
 
@@ -431,7 +455,11 @@ function isPositiveReply(body) {
 function sendIntakeLink(fromPhone) {
     try {
         var props = PropertiesService.getScriptProperties();
-        var sheetId = props.getProperty('SHEET_ID') || '1rP0SS64lhjP3ui3eV93e0PHnrhRb0OfHyj3IMZCKOp4';
+        var sheetId = props.getProperty('SHEET_ID');
+        if (!sheetId) {
+            console.error('SHEET_ID not configured in Script Properties');
+            return;
+        }
         var twilioSid = (props.getProperty('TWILIO_ACCOUNT_SID') || '').trim();
         var twilioToken = (props.getProperty('TWILIO_AUTH_TOKEN') || '').trim();
         var twilioPhone = (props.getProperty('TWILIO_PHONE') || '').trim();
