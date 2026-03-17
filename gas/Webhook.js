@@ -16,20 +16,19 @@
  */
 
 /**
- * Validates Twilio webhook signature using HMAC-SHA1.
- * Requires TWILIO_AUTH_TOKEN in Script Properties.
- * See: https://www.twilio.com/docs/usage/security#validating-requests
+ * Validates that the incoming request looks like a real Twilio SMS webhook.
+ * GAS web apps cannot access HTTP headers, so true HMAC-SHA1 signature
+ * validation is not possible. Instead we verify:
+ *   1. TWILIO_AUTH_TOKEN is configured (proves Twilio is set up)
+ *   2. MessageSid matches Twilio's format (34 chars, starts with "SM")
  */
 function validateTwilioSignature(e) {
     var props = PropertiesService.getScriptProperties();
     var authToken = (props.getProperty('TWILIO_AUTH_TOKEN') || '').trim();
     if (!authToken) return false; // can't validate without token
 
-    var signature = (e.parameter._twilioSignature || '');
-    // GAS doesn't forward headers directly; Twilio sends X-Twilio-Signature.
-    // For GAS web apps, we use a query-param workaround or validate the MessageSid exists
-    // in the Twilio account as a fallback.
-    // Primary check: verify MessageSid is a valid Twilio format (34 chars, starts with SM)
+    // GAS doesn't expose HTTP headers, so we can't verify X-Twilio-Signature.
+    // Best-effort: verify MessageSid matches Twilio's known format.
     var messageSid = (e.parameter.MessageSid || '');
     if (!messageSid || messageSid.length !== 34 || messageSid.substring(0, 2) !== 'SM') {
         return false;

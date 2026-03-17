@@ -170,7 +170,10 @@
         if (urlToken) INTAKE_TOKEN = urlToken;
 
         if (prePhone) document.getElementById('phone').value = prePhone;
-        if (preName)  document.getElementById('business_name').value = decodeURIComponent(preName);
+        if (preName) {
+            try { document.getElementById('business_name').value = decodeURIComponent(preName); }
+            catch(e) { document.getElementById('business_name').value = preName; }
+        }
 
         // ── Form submission ────────────────────────────────────
         var form    = document.getElementById('intake-form');
