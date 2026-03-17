@@ -102,13 +102,13 @@ function normalizePhone(phone) {
 }
 
 /**
- * Builds a =HYPERLINK() formula so the domain is clickable in the sheet.
- * Returns empty string if domain is falsy.
+ * Builds a =HYPERLINK() formula linking domain pricing to Namecheap registration.
+ * e.g. =HYPERLINK("https://www.namecheap.com/domains/registration/results/?domain=foo.com","$10.44/yr (Cloudflare Registrar)")
  */
-function domainHyperlink(domain) {
-    if (!domain) return '';
-    var escaped = domain.replace(/"/g, '""');
-    return '=HYPERLINK("https://' + escaped + '","' + escaped + '")';
+function pricingHyperlink(domain, priceStr) {
+    if (!domain || !priceStr) return priceStr || '';
+    var url = 'https://www.namecheap.com/domains/registration/results/?domain=' + encodeURIComponent(domain);
+    return '=HYPERLINK("' + url.replace(/"/g, '""') + '","' + priceStr.replace(/"/g, '""') + '")';
 }
 
 // phaseResearch() has been removed.
@@ -241,8 +241,8 @@ function phaseLog(config, biz, html) {
             slug,
             repoUrl,
             liveUrl,
-            '', // Suggested_Domain — set as hyperlink below
-            biz.domain_cost || '',
+            biz.suggested_domain || '',
+            '', // Domain_Cost_Yearly — set as hyperlink below
             biz.target_email || '',
             biz.target_phone || '',
             draftedMessage,
@@ -251,11 +251,11 @@ function phaseLog(config, biz, html) {
             '',
             biz.place_id || ''
         ]);
-        // appendRow doesn't interpret formulas, so set the domain hyperlink separately
-        if (biz.suggested_domain) {
-            var domainCol = SHEET_HEADERS.indexOf('Suggested_Domain') + 1;
+        // appendRow doesn't interpret formulas, so set the pricing hyperlink separately
+        if (biz.domain_cost && biz.suggested_domain) {
+            var costCol = SHEET_HEADERS.indexOf('Domain_Cost_Yearly') + 1;
             var lastRow = sheet.getLastRow();
-            sheet.getRange(lastRow, domainCol).setFormula(domainHyperlink(biz.suggested_domain));
+            sheet.getRange(lastRow, costCol).setFormula(pricingHyperlink(biz.suggested_domain, biz.domain_cost));
         }
         console.log('Sheet row appended successfully for ' + biz.business_name);
     } catch (e) {
@@ -830,8 +830,8 @@ function backfillLeads() {
                     if (check.available) {
                         domain = copy.suggested_domains[d];
                         domainCost = check.price || '';
-                        sheet.getRange(rowNum, col.Suggested_Domain + 1).setFormula(domainHyperlink(domain));
-                        sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                        sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
+                        sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setFormula(pricingHyperlink(domain, domainCost));
                         console.log('Row ' + rowNum + ': filled domain = ' + domain + ' (' + domainCost + ')');
                         rowFixed = true;
                         break;
@@ -847,8 +847,8 @@ function backfillLeads() {
                         if (altCheck.available) {
                             domain = moreDomains[m];
                             domainCost = altCheck.price || '';
-                            sheet.getRange(rowNum, col.Suggested_Domain + 1).setFormula(domainHyperlink(domain));
-                            sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                            sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
+                            sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setFormula(pricingHyperlink(domain, domainCost));
                             console.log('Row ' + rowNum + ': filled alt domain = ' + domain + ' (' + domainCost + ')');
                             rowFixed = true;
                             break;
@@ -868,7 +868,7 @@ function backfillLeads() {
             var priceCheck = checkDomain(domain, config);
             if (priceCheck.available && priceCheck.price) {
                 domainCost = priceCheck.price;
-                sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
+                sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setFormula(pricingHyperlink(domain, domainCost));
                 console.log('Row ' + rowNum + ': filled price = ' + domainCost);
                 rowFixed = true;
             } else if (!priceCheck.available) {
