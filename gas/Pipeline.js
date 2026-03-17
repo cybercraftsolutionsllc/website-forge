@@ -101,6 +101,16 @@ function normalizePhone(phone) {
     return '+' + digits;
 }
 
+/**
+ * Builds a =HYPERLINK() formula so the domain is clickable in the sheet.
+ * Returns empty string if domain is falsy.
+ */
+function domainHyperlink(domain) {
+    if (!domain) return '';
+    var escaped = domain.replace(/"/g, '""');
+    return '=HYPERLINK("https://' + escaped + '","' + escaped + '")';
+}
+
 // phaseResearch() has been removed.
 // Lead discovery is now handled by findLeadFromPlaces() + generateCopyForLead()
 // in Places.js. The LLM NEVER generates business names, phones, or addresses.
@@ -231,7 +241,7 @@ function phaseLog(config, biz, html) {
             slug,
             repoUrl,
             liveUrl,
-            biz.suggested_domain || '',
+            '', // Suggested_Domain — set as hyperlink below
             biz.domain_cost || '',
             biz.target_email || '',
             biz.target_phone || '',
@@ -241,6 +251,12 @@ function phaseLog(config, biz, html) {
             '',
             biz.place_id || ''
         ]);
+        // appendRow doesn't interpret formulas, so set the domain hyperlink separately
+        if (biz.suggested_domain) {
+            var domainCol = SHEET_HEADERS.indexOf('Suggested_Domain') + 1;
+            var lastRow = sheet.getLastRow();
+            sheet.getRange(lastRow, domainCol).setFormula(domainHyperlink(biz.suggested_domain));
+        }
         console.log('Sheet row appended successfully for ' + biz.business_name);
     } catch (e) {
         console.error('Sheet appendRow failed:', e);
@@ -814,7 +830,7 @@ function backfillLeads() {
                     if (check.available) {
                         domain = copy.suggested_domains[d];
                         domainCost = check.price || '';
-                        sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
+                        sheet.getRange(rowNum, col.Suggested_Domain + 1).setFormula(domainHyperlink(domain));
                         sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
                         console.log('Row ' + rowNum + ': filled domain = ' + domain + ' (' + domainCost + ')');
                         rowFixed = true;
@@ -831,7 +847,7 @@ function backfillLeads() {
                         if (altCheck.available) {
                             domain = moreDomains[m];
                             domainCost = altCheck.price || '';
-                            sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
+                            sheet.getRange(rowNum, col.Suggested_Domain + 1).setFormula(domainHyperlink(domain));
                             sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setValue(domainCost);
                             console.log('Row ' + rowNum + ': filled alt domain = ' + domain + ' (' + domainCost + ')');
                             rowFixed = true;
