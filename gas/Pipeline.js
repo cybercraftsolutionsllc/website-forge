@@ -373,6 +373,12 @@ function buildIntakeUrl(biz) {
     if (biz.business_name) {
         params += '&biz=' + encodeURIComponent(biz.business_name);
     }
+    // Include intake token in the URL so the form can pass it to the webhook
+    var props = PropertiesService.getScriptProperties();
+    var token = (props.getProperty('INTAKE_TOKEN') || '').trim();
+    if (token) {
+        params += '&tk=' + encodeURIComponent(token);
+    }
     return base + params;
 }
 

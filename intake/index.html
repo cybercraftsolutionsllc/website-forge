@@ -152,18 +152,22 @@
         </div>
     </div>
 
+    <!-- Config loaded separately so webhook URL + token aren't in the main HTML -->
+    <script src="config.js"></script>
     <script>
     (function() {
-        // ── Configuration ──────────────────────────────────────
-        // Replace this with your deployed Google Apps Script web app URL.
-        // It's the same URL you set as the Twilio webhook — the endpoint
-        // now routes based on whether it receives a Twilio payload or a form payload.
-        var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyOosmycCFQrAarkngY7OW5-aD2MrUupwEF5LEejErzdtC_zD2dPhvdTvSe90wz0ElV/exec';
+        // ── Configuration (loaded from config.js) ──────────────
+        var WEBHOOK_URL = (typeof INTAKE_CONFIG !== 'undefined' && INTAKE_CONFIG.webhookUrl) || '';
+        var INTAKE_TOKEN = (typeof INTAKE_CONFIG !== 'undefined' && INTAKE_CONFIG.token) || '';
 
         // ── Pre-fill from URL params ───────────────────────────
         var params = new URLSearchParams(window.location.search);
         var prePhone = params.get('p') || '';
         var preName  = params.get('biz') || '';
+        var urlToken = params.get('tk') || '';
+
+        // Token from URL param overrides config.js (so SMS links carry auth)
+        if (urlToken) INTAKE_TOKEN = urlToken;
 
         if (prePhone) document.getElementById('phone').value = prePhone;
         if (preName)  document.getElementById('business_name').value = decodeURIComponent(preName);
@@ -195,6 +199,7 @@
             // Collect data
             var payload = {
                 formType:      'intake',
+                tk:            INTAKE_TOKEN,
                 business_name: val('business_name'),
                 services:      val('services'),
                 phone:         val('phone'),
