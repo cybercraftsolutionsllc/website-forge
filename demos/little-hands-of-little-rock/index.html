@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Hands of Little Rock - Premier Handyman Services in Little Rock, AR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+                <div class="text-2xl font-bold cursor-pointer hover:text-orange-400 transition-colors" onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})">
+                    Little Hands of Little Rock
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="hover:text-orange-400 transition-colors py-2">Home</a>
+                    <a href="#services" class="hover:text-orange-400 transition-colors py-2">Services</a>
+                    <a href="#about" class="hover:text-orange-400 transition-colors py-2">About</a>
+                    <a href="#contact" class="hover:text-orange-400 transition-colors py-2">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white hover:text-orange-400">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/3855479/pexels-photo-3855479.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Little Hands of Little Rock</h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto drop-shadow-lg">Your trusted handyman for all home repairs and maintenance in Little Rock, AR. Reliable, affordable, and ready to help.</p>
+            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-12 rounded-full text-xl shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 transform hover:scale-105" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Expert handyman solutions tailored to your home's needs in Little Rock and surrounding areas.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Drywall Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/6474129/pexels-photo-6474129.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair service by Little Hands of Little Rock" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Drywall Repair</h3>
+                        <p class="text-gray-600 mb-2">Fix holes, cracks, and water damage with precision.</p>
+                        <p class="text-gray-600">Seamless patches for flawless walls.</p>
+                    </div>
+                </div>
+                <!-- Light Fixture Installation -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Light fixture installation service by Little Hands of Little Rock" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Light Fixture Installation</h3>
+                        <p class="text-gray-600 mb-2">Safe and stylish lighting upgrades for any room.</p>
+                        <p class="text-gray-600">From chandeliers to recessed lights.</p>
+                    </div>
+                </div>
+                <!-- Deck Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/12172496/pexels-photo-12172496.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair service by Little Hands of Little Rock" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Deck Repair</h3>
+                        <p class="text-gray-600 mb-2">Restore your outdoor space to safety and beauty.</p>
+                        <p class="text-gray-600">Boards, railings, and staining included.</p>
+                    </div>
+                </div>
+                <!-- Faucet Replacement -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Faucet replacement service by Little Hands of Little Rock" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Faucet Replacement</h3>
+                        <p class="text-gray-600 mb-2">Quick fixes for leaks and modern upgrades.</p>
+                        <p class="text-gray-600">Kitchen and bathroom specialists.</p>
+                    </div>
+                </div>
+                <!-- Gutter Cleaning -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/5583137/pexels-photo-5583137.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Gutter cleaning service by Little Hands of Little Rock" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Gutter Cleaning</h3>
+                        <p class="text-gray-600 mb-2">Prevent water damage with thorough cleaning.</p>
+                        <p class="text-gray-600">Safe removal of debris and inspections.</p>
+                    </div>
+                </div>
+                <!-- Fence Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/7540627/pexels-photo-7540627.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Fence repair service by Little Hands of Little Rock" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Fence Repair</h3>
+                        <p class="text-gray-600 mb-2">Strengthen and beautify your property line.</p>
+                        <p class="text-gray-600">Posts, panels, and gates repaired.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-12 rounded-full text-xl shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 transform hover:scale-105 inline-block" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <img src="https://images.pexels.com/photos/8487365/pexels-photo-8487365.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Friendly handyman team at Little Hands of Little Rock" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Little Hands</h2>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">At Little Hands of Little Rock, we're a family-owned handyman business dedicated to keeping homes in Little Rock, AR, in top shape. With years of experience and a commitment to quality, we handle everything from minor fixes to major repairs with care and precision. Our team treats your home like our own—reliable, punctual, and always with a smile.</p>
+                <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:shadow-orange-500/50 transition-all duration-300 inline-block" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by homeowners across Little Rock.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Little Hands fixed our deck and gutters in one day. Professional and affordable!"</p>
+                    <p class="font-bold text-gray-900">- Sarah M., Little Rock</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Replaced our faucet and installed lights perfectly. Highly recommend!"</p>
+                    <p class="font-bold text-gray-900">- Mike T., Maumelle</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Fence repair was top-notch. Fast service and great price."</p>
+                    <p class="font-bold text-gray-900">- Lisa R., North Little Rock</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-24">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Get Your Free Quote</h2>
+                <p class="text-xl text-gray-300">Ready to get started? Fill out the form below and we'll respond within 24 hours.</p>
+            </div>
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium mb-2">Phone</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 font-bold py-4 px-8 rounded-xl text-xl shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 transform hover:scale-105">Send Message</button>
+            </form>
+            <div class="text-center mt-12 pt-12 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2024 Little Hands of Little Rock. Powered by <a href="#" class="text-orange-400 hover:text-orange-300 font-semibold">Cyber Craft Solutions</a>.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
