@@ -366,18 +366,25 @@ function buildSmsMessage(config, biz, liveUrl) {
 
 /**
  * Builds an intake form URL pre-filled with the lead's info.
+ * Uses HMAC-SHA256(phone_digits, INTAKE_TOKEN) as the auth signature
+ * so the secret never appears in the URL or public repo.
  */
 function buildIntakeUrl(biz) {
     var base = 'https://' + CONFIG_ORG + '.github.io/' + CONFIG_REPO + '/intake/';
+    var phone = (biz.target_phone || '').replace(/[^0-9]/g, '');
     var params = '?p=' + encodeURIComponent(biz.target_phone || '');
     if (biz.business_name) {
         params += '&biz=' + encodeURIComponent(biz.business_name);
     }
-    // Include intake token in the URL so the form can pass it to the webhook
+    // Sign the URL with HMAC so the webhook can verify authenticity
     var props = PropertiesService.getScriptProperties();
-    var token = (props.getProperty('INTAKE_TOKEN') || '').trim();
-    if (token) {
-        params += '&tk=' + encodeURIComponent(token);
+    var secret = (props.getProperty('INTAKE_TOKEN') || '').trim();
+    if (secret && phone) {
+        var sigBytes = Utilities.computeHmacSha256Signature(phone, secret);
+        var hex = sigBytes.map(function(b) {
+            return ('0' + (b & 0xFF).toString(16)).slice(-2);
+        }).join('');
+        params += '&tk=' + hex;
     }
     return base + params;
 }
