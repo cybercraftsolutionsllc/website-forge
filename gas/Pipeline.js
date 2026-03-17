@@ -27,7 +27,13 @@ var SHEET_HEADERS = [
     'Channel',
     'Status',
     'Sent_Date',
-    'Place_ID'
+    'Place_ID',
+    'Intake_Services',
+    'Intake_Email',
+    'Intake_Hours',
+    'Intake_ServiceArea',
+    'Intake_Notes',
+    'Intake_Date'
 ];
 
 /**
@@ -356,6 +362,34 @@ function buildSmsMessage(config, biz, liveUrl) {
     return 'Hi! I built a free website demo for ' + biz.business_name +
         ' \u2014 check it out: ' + liveUrl +
         '. No cost, no catch. Reply if interested or STOP to opt out. - Cyber Craft Solutions';
+}
+
+/**
+ * Builds an intake form URL pre-filled with the lead's info.
+ */
+function buildIntakeUrl(biz) {
+    var base = 'https://' + CONFIG_ORG + '.github.io/' + CONFIG_REPO + '/intake/';
+    var params = '?p=' + encodeURIComponent(biz.target_phone || '');
+    if (biz.business_name) {
+        params += '&biz=' + encodeURIComponent(biz.business_name);
+    }
+    // Include intake token in the URL so the form can pass it to the webhook
+    var props = PropertiesService.getScriptProperties();
+    var token = (props.getProperty('INTAKE_TOKEN') || '').trim();
+    if (token) {
+        params += '&tk=' + encodeURIComponent(token);
+    }
+    return base + params;
+}
+
+/**
+ * Follow-up SMS sent after a lead replies with interest.
+ * Includes the intake form link so they can provide customization details.
+ */
+function buildIntakeFollowUpSms(biz) {
+    return 'Great to hear from you! To customize your site, fill out this quick form (2 min): ' +
+        buildIntakeUrl(biz) +
+        ' - Cyber Craft Solutions';
 }
 
 // ============================================================
