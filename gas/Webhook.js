@@ -120,11 +120,6 @@ function doPost(e) {
         // Forward to business phone
         forwardToBusinessPhone(from, body);
 
-        // Auto-send intake form link if reply looks positive
-        if (isPositiveReply(body)) {
-            sendIntakeLink(from);
-        }
-
         // Return empty TwiML — Twilio handles STOP/START/HELP automatically
         // before this webhook fires, so we just need to handle real replies
         return ContentService
