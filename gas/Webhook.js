@@ -3,15 +3,15 @@
  *
  * Receives incoming SMS replies via Twilio webhook and:
  *   1. Logs the reply to a "Replies" sheet
- *   2. Forwards the message to your business phone via SMS
+ *   2. Updates the lead's status to "Replied" in the Leads sheet
+ *   3. Handles intake form submissions (matches to lead, writes to sheet)
  *
  * Setup:
  *   1. Deploy this Apps Script as a Web App (Execute as: Me, Access: Anyone)
  *   2. Copy the web app URL
  *   3. In Twilio Console: Phone Numbers > your toll-free number > Messaging Configuration
  *      Set "A message comes in" webhook to your web app URL (HTTP POST)
- *   4. Set FORWARD_PHONE in Script Properties to your personal/business number
- *   5. Set INTAKE_TOKEN in Script Properties to a random string
+ *   4. Set INTAKE_TOKEN in Script Properties to a random string
  *      to protect the intake form from unauthorized submissions (required)
  */
 
@@ -114,11 +114,8 @@ function doPost(e) {
 
         console.log('Incoming SMS from ' + from + ': ' + body);
 
-        // Log to Replies sheet
+        // Log to Replies sheet + update lead status to "Replied"
         logReply(from, to, body, messageSid);
-
-        // Forward to business phone
-        forwardToBusinessPhone(from, body);
 
         // Return empty TwiML — Twilio handles STOP/START/HELP automatically
         // before this webhook fires, so we just need to handle real replies
@@ -385,9 +382,6 @@ function handleIntakeForm(params) {
             ]);
         }
 
-        // Forward notification to business phone
-        forwardIntakeNotification(businessName, phone, services);
-
         return jsonResponse({ status: 'ok', matched: matched });
 
     } catch (err) {
@@ -396,36 +390,6 @@ function handleIntakeForm(params) {
     }
 }
 
-/**
- * Sends an SMS notification when a lead submits the intake form.
- */
-function forwardIntakeNotification(businessName, phone, services) {
-    var props = PropertiesService.getScriptProperties();
-    var forwardPhone = (props.getProperty('FORWARD_PHONE') || '').trim();
-    var twilioSid = (props.getProperty('TWILIO_ACCOUNT_SID') || '').trim();
-    var twilioToken = (props.getProperty('TWILIO_AUTH_TOKEN') || '').trim();
-    var twilioPhone = (props.getProperty('TWILIO_PHONE') || '').trim();
-
-    if (!forwardPhone || !twilioSid || !twilioToken || !twilioPhone) return;
-
-    var msg = 'New intake form!\n' +
-        businessName + ' (' + phone + ')\n' +
-        'Services: ' + (services || 'not provided').substring(0, 100);
-
-    try {
-        var url = 'https://api.twilio.com/2010-04-01/Accounts/' + twilioSid + '/Messages.json';
-        var authHeader = 'Basic ' + Utilities.base64Encode(twilioSid + ':' + twilioToken);
-
-        UrlFetchApp.fetch(url, {
-            method: 'POST',
-            headers: { 'Authorization': authHeader },
-            payload: { 'To': forwardPhone, 'From': twilioPhone, 'Body': msg },
-            muteHttpExceptions: true
-        });
-    } catch (err) {
-        console.error('forwardIntakeNotification error:', err);
-    }
-}
 
 /**
  * Returns a JSON response for the intake form.
@@ -436,134 +400,3 @@ function jsonResponse(obj) {
         .setMimeType(ContentService.MimeType.JSON);
 }
 
-/**
- * Checks if an inbound SMS reply indicates positive interest.
- */
-function isPositiveReply(body) {
-    var lower = (body || '').toLowerCase().trim();
-    var positiveWords = ['yes', 'yeah', 'yep', 'yea', 'sure', 'interested',
-        'tell me more', 'more info', 'sounds good', 'let\'s do it', 'sign me up',
-        'how much', 'pricing', 'cost', 'ready', 'let\'s go', 'absolutely', 'definitely'];
-    for (var i = 0; i < positiveWords.length; i++) {
-        if (lower.indexOf(positiveWords[i]) !== -1) return true;
-    }
-    return false;
-}
-
-/**
- * Sends the intake form link to a lead who replied positively.
- * Looks up the lead in the sheet to build a pre-filled URL.
- */
-function sendIntakeLink(fromPhone) {
-    try {
-        var props = PropertiesService.getScriptProperties();
-        var sheetId = props.getProperty('SHEET_ID');
-        if (!sheetId) {
-            console.error('SHEET_ID not configured in Script Properties');
-            return;
-        }
-        var twilioSid = (props.getProperty('TWILIO_ACCOUNT_SID') || '').trim();
-        var twilioToken = (props.getProperty('TWILIO_AUTH_TOKEN') || '').trim();
-        var twilioPhone = (props.getProperty('TWILIO_PHONE') || '').trim();
-
-        if (!twilioSid || !twilioToken || !twilioPhone) return;
-
-        // Look up the lead to get business name
-        var ss = SpreadsheetApp.openById(sheetId);
-        var sheet = ss.getSheetByName('Leads');
-        if (!sheet) return;
-
-        var data = sheet.getDataRange().getValues();
-        var headers = data[0];
-        var phoneCol = headers.indexOf('Target_Phone');
-        var nameCol = headers.indexOf('Business_Name');
-        if (phoneCol === -1) return;
-
-        var normalizedFrom = fromPhone.replace(/[^0-9]/g, '');
-        if (normalizedFrom.length === 11 && normalizedFrom[0] === '1') {
-            normalizedFrom = normalizedFrom.substring(1);
-        }
-
-        var bizName = '';
-        for (var i = 1; i < data.length; i++) {
-            var rowPhone = (data[i][phoneCol] || '').toString().replace(/[^0-9]/g, '');
-            if (rowPhone.length === 11 && rowPhone[0] === '1') {
-                rowPhone = rowPhone.substring(1);
-            }
-            if (rowPhone === normalizedFrom && rowPhone.length === 10) {
-                bizName = data[i][nameCol] || '';
-                break;
-            }
-        }
-
-        var biz = { target_phone: fromPhone, business_name: bizName };
-        var msg = buildIntakeFollowUpSms(biz);
-
-        var url = 'https://api.twilio.com/2010-04-01/Accounts/' + twilioSid + '/Messages.json';
-        var authHeader = 'Basic ' + Utilities.base64Encode(twilioSid + ':' + twilioToken);
-
-        var res = UrlFetchApp.fetch(url, {
-            method: 'POST',
-            headers: { 'Authorization': authHeader },
-            payload: { 'To': fromPhone, 'From': twilioPhone, 'Body': msg },
-            muteHttpExceptions: true
-        });
-
-        var code = res.getResponseCode();
-        if (code >= 200 && code < 300) {
-            console.log('Sent intake link to ' + fromPhone);
-        } else {
-            console.error('Failed to send intake link (' + code + '): ' + res.getContentText().substring(0, 200));
-        }
-    } catch (err) {
-        console.error('sendIntakeLink error:', err);
-    }
-}
-
-/**
- * Forwards an inbound SMS to your business phone number.
- */
-function forwardToBusinessPhone(from, body) {
-    var props = PropertiesService.getScriptProperties();
-    var forwardPhone = (props.getProperty('FORWARD_PHONE') || '').trim();
-    var twilioSid = (props.getProperty('TWILIO_ACCOUNT_SID') || '').trim();
-    var twilioToken = (props.getProperty('TWILIO_AUTH_TOKEN') || '').trim();
-    var twilioPhone = (props.getProperty('TWILIO_PHONE') || '').trim();
-
-    if (!forwardPhone) {
-        console.warn('FORWARD_PHONE not set — reply logged but not forwarded');
-        return;
-    }
-
-    if (!twilioSid || !twilioToken || !twilioPhone) {
-        console.warn('Twilio credentials missing — cannot forward');
-        return;
-    }
-
-    var forwardBody = 'Reply from ' + from + ':\n' + body;
-
-    try {
-        var url = 'https://api.twilio.com/2010-04-01/Accounts/' + twilioSid + '/Messages.json';
-        var authHeader = 'Basic ' + Utilities.base64Encode(twilioSid + ':' + twilioToken);
-
-        var res = UrlFetchApp.fetch(url, {
-            method: 'POST',
-            headers: { 'Authorization': authHeader },
-            payload: {
-                'To': forwardPhone,
-                'From': twilioPhone,
-                'Body': forwardBody
-            },
-            muteHttpExceptions: true
-        });
-
-        var code = res.getResponseCode();
-        if (code >= 200 && code < 300) {
-            console.log('Forwarded reply from ' + from + ' to ' + forwardPhone);
-        } else {
-            console.error('Forward SMS failed (' + code + '): ' + res.getContentText().substring(0, 200));
-        }
-    } catch (err) {
-        console.error('forwardToBusinessPhone error:', err);
-    }
-}

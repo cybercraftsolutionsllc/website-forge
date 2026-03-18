@@ -412,16 +412,6 @@ function buildIntakeUrl(biz) {
     return base + params;
 }
 
-/**
- * Follow-up SMS sent after a lead replies with interest.
- * Includes the intake form link so they can provide customization details.
- */
-function buildIntakeFollowUpSms(biz) {
-    return 'Great to hear from you! To customize your site, fill out this quick form (2 min): ' +
-        buildIntakeUrl(biz) +
-        ' - Cyber Craft Solutions';
-}
-
 // ============================================================
 // PHASE 4: OUTREACH (Email or SMS)
 // ============================================================
@@ -576,7 +566,7 @@ function sendAllPending() {
             console.error('Failed (' + channel + ') row ' + (i + 1) + ': ' + result.error);
         }
 
-        Utilities.sleep(2000);
+        Utilities.sleep(5000);
     }
 
     ss.toast('✅ Sent: ' + sentCount + ' | Skipped: ' + skipCount + ' | Failed: ' + failCount, '📧 Batch Complete', 10);
