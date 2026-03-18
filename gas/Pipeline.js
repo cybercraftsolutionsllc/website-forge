@@ -384,7 +384,7 @@ function buildSmsMessage(config, biz, liveUrl) {
         '\nSite + domain + hosting for $199/yr. Pays for itself with one job.' +
         '\nReply YES and it\'s yours.' +
         '\nReply STOP to opt out.' +
-        '\n- Josh, Cyber Craft Solutions';
+        '\n- Jeremy, Cyber Craft Solutions';
 }
 
 /**
