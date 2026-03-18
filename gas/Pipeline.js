@@ -379,9 +379,12 @@ function buildPlainTextMessage(config, biz, liveUrl) {
  * Short SMS message — value-driven intro with demo link.
  */
 function buildSmsMessage(config, biz, liveUrl) {
-    return 'Hi! I made a custom website for ' + biz.business_name +
-        ' to help you get found online and book more jobs: ' + liveUrl +
-        ' One page site w/ custom domain for $199/yr. Reply STOP to opt out. - Cyber Craft Solutions';
+    return 'Right now, people searching for ' + biz.niche + ' in ' + biz.area +
+        " can't find you online. I made you a site to fix that: " + liveUrl +
+        '\nSite + domain + hosting for $199. Pays for itself with one job.' +
+        '\nReply YES and it\'s yours.' +
+        '\nReply STOP to opt out.' +
+        '\n- Jeremy, Cyber Craft Solutions';
 }
 
 /**
