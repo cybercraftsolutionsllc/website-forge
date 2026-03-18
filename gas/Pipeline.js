@@ -29,6 +29,7 @@ var SHEET_HEADERS = [
     'Sent_Date',
     'Place_ID',
     'Intake_URL',
+    'First_Reply',
     'Intake_Services',
     'Intake_Email',
     'Intake_Hours',
@@ -375,12 +376,20 @@ function buildPlainTextMessage(config, biz, liveUrl) {
 }
 
 /**
- * Short SMS message — soft intro, no pricing.
+ * Short SMS message — value-driven intro with demo link.
  */
 function buildSmsMessage(config, biz, liveUrl) {
-    return 'Hi! I made a custom website demo for ' + biz.business_name +
+    var price = biz.domain_cost || '';
+    var priceSnippet = '';
+    // Extract just the dollar amount (e.g. "$10.44/yr") for the message
+    var match = price.match(/\$[\d.]+\/yr/);
+    if (match) {
+        priceSnippet = ' Domain + hosting starts at just ' + match[0] + '.';
+    }
+    return 'Hi! I made a custom website for ' + biz.business_name +
         ' to help you get found online and book more jobs: ' + liveUrl +
-        ' \u2014 Let me know what you think! - Cyber Craft Solutions';
+        priceSnippet +
+        ' Reply STOP to opt out. - Cyber Craft Solutions';
 }
 
 /**
