@@ -380,9 +380,9 @@ function buildPlainTextMessage(config, biz, liveUrl) {
  */
 function buildSmsMessage(config, biz, liveUrl) {
     return 'Right now, people searching for ' + biz.niche + ' in ' + biz.area +
-        " can't find you online. I made you a site to fix that: " + liveUrl +
+        " can't find you online. I put together a sample site for you: " + liveUrl +
         '\nSite + domain + hosting for $199. Pays for itself with one job.' +
-        '\nReply YES and it\'s yours.' +
+        '\nReply YES and I\'ll customize it for you.' +
         '\nReply STOP to opt out.' +
         '\n- Jeremy, Cyber Craft Solutions';
 }
