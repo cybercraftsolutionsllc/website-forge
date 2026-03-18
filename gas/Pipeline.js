@@ -381,7 +381,7 @@ function buildPlainTextMessage(config, biz, liveUrl) {
 function buildSmsMessage(config, biz, liveUrl) {
     return 'Right now, people searching for ' + biz.niche + ' in ' + biz.area +
         " can't find you online. I made you a site to fix that: " + liveUrl +
-        '\nSite + domain + hosting for $199/yr. Pays for itself with one job.' +
+        '\nSite + domain + hosting for $199. Pays for itself with one job.' +
         '\nReply YES and it\'s yours.' +
         '\nReply STOP to opt out.' +
         '\n- Jeremy, Cyber Craft Solutions';
