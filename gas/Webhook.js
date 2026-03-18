@@ -120,11 +120,6 @@ function doPost(e) {
         // Forward to business phone
         forwardToBusinessPhone(from, body);
 
-        // Auto-send intake form link if reply looks positive
-        if (isPositiveReply(body)) {
-            sendIntakeLink(from);
-        }
-
         // Return empty TwiML — Twilio handles STOP/START/HELP automatically
         // before this webhook fires, so we just need to handle real replies
         return ContentService
@@ -170,8 +165,8 @@ function logReply(from, to, body, messageSid) {
             messageSid
         ]);
 
-        // Also update the lead's status in the Leads sheet if we can match the phone
-        updateLeadStatus(ss, from);
+        // Also update the lead's status + first reply in the Leads sheet
+        updateLeadStatus(ss, from, body);
 
     } catch (err) {
         console.error('logReply error:', err);
@@ -181,7 +176,7 @@ function logReply(from, to, body, messageSid) {
 /**
  * Updates the lead's Status to "Replied" when we get an inbound SMS.
  */
-function updateLeadStatus(ss, fromPhone) {
+function updateLeadStatus(ss, fromPhone, replyBody) {
     try {
         var sheet = ss.getSheetByName('Leads');
         if (!sheet) return;
@@ -190,6 +185,7 @@ function updateLeadStatus(ss, fromPhone) {
         var headers = data[0];
         var phoneCol = headers.indexOf('Target_Phone');
         var statusCol = headers.indexOf('Status');
+        var replyCol = headers.indexOf('First_Reply');
 
         if (phoneCol === -1 || statusCol === -1) return;
 
@@ -206,10 +202,16 @@ function updateLeadStatus(ss, fromPhone) {
             }
 
             if (rowPhone === normalizedFrom && rowPhone.length === 10) {
+                var rowNum = i + 1;
                 var currentStatus = (data[i][statusCol] || '').toString();
                 if (currentStatus === 'Sent') {
-                    sheet.getRange(i + 1, statusCol + 1).setValue('Replied');
-                    console.log('Updated row ' + (i + 1) + ' status to Replied');
+                    sheet.getRange(rowNum, statusCol + 1).setValue('Replied');
+                    console.log('Updated row ' + rowNum + ' status to Replied');
+                }
+                // Write first reply only if the column exists and is empty
+                if (replyCol !== -1 && !data[i][replyCol]) {
+                    sheet.getRange(rowNum, replyCol + 1).setValue(sanitizeCell(replyBody || ''));
+                    console.log('Captured first reply for row ' + rowNum);
                 }
                 break;
             }
