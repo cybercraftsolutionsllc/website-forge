@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam’s Appliance Repair - McKinney, TX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased text-gray-900">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#hero" class="text-2xl md:text-3xl font-bold tracking-tight">Sam’s Appliance Repair</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('https://images.pexels.com/photos/7807035/pexels-photo-7807035.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+        <div class="container mx-auto h-full flex flex-col justify-center items-center text-center text-white px-6 pt-20 md:pt-0">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 drop-shadow-2xl">Sam’s Appliance Repair</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">Expert Appliance Repair Services in McKinney, TX – Fast, Reliable, and Affordable</p>
+            <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-xl font-semibold px-12 py-6 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Get Service Now</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive repair for all your household appliances by certified technicians.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Refrigerator Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/4119841/pexels-photo-4119841.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional refrigerator repair technician working on a fridge" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Refrigerator Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Fast diagnosis and repair for all refrigerator issues.</p>
+                        <p class="text-gray-600">Cooling problems, leaks, and more – fixed same day.</p>
+                    </div>
+                </div>
+                <!-- Washer Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/34397245/pexels-photo-34397245.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Washer repair service fixing a washing machine" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Washer Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Expert fixes for washing machines of all brands.</p>
+                        <p class="text-gray-600">Leaks, spinning issues, and error codes resolved.</p>
+                    </div>
+                </div>
+                <!-- Dryer Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/4700420/pexels-photo-4700420.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Dryer repair technician servicing a clothes dryer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Dryer Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Reliable dryer repairs to get you drying again.</p>
+                        <p class="text-gray-600">No heat, tumbling problems, and vent cleaning.</p>
+                    </div>
+                </div>
+                <!-- Dishwasher Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/213162/pexels-photo-213162.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Dishwasher repair expert cleaning and fixing a dishwasher" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Dishwasher Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Professional dishwasher service for flawless cleaning.</p>
+                        <p class="text-gray-600">Drainage issues, not draining, and cycle errors.</p>
+                    </div>
+                </div>
+                <!-- Oven Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/7534297/pexels-photo-7534297.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Oven repair technician working on a kitchen oven" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Oven Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Quick oven and range repairs for home cooking.</p>
+                        <p class="text-gray-600">Heating failures, igniter issues, and controls.</p>
+                    </div>
+                </div>
+                <!-- Microwave Repair -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/7027784/pexels-photo-7027784.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Microwave repair service fixing a countertop microwave" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Microwave Repair</h3>
+                        <p class="text-gray-600 leading-relaxed mb-2">Safe and efficient microwave repairs.</p>
+                        <p class="text-gray-600">No heating, turntable, and door problems fixed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold px-16 py-6 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Sam’s Appliance Repair team in McKinney TX workshop" class="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl">
+                </div>
+                <div class="lg:pl-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Trusted Appliance Repair in McKinney, TX</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Family-owned and operated for over 20 years, Sam’s Appliance Repair is McKinney's go-to for all your appliance needs. Our certified technicians use only genuine parts and bring years of hands-on experience to every job. We pride ourselves on honest diagnostics, upfront pricing, and same-day service whenever possible. Your satisfaction is our top priority – that's why we're the top-rated repair service in the area.</p>
+                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Thousands of satisfied homeowners in McKinney trust us.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg italic mb-6">"Sam’s team fixed our dryer in under an hour. Professional, friendly, and fairly priced. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">- Sarah M., McKinney</p>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg italic mb-6">"Refrigerator was leaking and they saved our food! Same-day service and warranty included. Excellent!"</p>
+                    <p class="font-semibold text-gray-900">- Mike T., McKinney</p>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg italic mb-6">"Oven repair was quick and now it works better than new. Honest and reliable service."</p>
+                    <p class="font-semibold text-gray-900">- Lisa R., McKinney</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Fix Your Appliance?</h2>
+                <p class="text-xl text-gray-300 mb-12">Get a free quote today. We'll respond within 24 hours.</p>
+            </div>
+            <form class="max-w-2xl mx-auto space-y-6" action="#" method="POST">
+                <div>
+                    <input type="text" name="name" placeholder="Your Name" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all">
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Your Email" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all">
+                </div>
+                <div>
+                    <input type="tel" name="phone" placeholder="Your Phone" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all">
+                </div>
+                <div>
+                    <textarea name="message" rows="5" placeholder="Describe the issue (e.g., appliance type, problem)" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-xl font-semibold py-6 px-8 rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Request Free Quote</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2024 Sam’s Appliance Repair. All rights reserved. | Powered by <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Cyber Craft Solutions</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
