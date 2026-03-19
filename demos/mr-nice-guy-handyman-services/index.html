@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Nice Guy Handyman Services - Providence, RI Handyman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-2xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl md:text-3xl font-bold tracking-tight">Mr. Nice Guy Handyman Services</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#services" class="hover:text-blue-400 transition-colors font-medium">Services</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition-colors font-medium">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-blue-400 transition-colors font-medium">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors font-medium">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat" 
+             style="background-image: url('https://images.pexels.com/photos/6004890/pexels-photo-6004890.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-slate-900/80"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 md:px-8">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-2xl">Mr. Nice Guy<br>Handyman Services</h1>
+            <p class="text-lg md:text-xl lg:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">Your reliable handyman for all home repairs and maintenance in Providence, RI. Quality work, fair prices, and a friendly smile every time.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-10 py-6 text-xl md:text-2xl font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-900">Our Services</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">From small fixes to big projects, we've got Providence covered.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <!-- Drywall Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/6474343/pexels-photo-6474343.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair patching holes and seams in home interior" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">Drywall Repair</h3>
+                        <p class="text-gray-600 mb-2 text-lg leading-relaxed">Expert patching and seamless finishes.</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Restore your walls to perfection.</p>
+                    </div>
+                </div>
+                <!-- Interior Painting -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Interior painting with roller applying fresh coat of paint on walls" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">Interior Painting</h3>
+                        <p class="text-gray-600 mb-2 text-lg leading-relaxed">Professional prep and flawless application.</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Transform spaces with vibrant colors.</p>
+                    </div>
+                </div>
+                <!-- Deck Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/7540627/pexels-photo-7540627.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair with tools fixing wooden outdoor deck structure" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">Deck Repair</h3>
+                        <p class="text-gray-600 mb-2 text-lg leading-relaxed">Structural fixes and weatherproofing.</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Safe, durable outdoor enjoyment.</p>
+                    </div>
+                </div>
+                <!-- Gutter Cleaning -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5583137/pexels-photo-5583137.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Gutter cleaning removing leaves and debris from home gutters" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">Gutter Cleaning</h3>
+                        <p class="text-gray-600 mb-2 text-lg leading-relaxed">Thorough unclogging and inspection.</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Prevent costly water damage.</p>
+                    </div>
+                </div>
+                <!-- Fixture Installation -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Fixture installation mounting light fixture on ceiling" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">Fixture Installation</h3>
+                        <p class="text-gray-600 mb-2 text-lg leading-relaxed">Secure setup for lights and fans.</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Fast, code-compliant service.</p>
+                    </div>
+                </div>
+                <!-- Fence Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5180600/pexels-photo-5180600.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Fence repair reinforcing wooden backyard fence panels" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors">Fence Repair</h3>
+                        <p class="text-gray-600 mb-2 text-lg leading-relaxed">Reinforcement and post replacement.</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Secure your property boundaries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-16 py-6 text-2xl font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 md:py-32">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6 text-gray-900">About Mr. Nice Guy</h2>
+                    <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">Family-owned and operated in Providence, RI, we're your neighborhood handyman with over 15 years of experience. We treat every home like our own, delivering honest, reliable service with a smile. No job too small—let's make your home shine!</p>
+                    <p class="text-lg text-gray-600 leading-relaxed">Licensed, insured, and always on time. Satisfaction guaranteed.</p>
+                </div>
+                <div class="order-1 md:order-2">
+                    <img src="https://images.pexels.com/photos/8487391/pexels-photo-8487391.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Friendly handyman working on home repair project in Providence RI" class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 md:py-32 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-gray-900">What Our Customers Say</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Trusted by hundreds of Providence homeowners.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-2xl text-center hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-4">
+                    <div class="text-4xl mb-6 mx-auto">⭐⭐⭐⭐⭐</div>
+                    <p class="text-xl text-gray-900 mb-6 italic leading-relaxed">"Fixed our deck in one day—looks brand new! Super friendly and fair priced."</p>
+                    <div class="font-bold text-gray-800">Sarah T., Providence</div>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl text-center hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-4">
+                    <div class="text-4xl mb-6 mx-auto">⭐⭐⭐⭐⭐</div>
+                    <p class="text-xl text-gray-900 mb-6 italic leading-relaxed">"Best handyman around. Painted our entire interior perfectly. Highly recommend!"</p>
+                    <div class="font-bold text-gray-800">Mike R., East Providence</div>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl text-center hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-4">
+                    <div class="text-4xl mb-6 mx-auto">⭐⭐⭐⭐⭐</div>
+                    <p class="text-xl text-gray-900 mb-6 italic leading-relaxed">"Quick gutter clean and fence repair. Honest guy who gets the job done right."</p>
+                    <div class="font-bold text-gray-800">Linda M., Cranston</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-gray-900 text-white">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-300 text-center mb-16 max-w-2xl mx-auto">Contact us today for a free quote on any handyman service in Providence, RI.</p>
+            <form class="space-y-6" action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required class="w-full p-6 text-xl rounded-2xl bg-gray-800 border-2 border-gray-700 focus:border-blue-500 focus:outline-none transition-all duration-300 text-white placeholder-gray-400">
+                <input type="email" name="email" placeholder="Your Email" required class="w-full p-6 text-xl rounded-2xl bg-gray-800 border-2 border-gray-700 focus:border-blue-500 focus:outline-none transition-all duration-300 text-white placeholder-gray-400">
+                <input type="tel" name="phone" placeholder="Your Phone" required class="w-full p-6 text-xl rounded-2xl bg-gray-800 border-2 border-gray-700 focus:border-blue-500 focus:outline-none transition-all duration-300 text-white placeholder-gray-400">
+                <textarea name="message" rows="6" placeholder="Tell us about your project..." required class="w-full p-6 text-xl rounded-2xl bg-gray-800 border-2 border-gray-700 focus:border-blue-500 focus:outline-none transition-all duration-300 text-white placeholder-gray-400 resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 p-6 text-2xl font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-gray-800 text-sm text-gray-400">
+                <p>Mr. Nice Guy Handyman Services &bull; Serving Providence, RI</p>
+                <p class="mt-2">Powered by Cyber Craft Solutions</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
