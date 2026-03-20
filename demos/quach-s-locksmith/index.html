@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quach's Locksmith - Oakland, CA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-gray-900 text-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#home" class="text-2xl font-bold">Quach's Locksmith</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-gray-300 transition">Home</a>
+                    <a href="#services" class="hover:text-gray-300 transition">Services</a>
+                    <a href="#about" class="hover:text-gray-300 transition">About</a>
+                    <a href="#contact" class="hover:text-gray-300 transition">Contact</a>
+                </div>
+                <button class="md:hidden p-2" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+                <a href="#home" class="block hover:text-gray-300 py-2">Home</a>
+                <a href="#services" class="block hover:text-gray-300 py-2">Services</a>
+                <a href="#about" class="block hover:text-gray-300 py-2">About</a>
+                <a href="#contact" class="block hover:text-gray-300 py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/792034/pexels-photo-792034.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Quach's Locksmith</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg">Your Trusted Locksmith in Oakland, CA. Fast, reliable 24/7 emergency services.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition duration-300 shadow-xl hover:shadow-2xl">Get Help Now</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Our Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Emergency Lockout Service -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/6753482/pexels-photo-6753482.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Emergency locksmith unlocking a door quickly" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Emergency Lockout Service</h3>
+                        <p class="text-gray-600 mb-2">Locked out of your home, car, or office?</p>
+                        <p class="text-gray-600">24/7 rapid response to get you back in safely.</p>
+                    </div>
+                </div>
+                <!-- Key Duplication -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/17124737/pexels-photo-17124737.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Key duplication service with multiple keys" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Key Duplication</h3>
+                        <p class="text-gray-600 mb-2">Need extra keys for family or employees?</p>
+                        <p class="text-gray-600">Precise duplicates for all key types on-site.</p>
+                    </div>
+                </div>
+                <!-- Lock Installation -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/792034/pexels-photo-792034.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional lock installation on a door" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Lock Installation</h3>
+                        <p class="text-gray-600 mb-2">Secure new locks for homes and businesses.</p>
+                        <p class="text-gray-600">High-security options installed expertly.</p>
+                    </div>
+                </div>
+                <!-- Rekeying Services -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/17124737/pexels-photo-17124737.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Rekeying locks for enhanced security" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Rekeying Services</h3>
+                        <p class="text-gray-600 mb-2">Change keys without replacing locks.</p>
+                        <p class="text-gray-600">Cost-effective security upgrade for peace of mind.</p>
+                    </div>
+                </div>
+                <!-- Automotive Locksmith -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/615350/keys-shelf-keychain-lock-615350.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Automotive locksmith services for cars" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Automotive Locksmith</h3>
+                        <p class="text-gray-600 mb-2">Car key replacement and lockouts.</p>
+                        <p class="text-gray-600">Transponder keys and ignitions repaired fast.</p>
+                    </div>
+                </div>
+                <!-- Safe Opening -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/30413861/pexels-photo-30413861.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional safe opening service" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Safe Opening</h3>
+                        <p class="text-gray-600 mb-2">Lost combination or locked safe?</p>
+                        <p class="text-gray-600">Non-destructive opening by certified experts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-lg text-xl transition duration-300 shadow-xl hover:shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.pexels.com/photos/6519910/pexels-photo-6519910.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Experienced locksmith team at Quach's Locksmith in Oakland" class="w-full h-96 object-cover rounded-xl shadow-2xl">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">About Quach's Locksmith</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">Family-owned and operated in Oakland, CA for over 20 years, Quach's Locksmith provides top-tier security solutions. Our certified technicians deliver fast, reliable service with a focus on customer satisfaction. From emergencies to installations, we're your local experts you can trust.</p>
+                    <a href="#contact" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">What Our Customers Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4">"Quach's saved the day when we were locked out at midnight. Professional and quick!"</p>
+                    <p class="font-bold text-gray-900">- Sarah M., Oakland</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4">"Excellent key duplication service. Fair prices and friendly staff."</p>
+                    <p class="font-bold text-gray-900">- Mike T., Oakland</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4">"Rekeyed our entire office hassle-free. Highly recommend!"</p>
+                    <p class="font-bold text-gray-900">- Lisa R., Oakland</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
+                    <p class="text-xl text-gray-300 mb-8">Ready for fast, reliable locksmith service? Contact us today for a free quote.</p>
+                    <div class="space-y-4 text-lg">
+                        <p><strong>Phone:</strong> (510) 555-LOCK</p>
+                        <p><strong>Email:</strong> info@quachlocksmith.com</p>
+                        <p><strong>Location:</strong> Oakland, CA</p>
+                    </div>
+                </div>
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Name</label>
+                        <input type="text" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Email</label>
+                        <input type="email" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Phone</label>
+                        <input type="tel" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Message</label>
+                        <textarea rows="5" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 font-bold py-4 px-8 rounded-lg transition duration-300 shadow-xl hover:shadow-2xl text-lg">Send Message</button>
+                </form>
+            </div>
+            <div class="text-center pt-12 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2024 Quach's Locksmith. Powered by <a href="#" class="hover:text-blue-400 font-bold">Cyber Craft Solutions</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

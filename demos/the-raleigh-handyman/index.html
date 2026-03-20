@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Raleigh Handyman - Trusted Handyman Services in Raleigh, NC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold">The Raleigh Handyman</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                    <a href="#testimonials" class="hover:text-blue-400 transition-colors">Testimonials</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 pb-4">
+            <a href="#home" class="block px-4 py-2 hover:bg-gray-700">Home</a>
+            <a href="#services" class="block px-4 py-2 hover:bg-gray-700">Services</a>
+            <a href="#about" class="block px-4 py-2 hover:bg-gray-700">About</a>
+            <a href="#testimonials" class="block px-4 py-2 hover:bg-gray-700">Testimonials</a>
+            <a href="#contact" class="block px-4 py-2 hover:bg-gray-700">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-white relative overflow-hidden" style="background-image: url('https://images.pexels.com/photos/6720531/pexels-photo-6720531.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/60"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">The Raleigh Handyman</h1>
+            <p class="text-xl md:text-2xl mb-8 drop-shadow-lg">Your trusted partner for professional handyman services in Raleigh, NC. Quality repairs, fast and reliable.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-xl hover:shadow-2xl">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive handyman solutions tailored to your home in Raleigh, NC.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Drywall Repair -->
+                <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/6474129/pexels-photo-6474129.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Drywall Repair</h3>
+                        <p class="text-gray-600 mb-2">Expert fixes for holes, cracks, and water damage.</p>
+                        <p class="text-gray-600">Seamless patches that look like new.</p>
+                    </div>
+                </div>
+                <!-- Interior Painting -->
+                <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/7217918/pexels-photo-7217918.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Interior painting services" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Interior Painting</h3>
+                        <p class="text-gray-600 mb-2">Precision painting for a fresh, vibrant home.</p>
+                        <p class="text-gray-600">High-quality finishes, colors you love.</p>
+                    </div>
+                </div>
+                <!-- Light Fixture Installation -->
+                <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Light fixture installation by handyman" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Light Fixture Installation</h3>
+                        <p class="text-gray-600 mb-2">Safe and professional lighting upgrades.</p>
+                        <p class="text-gray-600">Transform your space with perfect illumination.</p>
+                    </div>
+                </div>
+                <!-- Deck Repair -->
+                <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/13757247/pexels-photo-13757247.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair services" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Deck Repair</h3>
+                        <p class="text-gray-600 mb-2">Restore your deck to safe, sturdy condition.</p>
+                        <p class="text-gray-600">Weather-resistant fixes for outdoor enjoyment.</p>
+                    </div>
+                </div>
+                <!-- Gutter Cleaning -->
+                <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/20560233/pexels-photo-20560233.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional gutter cleaning" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Gutter Cleaning</h3>
+                        <p class="text-gray-600 mb-2">Thorough cleaning to prevent water damage.</p>
+                        <p class="text-gray-600">Keep your home protected year-round.</p>
+                    </div>
+                </div>
+                <!-- Fence Repair -->
+                <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+                    <img src="https://images.pexels.com/photos/4116224/pexels-photo-4116224.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Fence repair handyman service" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Fence Repair</h3>
+                        <p class="text-gray-600 mb-2">Strong repairs for privacy and security.</p>
+                        <p class="text-gray-600">Durable fixes that last through seasons.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-16">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-lg text-xl transition-all duration-300 shadow-xl hover:shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.pexels.com/photos/8486935/pexels-photo-8486935.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="The Raleigh Handyman team at work" class="rounded-2xl shadow-2xl w-full h-96 object-cover">
+                </div>
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About The Raleigh Handyman</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">With years of experience serving Raleigh and surrounding areas, we're your go-to experts for all home maintenance needs. Our skilled team delivers top-notch craftsmanship, using premium materials and attention to detail on every job. We pride ourselves on reliability, clean work sites, and customer satisfaction that keeps families coming back.</p>
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Real reviews from Raleigh homeowners.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Fast, professional drywall repair. My walls look brand new!"</p>
+                    <p class="font-bold text-gray-900">- Sarah J., Raleigh</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Interior painting transformed our home. Highly recommend!"</p>
+                    <p class="font-bold text-gray-900">- Mike T., Raleigh</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Deck repair was perfect. Reliable and affordable service."</p>
+                    <p class="font-bold text-gray-900">- Lisa M., Raleigh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get Your Free Quote Today</h2>
+                <p class="text-xl text-gray-300">Ready to fix your home? Contact us for a no-obligation quote.</p>
+            </div>
+            <form class="max-w-2xl mx-auto space-y-6" action="#" method="POST">
+                <div>
+                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium mb-2">Phone</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-xl hover:shadow-2xl">Send Message</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2024 The Raleigh Handyman. All rights reserved. Powered by <a href="#" class="text-blue-400 hover:text-blue-300 font-bold">Cyber Craft Solutions</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

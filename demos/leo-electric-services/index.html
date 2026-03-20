@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Electric Services - Expert Electrician in Frisco, TX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans text-gray-900 antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold tracking-tight">Leo electric services</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                    <a href="#testimonials" class="hover:text-blue-400 transition-colors">Testimonials</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+                <a href="#contact" class="md:hidden bg-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center text-white overflow-hidden" style="background-image: url('https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        <div class="relative z-10 container mx-auto px-6 max-w-4xl animate-fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Leo electric services</h1>
+            <p class="text-xl md:text-2xl mb-8 drop-shadow-lg">Your Trusted Electrician in Frisco, TX</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-lg text-lg transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Professional electrical solutions tailored for your home or business in Frisco, TX.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Electrical Panel Upgrades -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group animate-fade-in">
+                    <img src="https://images.pexels.com/photos/27928762/pexels-photo-27928762.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Electrical panel upgrade installation by Leo Electric Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Electrical Panel Upgrades</h3>
+                        <p class="text-gray-600 leading-relaxed">Upgrade to modern panels for enhanced safety and capacity.<br>Handle higher electrical loads efficiently and reliably.</p>
+                    </div>
+                </div>
+                <!-- Lighting Installation -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group animate-fade-in">
+                    <img src="https://images.pexels.com/photos/7937305/pexels-photo-7937305.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional lighting installation by Leo Electric Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Lighting Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Custom lighting solutions to brighten your space.<br>LED, recessed, and ambient designs for any room.</p>
+                    </div>
+                </div>
+                <!-- Outlet and Switch Repairs -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group animate-fade-in">
+                    <img src="https://images.pexels.com/photos/5853952/pexels-photo-5853952.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Outlet and switch repair service by Leo Electric Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Outlet and Switch Repairs</h3>
+                        <p class="text-gray-600 leading-relaxed">Quick fixes for faulty outlets and switches.<br>Ensure safety and functionality in every room.</p>
+                    </div>
+                </div>
+                <!-- Ceiling Fan Installation -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group animate-fade-in">
+                    <img src="https://images.pexels.com/photos/33379361/pexels-photo-33379361.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Ceiling fan installation by Leo Electric Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Ceiling Fan Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Energy-efficient fans for comfort and style.<br>Professional setup with remote and smart controls.</p>
+                    </div>
+                </div>
+                <!-- EV Charger Installation -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group animate-fade-in">
+                    <img src="https://images.pexels.com/photos/27355833/pexels-photo-27355833.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="EV charger installation service by Leo Electric Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">EV Charger Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Level 2 chargers for fast home charging.<br>Future-proof your garage for electric vehicles.</p>
+                    </div>
+                </div>
+                <!-- Surge Protection Systems -->
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group animate-fade-in">
+                    <img src="https://images.pexels.com/photos/14614016/pexels-photo-14614016.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Surge protection system installation by Leo Electric Services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Surge Protection Systems</h3>
+                        <p class="text-gray-600 leading-relaxed">Whole-home protection from power surges.<br>Safeguard electronics and appliances effectively.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-xl text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 animate-fade-in">
+                    <img src="https://images.pexels.com/photos/8961701/pexels-photo-8961701.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Leo Electric Services team working on electrical project in Frisco TX" class="rounded-2xl shadow-2xl w-full h-96 object-cover">
+                </div>
+                <div class="lg:order-2 animate-fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Leo Electric Services</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">Family-owned and operated in Frisco, TX, with over 20 years of experience. We're licensed, insured, and dedicated to delivering top-tier electrical services. From routine repairs to advanced installations, we prioritize safety, reliability, and customer satisfaction every time.</p>
+                    <p class="text-lg text-gray-500">Serving Frisco and surrounding areas with a commitment to excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by homeowners across Frisco, TX.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6">"Leo Electric upgraded our panel flawlessly. Professional, on-time, and fairly priced. Highly recommend!"</p>
+                    <div class="font-semibold text-gray-900">- Sarah M., Frisco</div>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6">"Installed our EV charger in one day. Clean work, knowledgeable team. Our go-to electrician now!"</p>
+                    <div class="font-semibold text-gray-900">- Mike R., Frisco</div>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6">"Fixed outlets and added surge protection. Responsive service and great communication throughout."</p>
+                    <div class="font-semibold text-gray-900">- Lisa K., Frisco</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-300">Contact us today for a free quote on your electrical needs in Frisco, TX.</p>
+            </div>
+            <form action="#" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
+                <input type="text" placeholder="Your Name" required class="bg-gray-800 border border-gray-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-transparent transition-all">
+                <input type="email" placeholder="Your Email" required class="bg-gray-800 border border-gray-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-transparent transition-all">
+                <input type="tel" placeholder="Your Phone" required class="bg-gray-800 border border-gray-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-transparent transition-all md:col-span-2">
+                <textarea rows="5" placeholder="Your Message" required class="bg-gray-800 border border-gray-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:ring-4 focus:ring-blue-500 focus:border-transparent transition-all md:col-span-2 resize-vertical"></textarea>
+                <button type="submit" class="md:col-span-2 bg-blue-600 hover:bg-blue-700 font-bold py-6 px-12 rounded-xl text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 mx-auto">Send Message</button>
+            </form>
+            <div class="text-center">
+                <p class="text-gray-400 text-lg mb-4">&copy; 2024 Leo Electric Services. Frisco, TX. Licensed & Insured.</p>
+                <p class="text-gray-500">Powered by Cyber Craft Solutions</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

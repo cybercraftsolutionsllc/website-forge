@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMG Landscaping - Premier Landscaping Services in Providence, RI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl md:text-3xl font-bold hover:text-green-400 transition-colors">CMG Landscaping</a>
+            <div class="relative hidden md:block">
+                <ul id="nav-menu" class="flex space-x-8 text-lg font-medium">
+                    <li><a href="#home" class="hover:text-green-400 transition-colors py-2">Home</a></li>
+                    <li><a href="#services" class="hover:text-green-400 transition-colors py-2">Services</a></li>
+                    <li><a href="#about" class="hover:text-green-400 transition-colors py-2">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-green-400 transition-colors py-2">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-green-400 transition-colors py-2">Contact</a></li>
+                </ul>
+            </div>
+            <button id="mobile-toggle" class="md:hidden text-3xl font-bold hover:text-green-400 transition-colors">☰</button>
+        </div>
+        <ul id="mobile-menu" class="md:hidden hidden bg-gray-900 shadow-lg border-t border-gray-800">
+            <li><a href="#home" class="block px-6 py-4 hover:text-green-400 transition-colors border-b border-gray-800 last:border-b-0">Home</a></li>
+            <li><a href="#services" class="block px-6 py-4 hover:text-green-400 transition-colors border-b border-gray-800 last:border-b-0">Services</a></li>
+            <li><a href="#about" class="block px-6 py-4 hover:text-green-400 transition-colors border-b border-gray-800 last:border-b-0">About</a></li>
+            <li><a href="#testimonials" class="block px-6 py-4 hover:text-green-400 transition-colors border-b border-gray-800 last:border-b-0">Testimonials</a></li>
+            <li><a href="#contact" class="block px-6 py-4 hover:text-green-400 transition-colors">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('https://images.pexels.com/photos/4079768/pexels-photo-4079768.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 md:px-8 lg:px-0 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 drop-shadow-2xl leading-tight">CMG Landscaping</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">Expert Landscaping Services Tailored for Providence, RI Homes and Businesses</p>
+            <a href="#contact" class="bg-green-500 hover:bg-green-600 text-white px-10 py-6 rounded-full font-bold text-xl md:text-2xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Our Services</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Comprehensive landscaping solutions to enhance your outdoor spaces</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                <div class="group bg-white shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl hover:-translate-y-4 transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/11364122/pexels-photo-11364122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional lawn mowing service by CMG Landscaping in Providence RI" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Lawn Mowing</h3>
+                        <p class="text-lg text-gray-600 mb-3 leading-relaxed">Precision mowing for a pristine lawn every time.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Weekly, bi-weekly, or custom schedules available.</p>
+                    </div>
+                </div>
+                <div class="group bg-white shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl hover:-translate-y-4 transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/4920283/pexels-photo-4920283.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Expert tree trimming service by CMG Landscaping in Providence RI" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Tree Trimming</h3>
+                        <p class="text-lg text-gray-600 mb-3 leading-relaxed">Safe pruning for healthier, shapelier trees.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Certified arborists ensure safety and precision.</p>
+                    </div>
+                </div>
+                <div class="group bg-white shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl hover:-translate-y-4 transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/36419469/pexels-photo-36419469.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Custom landscape design service by CMG Landscaping in Providence RI" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Landscape Design</h3>
+                        <p class="text-lg text-gray-600 mb-3 leading-relaxed">Bespoke designs to match your vision perfectly.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">From concept sketches to full installation.</p>
+                    </div>
+                </div>
+                <div class="group bg-white shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl hover:-translate-y-4 transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/29614998/pexels-photo-29614998.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Premium hardscaping service by CMG Landscaping in Providence RI" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Hardscaping</h3>
+                        <p class="text-lg text-gray-600 mb-3 leading-relaxed">Durable patios, walls, and walkways built to last.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Stone, brick, and paver specialists.</p>
+                    </div>
+                </div>
+                <div class="group bg-white shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl hover:-translate-y-4 transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/11678428/pexels-photo-11678428.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional irrigation installation by CMG Landscaping in Providence RI" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Irrigation Installation</h3>
+                        <p class="text-lg text-gray-600 mb-3 leading-relaxed">Efficient systems for lush, water-smart lawns.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Custom design, install, and smart controls.</p>
+                    </div>
+                </div>
+                <div class="group bg-white shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl hover:-translate-y-4 transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/9035374/pexels-photo-9035374.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Mulch application service by CMG Landscaping in Providence RI" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-800">Mulch Application</h3>
+                        <p class="text-lg text-gray-600 mb-3 leading-relaxed">Premium mulch for superior weed control.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Variety of colors and organic options.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-green-500 hover:bg-green-600 text-white px-12 py-6 rounded-full font-bold text-xl lg:text-2xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">About CMG Landscaping</h2>
+                    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">Proudly serving Providence, RI and surrounding areas, CMG Landscaping brings over a decade of passion and expertise to every project. Our certified team transforms ordinary yards into extraordinary retreats using sustainable practices and cutting-edge tools. We treat every landscape like our own, delivering unmatched quality and customer care.</p>
+                    <p class="text-lg text-gray-500">Your dream outdoor space starts here.</p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img src="https://images.pexels.com/photos/6519910/pexels-photo-6519910.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Expert team from CMG Landscaping creating beautiful landscapes in Providence RI" class="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">What Our Clients Say</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-xl mx-auto">Trusted by homeowners across Providence</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-b from-gray-50 to-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="text-4xl mb-6 mx-auto w-24">★★★★★</div>
+                    <p class="text-xl text-gray-700 mb-6 italic leading-relaxed">"CMG completely transformed our backyard into a stunning oasis. Professional, timely, and exceeded every expectation!"</p>
+                    <span class="font-semibold text-gray-800 text-lg">- Sarah K., Providence</span>
+                </div>
+                <div class="bg-gradient-to-b from-gray-50 to-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="text-4xl mb-6 mx-auto w-24">★★★★★</div>
+                    <p class="text-xl text-gray-700 mb-6 italic leading-relaxed">"Outstanding hardscaping work on our patio. The team was knowledgeable and the results are breathtaking."</p>
+                    <span class="font-semibold text-gray-800 text-lg">- Mike R., Providence</span>
+                </div>
+                <div class="bg-gradient-to-b from-gray-50 to-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="text-4xl mb-6 mx-auto w-24">★★★★★</div>
+                    <p class="text-xl text-gray-700 mb-6 italic leading-relaxed">"Reliable lawn care that keeps our property looking perfect year-round. Highly recommend CMG!"</p>
+                    <span class="font-semibold text-gray-800 text-lg">- Lisa P., Providence</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">Ready to Start Your Project?</h2>
+            <p class="text-xl text-slate-300 text-center mb-20 max-w-xl mx-auto">Get a free, no-obligation quote today</p>
+            <div class="max-w-lg mx-auto mb-20">
+                <form class="space-y-6">
+                    <input type="text" placeholder="Your Name" class="w-full p-5 rounded-xl bg-slate-800 border-0 text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/30 focus:outline-none transition-all duration-300 text-lg" required>
+                    <input type="email" placeholder="Your Email" class="w-full p-5 rounded-xl bg-slate-800 border-0 text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/30 focus:outline-none transition-all duration-300 text-lg" required>
+                    <input type="tel" placeholder="Your Phone" class="w-full p-5 rounded-xl bg-slate-800 border-0 text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/30 focus:outline-none transition-all duration-300 text-lg" required>
+                    <textarea placeholder="Tell us about your project..." rows="6" class="w-full p-5 rounded-xl bg-slate-800 border-0 text-white placeholder-slate-400 focus:ring-4 focus:ring-green-500/30 focus:outline-none transition-all duration-300 text-lg resize-vertical" required></textarea>
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white p-5 rounded-xl font-bold text-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105">Send Message</button>
+                </form>
+            </div>
+            <div class="text-center pt-16 border-t border-slate-700">
+                <p class="text-lg text-slate-400">&copy; 2024 CMG Landscaping. All rights reserved.</p>
+                <p class="mt-2 text-slate-500">Powered by <a href="#" class="font-semibold hover:text-green-400 transition-colors">Cyber Craft Solutions</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

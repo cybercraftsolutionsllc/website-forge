@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrahien Towing Service - 24/7 Towing in Modesto, CA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-2xl border-b-2 border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#hero" class="text-2xl md:text-3xl font-bold tracking-tight hover:text-blue-400 transition">Arrahien Towing Service</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#hero" class="hover:text-blue-400 transition font-medium">Home</a></li>
+                    <li><a href="#services" class="hover:text-blue-400 transition font-medium">Services</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition font-medium">About</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition font-medium">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('https://images.pexels.com/photos/17429095/pexels-photo-17429095.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/50 via-black/70 to-black/90"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 md:px-8 animate-fade-in">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 drop-shadow-2xl leading-tight">Arrahien Towing Service</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl font-light mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">Reliable 24/7 Towing & Roadside Assistance in Modesto, CA – Fast, Safe, Always There When You Need Us</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 px-10 md:px-12 py-5 md:py-6 text-xl md:text-2xl font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Get Help Now</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 md:mb-24 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">Comprehensive towing solutions tailored to your needs, available 24/7 in Modesto and surrounding areas.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-20 md:mb-24">
+                <!-- 24/7 Emergency Towing -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 animate-fade-in">
+                    <img src="https://images.pexels.com/photos/28447796/pexels-photo-28447796.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="24/7 Emergency Towing service by Arrahien Towing Service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition">24/7 Emergency Towing</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Round-the-clock response for any roadside crisis.</p>
+                        <p class="text-gray-600 leading-relaxed">Fast arrival guaranteed in Modesto, CA.</p>
+                    </div>
+                </div>
+                <!-- Flatbed Towing -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 animate-fade-in animation-delay-200">
+                    <img src="https://images.pexels.com/photos/992069/pexels-photo-992069.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Flatbed Towing service by Arrahien Towing Service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition">Flatbed Towing</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Secure, damage-free transport for all vehicles.</p>
+                        <p class="text-gray-600 leading-relaxed">Ideal for cars, SUVs, and specialty vehicles.</p>
+                    </div>
+                </div>
+                <!-- Wheel-Lift Towing -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 animate-fade-in animation-delay-400">
+                    <img src="https://images.pexels.com/photos/8391791/pexels-photo-8391791.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Wheel-Lift Towing service by Arrahien Towing Service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition">Wheel-Lift Towing</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Efficient lifting for mid-size vehicles.</p>
+                        <p class="text-gray-600 leading-relaxed">Quick and gentle on your wheels.</p>
+                    </div>
+                </div>
+                <!-- Roadside Assistance -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 animate-fade-in animation-delay-600">
+                    <img src="https://images.pexels.com/photos/15823488/pexels-photo-15823488.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Roadside Assistance service by Arrahien Towing Service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition">Roadside Assistance</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Tire changes, jump starts, fuel delivery.</p>
+                        <p class="text-gray-600 leading-relaxed">Lockout service and more – we're nearby.</p>
+                    </div>
+                </div>
+                <!-- Accident Recovery -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 animate-fade-in animation-delay-800">
+                    <img src="https://images.pexels.com/photos/8931961/pexels-photo-8931961.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Accident Recovery service by Arrahien Towing Service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition">Accident Recovery</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Expert scene management and vehicle recovery.</p>
+                        <p class="text-gray-600 leading-relaxed">Safe and swift post-accident support.</p>
+                    </div>
+                </div>
+                <!-- Heavy Duty Towing -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 animate-fade-in animation-delay-1000">
+                    <img src="https://images.pexels.com/photos/11622272/pexels-photo-11622272.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Heavy Duty Towing service by Arrahien Towing Service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition">Heavy Duty Towing</h3>
+                        <p class="text-gray-600 mb-2 leading-relaxed">Power for trucks, RVs, and heavy equipment.</p>
+                        <p class="text-gray-600 leading-relaxed">Industrial-strength towing you can trust.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center animate-fade-in">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-16 py-6 text-2xl font-black rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 md:py-32">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center animate-fade-in">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight">About Arrahien Towing Service</h2>
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">For over a decade, Arrahien Towing Service has been Modesto's go-to for dependable towing and roadside assistance. Our family-owned team combines cutting-edge equipment with genuine care, ensuring every job is handled swiftly, safely, and with the utmost professionalism. We're more than a service – we're your roadside partner in Modesto, CA.</p>
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed">Licensed, insured, and always ready 24/7.</p>
+                </div>
+                <div class="order-1 md:order-2">
+                    <img src="https://images.pexels.com/photos/6519910/pexels-photo-6519910.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Team at Arrahien Towing Service providing roadside assistance in Modesto CA" class="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 md:py-32 bg-gradient-to-b from-gray-100 to-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 md:mb-24 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">Trusted by Thousands</h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">Real stories from Modesto drivers we've helped.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+                <div class="bg-white p-10 md:p-12 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+                    <div class="flex items-center mb-6">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6 italic">"Stuck at 2 AM? These guys arrived in 20 minutes and towed my car safely. Professional and friendly – highly recommend!"</p>
+                    <p class="font-bold text-gray-900">– Sarah M., Modesto</p>
+                </div>
+                <div class="bg-white p-10 md:p-12 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in animation-delay-200">
+                    <div class="flex items-center mb-6">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6 italic">"Flatbed towing for my SUV was flawless. No scratches, quick service, great price. Arrahien is my new towing service!"</p>
+                    <p class="font-bold text-gray-900">– Mike R., Modesto</p>
+                </div>
+                <div class="bg-white p-10 md:p-12 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in animation-delay-400">
+                    <div class="flex items-center mb-6">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6 italic">"Heavy duty tow for my truck after a breakdown. Team was efficient and careful. 10/10 service!"</p>
+                    <p class="font-bold text-gray-900">– Javier L., Modesto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 md:mb-24 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6">Ready to Get Moving?</h2>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">Contact us for a free quote or immediate assistance. We're here 24/7.</p>
+            </div>
+            <form class="max-w-lg mx-auto space-y-6 animate-fade-in" action="#" method="POST">
+                <input type="text" placeholder="Your Name" required class="w-full p-5 bg-gray-800 border-2 border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition text-lg text-white placeholder-gray-400">
+                <input type="email" placeholder="Your Email" required class="w-full p-5 bg-gray-800 border-2 border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition text-lg text-white placeholder-gray-400">
+                <input type="tel" placeholder="Your Phone" required class="w-full p-5 bg-gray-800 border-2 border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition text-lg text-white placeholder-gray-400">
+                <textarea rows="5" placeholder="Tell us about your towing needs..." required class="w-full p-5 bg-gray-800 border-2 border-gray-700 rounded-xl focus:border-blue-500 focus:outline-none transition text-lg text-white placeholder-gray-400 resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-8 py-6 text-xl font-black rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Send Message & Get Quote</button>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-gray-800 animate-fade-in">
+                <p class="text-sm md:text-base text-gray-400">&copy; 2024 Arrahien Towing Service. Modesto, CA. Powered by <span class="font-bold text-blue-400 hover:text-blue-300 transition">Cyber Craft Solutions</span></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

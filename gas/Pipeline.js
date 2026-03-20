@@ -27,7 +27,15 @@ var SHEET_HEADERS = [
     'Channel',
     'Status',
     'Sent_Date',
-    'Place_ID'
+    'Place_ID',
+    'Intake_URL',
+    'First_Reply',
+    'Intake_Services',
+    'Intake_Email',
+    'Intake_Hours',
+    'Intake_ServiceArea',
+    'Intake_Notes',
+    'Intake_Date'
 ];
 
 /**
@@ -95,33 +103,19 @@ function normalizePhone(phone) {
     return '+' + digits;
 }
 
+/**
+ * Builds a =HYPERLINK() formula linking domain pricing to Namecheap registration.
+ * e.g. =HYPERLINK("https://www.namecheap.com/domains/registration/results/?domain=foo.com","$10.44/yr (Cloudflare Registrar)")
+ */
+function pricingHyperlink(domain, priceStr) {
+    if (!domain || !priceStr) return priceStr || '';
+    var url = 'https://www.namecheap.com/domains/registration/results/?domain=' + encodeURIComponent(domain);
+    return '=HYPERLINK("' + url.replace(/"/g, '""') + '","' + priceStr.replace(/"/g, '""') + '")';
+}
+
 // phaseResearch() has been removed.
 // Lead discovery is now handled by findLeadFromPlaces() + generateCopyForLead()
 // in Places.js. The LLM NEVER generates business names, phones, or addresses.
-
-// ============================================================
-// SHEET HELPERS
-// ============================================================
-
-/**
- * Write domain cost to a cell — as a HYPERLINK formula if buyUrl is available.
- * 
- * @param {Sheet} sheet
- * @param {number} row — 1-indexed row
- * @param {number} col — 1-indexed column
- * @param {string} priceText — e.g. "$10.44/yr (Cloudflare Registrar)"
- * @param {string} buyUrl — purchase URL, may be empty
- */
-function writeDomainCost(sheet, row, col, priceText, buyUrl) {
-    if (buyUrl) {
-        // Escape any double-quotes in the strings for the formula
-        var safeUrl = buyUrl.replace(/"/g, '""');
-        var safeText = priceText.replace(/"/g, '""');
-        sheet.getRange(row, col).setFormula('=HYPERLINK("' + safeUrl + '","' + safeText + '")');
-    } else {
-        sheet.getRange(row, col).setValue(priceText);
-    }
-}
 
 // ============================================================
 // PHASE 2: THE DEVELOPER (LLM-driven image selection)
@@ -241,6 +235,7 @@ function phaseLog(config, biz, html) {
 
     // Write to sheet with error logging
     try {
+        var intakeUrl = buildIntakeUrl(biz);
         sheet.appendRow([
             today,
             biz.area || '',
@@ -250,15 +245,22 @@ function phaseLog(config, biz, html) {
             repoUrl,
             liveUrl,
             biz.suggested_domain || '',
-            biz.domain_cost || '',
+            '', // Domain_Cost_Yearly — set as hyperlink below
             biz.target_email || '',
             biz.target_phone || '',
             draftedMessage,
             biz.channel || 'sms',
             'Review Needed',
             '',
-            biz.place_id || ''
+            biz.place_id || '',
+            intakeUrl
         ]);
+        // appendRow doesn't interpret formulas, so set the pricing hyperlink separately
+        if (biz.domain_cost && biz.suggested_domain) {
+            var costCol = SHEET_HEADERS.indexOf('Domain_Cost_Yearly') + 1;
+            var lastRow = sheet.getLastRow();
+            sheet.getRange(lastRow, costCol).setFormula(pricingHyperlink(biz.suggested_domain, biz.domain_cost));
+        }
         console.log('Sheet row appended successfully for ' + biz.business_name);
     } catch (e) {
         console.error('Sheet appendRow failed:', e);
@@ -266,13 +268,6 @@ function phaseLog(config, biz, html) {
     }
 
     var lastRow = sheet.getLastRow();
-
-    // Overwrite Domain_Cost_Yearly with HYPERLINK if we have a purchase URL
-    if (biz.domain_buy_url && biz.domain_cost) {
-        var domCostCol = SHEET_HEADERS.indexOf('Domain_Cost_Yearly') + 1;
-        writeDomainCost(sheet, lastRow, domCostCol, biz.domain_cost, biz.domain_buy_url);
-    }
-
     return {
         error: null,
         liveUrl: liveUrl,
@@ -381,12 +376,40 @@ function buildPlainTextMessage(config, biz, liveUrl) {
 }
 
 /**
- * Short SMS message — soft intro, no pricing.
+ * Short SMS message — value-driven intro with demo link.
  */
 function buildSmsMessage(config, biz, liveUrl) {
-    return 'Hi! I built a free website demo for ' + biz.business_name +
-        ' \u2014 check it out: ' + liveUrl +
-        '. No cost, no catch. Reply if interested or STOP to opt out. - Cyber Craft Solutions';
+    return 'Right now, people searching for ' + biz.niche + ' in ' + biz.area +
+        " can't find you online. I put together a sample site for you: " + liveUrl +
+        '\nSite + domain + hosting for $199. Pays for itself with one job.' +
+        '\nReply YES and I\'ll customize it for you.' +
+        '\nReply STOP to opt out.' +
+        '\n- Jeremy, Cyber Craft Solutions';
+}
+
+/**
+ * Builds an intake form URL pre-filled with the lead's info.
+ * Uses HMAC-SHA256(phone_digits, INTAKE_TOKEN) as the auth signature
+ * so the secret never appears in the URL or public repo.
+ */
+function buildIntakeUrl(biz) {
+    var base = 'https://' + CONFIG_ORG + '.github.io/' + CONFIG_REPO + '/intake/';
+    var phone = (biz.target_phone || '').replace(/[^0-9]/g, '');
+    var params = '?p=' + encodeURIComponent(biz.target_phone || '');
+    if (biz.business_name) {
+        params += '&biz=' + encodeURIComponent(biz.business_name);
+    }
+    // Sign the URL with HMAC so the webhook can verify authenticity
+    var props = PropertiesService.getScriptProperties();
+    var secret = (props.getProperty('INTAKE_TOKEN') || '').trim();
+    if (secret && phone) {
+        var sigBytes = Utilities.computeHmacSha256Signature(phone, secret);
+        var hex = sigBytes.map(function(b) {
+            return ('0' + (b & 0xFF).toString(16)).slice(-2);
+        }).join('');
+        params += '&tk=' + hex;
+    }
+    return base + params;
 }
 
 // ============================================================
@@ -438,7 +461,7 @@ function sendSmsMessage(targetPhone, body, config) {
         } else {
             var errBody = res.getContentText();
             console.error('Twilio API error (' + code + '):', errBody);
-            return { success: false, error: 'Twilio returned ' + code + ': ' + errBody.substring(0, 200) };
+            return { success: false, error: 'SMS send failed (HTTP ' + code + ')' };
         }
     } catch (e) {
         console.error('Twilio SMS failed:', e);
@@ -543,7 +566,7 @@ function sendAllPending() {
             console.error('Failed (' + channel + ') row ' + (i + 1) + ': ' + result.error);
         }
 
-        Utilities.sleep(2000);
+        Utilities.sleep(5000);
     }
 
     ss.toast('✅ Sent: ' + sentCount + ' | Skipped: ' + skipCount + ' | Failed: ' + failCount, '📧 Batch Complete', 10);
@@ -633,7 +656,6 @@ function runWebsiteForgePipeline() {
         var takenDomains = [];
         biz.suggested_domain = '';
         biz.domain_cost = '';
-        biz.domain_buy_url = '';
 
         // Round 1: check the original 5
         for (var d = 0; d < allDomains.length; d++) {
@@ -642,7 +664,6 @@ function runWebsiteForgePipeline() {
             if (domainCheck.available) {
                 biz.suggested_domain = allDomains[d];
                 biz.domain_cost = domainCheck.price || '';
-                biz.domain_buy_url = domainCheck.buyUrl || '';
                 console.log('✅ Domain available: ' + allDomains[d] + ' — ' + biz.domain_cost);
                 break;
             }
@@ -662,7 +683,6 @@ function runWebsiteForgePipeline() {
                 if (altCheck.available) {
                     biz.suggested_domain = moreDomains[m];
                     biz.domain_cost = altCheck.price || '';
-                    biz.domain_buy_url = altCheck.buyUrl || '';
                     console.log('✅ Alt domain available: ' + moreDomains[m] + ' — ' + biz.domain_cost);
                     break;
                 }
@@ -808,7 +828,7 @@ function backfillLeads() {
                         domain = copy.suggested_domains[d];
                         domainCost = check.price || '';
                         sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
-                        writeDomainCost(sheet, rowNum, col.Domain_Cost_Yearly + 1, domainCost, check.buyUrl);
+                        sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setFormula(pricingHyperlink(domain, domainCost));
                         console.log('Row ' + rowNum + ': filled domain = ' + domain + ' (' + domainCost + ')');
                         rowFixed = true;
                         break;
@@ -825,7 +845,7 @@ function backfillLeads() {
                             domain = moreDomains[m];
                             domainCost = altCheck.price || '';
                             sheet.getRange(rowNum, col.Suggested_Domain + 1).setValue(domain);
-                            writeDomainCost(sheet, rowNum, col.Domain_Cost_Yearly + 1, domainCost, altCheck.buyUrl);
+                            sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setFormula(pricingHyperlink(domain, domainCost));
                             console.log('Row ' + rowNum + ': filled alt domain = ' + domain + ' (' + domainCost + ')');
                             rowFixed = true;
                             break;
@@ -845,7 +865,7 @@ function backfillLeads() {
             var priceCheck = checkDomain(domain, config);
             if (priceCheck.available && priceCheck.price) {
                 domainCost = priceCheck.price;
-                writeDomainCost(sheet, rowNum, col.Domain_Cost_Yearly + 1, domainCost, priceCheck.buyUrl);
+                sheet.getRange(rowNum, col.Domain_Cost_Yearly + 1).setFormula(pricingHyperlink(domain, domainCost));
                 console.log('Row ' + rowNum + ': filled price = ' + domainCost);
                 rowFixed = true;
             } else if (!priceCheck.available) {
@@ -870,14 +890,6 @@ function backfillLeads() {
                 sheet.getRange(rowNum, col.Drafted_Message + 1).setValue(plainMsg);
             }
             console.log('Row ' + rowNum + ': filled drafted message');
-            rowFixed = true;
-        }
-
-        // --- 4. Missing target email: fill in "None found" ---
-        var email = (row[col.Target_Email] || '').toString().trim();
-        if (!email) {
-            sheet.getRange(rowNum, col.Target_Email + 1).setValue('None found');
-            console.log('Row ' + rowNum + ': filled Target_Email = None found');
             rowFixed = true;
         }
 

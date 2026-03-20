@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire Electrical Services LLC - Professional Electricians in Sioux Falls, SD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="scroll-smooth bg-gray-50 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <a href="#home" class="text-2xl font-bold tracking-tight">Empire Electrical Services LLC</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
+                <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#testimonials" class="hover:text-blue-400 transition-colors">Testimonials</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/33379361/pexels-photo-33379361.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+        <div class="relative flex h-full flex-col items-center justify-center text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Empire Electrical Services LLC</h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto opacity-90">Your Trusted Electrician in Sioux Falls, SD – Delivering Safe, Reliable, and Modern Electrical Solutions for Homes and Businesses.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive electrical solutions tailored to your needs in Sioux Falls and surrounding areas.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Electrical Panel Upgrades -->
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/17924298/pexels-photo-17924298.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Electrical panel upgrade installation by Empire Electrical Services" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Electrical Panel Upgrades</h3>
+                        <p class="text-gray-600 leading-relaxed">Upgrade your outdated panel for enhanced safety and capacity.<br>Handle modern power demands with 200A service panels.</p>
+                    </div>
+                </div>
+                <!-- Residential Wiring Installation -->
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/3615735/pexels-photo-3615735.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Residential wiring installation by Empire Electrical Services" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Residential Wiring Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Professional new wiring for homes and remodels.<br>Code-compliant installations with future-proof design.</p>
+                    </div>
+                </div>
+                <!-- Commercial Lighting -->
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Commercial lighting setup by Empire Electrical Services" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Commercial Lighting</h3>
+                        <p class="text-gray-600 leading-relaxed">Energy-efficient LED lighting for businesses.<br>Custom designs to enhance productivity and aesthetics.</p>
+                    </div>
+                </div>
+                <!-- EV Charger Installation -->
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="EV charger installation by Empire Electrical Services" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">EV Charger Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Level 2 chargers for home and commercial use.<br>Seamless integration with your electrical system.</p>
+                    </div>
+                </div>
+                <!-- Outlet and Switch Repairs -->
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/7647233/pexels-photo-7647233.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Outlet and switch repairs by Empire Electrical Services" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Outlet and Switch Repairs</h3>
+                        <p class="text-gray-600 leading-relaxed">Quick fixes for faulty outlets and switches.<br>Prevent hazards with expert diagnostics and replacements.</p>
+                    </div>
+                </div>
+                <!-- Generator Installation -->
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/4981794/pexels-photo-4981794.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Generator installation by Empire Electrical Services" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Generator Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Whole-home standby generators for power outages.<br>Automatic transfer switches for seamless backup power.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-lg text-xl transition-all duration-300 transform hover:scale-105 shadow-xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="https://images.pexels.com/photos/7359569/pexels-photo-7359569.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional electricians at Empire Electrical Services working in Sioux Falls" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                </div>
+                <div class="order-1 lg:order-2 animate-fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Trusted Electricians in Sioux Falls</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">At Empire Electrical Services LLC, we're proud to serve the Sioux Falls, SD community with top-tier electrical expertise. Our licensed and insured team brings years of experience to every project, ensuring safety, reliability, and customer satisfaction. From routine repairs to complex installations, we treat your home or business like our own. Family-owned and operated, we're committed to powering your life with excellence.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-4"></div>
+                            <span class="text-lg font-semibold text-gray-900">Fully Licensed & Insured</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-4"></div>
+                            <span class="text-lg font-semibold text-gray-900">24/7 Emergency Service</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-4"></div>
+                            <span class="text-lg font-semibold text-gray-900">Free On-Site Quotes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Hear from satisfied clients in Sioux Falls and beyond.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex text-yellow-400 mb-4">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">"Empire upgraded our electrical panel quickly and safely. Professional team, fair price – highly recommend!"</p>
+                    <div class="font-semibold text-gray-900">– Sarah J., Sioux Falls</div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex text-yellow-400 mb-4">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">"Installed our EV charger in one day. Knowledgeable electricians who explained everything clearly."</p>
+                    <div class="font-semibold text-gray-900">– Mike T., Brandon</div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex text-yellow-400 mb-4">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">"Generator installation was flawless. Peace of mind during storms – outstanding service!"</p>
+                    <div class="font-semibold text-gray-900">– Lisa M., Sioux Falls</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-24">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-300">Contact us today for a free quote on your electrical needs in Sioux Falls, SD.</p>
+            </div>
+            <form action="#" method="POST" class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                <div>
+                    <label for="name" class="block text-sm font-semibold mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-semibold mb-2">Phone</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+                </div>
+                <div class="md:col-span-2">
+                    <label for="message" class="block text-sm font-semibold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-vertical"></textarea>
+                </div>
+                <div class="md:col-span-2 text-center">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-xl text-xl transition-all duration-300 transform hover:scale-105 shadow-xl w-full md:w-auto">Send Message</button>
+                </div>
+            </form>
+            <div class="text-center mt-16 pt-12 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2024 Empire Electrical Services LLC. All rights reserved. | Sioux Falls, SD</p>
+                <p class="text-gray-500 mt-2 text-sm">Powered by Cyber Craft Solutions</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

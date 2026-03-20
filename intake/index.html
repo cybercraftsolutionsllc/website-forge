@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Website — Cyber Craft Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #0a0f1e;
+            color: #e2e8f0;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+        }
+
+        /* ── Header ──────────────────────────────────── */
+        .header {
+            background: rgba(10, 15, 30, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #22d3ee, #06b6d4, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header p {
+            color: #64748b;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        /* ── Card container ──────────────────────────── */
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 2rem 1rem 3rem;
+        }
+        .card {
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        @media (min-width: 640px) {
+            .card { padding: 2.5rem; }
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        .card-subtitle {
+            color: #94a3b8;
+            font-size: 0.875rem;
+            font-weight: 300;
+            margin-bottom: 1.75rem;
+        }
+
+        /* ── Form fields ─────────────────────────────── */
+        .field { margin-bottom: 1.25rem; }
+        .field:last-of-type { margin-bottom: 0; }
+
+        .field label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.4rem;
+        }
+        .field label .req {
+            color: #22d3ee;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 400;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-input::placeholder {
+            color: #64748b;
+        }
+        .form-input:focus {
+            border-color: #22d3ee;
+            box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
+        }
+
+        textarea.form-input {
+            resize: none;
+            line-height: 1.5;
+        }
+
+        .field-hint {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-top: 0.3rem;
+        }
+
+        /* ── Error message ───────────────────────────── */
+        .error-msg {
+            display: none;
+            font-size: 0.8rem;
+            color: #f87171;
+            background: rgba(248, 113, 113, 0.08);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin-top: 1.25rem;
+        }
+        .error-msg.visible {
+            display: block;
+        }
+
+        /* ── Submit button ───────────────────────────── */
+        .btn-submit {
+            display: block;
+            width: 100%;
+            margin-top: 1.5rem;
+            padding: 0.9rem 2rem;
+            background: #22d3ee;
+            color: #0a0f1e;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
+            transition: all 0.3s;
+        }
+        .btn-submit:hover {
+            background: #06b6d4;
+            box-shadow: 0 6px 25px rgba(34, 211, 238, 0.4);
+            transform: translateY(-2px);
+        }
+        .btn-submit:active {
+            transform: scale(0.98) translateY(0);
+        }
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .spinner { display: none; }
+        .loading .spinner { display: inline-block; }
+        .loading .btn-text { display: none; }
+
+        .privacy-note {
+            font-size: 0.7rem;
+            color: #64748b;
+            text-align: center;
+            margin-top: 0.75rem;
+        }
+
+        /* ── Success screen ──────────────────────────── */
+        .success-card {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        .success-icon {
+            width: 4rem;
+            height: 4rem;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+        .success-icon svg {
+            width: 2rem;
+            height: 2rem;
+            color: #22d3ee;
+        }
+        .success-card h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .success-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* ── Hidden utility ──────────────────────────── */
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Cyber Craft Solutions</h1>
+        <p>Professional Web Design &amp; Development</p>
+    </div>
+
+    <!-- Form Section -->
+    <div id="form-section" class="container">
+        <div class="card">
+            <h2 class="card-title">Let's customize your site</h2>
+            <p class="card-subtitle">
+                Answer a few quick questions so we can tailor your website to your business.
+                Takes about 2 minutes.
+            </p>
+
+            <form id="intake-form" novalidate>
+
+                <!-- Business Name -->
+                <div class="field">
+                    <label for="business_name">
+                        Business Name <span class="req">*</span>
+                    </label>
+                    <input type="text" id="business_name" name="business_name" required
+                        class="form-input"
+                        placeholder="e.g. Joe's Plumbing">
+                </div>
+
+                <!-- Services -->
+                <div class="field">
+                    <label for="services">
+                        What services do you offer? <span class="req">*</span>
+                    </label>
+                    <textarea id="services" name="services" rows="3" required
+                        class="form-input"
+                        placeholder="e.g. Emergency repairs, water heater installation, drain cleaning, bathroom remodeling"></textarea>
+                    <p class="field-hint">List your top 3–5 services</p>
+                </div>
+
+                <!-- Phone -->
+                <div class="field">
+                    <label for="phone">
+                        Best phone number for customers <span class="req">*</span>
+                    </label>
+                    <input type="tel" id="phone" name="phone" required
+                        class="form-input"
+                        placeholder="(555) 123-4567">
+                </div>
+
+                <!-- Email -->
+                <div class="field">
+                    <label for="email">
+                        Email address
+                    </label>
+                    <input type="email" id="email" name="email"
+                        class="form-input"
+                        placeholder="joe@joesplumbing.com">
+                </div>
+
+                <!-- Hours -->
+                <div class="field">
+                    <label for="hours">
+                        Business hours <span class="req">*</span>
+                    </label>
+                    <input type="text" id="hours" name="hours" required
+                        class="form-input"
+                        placeholder="e.g. Mon–Fri 8am–6pm, Sat 9am–2pm">
+                </div>
+
+                <!-- Service Area -->
+                <div class="field">
+                    <label for="service_area">
+                        What areas/cities do you serve? <span class="req">*</span>
+                    </label>
+                    <input type="text" id="service_area" name="service_area" required
+                        class="form-input"
+                        placeholder="e.g. Arlington, Fort Worth, and surrounding areas">
+                </div>
+
+                <!-- Anything Else -->
+                <div class="field">
+                    <label for="notes">
+                        Anything else you want on the site?
+                    </label>
+                    <textarea id="notes" name="notes" rows="3"
+                        class="form-input"
+                        placeholder="e.g. We're licensed and insured, 20 years experience, we want a photo gallery section..."></textarea>
+                </div>
+
+                <!-- Error message -->
+                <div id="error-msg" class="error-msg"></div>
+
+                <!-- Submit -->
+                <button type="submit" id="submit-btn" class="btn-submit">
+                    <span class="btn-text">Submit</span>
+                    <span class="spinner">
+                        <svg class="inline" style="width:1.25rem;height:1.25rem;animation:spin 1s linear infinite;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle style="opacity:0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path style="opacity:0.75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                        Submitting…
+                    </span>
+                </button>
+
+                <p class="privacy-note">
+                    Your info is only used to build your website. We never share or sell your data.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Section (hidden by default) -->
+    <div id="success-section" class="hidden">
+        <div class="container">
+            <div class="card success-card">
+                <div class="success-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h2>You're all set!</h2>
+                <p>
+                    Thanks for the details. We'll use this to customize your website and follow up shortly.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inline keyframe for spinner (no Tailwind dependency) -->
+    <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+
+    <!-- Config loaded separately so webhook URL isn't in the main HTML -->
+    <script src="config.js"></script>
+    <script>
+    (function() {
+        // ── Configuration (loaded from config.js) ──────────────
+        var WEBHOOK_URL = (typeof INTAKE_CONFIG !== 'undefined' && INTAKE_CONFIG.webhookUrl) || '';
+
+        // ── Pre-fill from URL params ───────────────────────────
+        // The HMAC signature (tk) is generated server-side and embedded in SMS links.
+        // It never appears in config.js or the public repo.
+        var params = new URLSearchParams(window.location.search);
+        var prePhone = params.get('p') || '';
+        var preName  = params.get('biz') || '';
+        var INTAKE_TOKEN = params.get('tk') || '';
+
+        if (prePhone) document.getElementById('phone').value = prePhone;
+        if (preName) {
+            try { document.getElementById('business_name').value = decodeURIComponent(preName); }
+            catch(e) { document.getElementById('business_name').value = preName; }
+        }
+
+        // ── Form submission ────────────────────────────────────
+        var form    = document.getElementById('intake-form');
+        var btn     = document.getElementById('submit-btn');
+        var errDiv  = document.getElementById('error-msg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            errDiv.classList.remove('visible');
+
+            // Basic validation
+            var required = form.querySelectorAll('[required]');
+            for (var i = 0; i < required.length; i++) {
+                if (!required[i].value.trim()) {
+                    required[i].focus();
+                    showError('Please fill in all required fields.');
+                    return;
+                }
+            }
+
+            if (!WEBHOOK_URL) {
+                showError('Form endpoint not configured. Contact us directly.');
+                return;
+            }
+
+            // Collect data
+            var payload = {
+                formType:      'intake',
+                tk:            INTAKE_TOKEN,
+                business_name: val('business_name'),
+                services:      val('services'),
+                phone:         val('phone'),
+                email:         val('email'),
+                hours:         val('hours'),
+                service_area:  val('service_area'),
+                notes:         val('notes')
+            };
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            // POST to GAS — use no-cors since GAS redirects
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(payload).toString()
+            })
+            .then(function() {
+                // no-cors gives opaque response, so we assume success
+                document.getElementById('form-section').classList.add('hidden');
+                document.getElementById('success-section').classList.remove('hidden');
+                window.scrollTo(0, 0);
+            })
+            .catch(function(err) {
+                btn.classList.remove('loading');
+                btn.disabled = false;
+                showError('Something went wrong. Please try again or text us directly.');
+                console.error('Submit error:', err);
+            });
+        });
+
+        function val(id) {
+            return (document.getElementById(id).value || '').trim();
+        }
+
+        function showError(msg) {
+            errDiv.textContent = msg;
+            errDiv.classList.add('visible');
+        }
+    })();
+    </script>
+</body>
+</html>

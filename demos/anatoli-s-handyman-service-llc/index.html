@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatoli's Handyman Service, LLC | Professional Handyman in San Diego, CA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50 text-gray-900 antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-2xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl md:text-3xl font-bold tracking-tight">Anatoli's Handyman Service, LLC</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#services" class="hover:text-blue-400 transition-colors duration-200 font-medium">Services</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition-colors duration-200 font-medium">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-blue-400 transition-colors duration-200 font-medium">Reviews</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors duration-200 font-medium">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center text-white px-4 -mt-px">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-black/70 to-slate-900/50"></div>
+        <div class="relative z-10 max-w-4xl mx-auto" style="background-image: url('https://images.pexels.com/photos/8486935/pexels-photo-8486935.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop'); min-height: 100vh; background-size: cover; background-position: center;">
+            <div class="py-32 md:py-48">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 drop-shadow-2xl leading-tight">Anatoli's Handyman Service, LLC</h1>
+                <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-2xl mx-auto drop-shadow-xl font-light">Professional handyman services for homes and businesses throughout San Diego, CA. Reliable, skilled, and affordable.</p>
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-full text-xl md:text-2xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-4 bg-gradient-to-r from-gray-900 to-slate-800 bg-clip-text text-transparent">Our Services</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Comprehensive handyman solutions tailored to your San Diego home.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://images.pexels.com/photos/6474196/pexels-photo-6474196.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Drywall Repair service by Anatoli's Handyman Service featuring professional wall patching" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-6 text-gray-900 group-hover:text-blue-600 transition-colors">Drywall Repair</h3>
+                        <p class="text-lg text-gray-600 mb-2 leading-relaxed">Expert patching of holes, cracks, and water damage.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Seamless textures and finishes that match perfectly.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://images.pexels.com/photos/7217918/pexels-photo-7217918.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Interior Painting service by Anatoli's Handyman Service showing fresh wall painting" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-6 text-gray-900 group-hover:text-blue-600 transition-colors">Interior Painting</h3>
+                        <p class="text-lg text-gray-600 mb-2 leading-relaxed">Precision surface prep and multi-coat application.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Transform your space with vibrant, lasting color.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://images.pexels.com/photos/6124242/pexels-photo-6124242.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Light Fixture Installation service by Anatoli's Handyman Service with modern lighting setup" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-6 text-gray-900 group-hover:text-blue-600 transition-colors">Light Fixture Installation</h3>
+                        <p class="text-lg text-gray-600 mb-2 leading-relaxed">Safe electrical wiring and secure mounting.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Brighten your home with stylish, energy-efficient lights.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://images.pexels.com/photos/4135926/pexels-photo-4135926.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck Repair service by Anatoli's Handyman Service repairing outdoor wooden deck" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-6 text-gray-900 group-hover:text-blue-600 transition-colors">Deck Repair</h3>
+                        <p class="text-lg text-gray-600 mb-2 leading-relaxed">Structural fixes for boards, railings, and stairs.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Restore safety and beauty to your outdoor oasis.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://images.pexels.com/photos/5583137/pexels-photo-5583137.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Gutter Cleaning service by Anatoli's Handyman Service clearing roof gutters" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-6 text-gray-900 group-hover:text-blue-600 transition-colors">Gutter Cleaning</h3>
+                        <p class="text-lg text-gray-600 mb-2 leading-relaxed">Complete removal of debris, leaves, and buildup.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Prevent water damage with thorough inspections.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200">
+                    <img src="https://images.pexels.com/photos/15881335/pexels-photo-15881335.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Faucet Replacement service by Anatoli's Handyman Service installing new kitchen faucet" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-6 text-gray-900 group-hover:text-blue-600 transition-colors">Faucet Replacement</h3>
+                        <p class="text-lg text-gray-600 mb-2 leading-relaxed">Quick removal of old fixtures and leak-free installs.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Upgrade to modern, water-saving designs effortlessly.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-16 py-8 rounded-full text-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="https://images.pexels.com/photos/8486935/pexels-photo-8486935.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Anatoli's Handyman Service team providing professional home repair services in San Diego" class="rounded-3xl shadow-2xl w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-slate-800 to-blue-900 bg-clip-text text-transparent">About Us</h2>
+                    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-12 max-w-lg">At Anatoli's Handyman Service, LLC, we bring over 15 years of local expertise to every job in San Diego, CA. Owner Anatoli and his skilled team deliver honest, high-quality repairs with a personal touch—treating your home like our own. Punctual, clean, and fairly priced, we're your go-to for hassle-free home improvements.</p>
+                    <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-5 rounded-2xl text-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-4 bg-gradient-to-r from-gray-900 to-slate-800 bg-clip-text text-transparent">Customer Reviews</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Trusted by hundreds of San Diego homeowners.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-b from-gray-50 to-white p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center border border-gray-200">
+                    <div class="flex justify-center mb-6 text-3xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-xl text-gray-700 mb-8 italic leading-relaxed">"Anatoli repaired our drywall damage from a leak perfectly. Fast, clean, and professional—looks brand new!"</p>
+                    <span class="font-bold text-gray-900 text-lg block">Sarah M., La Jolla</span>
+                </div>
+                <div class="bg-gradient-to-b from-gray-50 to-white p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center border border-gray-200">
+                    <div class="flex justify-center mb-6 text-3xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-xl text-gray-700 mb-8 italic leading-relaxed">"Interior painting transformed our living room. Precise work, great color advice, and no mess left behind."</p>
+                    <span class="font-bold text-gray-900 text-lg block">Mike R., Mission Beach</span>
+                </div>
+                <div class="bg-gradient-to-b from-gray-50 to-white p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center border border-gray-200">
+                    <div class="flex justify-center mb-6 text-3xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-xl text-gray-700 mb-8 italic leading-relaxed">"Installed light fixtures and cleaned gutters in one day. Reliable, skilled, and super friendly service!"</p>
+                    <span class="font-bold text-gray-900 text-lg block">Lisa T., Point Loma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-32 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-400">Request your free quote today. We'll respond within 24 hours.</p>
+            </div>
+            <div class="max-w-2xl mx-auto mb-20">
+                <form action="#" method="POST" class="space-y-6">
+                    <input type="text" name="name" placeholder="Your Full Name" required class="w-full p-6 rounded-2xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-blue-500/50 focus:outline-none text-lg transition-all duration-300">
+                    <input type="email" name="email" placeholder="Your Email Address" required class="w-full p-6 rounded-2xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-blue-500/50 focus:outline-none text-lg transition-all duration-300">
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required class="w-full p-6 rounded-2xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-blue-500/50 focus:outline-none text-lg transition-all duration-300">
+                    <textarea name="message" rows="6" placeholder="Describe your project or service needed..." required class="w-full p-6 rounded-2xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-blue-500/50 focus:outline-none text-lg resize-vertical transition-all duration-300"></textarea>
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-6 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">Send Your Message</button>
+                </form>
+            </div>
+            <div class="text-center pt-16 border-t border-gray-800">
+                <p class="text-gray-400 text-lg">&copy; 2024 Anatoli's Handyman Service, LLC. All rights reserved. | Powered by <span class="font-semibold text-blue-400 hover:text-blue-300 transition-colors">Cyber Craft Solutions</span></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

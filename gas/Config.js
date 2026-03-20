@@ -18,6 +18,7 @@
  *   PLACES_API_KEY     — Google Places API key (for verified lead discovery)
  *   DOMSCAN_API_KEY    — DomScan API key (free at domscan.net, for domain availability + pricing)
  *   PEXELS_API_KEY     — Pexels API key (free at pexels.com/api, for relevant images)
+ *   FORWARD_PHONE      — Your personal/business phone to receive SMS reply notifications (e.g., +15551234567)
  */
 
 // Static constants
@@ -77,6 +78,9 @@ function getConfig() {
   const pexelsApiKey = (props.getProperty('PEXELS_API_KEY') || '').trim();
   console.log('Pexels API: ' + (pexelsApiKey ? 'configured' : 'NOT configured (images may not be relevant)'));
 
+  // Forward phone — your personal/business number for reply notifications
+  const forwardPhone = (props.getProperty('FORWARD_PHONE') || '').trim();
+
   const errors = [];
 
   if (!provider || !SUPPORTED_PROVIDERS.includes(provider)) {
@@ -114,6 +118,7 @@ function getConfig() {
     twilioEnabled: twilioEnabled,
     placesApiKey: placesApiKey,
     domscanApiKey: domscanApiKey,
-    pexelsApiKey: pexelsApiKey
+    pexelsApiKey: pexelsApiKey,
+    forwardPhone: forwardPhone
   };
 }
