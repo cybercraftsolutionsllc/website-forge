@@ -527,7 +527,9 @@ function sendAllPending() {
 
     for (var i = 1; i < data.length; i++) {
         var row = data[i];
-        if (row[col.Status] !== 'Review Needed') { skipCount++; continue; }
+        var rowStatus = (row[col.Status] || '').toString().trim();
+        if (rowStatus === 'Stopped') { skipCount++; continue; } // Never re-contact opted-out leads
+        if (rowStatus !== 'Review Needed') { skipCount++; continue; }
 
         var channel = (row[col.Channel] || 'email').toLowerCase();
         var targetEmail = row[col.Target_Email];

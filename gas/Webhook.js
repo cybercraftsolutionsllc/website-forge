@@ -114,11 +114,9 @@ function doPost(e) {
 
         console.log('Incoming SMS from ' + from + ': ' + body);
 
-        // Log to Replies sheet + update lead status to "Replied"
+        // Log to Replies sheet + update lead status + send email notification
         logReply(from, to, body, messageSid);
 
-        // Return empty TwiML — Twilio handles STOP/START/HELP automatically
-        // before this webhook fires, so we just need to handle real replies
         return ContentService
             .createTextOutput('<Response></Response>')
             .setMimeType(ContentService.MimeType.XML);
@@ -171,7 +169,13 @@ function logReply(from, to, body, messageSid) {
 }
 
 /**
- * Updates the lead's Status to "Replied" when we get an inbound SMS.
+ * Updates the lead's status and sends email notification on inbound SMS.
+ *
+ * STOP/UNSUBSCRIBE/CANCEL/QUIT/END → Status = "Stopped" (prevents ALL future contact)
+ * Anything else → Status = "Replied" + email notification to script owner
+ *
+ * Status is updated regardless of current value — a STOP from a "Replied" or
+ * "Review Needed" lead must still be honored.
  */
 function updateLeadStatus(ss, fromPhone, replyBody) {
     try {
@@ -183,6 +187,7 @@ function updateLeadStatus(ss, fromPhone, replyBody) {
         var phoneCol = headers.indexOf('Target_Phone');
         var statusCol = headers.indexOf('Status');
         var replyCol = headers.indexOf('First_Reply');
+        var nameCol = headers.indexOf('Business_Name');
 
         if (phoneCol === -1 || statusCol === -1) return;
 
@@ -192,6 +197,10 @@ function updateLeadStatus(ss, fromPhone, replyBody) {
             normalizedFrom = normalizedFrom.substring(1);
         }
 
+        // Detect opt-out keywords
+        var isStop = /^\s*(stop|unsubscribe|cancel|quit|end)\s*$/i.test(replyBody);
+
+        var matched = false;
         for (var i = 1; i < data.length; i++) {
             var rowPhone = (data[i][phoneCol] || '').toString().replace(/[^0-9]/g, '');
             if (rowPhone.length === 11 && rowPhone[0] === '1') {
@@ -200,21 +209,70 @@ function updateLeadStatus(ss, fromPhone, replyBody) {
 
             if (rowPhone === normalizedFrom && rowPhone.length === 10) {
                 var rowNum = i + 1;
-                var currentStatus = (data[i][statusCol] || '').toString();
-                if (currentStatus === 'Sent') {
+                var businessName = (nameCol !== -1 ? data[i][nameCol] : '') || 'Unknown';
+                matched = true;
+
+                if (isStop) {
+                    // STOP — mark as Stopped so pipeline + batch send skip this lead
+                    sheet.getRange(rowNum, statusCol + 1).setValue('Stopped');
+                    if (replyCol !== -1) {
+                        sheet.getRange(rowNum, replyCol + 1).setValue('STOP — ' + new Date().toISOString());
+                    }
+                    console.log('STOP received from ' + businessName + ' (' + fromPhone + ') — row ' + rowNum + ' marked Stopped');
+                } else {
+                    // Real reply — always update status (even from "Review Needed" or "Sent")
                     sheet.getRange(rowNum, statusCol + 1).setValue('Replied');
-                    console.log('Updated row ' + rowNum + ' status to Replied');
-                }
-                // Write first reply only if the column exists and is empty
-                if (replyCol !== -1 && !data[i][replyCol]) {
-                    sheet.getRange(rowNum, replyCol + 1).setValue(sanitizeCell(replyBody || ''));
-                    console.log('Captured first reply for row ' + rowNum);
+                    console.log('Updated row ' + rowNum + ' (' + businessName + ') status to Replied');
+
+                    // Write first reply only if the column exists and is empty
+                    if (replyCol !== -1 && !data[i][replyCol]) {
+                        sheet.getRange(rowNum, replyCol + 1).setValue(sanitizeCell(replyBody || ''));
+                        console.log('Captured first reply for row ' + rowNum);
+                    }
+
+                    // Email notification for non-STOP replies
+                    notifyOwnerByEmail(
+                        'SMS Reply from ' + businessName + ' (' + fromPhone + ')',
+                        'You received a reply from a lead!\n\n' +
+                        'Business: ' + businessName + '\n' +
+                        'Phone: ' + fromPhone + '\n' +
+                        'Message: "' + replyBody + '"\n\n' +
+                        'Row: ' + rowNum + ' in the Leads sheet\n' +
+                        'Reply directly to ' + fromPhone + ' to continue the conversation.'
+                    );
                 }
                 break;
             }
         }
+
+        // If no matching lead found, still notify (could be a wrong number or old lead)
+        if (!matched) {
+            console.log('No matching lead for phone ' + fromPhone);
+            notifyOwnerByEmail(
+                'SMS from unknown number: ' + fromPhone,
+                'Received SMS from ' + fromPhone + ' (not found in Leads sheet):\n\n"' + replyBody + '"'
+            );
+        }
     } catch (err) {
         console.error('updateLeadStatus error:', err);
+    }
+}
+
+/**
+ * Sends an email notification to the script owner (the Gmail account running this script).
+ * Zero cost — uses GmailApp, no Twilio SMS charge.
+ */
+function notifyOwnerByEmail(subject, body) {
+    try {
+        var ownerEmail = Session.getEffectiveUser().getEmail();
+        if (!ownerEmail) {
+            console.error('notifyOwnerByEmail: could not determine owner email');
+            return;
+        }
+        GmailApp.sendEmail(ownerEmail, '[WebsiteForge] ' + subject, body);
+        console.log('Notification email sent to ' + ownerEmail + ': ' + subject);
+    } catch (e) {
+        console.error('notifyOwnerByEmail failed: ' + e);
     }
 }
 

@@ -141,6 +141,8 @@ function getExistingLeads(sheet) {
     var headers = data[0];
     var nameCol = headers.indexOf('Business_Name');
     var phoneCol = headers.indexOf('Target_Phone');
+    var statusCol = headers.indexOf('Status');
+    var placeIdCol = headers.indexOf('Place_ID');
 
     if (nameCol === -1 || phoneCol === -1) return [];
 
@@ -148,7 +150,9 @@ function getExistingLeads(sheet) {
     for (var i = 1; i < data.length; i++) {
         leads.push({
             name: (data[i][nameCol] || '').toString(),
-            phone: normalizePhone((data[i][phoneCol] || '').toString())
+            phone: normalizePhone((data[i][phoneCol] || '').toString()),
+            status: statusCol !== -1 ? (data[i][statusCol] || '').toString() : '',
+            placeId: placeIdCol !== -1 ? (data[i][placeIdCol] || '').toString() : ''
         });
     }
     return leads;
@@ -201,14 +205,28 @@ function findLeadFromPlaces(niche, city, config, existingLeads) {
             continue;
         }
 
-        // Dedup check against existing leads
+        // Dedup check against existing leads (phone, name, or Place ID)
         var normalizedPhone = normalizePhone(phone);
+        var dupReason = '';
         var isDup = existingLeads.some(function (lead) {
-            return lead.phone === normalizedPhone ||
-                lead.name.toLowerCase() === details.name.toLowerCase();
+            if (lead.phone === normalizedPhone) {
+                dupReason = lead.status === 'Stopped'
+                    ? 'phone match — STOPPED (opted out)'
+                    : 'phone match';
+                return true;
+            }
+            if (lead.name.toLowerCase() === details.name.toLowerCase()) {
+                dupReason = 'name match';
+                return true;
+            }
+            if (lead.placeId && lead.placeId === biz.place_id) {
+                dupReason = 'Place ID match';
+                return true;
+            }
+            return false;
         });
         if (isDup) {
-            console.log('Skipping (duplicate): ' + details.name);
+            console.log('Skipping (duplicate — ' + dupReason + '): ' + details.name);
             continue;
         }
 
