@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hickman Handyman LLC - Professional Handyman Services in Lincoln, NE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-2xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-2xl md:text-3xl font-bold tracking-tight">Hickman Handyman LLC</a>
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li><a href="#services" class="text-lg hover:text-blue-400 font-medium transition-colors duration-300">Services</a></li>
+                    <li><a href="#about" class="text-lg hover:text-blue-400 font-medium transition-colors duration-300">About</a></li>
+                    <li><a href="#testimonials" class="text-lg hover:text-blue-400 font-medium transition-colors duration-300">Testimonials</a></li>
+                    <li><a href="#contact" class="text-lg hover:text-blue-400 font-medium transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/5691550/pexels-photo-5691550.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/90"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4 md:px-8">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 drop-shadow-2xl leading-tight">Hickman Handyman LLC</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-3xl mx-auto drop-shadow-xl leading-relaxed">Your Trusted Handyman in Lincoln, NE<br>Professional Repairs & Maintenance for Every Home</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-6 rounded-2xl text-xl md:text-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Reliable handyman solutions tailored to your home in Lincoln, NE</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <!-- Drywall Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/6474129/pexels-photo-6474129.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair for holes cracks and damage" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Drywall Repair</h3>
+                        <p class="text-gray-600 mb-3 leading-relaxed">Expert fixes for holes, cracks, and damage.</p>
+                        <p class="text-gray-600 leading-relaxed">Walls restored to perfection fast.</p>
+                    </div>
+                </div>
+                <!-- Interior Painting -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/4792523/pexels-photo-4792523.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional interior painting services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Interior Painting</h3>
+                        <p class="text-gray-600 mb-3 leading-relaxed">Transform spaces with flawless finishes.</p>
+                        <p class="text-gray-600 leading-relaxed">Any color, any style you love.</p>
+                    </div>
+                </div>
+                <!-- Gutter Cleaning -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/5691540/pexels-photo-5691540.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional gutter cleaning service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Gutter Cleaning</h3>
+                        <p class="text-gray-600 mb-3 leading-relaxed">Thorough cleaning to prevent clogs.</p>
+                        <p class="text-gray-600 leading-relaxed">Protect your home from water damage.</p>
+                    </div>
+                </div>
+                <!-- Deck Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/4981803/pexels-photo-4981803.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional deck repair and maintenance" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Deck Repair</h3>
+                        <p class="text-gray-600 mb-3 leading-relaxed">Restore safety and beauty to decks.</p>
+                        <p class="text-gray-600 leading-relaxed">Wood, railings, and structural fixes.</p>
+                    </div>
+                </div>
+                <!-- Light Fixture Installation -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/5691679/pexels-photo-5691679.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Safe light fixture installation service" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Light Fixture Installation</h3>
+                        <p class="text-gray-600 mb-3 leading-relaxed">Expert and safe electrical installs.</p>
+                        <p class="text-gray-600 leading-relaxed">Brighten your home perfectly.</p>
+                    </div>
+                </div>
+                <!-- Fence Repair -->
+                <div class="group bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/5768107/pexels-photo-5768107.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Durable fence repair services" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Fence Repair</h3>
+                        <p class="text-gray-600 mb-3 leading-relaxed">Fix sagging, broken, or damaged fences.</p>
+                        <p class="text-gray-600 leading-relaxed">Built to last through Nebraska weather.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-2xl text-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 md:py-32 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 text-gray-900">About Hickman Handyman LLC</h2>
+                    <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">Proudly serving Lincoln, NE and surrounding areas for years, we deliver honest, reliable handyman services with a focus on quality craftsmanship. Our licensed and insured team tackles everything from quick fixes to full projects, saving you time and stress.</p>
+                    <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">We use premium materials, arrive on time, and clean up after every job—because your home deserves the best.</p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img src="https://images.pexels.com/photos/6196677/pexels-photo-6196677.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Experienced handyman team providing services in Lincoln NE" class="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-3xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 md:py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Real reviews from Lincoln, NE homeowners</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-10 bg-gray-50/50 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-200/50">
+                    <div class="text-4xl md:text-5xl mb-6">★★★★★</div>
+                    <p class="text-lg md:text-xl text-gray-700 mb-6 italic leading-relaxed">"Hickman Handyman repaired our deck perfectly. Fast, clean, and fairly priced—couldn't be happier!"</p>
+                    <span class="font-bold text-gray-900 text-lg">- Sarah J., Lincoln NE</span>
+                </div>
+                <div class="text-center p-10 bg-gray-50/50 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-200/50">
+                    <div class="text-4xl md:text-5xl mb-6">★★★★★</div>
+                    <p class="text-lg md:text-xl text-gray-700 mb-6 italic leading-relaxed">"Outstanding drywall repair! Our walls look brand new. Professional team I trust completely."</p>
+                    <span class="font-bold text-gray-900 text-lg">- Mike T., Lincoln NE</span>
+                </div>
+                <div class="text-center p-10 bg-gray-50/50 backdrop-blur-sm rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-200/50">
+                    <div class="text-4xl md:text-5xl mb-6">★★★★★</div>
+                    <p class="text-lg md:text-xl text-gray-700 mb-6 italic leading-relaxed">"Gutter cleaning was thorough and they even spotted a leak. Punctual and top-notch service!"</p>
+                    <span class="font-bold text-gray-900 text-lg">- Lisa R., Lincoln NE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-24 md:py-32 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">Ready to Get Started?</h2>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">Contact us today for your free quote in Lincoln, NE</p>
+            </div>
+            <div class="max-w-lg mx-auto mb-20">
+                <form action="#" method="POST" class="space-y-6">
+                    <input type="text" required placeholder="Your Name" class="w-full p-6 rounded-2xl bg-gray-800/50 border-0 focus:ring-4 focus:ring-blue-500/30 focus:bg-gray-800/80 text-white placeholder-gray-400 text-lg transition-all duration-300">
+                    <input type="email" required placeholder="Your Email" class="w-full p-6 rounded-2xl bg-gray-800/50 border-0 focus:ring-4 focus:ring-blue-500/30 focus:bg-gray-800/80 text-white placeholder-gray-400 text-lg transition-all duration-300">
+                    <input type="tel" required placeholder="Your Phone" class="w-full p-6 rounded-2xl bg-gray-800/50 border-0 focus:ring-4 focus:ring-blue-500/30 focus:bg-gray-800/80 text-white placeholder-gray-400 text-lg transition-all duration-300">
+                    <textarea required rows="6" placeholder="Tell us about your project..." class="w-full p-6 rounded-2xl bg-gray-800/50 border-0 focus:ring-4 focus:ring-blue-500/30 focus:bg-gray-800/80 text-white placeholder-gray-400 text-lg resize-vertical transition-all duration-300"></textarea>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 px-8 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">Send Message</button>
+                </form>
+            </div>
+            <div class="text-center pt-16 border-t border-gray-800">
+                <p class="text-gray-400 text-lg">&copy; 2024 Hickman Handyman LLC. Powered by <span class="font-semibold text-blue-400 hover:text-blue-300 transition-colors">Cyber Craft Solutions</span></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
