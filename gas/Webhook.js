@@ -135,11 +135,8 @@ function doPost(e) {
 function logReply(from, to, body, messageSid) {
     try {
         var props = PropertiesService.getScriptProperties();
-        var sheetId = props.getProperty('SHEET_ID');
-        if (!sheetId) {
-            console.error('SHEET_ID not configured in Script Properties');
-            return;
-        }
+        var sheetId = props.getProperty('SHEET_ID') || DEFAULT_SHEET_ID;
+        console.log('logReply: using SHEET_ID ' + sheetId.substring(0, 8) + '...');
         var ss = SpreadsheetApp.openById(sheetId);
         var sheet = ss.getSheetByName('Replies');
 
@@ -160,7 +157,11 @@ function logReply(from, to, body, messageSid) {
             messageSid
         ]);
 
+        // Compliance log
+        logSmsCompliance(ss, from, 'received', body, messageSid);
+
         // Also update the lead's status + first reply in the Leads sheet
+        console.log('logReply: calling updateLeadStatus for ' + from);
         updateLeadStatus(ss, from, body);
 
     } catch (err) {

@@ -14,7 +14,7 @@
  * @returns {{ success: boolean, liveUrl: string, error: string|null }}
  */
 function deployToGitHubPages(slug, htmlContent, config) {
-    var filePath = 'demos/' + slug + '/index.html';
+    var filePath = slug + '/index.html';
     var apiUrl = 'https://api.github.com/repos/' + config.org + '/' + config.repo + '/contents/' + filePath;
 
     try {
@@ -78,7 +78,7 @@ function deployToGitHubPages(slug, htmlContent, config) {
             };
         }
 
-        var liveUrl = 'https://' + config.org + '.github.io/' + config.repo + '/demos/' + slug + '/';
+        var liveUrl = DEMO_BASE_URL + '/' + slug + '/';
         console.log('Deployed successfully: ' + liveUrl);
 
         return {

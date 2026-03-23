@@ -25,6 +25,7 @@
 const CONFIG_ORG = 'cybercraftsolutionsllc';
 const CONFIG_REPO = 'website-forge';
 const CONFIG_BRANCH = 'main';
+const DEMO_BASE_URL = 'https://demos.craftedcybersolutions.com';
 const DEFAULT_SHEET_ID = '1rP0SS64lhjP3ui3eV93e0PHnrhRb0OfHyj3IMZCKOp4';
 
 const SUPPORTED_PROVIDERS = ['openai', 'anthropic', 'gemini', 'xai'];

@@ -35,7 +35,9 @@ var SHEET_HEADERS = [
     'Intake_Hours',
     'Intake_ServiceArea',
     'Intake_Notes',
-    'Intake_Date'
+    'Intake_Date',
+    'Texts_Sent',
+    'Last_Text_Date'
 ];
 
 /**
@@ -379,10 +381,10 @@ function buildPlainTextMessage(config, biz, liveUrl) {
  * Short SMS message — value-driven intro with demo link.
  */
 function buildSmsMessage(config, biz, liveUrl) {
-    return 'Right now, people searching for ' + biz.niche + ' in ' + biz.area +
-        " can't find you online. I put together a sample site for you: " + liveUrl +
-        '\nSite + domain + hosting for $199. Pays for itself with one job.' +
-        '\nReply YES and I\'ll customize it for you.' +
+    return 'I put together a sample website for ' + biz.business_name +
+        ' \u2014 take a look: ' + liveUrl +
+        '\nSite + domain + hosting for $199/yr. Pays for itself with one job.' +
+        '\nReply YES if you want it customized.' +
         '\nReply STOP to opt out.' +
         '\n- Jeremy, Cyber Craft Solutions';
 }
@@ -495,9 +497,18 @@ function phaseOutreach(config, biz, logResult) {
         var sheet = ss.getSheetByName('Leads');
         var statusCol = SHEET_HEADERS.indexOf('Status') + 1;
         var sentDateCol = SHEET_HEADERS.indexOf('Sent_Date') + 1;
+        var textsSentCol = SHEET_HEADERS.indexOf('Texts_Sent') + 1;
+        var lastTextDateCol = SHEET_HEADERS.indexOf('Last_Text_Date') + 1;
+        var now = new Date().toISOString();
 
         sheet.getRange(logResult.rowNumber, statusCol).setValue('Sent');
-        sheet.getRange(logResult.rowNumber, sentDateCol).setValue(new Date().toISOString());
+        sheet.getRange(logResult.rowNumber, sentDateCol).setValue(now);
+        if (textsSentCol > 0) sheet.getRange(logResult.rowNumber, textsSentCol).setValue(1);
+        if (lastTextDateCol > 0) sheet.getRange(logResult.rowNumber, lastTextDateCol).setValue(now);
+
+        if (channel === 'sms') {
+            logSmsCompliance(ss, biz.target_phone, 'sent', logResult.smsText || '', '');
+        }
 
         return { sent: true, error: null };
     }
@@ -519,7 +530,7 @@ function sendAllPending() {
     var data = sheet.getDataRange().getValues();
     var headers = data[0];
     var col = {};
-    ['Status', 'Drafted_Message', 'Target_Email', 'Target_Phone', 'Business_Name', 'Live_Pages_URL', 'Area', 'Channel', 'Sent_Date', 'Domain_Cost_Yearly'].forEach(function (h) {
+    ['Status', 'Drafted_Message', 'Target_Email', 'Target_Phone', 'Business_Name', 'Live_Pages_URL', 'Area', 'Channel', 'Sent_Date', 'Domain_Cost_Yearly', 'Texts_Sent', 'Last_Text_Date'].forEach(function (h) {
         col[h] = headers.indexOf(h);
     });
 
@@ -546,22 +557,27 @@ function sendAllPending() {
         }
 
         var result;
+        var sentBody = '';
         if (channel === 'email' && isValidEmail(targetEmail)) {
             var fakeBiz = { business_name: businessName, niche: 'local services', area: row[col.Area] || '' };
             var htmlEmail = buildProfessionalEmail(config, fakeBiz, liveUrl);
             var plainEmail = row[col.Drafted_Message] || buildPlainTextMessage(config, fakeBiz, liveUrl);
             result = sendEmailMessage(targetEmail, 'I built ' + businessName + ' a free website', htmlEmail, plainEmail, config.senderName);
         } else if (channel === 'sms' && isValidPhone(targetPhone)) {
-            var smsBody = row[col.Drafted_Message] || buildSmsMessage(config, { business_name: businessName }, liveUrl);
-            result = sendSmsMessage(targetPhone, smsBody, config);
+            sentBody = row[col.Drafted_Message] || buildSmsMessage(config, { business_name: businessName }, liveUrl);
+            result = sendSmsMessage(targetPhone, sentBody, config);
         } else {
             skipCount++; continue;
         }
 
         if (result.success) {
             var sheetRow = i + 1;
+            var now = new Date().toISOString();
             sheet.getRange(sheetRow, col.Status + 1).setValue('Sent');
-            sheet.getRange(sheetRow, col.Sent_Date + 1).setValue(new Date().toISOString());
+            sheet.getRange(sheetRow, col.Sent_Date + 1).setValue(now);
+            if (col.Texts_Sent !== -1) sheet.getRange(sheetRow, col.Texts_Sent + 1).setValue(1);
+            if (col.Last_Text_Date !== -1) sheet.getRange(sheetRow, col.Last_Text_Date + 1).setValue(now);
+            if (channel === 'sms' && sentBody) logSmsCompliance(ss, targetPhone, 'sent', sentBody, '');
             sentCount++;
         } else {
             failCount++;
@@ -795,8 +811,9 @@ function backfillLeads() {
         var businessName = row[col.Business_Name] || '';
         var status = (row[col.Status] || '').toString().trim();
 
-        // Skip sent rows — don't touch them
-        if (status === 'Sent') { skippedCount++; continue; }
+        // Skip rows that are in-flight, terminal, or completed
+        if (status === 'Sent' || status === 'Follow_Up_1' || status === 'Follow_Up_2' ||
+            status === 'Replied' || status === 'Stopped' || status === 'Completed') { skippedCount++; continue; }
         if (!businessName) { skippedCount++; continue; }
 
         var area = row[col.Area] || '';
@@ -911,7 +928,14 @@ function onOpen() {
         .addItem('Generate 1 Lead', 'runWebsiteForgePipeline')
         .addSeparator()
         .addItem('📧 Send All Pending', 'sendAllPending')
+        .addItem('🔄 Run Follow-Ups Now', 'runDailyFollowUps')
+        .addSeparator()
+        .addItem('📊 Refresh Dashboard', 'refreshDashboard')
         .addItem('🔧 Backfill Empty Cells', 'backfillLeads')
+        .addSeparator()
+        .addItem('⏰ Install Follow-Up Trigger', 'installFollowUpTrigger')
+        .addItem('⏹ Remove Follow-Up Trigger', 'removeFollowUpTrigger')
+        .addItem('🔍 Test Webhook Lookup', 'testWebhookLookup')
         .addItem('🧹 Clear All Leads', 'clearAllLeads')
         .addToUi();
 }
