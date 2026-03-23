@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D & R Auto Repair LLC - Expert Auto Repair in Wichita, KS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#hero" class="text-2xl font-bold tracking-tight">D & R Auto Repair LLC</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="min-h-screen bg-cover bg-center flex items-center justify-center text-white relative overflow-hidden" style="background-image: url('https://images.pexels.com/photos/6870320/pexels-photo-6870320.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/70"></div>
+        <div class="container mx-auto px-6 text-center relative z-10 py-20">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">D & R Auto Repair LLC</h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto drop-shadow-lg">Expert Auto Repair Services in Wichita, KS – Brakes, Oil Changes, Tires, Engines & More</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive auto repair solutions tailored to keep you safe on the road.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Brake Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/3807226/pexels-photo-3807226.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional brake repair service at D & R Auto Repair LLC" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Brake Repair</h3>
+                        <p class="text-gray-600 leading-relaxed">Ensure your safety with expert brake inspections and repairs.<br>Fast service using premium, durable parts.</p>
+                    </div>
+                </div>
+                <!-- Oil Change -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/3807329/pexels-photo-3807329.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Quick and reliable oil change service at D & R Auto Repair LLC" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Oil Change</h3>
+                        <p class="text-gray-600 leading-relaxed">Keep your engine running smoothly with our quick oil changes.<br>Conventional, synthetic, or high-mileage options available.</p>
+                    </div>
+                </div>
+                <!-- Tire Rotation and Balancing -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5733659/pexels-photo-5733659.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Tire rotation and balancing service at D & R Auto Repair LLC" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Tire Rotation and Balancing</h3>
+                        <p class="text-gray-600 leading-relaxed">Extend tire life with precise rotation and balancing.<br>Improve handling, fuel efficiency, and ride comfort.</p>
+                    </div>
+                </div>
+                <!-- Engine Diagnostics -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Advanced engine diagnostics at D & R Auto Repair LLC" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Engine Diagnostics</h3>
+                        <p class="text-gray-600 leading-relaxed">State-of-the-art tools pinpoint engine issues accurately.<br>Save time and money with precise troubleshooting.</p>
+                    </div>
+                </div>
+                <!-- Transmission Repair -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/474/black-and-white-car-vehicle-vintage.jpg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Expert transmission repair service at D & R Auto Repair LLC" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Transmission Repair</h3>
+                        <p class="text-gray-600 leading-relaxed">Reliable repairs for automatic and manual transmissions.<br>Rebuilds and replacements with OEM-quality parts.</p>
+                    </div>
+                </div>
+                <!-- Exhaust System Service -->
+                <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/4480505/pexels-photo-4480505.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Exhaust system repair and service at D & R Auto Repair LLC" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Exhaust System Service</h3>
+                        <p class="text-gray-600 leading-relaxed">Custom exhaust repairs and performance upgrades.<br>Reduce noise, improve efficiency, and pass emissions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-full text-xl transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105 inline-block">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.pexels.com/photos/7018506/pexels-photo-7018506.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Team at D & R Auto Repair LLC working on vehicles in Wichita KS" class="rounded-3xl shadow-2xl w-full h-96 object-cover">
+                </div>
+                <div class="space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Trusted Auto Repair in Wichita</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">At D & R Auto Repair LLC, we've proudly served the Wichita, KS community for years with honest, reliable automotive care. Our certified technicians utilize cutting-edge diagnostic tools and premium parts to handle everything from routine maintenance to complex repairs. We prioritize transparency, quality workmanship, and customer satisfaction—backed by our ironclad warranty. Drive with confidence knowing your vehicle is in expert hands.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Real reviews from satisfied Wichita drivers.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-10 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-500">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 italic">"Fixed my transmission fast and affordably. Honest service I can trust!"</p>
+                    <p class="font-semibold text-gray-900">- Sarah M., Wichita</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-10 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-500">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 italic">"Best oil change experience ever. Quick, clean, and professional team."</p>
+                    <p class="font-semibold text-gray-900">- Mike T., Wichita</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-10 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-500">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-700 text-lg mb-6 italic">"Engine diagnostics saved me thousands. Highly recommend D & R!"</p>
+                    <p class="font-semibold text-gray-900">- Lisa K., Wichita</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-24">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-bold">Ready to Schedule?</h2>
+                    <p class="text-xl text-gray-300">Get in touch for your free quote. We're here to get you back on the road fast.</p>
+                    <div class="space-y-4">
+                        <p class="flex items-center text-gray-400"><svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>Wichita, KS</p>
+                        <p class="flex items-center text-gray-400"><svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>Call or message us today</p>
+                    </div>
+                </div>
+                <form class="space-y-6" action="#" method="POST">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-vertical"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105">Send Message</button>
+                </form>
+            </div>
+            <div class="text-center pt-12 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2024 D & R Auto Repair LLC. All rights reserved. | Powered by Cyber Craft Solutions</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

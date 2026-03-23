@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxar Handyman - Colorado Springs Handyman Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-xl">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Maxar Handyman</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-blue-400 transition-colors font-medium">Home</a></li>
+                    <li><a href="#services" class="hover:text-blue-400 transition-colors font-medium">Services</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition-colors font-medium">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-blue-400 transition-colors font-medium">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors font-medium">Contact</a></li>
+                </ul>
+                <button class="md:hidden">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-slate-900/80"></div>
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">Maxar Handyman</h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-90 max-w-2xl mx-auto">Your trusted handyman serving Colorado Springs, CO. Expert repairs, installations, and maintenance for your home.</p>
+            <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-12 py-6 rounded-xl text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">Get Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-slate-700 bg-clip-text text-transparent mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Reliable handyman solutions tailored to your needs in Colorado Springs.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/6474343/pexels-photo-6474343.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair fixing holes and cracks" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Drywall Repair</h3>
+                        <p class="text-gray-600 leading-relaxed">Expert fixes for holes, cracks, and water damage.<br>Seamless patches that match your walls perfectly.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair and maintenance services" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Deck Repair</h3>
+                        <p class="text-gray-600 leading-relaxed">Restore your deck's safety and beauty.<br>Replace boards, tighten rails, and seal for longevity.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional fence installation" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Fence Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Custom fences for privacy and security.<br>Wood, vinyl, or chain-link – built to last.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/4981786/pexels-photo-4981786.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Light fixture installation services" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Light Fixture Installation</h3>
+                        <p class="text-gray-600 leading-relaxed">Safe wiring and stylish lighting upgrades.<br>Chandeliers, recessed, or pendants installed expertly.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Gutter cleaning and maintenance" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Gutter Cleaning</h3>
+                        <p class="text-gray-600 leading-relaxed">Prevent water damage with thorough cleaning.<br>Remove debris and inspect for repairs.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5691515/pexels-photo-5691515.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Door hanging and installation" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Door Hanging</h3>
+                        <p class="text-gray-600 leading-relaxed">Precise installation for interior and exterior doors.<br>Adjust frames for smooth operation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold px-12 py-6 rounded-xl text-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="https://images.pexels.com/photos/4135926/pexels-photo-4135926.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Experienced handyman team at work in Colorado Springs" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                </div>
+                <div class="order-1 lg:order-2 space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">About Maxar Handyman</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">Family-owned and operated in Colorado Springs, CO, Maxar Handyman brings over 15 years of experience to every job. We're passionate about quality craftsmanship, using premium materials and attention to detail to transform homes. From small fixes to larger projects, we treat your property like our own. Licensed, insured, and always on time – your satisfaction is our guarantee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-slate-700 bg-clip-text text-transparent mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Trusted by homeowners across Colorado Springs.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">"Maxar fixed our deck and gutters in one day. Professional, clean, and fairly priced. Highly recommend!"</p>
+                    <p class="font-semibold text-gray-900">Sarah J., Colorado Springs</p>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">"Fence installation was perfect. Strong, straight, and beautiful. On time and exceeded expectations."</p>
+                    <p class="font-semibold text-gray-900">Mike R., Colorado Springs</p>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">"Quick drywall repair and light fixture install. Friendly team, spotless cleanup. Will use again!"</p>
+                    <p class="font-semibold text-gray-900">Emily T., Colorado Springs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6 bg-gray-900 text-white">
+        <div class="container mx-auto max-w-2xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-300">Contact us for a free quote on your next project.</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Name</label>
+                    <input type="text" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 text-white placeholder-gray-400 transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 text-white placeholder-gray-400 transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Phone</label>
+                    <input type="tel" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 text-white placeholder-gray-400 transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Message</label>
+                    <textarea rows="5" required class="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 text-white placeholder-gray-400 transition-all resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-6 px-8 rounded-xl text-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">Send Message</button>
+            </form>
+            <p class="text-center mt-12 text-gray-400 text-sm pt-12 border-t border-gray-800">Powered by Cyber Craft Solutions</p>
+        </div>
+    </section>
+</body>
+</html>
