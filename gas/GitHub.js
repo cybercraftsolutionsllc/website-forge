@@ -14,7 +14,7 @@
  * @returns {{ success: boolean, liveUrl: string, error: string|null }}
  */
 function deployToGitHubPages(slug, htmlContent, config) {
-    var filePath = slug + '/index.html';
+    var filePath = 'demos/' + slug + '/index.html';
     var apiUrl = 'https://api.github.com/repos/' + config.org + '/' + config.repo + '/contents/' + filePath;
 
     try {
