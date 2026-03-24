@@ -84,7 +84,16 @@ function searchGooglePlaces(niche, city, config) {
 
     console.log('Places Text Search: ' + query);
 
-    var res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    var res;
+    try {
+        res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    } catch (e) {
+        if (e.message && e.message.indexOf('Bandwidth quota exceeded') !== -1) {
+            console.error('GAS bandwidth quota exceeded — stopping to avoid further failures');
+            return { businesses: [], error: 'QUOTA_EXCEEDED' };
+        }
+        throw e;
+    }
     var code = res.getResponseCode();
     var data = JSON.parse(res.getContentText());
 
@@ -111,7 +120,16 @@ function getPlaceDetails(placeId, config) {
         + '&fields=' + fields
         + '&key=' + config.placesApiKey;
 
-    var res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    var res;
+    try {
+        res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    } catch (e) {
+        if (e.message && e.message.indexOf('Bandwidth quota exceeded') !== -1) {
+            console.error('GAS bandwidth quota exceeded on Place Details — aborting');
+            return null;
+        }
+        throw e;
+    }
     var code = res.getResponseCode();
     var data = JSON.parse(res.getContentText());
 
