@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milwatts Handyman Services - Anaheim, CA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl font-bold">Milwatts Handyman Services</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-blue-400 transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-blue-400 transition">Services</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                </ul>
+                <button class="md:hidden">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="h-screen bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="container mx-auto h-full flex flex-col justify-center items-center text-center text-white px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Milwatts Handyman Services</h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-2xl drop-shadow-lg">Your trusted handyman for reliable home repairs and improvements in Anaheim, CA. Professional service you can count on.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full text-lg transition-all duration-300 shadow-xl hover:shadow-2xl">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Drywall Repair -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.pexels.com/photos/6474129/pexels-photo-6474129.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair service" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Drywall Repair</h3>
+                        <p class="text-gray-600 mb-2">Expert drywall repair and patching for any damage.</p>
+                        <p class="text-gray-600">Restore your walls to like-new condition quickly.</p>
+                    </div>
+                </div>
+                <!-- Interior Painting -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional interior painting service" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Interior Painting</h3>
+                        <p class="text-gray-600 mb-2">High-quality interior painting with premium finishes.</p>
+                        <p class="text-gray-600">Transform your space with fresh, vibrant colors.</p>
+                    </div>
+                </div>
+                <!-- Ceiling Fan Installation -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.pexels.com/photos/33104266/pexels-photo-33104266.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Ceiling fan installation service" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Ceiling Fan Installation</h3>
+                        <p class="text-gray-600 mb-2">Safe and efficient ceiling fan installations.</p>
+                        <p class="text-gray-600">Stay cool and save energy with expert setup.</p>
+                    </div>
+                </div>
+                <!-- Gutter Cleaning -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.pexels.com/photos/25907259/pexels-photo-25907259.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional gutter cleaning service" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Gutter Cleaning</h3>
+                        <p class="text-gray-600 mb-2">Thorough gutter cleaning to prevent water damage.</p>
+                        <p class="text-gray-600">Keep your home protected year-round.</p>
+                    </div>
+                </div>
+                <!-- Deck Repair -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.pexels.com/photos/5691515/pexels-photo-5691515.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair service" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Deck Repair</h3>
+                        <p class="text-gray-600 mb-2">Durable deck repairs for safety and beauty.</p>
+                        <p class="text-gray-600">Extend the life of your outdoor space.</p>
+                    </div>
+                </div>
+                <!-- Fence Installation -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.pexels.com/photos/5691502/pexels-photo-5691502.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Fence installation service" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Fence Installation</h3>
+                        <p class="text-gray-600 mb-2">Custom fence installation for privacy and security.</p>
+                        <p class="text-gray-600">Quality materials built to last.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full text-xl transition-all duration-300 shadow-xl hover:shadow-2xl">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.pexels.com/photos/6196677/pexels-photo-6196677.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Handyman team at work in Anaheim" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">About Milwatts Handyman Services</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed">With years of experience serving Anaheim, CA, we pride ourselves on delivering top-notch handyman services with a personal touch. Our skilled team handles everything from minor fixes to major repairs, ensuring your home is safe, beautiful, and functional. We use only the best materials and guarantee satisfaction on every job. Trust us to bring warmth and reliability to your home improvement needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-gray-50 rounded-2xl shadow-lg">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Milwatts fixed our drywall and painted our living room perfectly. Fast, clean, and professional!"</p>
+                    <p class="font-bold text-gray-800">- Sarah J., Anaheim</p>
+                </div>
+                <div class="text-center p-8 bg-gray-50 rounded-2xl shadow-lg">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Installed our ceiling fan and cleaned the gutters in one day. Outstanding service!"</p>
+                    <p class="font-bold text-gray-800">- Mike T., Anaheim</p>
+                </div>
+                <div class="text-center p-8 bg-gray-50 rounded-2xl shadow-lg">
+                    <div class="text-3xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Repaired our deck and installed a new fence. Quality work at a fair price."</p>
+                    <p class="font-bold text-gray-800">- Lisa R., Anaheim</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="bg-gray-900 text-white py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12">Get Your Free Quote Today</h2>
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Name</label>
+                        <input type="text" class="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Email</label>
+                        <input type="email" class="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Phone</label>
+                        <input type="tel" class="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Message</label>
+                        <textarea rows="5" class="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none text-white" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 font-bold py-4 px-12 rounded-xl text-xl transition-all duration-300 shadow-xl hover:shadow-2xl">Send Message</button>
+                </form>
+                <div class="text-center mt-12 pt-12 border-t border-gray-800">
+                    <p class="text-gray-400">&copy; 2024 Milwatts Handyman Services. Anaheim, CA. Powered by Cyber Craft Solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
