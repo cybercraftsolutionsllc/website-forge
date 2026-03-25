@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>landscaping service - Premier Landscaper in Miami, FL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 antialiased">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-slate-900 text-white shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent">landscaping service</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">Services</a>
+                    <a href="#about" class="px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">About</a>
+                    <a href="#testimonials" class="px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">Testimonials</a>
+                    <a href="#contact" class="px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">Contact</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-1 ml-4">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#services" class="block px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">Services</a>
+                <a href="#about" class="block px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">About</a>
+                <a href="#testimonials" class="block px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">Testimonials</a>
+                <a href="#contact" class="block px-3 py-2 text-lg font-medium hover:text-green-400 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-[url('https://images.pexels.com/photos/4079768/pexels-photo-4079768.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')] bg-cover bg-center bg-fixed">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 text-center">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-white to-gray-200 bg-clip-text drop-shadow-2xl">landscaping service</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">Expert landscaping services tailored for Miami, FL. Transform your outdoor spaces into stunning tropical retreats with our professional care.</p>
+            <a href="#contact" class="bg-green-600 hover:bg-green-700 text-xl md:text-2xl font-bold py-4 px-12 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl md:text-6xl font-black text-center text-gray-900 mb-4">Our Premium Services</h2>
+            <p class="text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto">Comprehensive landscaping solutions for every Miami property</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                <div class="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl overflow-hidden transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/6728919/pexels-photo-6728919.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional lawn mowing and edging service in Miami FL" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors">Lawn Mowing and Edging</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">Precision mowing and crisp edging for pristine lawns.<br>Weekly maintenance keeps your yard healthy and inviting year-round.</p>
+                    </div>
+                </div>
+                <div class="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl overflow-hidden transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Landscape design and installation service in Miami FL" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors">Landscape Design and Installation</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">Custom designs tailored to your vision and Miami climate.<br>Complete installation of plants, features, and tropical elements.</p>
+                    </div>
+                </div>
+                <div class="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl overflow-hidden transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/5231048/pexels-photo-5231048.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Tree trimming and pruning service in Miami FL" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors">Tree Trimming and Pruning</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">Expert trimming for safety and healthy growth.<br>Professional pruning enhances shape, beauty, and palm vitality.</p>
+                    </div>
+                </div>
+                <div class="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl overflow-hidden transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/4792727/pexels-photo-4792727.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Irrigation system installation and repair service in Miami FL" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors">Irrigation System Installation and Repair</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">Efficient smart irrigation for optimal watering.<br>Professional installation and repairs conserve water in Florida heat.</p>
+                    </div>
+                </div>
+                <div class="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl overflow-hidden transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/16239802/pexels-photo-16239802.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Hardscaping and paver installation service in Miami FL" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors">Hardscaping and Paver Installation</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">Durable patios, walkways, and retaining walls.<br>Premium pavers create timeless outdoor living spaces.</p>
+                    </div>
+                </div>
+                <div class="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl overflow-hidden transition-all duration-500 hover:-translate-y-4">
+                    <img src="https://images.pexels.com/photos/3696170/pexels-photo-3696170.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Mulch and fertilizer application service in Miami FL" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors">Mulch and Fertilizer Application</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">Nutrient-rich fertilizers for vibrant growth.<br>Fresh mulch improves soil health and weed control.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-24">
+                <a href="#contact" class="bg-green-600 hover:bg-green-700 text-2xl font-bold py-6 px-16 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 inline-block">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-8">Miami's Trusted Landscaping Experts</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">For over a decade, landscaping service has been transforming Miami properties into lush, tropical havens. Specializing in Florida's unique climate, our certified team delivers meticulous design, installation, and maintenance. We use premium materials and sustainable practices to create outdoor spaces that thrive year-round, boosting your home's beauty and value.</p>
+                    <p class="text-lg text-gray-500">From waterfront estates to urban yards, we bring Miami vibrancy to every project with passion and precision.</p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img src="https://images.pexels.com/photos/3153207/pexels-photo-3153207.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Stunning landscaped outdoor space by landscaping service in Miami FL" class="w-full h-[500px] object-cover rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl md:text-6xl font-black text-center text-gray-900 mb-4">Loved by Miami Homeowners</h2>
+            <p class="text-xl text-gray-600 text-center mb-20">Don't just take our word for it</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div class="text-4xl mb-6 flex justify-center text-yellow-400">★★★★★</div>
+                    <p class="text-xl text-gray-600 mb-6 italic leading-relaxed">"Our backyard went from ordinary to resort paradise. Professional, timely, and stunning results!"</p>
+                    <span class="font-bold text-2xl text-gray-900 block">- Jane D., Coconut Grove</span>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div class="text-4xl mb-6 flex justify-center text-yellow-400">★★★★★</div>
+                    <p class="text-xl text-gray-600 mb-6 italic leading-relaxed">"Punctual team, fair pricing, and our palms have never looked better. True professionals."</p>
+                    <span class="font-bold text-2xl text-gray-900 block">- Maria G., Coral Gables</span>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div class="text-4xl mb-6 flex justify-center text-yellow-400">★★★★★</div>
+                    <p class="text-xl text-gray-600 mb-6 italic leading-relaxed">"Complete yard transformation that exceeded expectations. Highly recommend for Miami landscapes."</p>
+                    <span class="font-bold text-2xl text-gray-900 block">- Robert L., South Beach</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Footer -->
+    <section id="contact" class="py-32 bg-slate-900 text-white">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">Ready to Transform Your Yard?</h2>
+                <p class="text-xl text-gray-300">Get your free personalized quote today</p>
+            </div>
+            <form class="space-y-8 mb-20" action="#" method="POST">
+                <div>
+                    <label for="name" class="block text-sm font-bold mb-3 text-gray-200">Full Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-6 py-5 bg-gray-800/50 border-2 border-gray-700 rounded-2xl text-lg placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-green-500/30 focus:border-green-500 transition-all duration-300">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-bold mb-3 text-gray-200">Email Address</label>
+                    <input type="email" id="email" name="email" required class="w-full px-6 py-5 bg-gray-800/50 border-2 border-gray-700 rounded-2xl text-lg placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-green-500/30 focus:border-green-500 transition-all duration-300">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-bold mb-3 text-gray-200">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-6 py-5 bg-gray-800/50 border-2 border-gray-700 rounded-2xl text-lg placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-green-500/30 focus:border-green-500 transition-all duration-300">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-bold mb-3 text-gray-200">Project Details</label>
+                    <textarea id="message" name="message" rows="6" required class="w-full px-6 py-5 bg-gray-800/50 border-2 border-gray-700 rounded-2xl text-lg placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-green-500/30 focus:border-green-500 transition-all duration-300 resize-vertical"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-2xl font-black py-6 px-8 rounded-2xl shadow-2xl hover:shadow-green-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:scale-[1.02]">Request Free Quote</button>
+            </form>
+            <div class="pt-16 border-t border-gray-700 text-center">
+                <p class="text-lg text-gray-400">&copy; 2024 landscaping service. All rights reserved.</p>
+                <p class="mt-4 text-gray-500">Powered by <a href="#" class="font-bold text-green-400 hover:text-green-300 transition-colors">Cyber Craft Solutions</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
