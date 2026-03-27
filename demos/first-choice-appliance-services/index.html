@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First-Choice Appliance Services - Appliance Repair in Cleveland, OH</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-2xl z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold tracking-tight">First-Choice Appliance Services</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                    <a href="#testimonials" class="hover:text-blue-400 transition-colors">Reviews</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition-colors">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.pexels.com/photos/34099331/pexels-photo-34099331.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-slate-900/80"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl leading-tight">First-Choice Appliance Services</h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-95 max-w-2xl mx-auto leading-relaxed">Expert appliance repair you can trust in Cleveland, OH. Fast, reliable service for refrigerators, dishwashers, ovens, washers, dryers, and more.</p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300">Get Your Free Quote Today</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Repair Services</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive appliance repair solutions tailored for Cleveland homes. Licensed, insured, and always on time.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/7028113/pexels-photo-7028113.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional refrigerator repair technician fixing cooling system" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Refrigerator Repair</h3>
+                    <p class="text-gray-600 leading-relaxed">Fast fixes for cooling failures, ice makers, and leaks.<br>Restore your fridge to peak performance quickly.</p>
+                </div>
+            </div>
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/3829560/pexels-photo-3829560.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Dishwasher repair service addressing leaks and clogs" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Dishwasher Repair</h3>
+                    <p class="text-gray-600 leading-relaxed">Resolve leaks, clogs, and cycle issues efficiently.<br>Your dishes clean again in no time.</p>
+                </div>
+            </div>
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/7534297/pexels-photo-7534297.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Oven and stove repair expert replacing heating elements" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Oven & Stove Repair</h3>
+                    <p class="text-gray-600 leading-relaxed">Heating elements, igniters, and controls repaired.<br>Back to baking and cooking seamlessly.</p>
+                </div>
+            </div>
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/4700389/pexels-photo-4700389.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Washer and dryer repair technician diagnosing spin cycle issues" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Washer & Dryer Repair</h3>
+                    <p class="text-gray-600 leading-relaxed">Spin cycles, leaks, and drum problems solved.<br>Laundry day made effortless once more.</p>
+                </div>
+            </div>
+            <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2 md:col-span-2 lg:col-span-1">
+                <img src="https://images.pexels.com/photos/4700416/pexels-photo-4700416.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Dryer vent cleaning service improving safety and efficiency" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Dryer Vent Cleaning</h3>
+                    <p class="text-gray-600 leading-relaxed">Remove lint buildup for safety and efficiency.<br>Prevent fires and boost dryer performance.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-xl font-semibold text-xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://images.pexels.com/photos/12555018/pexels-photo-12555018.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Experienced appliance repair team serving Cleveland, OH" class="rounded-3xl shadow-2xl w-full h-96 object-cover">
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-4xl md:text-5xl font-bold">Your Trusted Appliance Experts in Cleveland</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">At First-Choice Appliance Services, we're proud to serve Cleveland families with over 15 years of hands-on experience. Our certified technicians arrive on time, fully equipped, and ready to diagnose and fix your appliances right the first time. We use only OEM parts for lasting repairs, and our flat-rate pricing means no surprises. Whether it's a weekend emergency or routine maintenance, we're here to keep your home running smoothly.</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li className="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>24/7 Emergency Service</li>
+                    <li className="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>100% Satisfaction Guarantee</li>
+                    <li className="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Serving All of Cleveland, OH</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 px-4 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-4xl mx-auto text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">What Our Customers Say</h2>
+            <p class="text-xl text-gray-600">Thousands of satisfied Cleveland residents can't be wrong.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div class="text-3xl mb-4">★★★★★</div>
+                <p class="text-gray-700 mb-6 leading-relaxed">"Fixed our fridge in under an hour. Super professional and affordable. Highly recommend!"</p>
+                <p class="font-semibold text-gray-900">- Sarah M., Cleveland</p>
+            </div>
+            <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div class="text-3xl mb-4">★★★★★</div>
+                <p class="text-gray-700 mb-6 leading-relaxed">"Our washer was down for days, they came same-day and it's like new. Excellent service!"</p>
+                <p class="font-semibold text-gray-900">- Mike R., Lakewood</p>
+            </div>
+            <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div class="text-3xl mb-4">★★★★★</div>
+                <p class="text-gray-700 mb-6 leading-relaxed">"Dryer vent cleaning saved our energy bill and peace of mind. Top-notch team!"</p>
+                <p class="font-semibold text-gray-900">- Lisa T., Parma</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-4 bg-gray-900 text-white">
+        <div class="max-w-2xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Fix Your Appliance?</h2>
+            <p class="text-xl text-gray-300">Get a free, no-obligation quote today. We'll respond within 1 hour.</p>
+        </div>
+        <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+            <div>
+                <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 text-white placeholder-gray-400 transition-all duration-200">
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 text-white placeholder-gray-400 transition-all duration-200">
+            </div>
+            <div>
+                <label for="phone" class="block text-sm font-medium mb-2">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 text-white placeholder-gray-400 transition-all duration-200">
+            </div>
+            <div>
+                <label for="message" class="block text-sm font-medium mb-2">Appliance Issue</label>
+                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-4 rounded-xl bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 text-white placeholder-gray-400 transition-all duration-200 resize-vertical"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 px-8 rounded-xl font-semibold text-xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300">Send Message</button>
+        </form>
+        <div class="text-center mt-16 pt-16 border-t border-gray-800">
+            <p class="text-gray-400">&copy; 2024 First-Choice Appliance Services. All rights reserved. | Cleveland, OH</p>
+            <p class="text-sm text-gray-500 mt-2">Powered by <a href="#" class="hover:text-blue-400 font-semibold">Cyber Craft Solutions</a></p>
+        </div>
+    </section>
+</body>
+</html>
