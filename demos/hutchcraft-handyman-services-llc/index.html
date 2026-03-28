@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hutchcraft Handyman Services LLC | Handyman in Glendale, AZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="antialiased bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 shadow-xl fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="flex justify-between items-center py-4 md:py-6">
+                <a href="#" class="text-2xl md:text-3xl font-bold text-white">Hutchcraft Handyman Services LLC</a>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white text-3xl focus:outline-none">
+                        <span class="sr-only">Toggle menu</span>
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-white hover:text-blue-400 font-medium transition px-3 py-2 rounded-md text-sm">Services</a>
+                    <a href="#about" class="text-white hover:text-blue-400 font-medium transition px-3 py-2 rounded-md text-sm">About</a>
+                    <a href="#testimonials" class="text-white hover:text-blue-400 font-medium transition px-3 py-2 rounded-md text-sm">Testimonials</a>
+                    <a href="#contact" class="text-white hover:text-blue-400 font-medium transition px-3 py-2 rounded-md text-sm">Contact</a>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4 pt-2 space-y-2 bg-gray-900 border-t border-gray-800">
+                <a href="#services" class="block px-4 py-3 text-white hover:text-blue-400 font-medium rounded-md text-base">Services</a>
+                <a href="#about" class="block px-4 py-3 text-white hover:text-blue-400 font-medium rounded-md text-base">About</a>
+                <a href="#testimonials" class="block px-4 py-3 text-white hover:text-blue-400 font-medium rounded-md text-base">Testimonials</a>
+                <a href="#contact" class="block px-4 py-3 text-white hover:text-blue-400 font-medium rounded-md text-base">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center" style="background-image: url('https://images.pexels.com/photos/6004890/pexels-photo-6004890.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/90"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 drop-shadow-2xl leading-tight">Hutchcraft Handyman Services LLC</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed">Your trusted handyman for all home repairs and maintenance in Glendale, AZ. Professional, reliable, and affordable service you can count on.</p>
+            <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-2xl font-bold text-xl lg:text-2xl shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all duration-300">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-gray-50 pt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-20">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/11427055/pexels-photo-11427055.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Drywall repair service by Hutchcraft Handyman Services LLC in Glendale AZ" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Drywall Repair</h3>
+                        <p class="text-gray-700 leading-relaxed">Expert repairs for holes, cracks, and damage.<br>Seamless patches with professional finishing.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/6050252/pexels-photo-6050252.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Interior painting service by Hutchcraft Handyman Services LLC in Glendale AZ" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Interior Painting</h3>
+                        <p class="text-gray-700 leading-relaxed">High-quality painting for walls and ceilings.<br>Precise prep work and flawless application.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/1249610/pexels-photo-1249610.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair service by Hutchcraft Handyman Services LLC in Glendale AZ" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Deck Repair</h3>
+                        <p class="text-gray-700 leading-relaxed">Restore safety with board replacement and sealing.<br>Enhance beauty and prevent future issues.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/7484798/pexels-photo-7484798.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Gutter cleaning service by Hutchcraft Handyman Services LLC in Glendale AZ" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Gutter Cleaning</h3>
+                        <p class="text-gray-700 leading-relaxed">Remove debris to prevent clogs and leaks.<br>Protect your home from water damage.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Light fixture installation service by Hutchcraft Handyman Services LLC in Glendale AZ" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Light Fixture Installation</h3>
+                        <p class="text-gray-700 leading-relaxed">Safe installation of fixtures and fans.<br>Professional wiring for stunning results.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <img src="https://images.pexels.com/photos/5691515/pexels-photo-5691515.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Door repair service by Hutchcraft Handyman Services LLC in Glendale AZ" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Door Repair</h3>
+                        <p class="text-gray-700 leading-relaxed">Fix hinges, locks, and sticking doors.<br>Smooth operation and enhanced security.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-16 py-6 rounded-2xl font-bold text-xl lg:text-2xl shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all duration-300">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div>
+                    <img src="https://images.pexels.com/photos/8487372/pexels-photo-8487372.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional handyman team at work for Hutchcraft Handyman Services LLC in Glendale AZ" class="w-full h-[500px] lg:h-[600px] object-cover rounded-3xl shadow-2xl">
+                </div>
+                <div class="lg:pl-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">About Hutchcraft Handyman Services</h2>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mb-12">At Hutchcraft Handyman Services LLC, we are your local experts in Glendale, AZ, dedicated to keeping your home in top condition. With years of hands-on experience, we tackle everything from drywall repairs to deck maintenance with precision, reliability, and a commitment to quality. Licensed, insured, and always putting your satisfaction first.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-20">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-white/50 hover:shadow-3xl transition-all duration-300">
+                    <div class="flex text-yellow-400 text-3xl mb-6">★★★★★</div>
+                    <p class="text-gray-800 text-lg italic mb-8 leading-relaxed">&ldquo;Mike did an outstanding job repairing our drywall. Fast, clean, and perfect results!&rdquo;</p>
+                    <div class="font-semibold text-gray-900 text-xl">Sarah J.</div>
+                </div>
+                <div class="bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-white/50 hover:shadow-3xl transition-all duration-300">
+                    <div class="flex text-yellow-400 text-3xl mb-6">★★★★★</div>
+                    <p class="text-gray-800 text-lg italic mb-8 leading-relaxed">&ldquo;Interior painting transformed our home. Professional and exceeded expectations!&rdquo;</p>
+                    <div class="font-semibold text-gray-900 text-xl">Tom K.</div>
+                </div>
+                <div class="bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-white/50 hover:shadow-3xl transition-all duration-300">
+                    <div class="flex text-yellow-400 text-3xl mb-6">★★★★★</div>
+                    <p class="text-gray-800 text-lg italic mb-8 leading-relaxed">&ldquo;Deck repair was top-notch, ready for summer BBQs. Highly recommend!&rdquo;</p>
+                    <div class="font-semibold text-gray-900 text-xl">Lisa M.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-slate-900 text-white pt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-white/80">Contact us today for your free quote in Glendale, AZ</p>
+            </div>
+            <form class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required class="w-full p-5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:border-transparent transition-all duration-300">
+                <input type="email" name="email" placeholder="Your Email" required class="w-full p-5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:border-transparent transition-all duration-300">
+                <input type="tel" name="phone" placeholder="Your Phone" required class="w-full p-5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:border-transparent transition-all duration-300">
+                <textarea name="message" rows="5" placeholder="Tell us about your project..." required class="w-full p-5 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:border-transparent transition-all duration-300 resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 px-8 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all duration-300">Send Message</button>
+            </form>
+            <p class="text-center mt-16 text-sm opacity-75">Powered by Cyber Craft Solutions</p>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
