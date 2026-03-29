@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fireside Handyman - Expert Handyman Services in Garland, TX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold">Fireside Handyman</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-orange-400 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-orange-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-orange-400 transition-colors">About</a>
+                    <a href="#testimonials" class="hover:text-orange-400 transition-colors">Testimonials</a>
+                    <a href="#contact" class="hover:text-orange-400 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white hover:text-orange-400">☰</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center text-white overflow-hidden" style="background-image: url('https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 py-20">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">Fireside Handyman</h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-95 drop-shadow-lg">Your Trusted Handyman in Garland, TX<br>Expert repairs and improvements for your home</p>
+            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-12 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-orange-500/25 hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Reliable handyman solutions tailored to your home in Garland, TX</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Drywall Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/6473978/pexels-photo-6473978.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Professional drywall repair fixing cracks and holes" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Drywall Repair</h3>
+                    <p class="text-gray-600 leading-relaxed">Fix cracks, holes, and damage.<br>Seamless repairs that look new.</p>
+                </div>
+            </div>
+            <!-- Interior Painting -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/6474346/pexels-photo-6474346.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Interior painting with professional prep and color application" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Interior Painting</h3>
+                    <p class="text-gray-600 leading-relaxed">Professional prep and painting.<br>Transform your space with color.</p>
+                </div>
+            </div>
+            <!-- Light Fixture Installation -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Light fixture installation with safe wiring" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Light Fixture Installation</h3>
+                    <p class="text-gray-600 leading-relaxed">Safe wiring and mounting.<br>Brighten your home safely.</p>
+                </div>
+            </div>
+            <!-- Deck Repair -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/4981803/pexels-photo-4981803.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Deck repair restoring wood safety and beauty" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Deck Repair</h3>
+                    <p class="text-gray-600 leading-relaxed">Restore your deck's safety and beauty.<br>Wood repair and sealing.</p>
+                </div>
+            </div>
+            <!-- Gutter Cleaning -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Gutter cleaning removing clogs and debris" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Gutter Cleaning</h3>
+                    <p class="text-gray-600 leading-relaxed">Clear clogs and debris.<br>Prevent water damage.</p>
+                </div>
+            </div>
+            <!-- Door Installation -->
+            <div class="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/9051071/pexels-photo-9051071.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Door installation for smooth operation interior or exterior" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Door Installation</h3>
+                    <p class="text-gray-600 leading-relaxed">Perfect fit doors, interior or exterior.<br>Smooth operation guaranteed.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-12 rounded-full text-xl transition-all duration-300 shadow-xl hover:shadow-orange-500/25 hover:scale-105">Get Your Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-orange-50 to-amber-50">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://images.pexels.com/photos/6196677/pexels-photo-6196677.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Friendly handyman team at work in Garland TX" class="rounded-3xl shadow-2xl w-full h-96 object-cover">
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-4xl md:text-5xl font-bold">Local Experts You Can Trust</h2>
+                <p class="text-xl text-gray-700 leading-relaxed">At Fireside Handyman, we're your neighborhood pros in Garland, TX. Family-owned with years of hands-on experience, we treat your home like our own. From quick fixes to full renovations, we deliver warm, reliable service that keeps customers coming back. Licensed, insured, and always on time.</p>
+                <a href="#contact" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:scale-105">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">What Our Customers Say</h2>
+            <p class="text-xl text-gray-600">Happy homeowners in Garland, TX</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-4">
+                <div class="flex justify-center mb-4 text-orange-400 text-2xl">★★★★★</div>
+                <p class="text-gray-700 italic mb-6 leading-relaxed">"Fireside fixed our drywall and painted the whole room perfectly. Fast, clean, and affordable!"</p>
+                <div class="font-semibold text-gray-900">- Sarah M., Garland</div>
+            </div>
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-4">
+                <div class="flex justify-center mb-4 text-orange-400 text-2xl">★★★★★</div>
+                <p class="text-gray-700 italic mb-6 leading-relaxed">"Installed new light fixtures and repaired our deck. Professional team, excellent results!"</p>
+                <div class="font-semibold text-gray-900">- Mike R., Garland</div>
+            </div>
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-4">
+                <div class="flex justify-center mb-4 text-orange-400 text-2xl">★★★★★</div>
+                <p class="text-gray-700 italic mb-6 leading-relaxed">"Gutter cleaning and door install done right. Friendly service, highly recommend!"</p>
+                <div class="font-semibold text-gray-900">- Lisa T., Garland</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl mb-12 opacity-90">Get your free quote today. Serving Garland, TX and surrounding areas.</p>
+            <form class="space-y-6" action="#" method="POST">
+                <input type="text" placeholder="Your Name" required class="w-full p-4 rounded-xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-orange-500 focus:outline-none text-lg">
+                <input type="email" placeholder="Your Email" required class="w-full p-4 rounded-xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-orange-500 focus:outline-none text-lg">
+                <input type="tel" placeholder="Your Phone" required class="w-full p-4 rounded-xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-orange-500 focus:outline-none text-lg">
+                <textarea rows="5" placeholder="Tell us about your project..." required class="w-full p-4 rounded-xl bg-gray-800 border-0 text-white placeholder-gray-400 focus:ring-4 focus:ring-orange-500 focus:outline-none text-lg resize-vertical"></textarea>
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 font-semibold py-6 px-12 rounded-xl text-xl transition-all duration-300 shadow-xl hover:shadow-orange-500/25 hover:scale-105">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white py-8 text-center">
+        <p>&copy; 2024 Fireside Handyman. All rights reserved. | Powered by <a href="#" class="font-semibold hover:text-orange-400 transition-colors">Cyber Craft Solutions</a></p>
+    </footer>
+</body>
+</html>
