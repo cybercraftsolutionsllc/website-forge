@@ -289,11 +289,6 @@ function phaseLog(config, biz, html) {
  */
 function buildProfessionalEmail(config, biz, liveUrl) {
     var paymentButton = '';
-    if (config.paymentLink) {
-        paymentButton = '<tr><td style="padding:20px 0 0 0;text-align:center">' +
-            '<a href="' + config.paymentLink + '" style="display:inline-block;background:#059669;color:#ffffff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:16px">Pay $99 &amp; Get Started →</a>' +
-            '</td></tr>';
-    }
 
     return '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>' +
         '<body style="margin:0;padding:0;background:#f4f4f5;font-family:Arial,Helvetica,sans-serif">' +
@@ -360,11 +355,6 @@ function buildPlainTextMessage(config, biz, liveUrl) {
         '  • Ongoing support as monthly add-on',
         ''
     ];
-
-    if (config.paymentLink) {
-        lines.push('Pay securely here: ' + config.paymentLink);
-        lines.push('');
-    }
 
     lines.push(
         'Note: We will reach out for additional info to ensure accuracy before finalizing. If we don\'t hear back, we\'ll proceed with publicly available info.',
