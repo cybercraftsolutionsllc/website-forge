@@ -19,6 +19,8 @@
  *   DOMSCAN_API_KEY    — DomScan API key (free at domscan.net, for domain availability + pricing)
  *   PEXELS_API_KEY     — Pexels API key (free at pexels.com/api, for relevant images)
  *   FORWARD_PHONE      — Your personal/business phone to receive SMS reply notifications (e.g., +15551234567)
+ *   RESEND_API_KEY     — Resend API key (for email outreach alongside SMS)
+ *   RESEND_FROM_EMAIL  — Verified sender address for Resend (e.g., jeremy@craftedcybersolutions.com)
  */
 
 // Static constants
@@ -82,6 +84,12 @@ function getConfig() {
   // Forward phone — your personal/business number for reply notifications
   const forwardPhone = (props.getProperty('FORWARD_PHONE') || '').trim();
 
+  // Resend email outreach (sends pitch email alongside SMS when lead has email)
+  const resendApiKey = (props.getProperty('RESEND_API_KEY') || '').trim();
+  const resendFromEmail = (props.getProperty('RESEND_FROM_EMAIL') || '').trim();
+  const resendEnabled = !!(resendApiKey && resendFromEmail);
+  console.log('Resend: ' + (resendEnabled ? 'enabled (from=' + resendFromEmail + ')' : 'NOT configured'));
+
   const errors = [];
 
   if (!provider || !SUPPORTED_PROVIDERS.includes(provider)) {
@@ -120,6 +128,9 @@ function getConfig() {
     placesApiKey: placesApiKey,
     domscanApiKey: domscanApiKey,
     pexelsApiKey: pexelsApiKey,
-    forwardPhone: forwardPhone
+    forwardPhone: forwardPhone,
+    resendApiKey: resendApiKey,
+    resendFromEmail: resendFromEmail,
+    resendEnabled: resendEnabled
   };
 }

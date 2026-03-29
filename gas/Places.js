@@ -14,10 +14,9 @@
 // NICHE + CITY ROTATION
 // ============================================================
 var NICHES = [
-    'plumber', 'roofer', 'landscaper', 'auto repair', 'dry cleaner',
-    'electrician', 'HVAC', 'pest control', 'locksmith', 'tree service',
-    'pressure washing', 'carpet cleaning', 'garage door repair', 'fencing contractor',
-    'gutter cleaning', 'handyman', 'towing service', 'appliance repair'
+    'junk removal', 'pressure washing', 'moving company', 'gutter cleaning',
+    'tree service', 'fence installation', 'concrete paving', 'demolition',
+    'septic services', 'dumpster rental'
 ];
 
 var CITIES = [
@@ -62,6 +61,26 @@ var CITIES = [
  */
 function pickRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// Free email providers — businesses using these are likely without web infrastructure
+var FREE_EMAIL_DOMAINS = [
+    'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com',
+    'icloud.com', 'live.com', 'msn.com', 'mail.com', 'ymail.com',
+    'protonmail.com', 'zoho.com', 'comcast.net', 'att.net', 'verizon.net',
+    'sbcglobal.net', 'cox.net', 'charter.net', 'earthlink.net'
+];
+
+/**
+ * Returns true if the email has a custom domain (not a free provider).
+ * Custom domain email signals existing web infrastructure — exclude these leads.
+ */
+function hasCustomDomainEmail(email) {
+    if (!email || email === 'None found') return false;
+    var atIdx = email.indexOf('@');
+    if (atIdx === -1) return false;
+    var domain = email.substring(atIdx + 1).toLowerCase().trim();
+    return FREE_EMAIL_DOMAINS.indexOf(domain) === -1;
 }
 
 // ============================================================
@@ -223,6 +242,15 @@ function findLeadFromPlaces(niche, city, config, existingLeads) {
             continue;
         }
 
+        // Extract email if available from Place details
+        var bizEmail = details.email || '';
+
+        // Exclude businesses with custom domain emails (signals existing web infrastructure)
+        if (hasCustomDomainEmail(bizEmail)) {
+            console.log('Skipping (custom domain email): ' + details.name + ' → ' + bizEmail);
+            continue;
+        }
+
         // Dedup check against existing leads (phone, name, or Place ID)
         var normalizedPhone = normalizePhone(phone);
         var dupReason = '';
@@ -254,7 +282,7 @@ function findLeadFromPlaces(niche, city, config, existingLeads) {
             data: {
                 business_name: details.name,
                 target_phone: phone,
-                target_email: 'None found', // Places rarely has email — SMS is our primary channel
+                target_email: bizEmail || 'None found',
                 area: city,
                 niche: niche,
                 address: details.formatted_address || '',

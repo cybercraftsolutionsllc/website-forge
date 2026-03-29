@@ -291,7 +291,7 @@ function buildProfessionalEmail(config, biz, liveUrl) {
     var paymentButton = '';
     if (config.paymentLink) {
         paymentButton = '<tr><td style="padding:20px 0 0 0;text-align:center">' +
-            '<a href="' + config.paymentLink + '" style="display:inline-block;background:#059669;color:#ffffff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:16px">Pay $199 &amp; Get Started →</a>' +
+            '<a href="' + config.paymentLink + '" style="display:inline-block;background:#059669;color:#ffffff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:16px">Pay $99 &amp; Get Started →</a>' +
             '</td></tr>';
     }
 
@@ -315,7 +315,7 @@ function buildProfessionalEmail(config, biz, liveUrl) {
         '<a href="' + liveUrl + '" style="display:inline-block;background:#2563eb;color:#ffffff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:16px">View Your Free Demo →</a>' +
         '</td></tr></table>' +
         '<p style="margin:0 0 16px;color:#374151;font-size:15px;line-height:1.7">' +
-        'If you like what you see, the site is yours for a simple <strong>one-time fee of $199</strong>:</p>' +
+        'If you like what you see, the site is yours for just <strong>$99/yr</strong>:</p>' +
         '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 20px 0">' +
         '<tr><td style="padding:4px 10px 4px 0;color:#059669;font-size:18px;vertical-align:top">✓</td><td style="padding:4px 0;color:#374151;font-size:14px">Fully custom single-page website</td></tr>' +
         '<tr><td style="padding:4px 10px 4px 0;color:#059669;font-size:18px;vertical-align:top">✓</td><td style="padding:4px 0;color:#374151;font-size:14px">Mobile-responsive design</td></tr>' +
@@ -352,7 +352,7 @@ function buildPlainTextMessage(config, biz, liveUrl) {
         '',
         'View your demo: ' + liveUrl,
         '',
-        'The site is yours for a one-time $199 fee.',
+        'The site is yours for just $99/yr.',
         '  ✓ Custom single-page website',
         '  ✓ Mobile-responsive design',
         '  ✓ Professional aesthetics',
@@ -383,7 +383,7 @@ function buildPlainTextMessage(config, biz, liveUrl) {
 function buildSmsMessage(config, biz, liveUrl) {
     return 'I put together a sample website for ' + biz.business_name +
         ' \u2014 take a look: ' + liveUrl +
-        '\nSite + domain + hosting for $199/yr. Pays for itself with one job.' +
+        '\nSite + domain + hosting for $99/yr. Pays for itself with one job.' +
         '\nReply YES if you want it customized.' +
         '\nReply STOP to opt out.' +
         '\n- Jeremy, Cyber Craft Solutions';
@@ -472,6 +472,88 @@ function sendSmsMessage(targetPhone, body, config) {
 }
 
 /**
+ * Builds a loss-aversion pitch email for Resend outreach.
+ * Sent alongside SMS when a lead has a free-provider email address.
+ */
+function buildResendPitchEmail(config, biz, liveUrl) {
+    var niche = biz.niche || 'your service';
+    var city = biz.area || 'your area';
+
+    var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>' +
+        '<body style="margin:0;padding:0;background:#f4f4f5;font-family:Arial,Helvetica,sans-serif">' +
+        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:40px 20px">' +
+        '<tr><td align="center">' +
+        '<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.07)">' +
+        '<tr><td style="background:linear-gradient(135deg,#1e3a5f,#2563eb);padding:30px 40px;text-align:center">' +
+        '<h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700">You\'re Missing Customers</h1>' +
+        '<p style="margin:6px 0 0;color:#93c5fd;font-size:13px">People searching for ' + niche + ' in ' + city + ' can\'t find you online</p>' +
+        '</td></tr>' +
+        '<tr><td style="padding:36px 40px">' +
+        '<p style="margin:0 0 20px;color:#1f2937;font-size:16px;line-height:1.6">Hi ' + (biz.business_name || 'there') + ' team,</p>' +
+        '<p style="margin:0 0 16px;color:#374151;font-size:15px;line-height:1.7">' +
+        'When someone in ' + city + ' searches for <strong>' + niche + '</strong>, they can\'t find ' +
+        '<strong>' + biz.business_name + '</strong> — so they\'re hiring someone else.</p>' +
+        '<p style="margin:0 0 16px;color:#374151;font-size:15px;line-height:1.7">' +
+        'I went ahead and built you a <strong>free sample website</strong> to show what you\'re missing:</p>' +
+        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' +
+        '<tr><td style="padding:20px 0;text-align:center">' +
+        '<a href="' + liveUrl + '" style="display:inline-block;background:#2563eb;color:#ffffff;padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:16px">See Your Free Demo Site →</a>' +
+        '</td></tr></table>' +
+        '<p style="margin:0 0 16px;color:#374151;font-size:15px;line-height:1.7">' +
+        'If you like it, the site is yours — <strong>$99/yr</strong> covers the site, domain, and hosting. Pays for itself with one job.</p>' +
+        '<p style="margin:0 0 16px;color:#374151;font-size:15px;line-height:1.7">' +
+        'Just reply to this email and I\'ll get it set up for you.</p>' +
+        '<p style="margin:16px 0 0;color:#1f2937;font-size:15px;font-weight:600">— Jeremy</p>' +
+        '<p style="margin:2px 0 0;color:#6b7280;font-size:13px">Cyber Craft Solutions</p>' +
+        '</td></tr>' +
+        '<tr><td style="background:#f9fafb;padding:20px 40px;text-align:center;border-top:1px solid #e5e7eb">' +
+        '<p style="margin:0;color:#9ca3af;font-size:11px">Cyber Craft Solutions · Professional Web Design</p>' +
+        '</td></tr>' +
+        '</table></td></tr></table></body></html>';
+
+    return html;
+}
+
+/**
+ * Sends email via Resend API.
+ */
+function sendResendEmail(targetEmail, subject, htmlBody, config) {
+    if (!config.resendEnabled) {
+        return { success: false, error: 'Resend not configured. Set RESEND_API_KEY and RESEND_FROM_EMAIL in Script Properties.' };
+    }
+
+    try {
+        var res = UrlFetchApp.fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + config.resendApiKey,
+                'Content-Type': 'application/json'
+            },
+            payload: JSON.stringify({
+                from: config.senderName + ' <' + config.resendFromEmail + '>',
+                to: [targetEmail],
+                subject: subject,
+                html: htmlBody
+            }),
+            muteHttpExceptions: true
+        });
+
+        var code = res.getResponseCode();
+        if (code >= 200 && code < 300) {
+            console.log('Resend email sent to ' + targetEmail);
+            return { success: true, error: null };
+        } else {
+            var errBody = res.getContentText();
+            console.error('Resend API error (' + code + '):', errBody);
+            return { success: false, error: 'Resend send failed (HTTP ' + code + ')' };
+        }
+    } catch (e) {
+        console.error('Resend email failed:', e);
+        return { success: false, error: e.toString() };
+    }
+}
+
+/**
  * Phase 4: Send via the appropriate channel and update the sheet.
  */
 function phaseOutreach(config, biz, logResult) {
@@ -490,6 +572,18 @@ function phaseOutreach(config, biz, logResult) {
         result = sendSmsMessage(biz.target_phone, logResult.smsText, config);
     } else {
         return { sent: false, error: 'No valid contact for channel: ' + channel };
+    }
+
+    // Also send pitch email via Resend if lead has a valid email (in addition to SMS)
+    if (config.resendEnabled && isValidEmail(biz.target_email) && biz.target_email !== 'None found') {
+        var pitchSubject = 'People searching for ' + (biz.niche || 'your service') + ' in ' + (biz.area || 'your area') + ' can\'t find you';
+        var pitchHtml = buildResendPitchEmail(config, biz, logResult.liveUrl);
+        var emailResult = sendResendEmail(biz.target_email, pitchSubject, pitchHtml, config);
+        if (emailResult.success) {
+            console.log('Resend pitch email also sent to ' + biz.target_email);
+        } else {
+            console.warn('Resend pitch email failed (SMS still sent): ' + emailResult.error);
+        }
     }
 
     if (result.success) {
@@ -530,7 +624,7 @@ function sendAllPending() {
     var data = sheet.getDataRange().getValues();
     var headers = data[0];
     var col = {};
-    ['Status', 'Drafted_Message', 'Target_Email', 'Target_Phone', 'Business_Name', 'Live_Pages_URL', 'Area', 'Channel', 'Sent_Date', 'Domain_Cost_Yearly', 'Texts_Sent', 'Last_Text_Date'].forEach(function (h) {
+    ['Status', 'Drafted_Message', 'Target_Email', 'Target_Phone', 'Business_Name', 'Live_Pages_URL', 'Area', 'Niche', 'Channel', 'Sent_Date', 'Domain_Cost_Yearly', 'Texts_Sent', 'Last_Text_Date'].forEach(function (h) {
         col[h] = headers.indexOf(h);
     });
 
@@ -568,6 +662,21 @@ function sendAllPending() {
             result = sendSmsMessage(targetPhone, sentBody, config);
         } else {
             skipCount++; continue;
+        }
+
+        // Also send Resend pitch email if lead has a valid email (alongside SMS)
+        if (config.resendEnabled && isValidEmail(targetEmail) && targetEmail !== 'None found') {
+            var niche = (col.Niche !== -1 && row[col.Niche]) ? row[col.Niche] : 'your service';
+            var area = row[col.Area] || 'your area';
+            var fakeBizResend = { business_name: businessName, niche: niche, area: area };
+            var pitchSubject = 'People searching for ' + niche + ' in ' + area + ' can\'t find you';
+            var pitchHtml = buildResendPitchEmail(config, fakeBizResend, liveUrl);
+            var resendResult = sendResendEmail(targetEmail, pitchSubject, pitchHtml, config);
+            if (resendResult.success) {
+                console.log('Resend pitch also sent to ' + targetEmail + ' (row ' + (i + 1) + ')');
+            } else {
+                console.warn('Resend pitch failed for row ' + (i + 1) + ': ' + resendResult.error);
+            }
         }
 
         if (result.success) {
